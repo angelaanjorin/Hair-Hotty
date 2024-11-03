@@ -15,6 +15,7 @@
 
     {% block corecss %}
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
     {% endblock %}
     
     {% block extra_css %}
@@ -32,7 +33,7 @@
     <title>Hair Hotty {% block extra_title %}{% endblock %}</title>
   </head>
   <body>
-    <header class="container-fluid fixed-top"></header>
+    {% include 'components/header.html' %}
 
     {% if messages %}
     <div class="message-container"></div>
@@ -46,6 +47,8 @@
 
     {% block postloadjs %}
     {% endblock %}
-    
+    <footer class="text-center text-lg-start" id="footer">
+      {% include 'components/footer.html' %}
+   </footer>
   </body>
 </html>

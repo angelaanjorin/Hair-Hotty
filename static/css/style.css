@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Poppins:ital,wght@0,600;1,400&display=swap');
+
+:root {
+    --cordovan: #B00058;
+    --licorice: #55002A;
+    --hot-pink: #FF69B4;
+    --old-lace: #FDF4E7;
+    --white: #ffff;
+    --brown: #63453d;
+    --background: #ebeae5;
+    --gray: #938c8c;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--background);
+}
+
+/*banner*/
+.header-ticker {
+    overflow: hidden;
+    white-space: nowrap;
+    position: relative;
+    width: 100%;
+    color: white
+    var(--background)
+  }
+  
+  .ticker-text {
+    display: inline-block;
+    animation: tickerAnimation 10s linear infinite;
+    padding: 0 50px;
+  }
+  
+  @keyframes tickerAnimation {
+    0% { transform: translateX(100%); }
+    50% { transform: translateX(-100%); }
+    100% { transform: translateX(-200%); }
+  }
+
+  .bg-licorice {
+    background-color: var(--licorice);
+}
+

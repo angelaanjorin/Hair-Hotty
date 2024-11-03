@@ -1,6 +1,11 @@
-{% extends "base.html" %}
+{% extends 'base.html' %}
 {% load static %}
-
+{% block title %}
+Home
+{% endblock title %}
+{% block extra_css %}
+{% endblock extra_css %}
 {% block content %}
-    <h1 class="display-4 text-success">It works!</h1>
+{% include 'components/hero-section.html' %}
+{% include 'components/trust-badges.html' %}
 {% endblock %}
