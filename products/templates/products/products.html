@@ -1,6 +1,8 @@
 {% extends 'base.html' %}
 {% load static %}
 
+{% block extra_title %}- Products{% endblock %}
+
 {% block page_header %}
     <div class="container header_container">
         <div class="row">
@@ -8,14 +10,127 @@
         </div>
     </div>
 {% endblock%}
-{% block extra_css %}
-{% endblock extra_css %}
+
+{% block extra_css %}{% endblock extra_css %}
+
 {% block content %}
-<div class="container">
-    <div class="row">
-        <div class="col">
-            {{ products }}
+    <div class="overlay"></div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col text-center mt-3">
+                <h2 class="logo-font">Products</h2>
+                <hr class= "mb-1">
+            </div>
+        </div>
+        <div class="row d-flex justify-content-center">
+            <div class="product-container col-10">
+                <!-- Product sort -->
+                 <div class="row mx-2">
+                    <div class="col-12 col-md-6 my-auto order-md-last d-flex justify-content-center justify-content-md-end">
+                        <div class="sort-select-wrapper">
+                            <select class="form-select" id="sort-selector">
+                                <option value="reset" {% if current_sorting == 'None_None' %}selected{% endif %}>Sort by...</option>
+                                <option value="price_asc" {% if current_sorting == 'price_asc' %}selected{% endif %}> Price (low to high)</option>
+                                <option value="price_desc" {% if current_sorting == 'price_desc' %}selected{% endif %}>Price (high to low)</option>
+                                <option value="rating_asc" {% if current_sorting == 'rating_asc' %}selected{% endif %}>Rating (low to high)</option>
+                                <option value="rating_desc" {% if current_sorting == 'rating_desc' %}selected{% endif %}>Rating (high to low)</option>
+                                <option value="category_asc" {% if current_sorting == 'category_asc' %}selected{% endif %}>Category (A-Z)></option>
+                                <option value="category_desc" {% if current_sorting == 'category_desc' %}selected{% endif %}>Category (Z-A)</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 order-md-first">
+                        <p class="text-muted mt-3 text-center text-md-left">
+                            {{ products_count }} Products
+                        </p>
+                    </div>
+                 </div>
+                 <!-- Product sort end -->
+                <div class="row pb-4">
+                    {% for product in products %}
+                    <!-- Product Card -->
+                        <div class="col-md-6 col-lg-4 gy-3">
+                            <div class="card shadow product-card h-100">
+                                <div  class="card-category-label mb-1 position-absolute">
+                                    <a href="{% url 'products' %}?category={{ product.category.name }}" class="font-body d-flex text-blue text-decoration-none align-items-center">
+                                        <p class="font-title weight-semibold section-title text-uppercase">{{ product.category.friendly_name }}</p>
+                                    </a>
+                                </div>
+
+                                <!-- Product Image -->
+                                 {% if product.image %}
+                                    <a href="#">
+                                        <img class="image-ratio img-fluid" src="{{ product.image.url }}" alt="{{ product.name }}" onerror="this.onerror=null;this.src='{{ MEDIA_URL }}no_image.jpg'">
+                                    </a>
+                                 {% else %}
+                                    <a href="#">
+                                        <img class="image-ratio img-fluid" src="{{ MEDIA_URL }}no_image.jpg" alt="{{ product.name }}">
+                                    </a>
+                                {% endif %}
+
+                                 <!-- Product Name -->
+                                <div class="card-body bg-ib-white pb-2">
+                                    <h1 class="text-uppercase text-center font-body weight-semibold text-ib-dark">{{ product.name }}</h1>
+                                </div>
+
+                                <!-- Card Footer - Rating, Price & Edit/Delete -->
+                                <div class="card-footer pt-0 pb-3">
+
+                                    <div class="row">
+                                        <div class="col-6 pe-0">
+                                            
+                                            <!-- Product Rating -->
+                                            <div class="rating-div pe-0">
+                                            {% if product.rating %}
+                                                <small class="text-muted"><i class="fas fa-star mr-1"></i>{{ product.rating }} / 5</small>
+                                            {% else %}
+                                                <small class="text-muted">No Rating</small>
+                                            {% endif %}
+                                            </div>
+                                        </div>
+
+                                        <div class="col-6 ps-0 mt-auto d-flex justify-content-end">
+                                            <!-- Product Price -->
+                                            <div class=""><p class="card-price weight-semibold ib-lh-1 text-ib-dark">${{ product.price }}</p></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                    <!-- End of Product card -->
+                </div>
+                <!-- End of Product Cards Container-->
+            </div>
         </div>
     </div>
-</div>
+     <!-- Pagination -->
+     <div class="row">
+        <div class="col-md-12">
+            {% if products.has_other_pages %}
+            <ul class="pagination justify-content-center">
+                {% if products.has_previous %}
+                <li class="page-item">
+                    <a class="page-link" href="?page=1">&laquo;First</a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ products.previous_page_number }}">&laquo;Previous</a>
+                </li>
+                {% endif %}
+                <li class="page-item active" aria-current="page">
+                    <span class="page-link">Page {{ products.number }} of
+                        {{ products.paginator.num_pages }}</span>
+                </li>
+                {% if products.has_next %}
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ products.next_page_number }}">&raquo;Next</a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ products.paginator.num_pages }}">Last &raquo;</a>
+                </li>
+                {% endif %}
+            </ul>
+            {% endif %}
+        </div>
+    </div>
 {% endblock %}

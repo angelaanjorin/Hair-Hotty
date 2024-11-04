@@ -18,6 +18,30 @@ body {
     background-color: var(--background);
 }
 
+.overlay {
+	height: 100%;
+	width: 100%;
+	top: 0;
+	left: 0;
+	position: fixed;
+	background: white;
+	z-index: -1;
+}
+
+.logo-font {
+    text-transform: uppercase;
+}
+
+.btn-gray {
+    background-color: var(--gray);
+    color: var(--white);
+}
+
+.btn-gray:hover {
+    background-color: #6f6a6a;
+    color: var(--white);
+}
+
 /*BANNER*/
 .header-ticker {
     overflow: hidden;
