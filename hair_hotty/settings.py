@@ -26,9 +26,9 @@ SECRET_KEY = 'django-insecure-s9&07hz&4v54xejc0esml70tr%1w-2f0341j7ff*&$qlq=v$@_
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-CSRF_TRUSTED_ORIGINS = ['https://8000-angelaanjorin-hairhotty-kpiox0v44te.ws-eu116.gitpod.io']
+CSRF_TRUSTED_ORIGINS = ['https://8000-angelaanjorin-hairhotty-5ca15boftl4.ws-eu116.gitpod.io']
 
-ALLOWED_HOSTS = ['8000-angelaanjorin-hairhotty-kpiox0v44te.ws-eu116.gitpod.io']
+ALLOWED_HOSTS = ['8000-angelaanjorin-hairhotty-5ca15boftl4.ws-eu116.gitpod.io']
 
 
 # Application definition
@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'home',
+    'products',
 ]
 
 MIDDLEWARE = [
@@ -158,6 +159,9 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS =  (os.path.join(BASE_DIR, 'static'),)
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
