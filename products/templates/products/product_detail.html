@@ -1,0 +1,115 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_title %}- Products{% endblock %}
+
+{% block page_header %}
+    <div class="container header_container">
+        <div class="row">
+            <div class="col"></div>
+        </div>
+    </div>
+{% endblock%}
+
+{% block extra_css %}{% endblock extra_css %}
+
+{% block content %}
+
+<!-- Product Detail Page Contents-->
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12 col-md-6 col-lg-5 offset-lg-1">
+
+                <!-- Product Image -->
+                {% if product.image %}
+                    <a class="" href="{{ product.image.url }}" target="_blank">
+                        <img class="image-ratio img-fluid" src="{{ product.image.url }}" alt="{{ product.name }}" onerror="this.onerror=null;this.src='{{ MEDIA_URL }}noimage.png'">
+                    </a>
+                {% else %}
+                    <img class="image-ratio img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
+                {% endif %}
+
+                <!-- Product Rating -->
+                <div class="rating">
+                    {% if product.product_reviews %}
+                    <p class="mb-0">Reviews:</p>
+                    {% for i in product.get_average_rating %}
+                    <i class="fa-solid fa-star" style="color:#f0bc00"></i>
+                    {% endfor %}
+                    {% else %}
+                    <p>No Reviews yet</p>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-5">
+
+                <!-- Product Name -->
+                <h1 class="product-page-name text-uppercase weight-semibold text-break">{{ product.name }}</h1>
+    
+                <!-- Product Category -->
+                <div class="product-page-category mt-1">
+                    <a href="{% url 'products' %}?category={{ product.category.name }}" class="font-body d-flex text-blue text-decoration-none align-items-center">
+                        <p class="font-title weight-semibold section-title text-uppercase">{{ product.category.friendly_name }}</p>
+                    </a>
+                </div>
+    
+                <!-- Product Price -->
+                <p class="product-page-price weight-semibold mt-3">${{ product.price }}</p>
+
+                <!-- Product Description -->
+                <p class="mt-3">{{ product.description }}</p>
+
+                <!-- Add item to bag form -->
+            <form class="form" action="#" method="POST">
+                {% csrf_token %}
+
+                <!-- Quantity Input -->
+                <div class="product-page-quantity my-4">
+                    <p class="mt-3 mb-1 weight-semibold">Quantity</p>
+                    <div class="form-group w-50">
+                        <div class="input-group input-group-{{ product.id }}">
+                            <div class="input-group-prepend">
+                                <button class="decrement-qty bg-blue text-ib-light weight-bold btn rounded-0 decrement-qty_{{ product.id }}" data-item_id="{{ product.id }}">
+                                    <i class="fas fa-minus"></i>
+                                    <span class="sr-only">Decrease Quantity</span>
+                                </button>
+                            </div>
+                            <input class="form-control qty_input ib-form-field font-body weight-semibold id_qty_{{ product.id }}" type="number"
+                                name="quantity"
+                                value="1"
+                                min="1"
+                                max="99"
+                                data-item_id="{{ product.id }}"
+                                aria-label="Quantity">
+                            <div class="input-group-append">
+                                <button class="increment-qty bg-blue text-ib-light weight-bold btn rounded-0 increment-qty_{{ product.id }}"
+                                    data-item_id="{{ product.id }}">
+                                    <i class="fas fa-plus"></i>
+                                    <span class="sr-only">Increase Quantity</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Buttons -->
+                <div class="my-4 pt-2 pt-md-4 d-flex">
+
+                    <!-- Keep Shopping Button -->
+                    <a href="{% url 'products' %}" class="ib-button ib-button-grey text-decoration-none text-ib-dark font-title weight-bold shadow-sm">
+                        <i class="fas fa-chevron-left d-inline me-1"></i>
+                        <p class="d-inline">BACK TO SHOP</p>
+                    </a>
+
+                    <!-- Add to Bag (Submit) Button -->
+                    <input type="submit" class="ib-button ib-button-blue text-decoration-none text-ib-light font-title weight-bold ms-3 shadow-sm" value="ADD TO BAG">
+                </div>
+
+                <!-- Hidden input to redirect user back to current page once added to bag -->
+                <input type="hidden" name="redirect_url" value="{{ request.path }}">
+
+            </form>
+        </div>
+    </div>
+</div>  
+{% endblock %}

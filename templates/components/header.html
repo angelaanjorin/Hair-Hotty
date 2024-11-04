@@ -137,46 +137,45 @@
             </ul>
             <div class="navbar-collapse collapse" id="main-nav">
                 <ul class="navbar-nav w-auto mx-auto">
-                    <li class="nav-item d-block d-md-none">
+                    <li class="nav-item">
                         <a class="logo-font font-weight-bold nav-link text-black mr-5" href="{% url 'home' %}" id="home-link">
-                            Home
+                            HOME
                         </a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="logo-font font-weight-bold nav-link text-black mr-5" href="#" id="hair-wigs-link" aria-haspopup="true"
-                            aria-expanded="false" data-bs-toggle="dropdown">Hair Wigs</a>
-        
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="logo-font font-weight-bold nav-link text-black mr-5" href="#" id="hair-extension-link" aria-haspopup="true"
-                            aria-expanded="false" data-bs-toggle="dropdown">Hair Extensions</a>
-                       
-                    </li>
-                    <li class="nav-item dropdown">
                         <a class="logo-font font-weight-bold nav-link text-black mr-5" href="#" id="products-link" aria-haspopup="true"
-                            aria-expanded="false" data-bs-toggle="dropdown">Products</a>
-                      
+                            aria-expanded="false" data-bs-toggle="dropdown">
+                            PRODUCTS
+                        </a>
+                        <div class="dropdown-menu border-0" aria-labelledby="products-link">
+                            <a href="{% url 'products' %}" class="dropdown-item">ALL PRODUCTS</a>
+                            <a href="{% url 'products' %}?category=hair_wigs" class="dropdown-item">HAIR WIGS</a>
+                            <a href="{% url 'products' %}?category=hair_extensions" class="dropdown-item">HAIR EXTENSIONS</a>
+                            <a href="{% url 'products' %}?category=hair_produce" class="dropdown-item">HAIR PRODUCE</a>
+                            <a href="{% url 'products' %}?category=hair_utensils" class="dropdown-item">HAIR UTENSILS</a>
+                        </div>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="logo-font font-weight-bold nav-link text-black mr-5" href="#" id="events-link" aria-haspopup="true"
-                            aria-expanded="false" data-bs-toggle="dropdown">Events</a>
+                            aria-expanded="false" data-bs-toggle="dropdown">EVENTS</a>
             
                     </li>
                     <li class="nav-item dropdown">
                         <a class="logo-font font-weight-bold nav-link text-black" href="#" id="specials-link" aria-haspopup="true"
                             aria-expanded="false" data-bs-toggle="dropdown">
-                            Special Offers
+                            SPECIAL OFFERS
                         </a>
                         <div class="dropdown-menu border-0" aria-labelledby="specials-link">
-                            <a href="" class="dropdown-item">New Arrivals</a>
-                            <a href="" class="dropdown-item">Deals</a>
+                            <a href="{% url 'products' %}?category=deals" class="dropdown-item">DEALS</a>
+                            <a href="{% url 'products' %}?category=new_arrivals" class="dropdown-item">NEW ARRIVALS</a>
+                            <a href="{% url 'products' %}?category=best_collections" class="dropdown-item">BEST COLLECTIONS</a>
                         </div>
                     </li>
                     <li class="nav-item">
                         <a class="logo-font font-weight-bold nav-link text-black mr-5" href="">FAQ</a>
                     </li>
                     <li class="nav-item">
-                        <a class="logo-font font-weight-bold nav-link text-black mr-5" href="">About Us</a>
+                        <a class="logo-font font-weight-bold nav-link text-black mr-5" href="">CONTACT US</a>
                     </li>
                 </ul>
             </div>
