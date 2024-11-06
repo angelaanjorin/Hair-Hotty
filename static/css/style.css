@@ -6,9 +6,10 @@
     --hot-pink: #FF69B4;
     --old-lace: #FDF4E7;
     --white: #ffff;
-    --brown: #63453d;
+    --dark: #140C00;
     --background: #ebeae5;
-    --gray: #938c8c;
+    --gray: #959595;
+    --dark-gray:#6f6a6a;
 }
 
 body {
@@ -16,6 +17,14 @@ body {
     display: flex;
     flex-direction: column;
     background-color: var(--background);
+}
+
+.shadow {
+    box-shadow: 0 0.2rem 0.5rem rgba(0,0,0,.25)!important;
+}
+
+.shadow-sm {
+    box-shadow: 0 0.1rem 0.2rem rgba(0,0,0,.35)!important;
 }
 
 .overlay {
@@ -29,22 +38,103 @@ body {
 }
 
 a.category-badge > span.badge:hover {
-    background: #212529 !important;
+    background: var(--dark) !important;
     color: #fff !important;
 }
 
+/* Fonts, Sizes and Weights */
 .logo-font {
     text-transform: uppercase;
 }
 
-.btn-gray {
-    background-color: var(--gray);
+.weight-semibold {
+    font-weight: 600;
+}
+
+.weight-bold {
+    font-weight: 700;
+}
+
+.section-title {
+    font-size: 24px;
+}
+
+/*buttons*/
+.btn-cordovan {
+    background-color: var(--cordovan);
+    color: var(--white);
+    border:none;
+}
+
+.btn-cordovan:hover {
+    background-color: var(--hot-pink);
     color: var(--white);
 }
 
-.btn-gray:hover {
-    background-color: #6f6a6a;
+/*text*/
+.text-cordovan {
+    color: var(--cordovan);
+}
+
+.text-ib-light {
     color: var(--white);
+}
+
+/* Product Quantity Selector */
+
+.decrement-qty.btn,
+.increment-qty.btn {
+    border: none;
+    height: 40px;
+    width: 40px;
+    background-color: var(--cordovan);
+    color: var(--white);
+}
+
+.decrement-qty-sm.btn,
+.increment-qty-sm.btn {
+    height: 35px;
+    width: 35px;
+}
+
+input.qty-input-sm {
+    height: 100% !important;
+}
+
+.btn:hover,
+.btn:active,
+.btn:focus,
+.btn:focus-visible,
+.btn-check:checked+.btn,
+.btn.active,
+.btn.show,
+.btn:first-child:active,
+:not(.btn-check)+.btn:active {
+    background-color: var(--hot-pink);
+    color: white;
+    border:none;
+}
+
+.decrement-qty:disabled,
+.increment-qty:disabled {
+    background-color: var(--gray) !important;
+    color: var(--dark-gray);
+}
+
+.qty_input:focus,
+.qty_input:focus-visible {
+    box-shadow: 0px 0px 0px 2px var(--cordovan) inset;
+    border: none !important;
+    outline: none !important;
+}
+
+/*Background color classes*/
+  .bg-licorice {
+    background-color: var(--licorice);
+}
+
+.bg-cordovan {
+    color: var(--cordovan);
 }
 
 /*BANNER*/
@@ -69,9 +159,7 @@ a.category-badge > span.badge:hover {
     100% { transform: translateX(-100%); }
   }
 
-  .bg-licorice {
-    background-color: var(--licorice);
-}
+
 
 /*HERO CAROUSEL SECTION*/
 #hero {
@@ -112,12 +200,6 @@ a.category-badge > span.badge:hover {
     background-position: center;
 }
 
-.btn-cordovan {
-    background: var(--cordovan) !important;
-    color: var(--white) !important;
-    transition: 0.2s !important;
-    opacity: 0.8 !important;
-}
 
 .shop-now-button {
     background: black;
@@ -133,11 +215,18 @@ a.category-badge > span.badge:hover {
     -webkit-transition: all ease-in 0.3s;
     -o-transition: all ease-in 0.3s;
     transition: all ease-in 0.3s;
-    font-size: clamp(0.8rem, 2vw, 1.1rem);
+    font-size: clamp(0.8rem, 2vw, 1.1rem);    
+    background: var(--cordovan) !important;
+    color: var(--white) !important;
+    transition: 0.2s !important;
+    opacity: 0.8 !important;
 }
 
 #hero .btn:hover {
-    padding: 10px 38px;
+    background: var(--hot-pink) !important;
+    color: var(--white) !important;
+    transition: 0.2s !important;
+    opacity: 0.8 !important;
 }
 
 #hero .carousel-caption h2 {
@@ -165,6 +254,30 @@ a.category-badge > span.badge:hover {
     color: var(--cordovan);
 }
 
+/* Pagination */
+.page-link {
+    color: var(--dark-gray);
+}
+
+.page-link:hover {
+    color: var(--hot-pink);
+}
+
+.page-item.active .page-link {
+    color: var(--white);
+    background-color: var(--cordovan);
+    border-color: var(--white);
+}
+
+/* Product page */
+.product-page-category {
+    color: var(--cordovan)
+}
+
+.product-page-category:hover {
+    color: var(--hot-pink);
+}
+
 /* FOOTER */
 #footer{
     background-color: var(--licorice);
@@ -178,6 +291,16 @@ a.category-badge > span.badge:hover {
 
 #footer-links a:hover {
     color: #6f6a6a;
+}
+
+.btn-gray {
+    background-color: var(--gray);
+    color: var(--dark);
+}
+
+.btn-gray:hover {
+    background-color: var(--dark-gray);
+    color: var(--dark);
 }
 
 #social-links a {

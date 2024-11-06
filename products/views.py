@@ -1,6 +1,9 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.db.models import Q
+from django.db.models.functions import Lower
+from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
+
 from .models import Product, Category
 
 # Create your views here.
@@ -43,16 +46,37 @@ def all_products(request):
             queries = Q(name__icontains=query) | Q(description__icontains=query)
             products = products.filter(queries)
 
+    products_count = products.count()
+    products = products_pagination(request, products, 6)
+    
     current_sorting = f'{sort}_{direction}'
 
     context = {
         'products': products,
+        'products_count': products_count,
         'search_term' : query,
         'current_categories' : categories,
         'current_sorting': current_sorting,
     }
 
     return render(request, 'products/products.html', context)
+
+
+def products_pagination(request, products, results):
+    ''' Handles Pagination '''
+    paginator = Paginator(products, results)
+    page_number = request.GET.get('page')
+
+    try:
+        products = paginator.page(page_number)
+    except PageNotAnInteger:
+        page_number = 1
+        products = paginator.page(page_number)
+    except EmptyPage:
+        page_number = paginator.num_pages
+        products = paginator.page(page_number)
+
+    return products
 
 
 def product_detail(request, product_id):

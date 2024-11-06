@@ -46,10 +46,7 @@
                     </div>
                     <div class="col-12 col-md-6 order-md-first">
                         <p class="text-muted mt-3 text-center text-md-left">
-                            {% if search_term or current_categories or current_sorting != 'None_None' %}
-                                <span class="small"><a href="{% url 'products' %}?category=hair_wigs,hair_extensions,hair_produce,hair_utensils,deals,new_arrivals,best_collections">All Products</a> | </span>
-                            {% endif %}
-                            {{ products|length }} Products{% if search_term %} found for <strong>"{{ search_term }}"</strong>{% endif %}
+                            {{ products_count }} Products
                         </p>
                     </div>
                  </div>
@@ -60,8 +57,8 @@
                         <div class="col-md-6 col-lg-4 gy-3">
                             <div class="card shadow product-card h-100">
                                 <div  class="card-category-label mb-1 position-absolute">
-                                    <a href="{% url 'products' %}?category={{ product.category.name }}" class="font-body d-flex text-blue text-decoration-none align-items-center">
-                                        <p class="font-title weight-semibold section-title text-uppercase">{{ product.category.friendly_name }}</p>
+                                    <a href="{% url 'products' %}?category={{ product.category.name }}" class="category-badge m-2 d-flex text-decoration-none align-items-center">
+                                        <span class="p-2 weight-semibold text-uppercase badge badge-white text-black rounded-0 border border-dark">{{ product.category.friendly_name }}</span>
                                     </a>
                                 </div>
 
@@ -78,7 +75,7 @@
 
                                  <!-- Product Name -->
                                 <div class="card-body bg-ib-white pb-2">
-                                    <h1 class="text-uppercase text-center font-body weight-semibold text-ib-dark">{{ product.name }}</h1>
+                                    <h1 class="text-uppercase text-center weight-semibold text-ib-dark">{{ product.name }}</h1>
                                 </div>
 
                                 <!-- Card Footer - Rating, Price & Edit/Delete -->
@@ -141,4 +138,9 @@
             {% endif %}
         </div>
     </div>
+{% endblock %}
+
+{% block extra_js-end %}
+<!-- Sort Box JS-->
+ <script src="{% static 'js/products.js' %}"></script>
 {% endblock %}

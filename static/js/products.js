@@ -1,0 +1,27 @@
+// Sort Products Box
+// Adapted from Code Institute's Boutique Ado Walkthrough
+console.log("jQuery Loaded");
+$('#sort-selector').change(function() {
+    var selector = $(this);
+    var currentUrl = new URL(window.location);
+
+    var selectedVal = selector.val();
+    if(selectedVal != "reset"){
+        var sort = selectedVal.split("_")[0];
+        var direction = selectedVal.split("_")[1];
+
+        currentUrl.searchParams.set("sort", sort);
+        currentUrl.searchParams.set("direction", direction);
+
+        console.log(currentUrl.href); 
+
+        window.location.replace(currentUrl);
+    } else {
+        currentUrl.searchParams.delete("sort");
+        currentUrl.searchParams.delete("direction");
+
+        console.log(currentUrl.href); 
+
+        window.location.replace(currentUrl);
+    }
+})
