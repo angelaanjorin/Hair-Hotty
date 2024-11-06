@@ -71,6 +71,20 @@ a.category-badge > span.badge:hover {
     color: var(--white);
 }
 
+
+.btn-outline-cordovan {
+    background: white;
+    color: var(--cordovan) !important; /* use important to override link colors for <a> elements */
+    border: 1px solid var(--cordovan);
+}
+
+.btn-outline-cordovan:hover,
+.btn-outline-cordovan:active,
+.btn-outline-cordovan:focus {
+    background: var(--hot-pink);
+    color: white !important;
+}
+
 /*text*/
 .text-cordovan {
     color: var(--cordovan);
