@@ -23,7 +23,7 @@
     {% endblock %}
 
     {% block corejs %}
-        <!-- Font Awesom-->
+        <!-- Font Awesome-->
         <script src="https://kit.fontawesome.com/f6549ef1f7.js" crossorigin="anonymous"></script>
         <!-- JQuery -->
         <script src="https://code.jquery.com/jquery-3.7.1.min.js"
@@ -35,28 +35,40 @@
             integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
     {% endblock %}
 
-    {% block extra_js %}
-    {% endblock %}
-
     <title>Hair Hotty {% block extra_title %}{% endblock %}</title>
   </head>
   <body>
     {% include 'components/header.html' %}
 
     {% if messages %}
-    <div class="message-container"></div>
+        <div class="message-container">
+            {% for message in messages %}
+                {% with message.level as level %}
+                    {% if level == 40 %}
+                        {% include 'includes/toasts/toast_error.html' %}
+                    {% elif level == 30 %}
+                        {% include 'includes/toasts/toast_warning.html' %}
+                    {% elif level == 25 %}
+                        {% include 'includes/toasts/toast_success.html' %}
+                    {% else %}
+                        {% include 'includes/toasts/toast_info.html' %}
+                    {% endif %}
+                {% endwith %}
+            {% endfor %}
+        </div>
     {% endif %}
-    
+
     {% block page_header %}
     {% endblock %}
 
     {% block content %}
     {% endblock %}
+    
+    
+    {% include 'components/footer.html' %}
 
-    {% block postloadjs %}
+    <script src="{% static 'js/toast.js' %}"></script>
+    {% block extra_js %}
     {% endblock %}
-    <footer class="text-center text-lg-start" id="footer">
-      {% include 'components/footer.html' %}
-   </footer>
   </body>
 </html>
