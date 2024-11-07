@@ -28,6 +28,8 @@
         <!-- JQuery -->
         <script src="https://code.jquery.com/jquery-3.7.1.min.js"
             integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="crossorigin="anonymous"></script>
+        <!--<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+            crossorigin="anonymous"></script>-->
         <!-- Bootstrap -->
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
             integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
@@ -45,13 +47,13 @@
             {% for message in messages %}
                 {% with message.level as level %}
                     {% if level == 40 %}
-                        {% include 'includes/toasts/toast_error.html' %}
+                        {% include 'components/toasts/toast_error.html' %}
                     {% elif level == 30 %}
-                        {% include 'includes/toasts/toast_warning.html' %}
+                        {% include 'components/toasts/toast_warning.html' %}
                     {% elif level == 25 %}
-                        {% include 'includes/toasts/toast_success.html' %}
+                        {% include 'components/toasts/toast_success.html' %}
                     {% else %}
-                        {% include 'includes/toasts/toast_info.html' %}
+                        {% include 'components/toasts/toast_info.html' %}
                     {% endif %}
                 {% endwith %}
             {% endfor %}
@@ -64,8 +66,11 @@
     {% block content %}
     {% endblock %}
     
+
+    <footer class="text-center text-lg-start" id="footer">
+      {% include 'components/footer.html' %}
+   </footer>
     
-    {% include 'components/footer.html' %}
 
     <script src="{% static 'js/toast.js' %}"></script>
     {% block extra_js %}
