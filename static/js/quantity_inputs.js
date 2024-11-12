@@ -1,10 +1,9 @@
-<script type="text/javascript">
-
     /* 
     * Disable +/- buttons outside 1-99 range.
     * If no size is passed to the function, the parameter will have a value of undefined by default,
     * which prevents any errors 
     */
+    
     function handleEnableDisable(itemId, size) {
         if (size) {
             var currentValue = parseInt($(`.size_${itemId}_${size}`).val());
@@ -70,4 +69,3 @@
        $(allQuantityInputs).val(currentValue - 1);
        handleEnableDisable(itemId, size);
     });
-</script>

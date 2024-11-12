@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-s9&07hz&4v54xejc0esml70tr%1w-2f0341j7ff*&$qlq=v$@_
 DEBUG = True
 
 CSRF_TRUSTED_ORIGINS = [
-    'https://8000-angelaanjorin-hairhotty-egktgw2ipw0.ws-eu116.gitpod.io']
+    'https://8000-angelaanjorin-hairhotty-go7toi3xl0r.ws-eu116.gitpod.io']
 
 ALLOWED_HOSTS = [ 
     'localhost',
