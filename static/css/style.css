@@ -4,6 +4,7 @@
     --cordovan: #B00058;
     --licorice: #55002A;
     --hot-pink: #FF69B4;
+    --pink:#FF439D;
     --old-lace: #FDF4E7;
     --white: #ffff;
     --dark: #140C00;
@@ -76,7 +77,7 @@ a.category-badge > span.badge:hover {
 }
 
 .btn-cordovan:hover {
-    background-color: var(--hot-pink);
+    background-color: var(--pink);
     color: var(--white);
 }
 

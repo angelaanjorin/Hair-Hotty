@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="auth-form">
+    <div class="container">
+        <div class="row">
+            <div class="col-10 col-md-6 col-lg-4 mx-auto text-center my-5 px-3 py-4 custom-border">
+                {% block inner_content %}
+                {% endblock %}
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
