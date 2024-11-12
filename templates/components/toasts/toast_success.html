@@ -1,13 +1,81 @@
+<!-- Success Toast -->
 <div class="toast custom-toast rounded-0 border-top-0" data-autohide="false">
+
+    <!-- Colour Band & Arrow -->
     <div class="arrow-up arrow-success"></div>
     <div class="w-100 toast-capper bg-success"></div>
-    <div class="toast-header bg-white text-dark">
-        <strong class="mr-auto">Success!</strong>
-        <button type="button" class="ml-2 mb-1 close text-dark" data-dismiss="toast" aria-label="Close">
+
+    <!-- Message -->
+    <div class="toast-header bg-white text-dark border-0 justify-content-between align-items-start">
+        <div class="">
+            <strong class="me-auto my-auto weight-bold font-title">SUCCESS!</strong>
+            <div class="font-body mt-1 text-break">
+                {{ message }}
+            </div>
+        </div>
+        
+         <!-- Close Button -->
+         <button type="button" class="ml-2 mb-1 close toast-close bg-white text-dark-grey float-end" data-dismiss="toast" aria-label="Close" style="border:none;">
             <span aria-hidden="true">&times;</span>
         </button>
     </div>
-    <div class="toast-body bg-white">
-        {{ message }}        
+    <!-- Colour Band -->
+    <div class="w-100 toast-capper bg-success"></div>
+
+    {% if grand_total and not on_profile_page %}
+    <div class="toast-body bg-ib-light text-ib-dark font-body">
+            <strong class="logo-font bg-white text-black py-1">Your Bag ({{ product_count }})</strong>
+            <div class="bag-notification-wrapper">
+                {% for item in bag_items %}
+                    <div class="row">
+                        <div class="col-4 my-1">
+                            {% if item.product.image %}
+                            <img class="w-100" src="{{ item.product.image.url }}" alt="{{ item.product.name }}">
+                            {% else %}
+                            <img class="w-100" src="{{ MEDIA_URL }}noimage.png" alt="{{ item.product.name }}">
+                            {% endif %}
+                        </div>
+                        <div class="col-8">
+                            <p class="my-0"><strong>{{ item.product.name }}</strong></p>
+                            <p class="my-0 small">Size: {% if item.product.has_sizes %}{{ item.size|upper }}{% else %}N/A{% endif %}</p>
+                            <p class="my-0 small text-muted">Qty: {{ item.quantity }}</p>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+            <div class="row">
+                <div class="col">
+                    <strong><p class="mt-3 mb-1 text-black">
+                        Total{% if free_delivery_delta > 0 %} (Exc. delivery){% endif %}: 
+                        <span class="float-right">${{ total|floatformat:2 }}</span>
+                    </p></strong>
+                    {% if free_delivery_delta > 0 %}
+                        <p class="mt-3 mb-3 px-3 py-1 bg-warning shadow-sm text-black text-center">
+                            Spend <strong>${{ free_delivery_delta }}</strong> more to get free next day delivery!
+                        </p>
+                    {% endif %}
+                </div>
+            </div>
+            
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12 pb-3">
+                        {% if on_bag_page %}
+                            <!-- Checkout Button - if already on bag page -->
+                            <a href="#" class="btn btn-cordovan text-decoration-none weight-bold ms-3 shadow-sm float-end">
+                                <p class="d-inline me-1">CHECKOUT</p>
+                                <i class="fas fa-lock d-inline"></i>
+                            </a>
+                        {% else %}
+                            <!-- View Bag Button - if not already on bag page -->
+                            <a href="{% url 'view_bag' %}" class="btn btn-cordovan text-decoration-none weight-bold ms-3 shadow-sm float-end">
+                                <p class="d-inline me-1">VIEW BAG</p>
+                                <i class="fas fa-lock d-inline"></i>
+                            </a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
     </div>
+    {% endif %}
 </div>

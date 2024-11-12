@@ -113,7 +113,7 @@
                     </a>
 
                     <!-- Add to Bag (Submit) Button -->
-                    <input type="submit" class=" btn btn-cordovan rounded-0 text-uppercase mt-5" value="ADD TO BAG">
+                    <input type="submit" class=" btn btn-black rounded-0 text-uppercase mt-5" value="ADD TO BAG">
                 </div>
 
                 <!-- Hidden input to redirect user back to current page once added to bag -->
@@ -125,7 +125,5 @@
 </div>  
 {% endblock %}
 
-{% block postloadjs %}
-{{ block.super }}
-{% include 'products/includes/correct_quantity.html' %}
-{% endblock %}
+{% block extra_js %}
+{% endblock%}
