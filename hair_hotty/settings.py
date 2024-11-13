@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-s9&07hz&4v54xejc0esml70tr%1w-2f0341j7ff*&$qlq=v$@_
 DEBUG = True
 
 CSRF_TRUSTED_ORIGINS = [
-    'https://8000-angelaanjorin-hairhotty-go7toi3xl0r.ws-eu116.gitpod.io']
+    'https://8000-angelaanjorin-hairhotty-xe7j0d3zdp1.ws-eu116.gitpod.io']
 
 ALLOWED_HOSTS = [ 
     'localhost',
@@ -52,7 +52,7 @@ INSTALLED_APPS = [
     'products',
     'bag',
     'checkout',
-    
+
     # other
     'crispy_forms',
 ]
@@ -86,6 +86,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.media',
                 'bag.contexts.bag_contents',
             ],
             'builtins': [

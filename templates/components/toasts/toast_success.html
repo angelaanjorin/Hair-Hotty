@@ -62,7 +62,7 @@
                     <div class="col-12 pb-3">
                         {% if on_bag_page %}
                             <!-- Checkout Button - if already on bag page -->
-                            <a href="#" class="btn btn-cordovan text-decoration-none weight-bold ms-3 shadow-sm float-end">
+                            <a href="{% url 'checkout' %}" class="btn btn-cordovan text-decoration-none weight-bold ms-3 shadow-sm float-end">
                                 <p class="d-inline me-1">CHECKOUT</p>
                                 <i class="fas fa-lock d-inline"></i>
                             </a>
