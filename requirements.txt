@@ -1,6 +1,7 @@
 asgiref==3.8.1
 Django==5.1.2
 django-allauth==65.1.0
+django-countries==7.6.1
 django-crispy-forms==1.14.0
 pillow==11.0.0
 python3-openid==3.2.0
