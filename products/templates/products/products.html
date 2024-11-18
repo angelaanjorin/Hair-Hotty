@@ -63,14 +63,10 @@
                                 </div>
 
                                 <!-- Product Image -->
-                                 {% if product.image %}
-                                    <a href="{% url 'product_detail' product.id %}">
-                                        <img class="image-ratio img-fluid" src="{{ product.image.url }}" alt="{{ product.name }}" onerror="this.onerror=null;this.src='{{ MEDIA_URL }}no_image.jpg'">
-                                    </a>
-                                 {% else %}
-                                    <a href="{% url 'product_detail' product.id %}">
-                                        <img class="image-ratio img-fluid" src="{{ MEDIA_URL }}no_image.jpg" alt="{{ product.name }}">
-                                    </a>
+                                {% if item.product.image %}
+                                    <img class="img-fluid rounded" src="{{ item.product.image.url }}" alt="{{ item.product.name }}">
+                                {% else %}
+                                    <img class="img-fluid rounded" src="{{ MEDIA_URL }}noimage.png" alt="{{ item.product.name }}">
                                 {% endif %}
 
                                  <!-- Product Name -->
