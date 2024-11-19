@@ -130,7 +130,71 @@
             </form>
         </div>
     </div>
-</div>  
+</div>
+<!-- Product Reviews Section -->
+<div class="container-fluid text-ib-dark py-5" id="review-div">
+    <div class="row text-center px-3 px-sm-5">
+        <div class="col-12">
+            <h2 class="logo-font mb-2 text-uppercase text-break">REVIEWS OF {{ product.name }}</h2>
+        </div>
+        <div class="col-12 mb-3">
+            <p class="font-body">Leave a review!</p>
+        </div>
+
+        <!-- Add Review Button -->
+        <div class="col-12">
+            <a href="{% url 'add_review' product.id %}" class="btn btn-cordovan rounded-0 shadow-sm">
+                ADD REVIEW
+            </a>
+        </div>
+    </div>
+
+    <!-- Reviews Container -->
+    <div class="row mt-5 px-3 px-md-5">
+        {% if reviews|length > 0 %}
+            {% for review in reviews %}
+                <!-- Review -->
+                <div class="col-12 col-lg-10 offset-lg-1 bg-ib-white mb-3 pt-3 pb-3 review-container">
+                    <div class="row font-body text-dark-grey review-header mb-2">
+                        <div class="col-12 col-sm-9 d-block d-md-flex flex-wrap align-items-end mb-1 mb-md-0">
+                            <h3 class="review-title weight-semibold d-block d-lg-inline mb-1 mb-md-0 me-md-3">{{ review.title }}</h3>
+                            <div class="d-inline-flex">
+                                <div class="review-user-div text-blue me-2 d-flex align-items-end ib-lh-1">
+                                    <div class="category-icon-circle-sm bg-blue me-1">
+                                        <i class="fas fa-user text-ib-light text-center"></i>
+                                    </div>
+                                    <p class="d-inline me-2">{% if review.user != None %}{{ review.user }}{% else %}Anonymous{% endif %}</p>
+                                </div>
+                                <p class="d-inline weight-light review-date m-0 ib-lh-1">{{ review.created_on|date:"d/m/Y" }}</p>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-3 text-start text-sm-end">
+
+                            <!-- Review Rating -->
+                            <div class="rating-div review-rating ib-lh-1 pe-0">
+                                <span class="ib-lh-1 rating-hex-small rating-hex-{% if review.rating >= 1 %}true{% else %}false{% endif %}">&#x2B22;</span>
+                                <span class="ib-lh-1 rating-hex-small rating-hex-{% if review.rating >= 2 %}true{% else %}false{% endif %}">&#x2B22;</span>
+                                <span class="ib-lh-1 rating-hex-small rating-hex-{% if review.rating >= 3 %}true{% else %}false{% endif %}">&#x2B22;</span>
+                                <span class="ib-lh-1 rating-hex-small rating-hex-{% if review.rating >= 4 %}true{% else %}false{% endif %}">&#x2B22;</span>
+                                <span class="ib-lh-1 rating-hex-small rating-hex-{% if review.rating >= 5 %}true{% else %}false{% endif %}">&#x2B22;</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row font-body review-content">
+                        <p>{{ review.content }}</p>
+                    </div>
+                </div>
+            {% endfor %}
+
+            {% else %}
+            <!-- No Reviews Text -->
+            <div class="col-12 text-center">
+                <p class="font-body">No Reviews</p>
+            </div>
+        {% endif %}
+                    
+    </div>
+</div>
 {% endblock %}
 
 {% block extra_js %}

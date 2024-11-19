@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404, redirect
+from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.contrib.auth.models import User
@@ -15,7 +15,7 @@ def add_review(request, product_id):
     '''A view that handels adding a review'''
 
     product = get_object_or_404(Product, pk=product_id)
-    user = request.user.UserProfile
+    user = request.user.userprofile
     if request.method == 'POST':
         form = ProductReviewForm(request.POST)
 
@@ -29,7 +29,7 @@ def add_review(request, product_id):
             messages.error(
                 request, 'Something went wrong. Please fill in the form again'
             )
-        return redirect('product', pk)
+        return redirect(reverse('product_detail', args=[product.id]))
 
     # Handles View Rendering
     else:

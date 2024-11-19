@@ -440,6 +440,16 @@ input.qty-input-sm {
     margin-top: 20px;
     margin-bottom: 10px;
 }
+/*Review Section*/
+.review-form .ib-form-header img {
+    width: 150px;
+}
+
+.review-form.image-ratio {
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    width: 100%;
+}
 
 /* FOOTER */
 #footer{
