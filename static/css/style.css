@@ -436,6 +436,11 @@ input.qty-input-sm {
     border-radius: 0;
 }
 
+.form-group-label{
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
 /* FOOTER */
 #footer{
     background-color: var(--licorice);

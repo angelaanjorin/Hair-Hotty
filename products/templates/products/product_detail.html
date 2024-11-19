@@ -28,13 +28,15 @@
                 {% else %}
                     <img class="image-ratio img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
                 {% endif %}
-                {% if request.user.is_superuser %}
-                    <small class="ml-3">
-                        <a href="{% url 'edit_product' product.id %}">Edit</a> | 
-                        <a class="text-danger" href="{% url 'delete_product' product.id %}">Delete</a>
-                    </small>
-                {% endif %}
-                
+                <!--Admin Product Management-->
+                <div class="pcrud">
+                    {% if request.user.is_superuser %}
+                        <small class="ml-3">
+                            <a href="{% url 'edit_product' product.id %}">Edit</a> | 
+                            <a class="text-danger" href="{% url 'delete_product' product.id %}">Delete</a>
+                        </small>
+                    {% endif %}
+                </div>
                 <!-- Product Rating -->
                 <div class="rating">
                     {% if product.product_reviews %}
