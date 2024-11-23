@@ -73,11 +73,10 @@
    <!-- Postload Javascript-->
     {% block postloadjs %}
         <!-- Toasts /Messages JS -->
-        <script>
-            $('.toast').toast('show');
-        </script>
-
+        <script src="{% static 'js/toast.js'%}"></script>
+        <!-- Sorting Products JS -->
         <script src="{% static 'js/sort_products.js' %}"></script>
+        <!-- Product quantitiy inputs JS -->
         <script src="{% static 'js/quantity_inputs.js' %}"></script>
         
     {% endblock %}
