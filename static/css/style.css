@@ -441,15 +441,26 @@ input.qty-input-sm {
     margin-bottom: 10px;
 }
 /*Review Section*/
-.review-form .ib-form-header img {
-    width: 150px;
+.rating-star {
+    color: gray; /* Default color */
+    cursor: pointer;
+    background: none;
+    border: none;
 }
 
-.review-form.image-ratio {
-    aspect-ratio: 4 / 5;
-    object-fit: cover;
-    width: 100%;
+.rating-star.rating-star-selected {
+    color: gold; /* Highlight color for selected stars */
 }
+
+.rating-star.rating-star-hover {
+    color: gold; /* Highlight color for hovered stars */
+}
+
+.product-rating-link:hover .rating-div p {
+        -webkit-text-decoration-color: rgba(15, 116, 138, 1) !important;
+        text-decoration-color: rgba(15, 116, 138, 1) !important;
+}
+
 
 /* FOOTER */
 #footer{

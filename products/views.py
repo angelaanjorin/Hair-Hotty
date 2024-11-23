@@ -7,6 +7,8 @@ from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 
 from .models import Product, Category
 from .forms import ProductForm
+from reviews.models import Review
+from reviews.forms import ReviewForm
 
 # Create your views here.
 
@@ -84,11 +86,26 @@ def products_pagination(request, products, results):
 def product_detail(request, product_id):
     """" A view to show the details of a chosen product"""
 
+    user_review = None
     product = get_object_or_404(Product, pk=product_id)
 
+    #Retrieve the user´s review if authenticated
+    if request.user.is_authenticated:
+        profile = request.user.userprofile
+        user_review = Review.objects.filter(product=product, user=profile).first()
+    
+    # reviews
+    review_form = ReviewForm()
+    reviews = Review.objects.all().filter(
+        product=product).order_by('-created_on')
+    review_count = reviews.count()  
+    
     context = {
         'product': product,
-
+        'reviews': reviews,
+        'review_form' : review_form,
+        'user_review' : user_review,
+        'review_count' : review_count,
     }
 
     return render(request, 'products/product_detail.html', context)

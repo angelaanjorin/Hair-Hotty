@@ -1,47 +1,37 @@
-{% extends "base.html" %}
 {% load static %}
-
-{% block extra_title %}- Add a review{% endblock %}
-
+{% load widget_tweaks %}
 
 {% block content %}
-<div class="container-fluid">
-    <div class="row px-4 px-sm-0 bg-light-grey">
-        <div class="col-12 col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3 ib-form review-form bg-ib-white p-0 shadow" style="margin-bottom: 150px;
-}">
-
-            <!--Form Header-->
-            <div class="ib-form-header bg-cordovan-light d-flex justify-content-between align-items-center">
-                <div class="font-body my-2 mx-3 my-sm-2 mx-sm-4 text-v">
-                    <p class="weight-regular mb-0 mb-md-1">Tell us your thoughts on...</p>
-                    <h1 class="weight-semibold text-uppercase m-0 text-break">{{ product.name }}</h1>
-                </div>
-
-                <!-- Product Image -->
-                {% if product.image %}
-                    <img class="image-ratio d-none d-sm-block" src="{{ product.image.url }}" alt="{{ product.name }}" onerror="this.onerror=null;this.src='{{ MEDIA_URL }}no_image.jpg'">
-                {% else %}
-                    <img class="image-ratio d-none d-sm-block" src="{{ MEDIA_URL }}no_image.jpg" alt="{{ product.name }}">
-                {% endif %}
+<div class="row review">
+    <div class="rating-form-div col-12 col-md-8">
+        <form class="mb-3" action="{% url 'add_review' product.id %}" method="POST">
+            {% csrf_token %}
+            <div class="rating-div form-floating mb-2">
+                <button type="button" class="rating-star fa fa-star fa-2x star-1" data-star="1" id="first"></button>
+                <button type="button" class="rating-star fa fa-star fa-2x star-2" data-star="2" id="second"></button>
+                <button type="button" class="rating-star fa fa-star fa-2x star-3" data-star="3" id="third"></button>
+                <button type="button" class="rating-star fa fa-star fa-2x star-4" data-star="4" id="fourth"></button>
+                <button type="button" class="rating-star fa fa-star fa-2x star-5" data-star="5" id="fifth"></button>
+                <input type="hidden" name="rating" class="rating-field visually-hidden" value="0">
+                 <!-- Rating Error Handling -->
+                {% for error in review_form.rating.errors %}
+                    <span class="text-danger">{{ error }}</span>
+                {% endfor %}
             </div>
-
-            <!-- Review Form -->
-            <form class="px-3 px-md-4 py-4 form-as-p" method="POST" action="{% url 'add_review' product.id %}" enctype="multipart/form-data">
-                {% csrf_token %}
-                {{ form|crispy }}
-                <!-- Buttons -->
-                <div class="text-end mt-5">
-
-                    <!-- Cancel Button -->
-                    <a class="btn btn-outline-cordovan rounded-0 shadow-sm" href="{% url 'product_detail' product.id %}">CANCEL</a>
-                    
-                    <!-- Submit Button -->
-                    <button class="btn btn-cordovan rounded-0 shadow-sm" type="submit">SUBMIT</button>
-                </div>
-            </form>
-        </div>
+            <div class="form-floating mb-2">
+                {% render_field review_form.review|add_required_class:"is-required" class="form-control" %}
+                <label for="{{  review_form.review.id_for_label }}" class="form-label">Review*</label>
+                {% for error in  review_form.review.errors %}
+                <span class="text-danger">{{ error }}</span>
+                {% endfor %}
+            </div>
+            <button type="submit" class="btn btn-cordovan ps-2">Submit</button>
+        </form>
     </div>
 </div>
+{% endblock%}
 
-
+{% block extra_js_end %}
+    <!-- Rating Selector JS -->
+    <script src="{% static 'reviews/js/ratings_select.js' %}"></script>
 {% endblock %}

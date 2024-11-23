@@ -35,7 +35,8 @@ CSRF_TRUSTED_ORIGINS = ['https://*.gitpod.io']
 ALLOWED_HOSTS = [ 
     'localhost',
     '.gitpod.io',
-    '127.0.0.1',]
+    '127.0.0.1',
+]
 
 
 # Application definition
@@ -61,6 +62,7 @@ INSTALLED_APPS = [
 
     # other
     'crispy_forms',
+    'widget_tweaks',
 ]
 
 MIDDLEWARE = [
