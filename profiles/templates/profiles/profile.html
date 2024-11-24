@@ -1,10 +1,9 @@
-{% extends "base.html" %}
+{% extends 'base.html' %}
+{% load widget_tweaks %}
 {% load static %}
-
-{% block extra_css %}
-    <link rel="stylesheet" href="{% static 'profiles/css/profile.css' %}">
-{% endblock %}
-
+{% block title %}
+Profile
+{% endblock title %}
 {% block page_header %}
     <div class="container header-container">
         <div class="row">
@@ -12,71 +11,82 @@
         </div>
     </div>
 {% endblock %}
-
 {% block content %}
-    <div class="overlay"></div>
-    <div class="container mb-5">
+<section class="profile mb-3">
+    <div class="container">
         <div class="row">
-            <div class="col">
-                <hr>
-                <h2 class="logo-font mb-4">My Profile</h2>
-                <hr>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-12 col-lg-6">
-                <p class="text-muted">Default Delivery Information</p>
-                <form class="mt-3" action="{% url 'profile' %}" method="POST" id="profile-update-form">
-                    {% csrf_token %}
-                    {{ form|crispy }}
-                    <button class="btn btn-cordovan rounded-0 text-uppercase float-end mt-3">Update Information</button>
-                </form>
-            </div>
-            <div class="col-12 col-lg-6">
-                <p class="text-muted">Order History</p>
-                <div class="order-history table-responsive">
-                    <table class="table table-sm table-borderless">
-                        <thead>
-                            <tr>
-                                <th>Order Number</th>
-                                <th>Date</th>
-                                <th>Items</th>
-                                <th>Order Total</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {% for order in orders %}
-                                <tr>
-                                    <td>
-                                        <a href="{% url 'order_history' order.order_number %}"
-                                        title="{{ order.order_number }}">
-                                            {{ order.order_number|truncatechars:6 }}
-                                        </a>
-                                    </td>
-                                    <td>{{ order.date }}</td>
-                                    <td>
-                                        <ul class="list-unstyled">
-                                            {% for item in order.lineitems.all %}
-                                                <li class="small">
-                                                    {% if item.product.has_sizes %}
-                                                        Size {{ item.product.size|upper }}
-                                                    {% endif %}{{ item.product.name }} x{{ item.quantity }}
-                                                </li>
-                                            {% endfor %}
-                                        </ul>
-                                    </td>
-                                    <td>${{ order.grand_total }}</td>
-                                </tr>
-                            {% endfor %}
-                        </tbody>
-                    </table>
+            <div class="col-12">
+                <div class="custom-border p-3">
+                    <div class="row">
+                        {% include 'profiles/components/sidebar.html' %}
+                        <div class="col-12 col-lg-10 mt-4 mt-lg-0 d-flex flex-column justify-content-center">
+                            <h4 class="text-start fs-3 fw-4">My Details:</h4>
+                            <hr>
+                            <form class="checkout-form mt-2" id="checkout-form" method="POST" action="{% url 'profile' %}">
+                                {% csrf_token %}
+                                <!-- Phone Field -->
+                                <div class="form-floating mb-2">
+                                    {% render_field form.default_phone_number|add_required_class:"is-required"|attr:"pattern:^(?:\+?\d{1,4}|\d{1,4}00)(\d{9})$"|attr:"title:'Please enter a valid phone number'" class="form-control" placeholder=form.default_phone_number.label %}
+                                    <label for="{{ form.default_phone_number.id_for_label }}" class="form-label">Phone:*</label>
+                                    {% for error in form.default_phone_number.errors %}
+                                    <span class="text-danger">{{ error }}</span>
+                                    {% endfor %}
+                                </div>
+                                <!-- Address1 -->
+                                <div class="form-floating mb-2">
+                                    {% render_field form.default_street_address1|add_required_class:"is-required" class="form-control" placeholder=form.default_street_address1.label %}
+                                    <label for="{{ form.default_street_address1.id_for_label }}" class="form-label">Address 1:*</label>
+                                    {% for error in form.default_street_address1.errors %}
+                                    <span class="text-danger">{{ error }}</span>
+                                    {% endfor %}
+                                </div>
+                                <!-- Address2 -->
+                                <div class="form-floating mb-2">
+                                    {% render_field form.default_street_address2 class="form-control" placeholder=form.default_street_address2.label %}
+                                    <label for="{{ form.default_street_address2.id_for_label }}" class="form-label">Address 2:</label>
+                                    {% for error in form.default_street_address2.errors %}
+                                    <span class="text-danger">{{ error }}</span>
+                                    {% endfor %}
+                                </div>
+                                <!-- Town/City -->
+                                <div class="form-floating mb-2">
+                                    {% render_field form.default_town_or_city|add_required_class:"is-required" class="form-control" placeholder=form.default_town_or_city.label %}
+                                    <label for="{{ form.default_town_or_city.id_for_label }}" class="form-label">Town/City:*</label>
+                                    {% for error in form.default_town_or_city.errors %}
+                                    <span class="text-danger">{{ error }}</span>
+                                    {% endfor %}
+                                </div>
+                                <!-- County -->
+                                <div class="form-floating mb-2">
+                                    {% render_field form.default_county class="form-control" placeholder=form.default_county.label %}
+                                    <label for="{{ form.default_county.id_for_label }}" class="form-label">County:</label>
+                                    {% for error in form.default_county.errors %}
+                                    <span class="text-danger">{{ error }}</span>
+                                    {% endfor %}
+                                </div>
+                                <!-- Postcode -->
+                                <div class="form-floating mb-2">
+                                    {% render_field form.default_postcode class="form-control" placeholder=form.default_postcode.label %}
+                                    <label for="{{ form.default_postcode.id_for_label }}" class="form-label">Postcode:*</label>
+                                    {% for error in form.default_postcode.errors %}
+                                    <span class="text-danger">{{ error }}</span>
+                                    {% endfor %}
+                                </div>
+                                <!-- Country -->
+                                <div class="form-floating mb-2">
+                                    {% render_field form.default_country|add_required_class:"is-required" class="form-select" %}
+                                    <label for="{{ form.default_country.id_for_label }}" class="form-label">Country:*</label>
+                                    {% for error in form.default_country.errors %}
+                                    <span class="text-danger">{{ error }}</span>
+                                    {% endfor %}
+                                </div>
+                                <button class="btn btn-cordovan">Update Address</button>
+                            </form>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-{% endblock %}
-
-{% block postloadjs %}
-    {{ block.super }}
-    <script type="text/javascript" src="{% static 'profiles/js/countryfield.js' %}"></script>
-{% endblock %}
+</section>
+{% endblock content %}

@@ -29,7 +29,8 @@ def profile(request):
     context = {
         'form': form,
         'orders': orders,
-        'on_profile_page': True
+        'on_profile_page': True,
+        'profile_id': profile.id,
     }
 
     return render(request, template, context)
@@ -53,14 +54,30 @@ def order_history(request, order_number):
 
 
 @login_required
+def my_orders(request, profile_id):
+    ''' Renders my orders page '''
+    profile = get_object_or_404(UserProfile, pk=profile_id)
+
+    orders = profile.orders.all().order_by('-date')
+    
+    context = {
+        'orders': orders,
+        'profile_id': profile.id,
+    }
+    return render(request, 'profiles/my_orders.html', context)
+
+
+
+@login_required
 def my_wishlist(request, profile_id):
     ''' Renders wishlist page '''
-    profile = get_object_or_404(UserProfile, profile_id=pk)
+    profile = get_object_or_404(UserProfile, pk=profile_id)
 
     wishlist = Wishlist.objects.filter(user=profile).order_by('-created')
     
     context = {
         'wishlist': wishlist,
+        'profile_id': profile.id,
     }
     return render(request, 'profiles/wishlist.html', context)
 

@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+{% block title %}
+My Orders
+{% endblock title %}
+
+{% block page_header %}
+    <div class="container header-container">
+        <div class="row">
+            <div class="col"></div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+<section class="profile mb-3">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="custom-border p-3">
+                    <div class="row">
+                        {% include 'profiles/components/sidebar.html' %}
+                        <div class="col-12 col-lg-10 mt-4 mt-lg-0 d-flex flex-column justify-content-center">
+                            <h4 class="text-start fs-3 fw-4"> My Order History:</h4>
+                            <hr>
+                            {% if orders %}
+                            <div class="order-history table-responsive">
+                                <table class="table table-sm table-borderless">
+                                    <thead>
+                                        <tr>
+                                            <th>Order Number</th>
+                                            <th>Date</th>
+                                            <th>Items</th>
+                                            <th class="text-center">Order Total</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for order in orders %}
+                                        <tr>
+                                            <td>
+                                                <a href="{% url 'order_history' order.order_number %}" title="{{ order.order_number }}">
+                                                    {{ order.order_number|truncatechars:10 }}
+                                                </a>
+                                            </td>
+                                            <td>{{ order.date|date:"SHORT_DATE_FORMAT" }}</td>
+                                            <td>
+                                                <ul class="list-unstyled">
+                                                    {% for item in order.lineitems.all %}
+                                                        <li class="small">
+                                                            {% if item.product.has_sizes %}
+                                                                Size {{ item.product.size|upper }}
+                                                            {% endif %}{{ item.product.name }} x{{ item.quantity }}
+                                                        </li>
+                                                    {% endfor %}
+                                                </ul>
+                                            </td>
+                                            <td class="text-center">€{{ order.grand_total }}</td>
+                                        </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                            {% else %}
+                            <div class="d-grid gap-2">
+                                <p class="text-center">You have no new orders</p>
+                                <a href="{% url 'products' %}" class="btn btn-cordovan d-block mx-auto">Browse Shop</a>
+                            </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock content %}
