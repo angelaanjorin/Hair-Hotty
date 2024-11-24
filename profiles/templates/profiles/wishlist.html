@@ -31,48 +31,54 @@ My Wishlist
                                 <div class="col-sm-6 col-md-4 col-lg-4 col-xl-3 mb-3">
                                     <div class="product-grid d-flex flex-column align-items-center h-100">
                                         <div class="product-image">
-                                            {% if product.image %}
-                                            <a href="{% url 'product' item.product.id %}" class="image">
-                                                <img src="{{ product.image.url }}" alt="{{ item.product.name}}"class="img-fluid img-top">
+                                            {% if item.product.image %}
+                                            <a href="{% url 'product_detail' item.product.id %}" class="image">
+                                                <img src="{{ item.product.image.url }}" alt="{{ item.product.name }}" class="img-fluid img-top">
                                             </a>
                                             {% else %}
                                             <a href="">
-                                                <img class="img-fluid img-top" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
+                                                <img class="img-fluid img-top" src="{{ MEDIA_URL }}noimage.png" alt="{{ item.product.name }}">
                                             </a>
                                             {% endif %}
-                
-                                            <form class="product-links" method="POST" action="{% url 'wishlist_add' item.product.id %}">
-                                                {% csrf_token %}
-                                                <button type="submit" name="wishlist" value="submit" aria-label="add to wishlist">
-                                                    <i class="fa fa-heart"></i>
-                                                </button>
-                                                <input type="hidden" name="redirect_url" value="{{ request.get_full_path }}">
-                                            </form>
-
-                                            <form action="{% url 'add_to_bag' item.product.id %}" method="POST">
-                                                {% csrf_token %}
-                                                <input type="submit" class="add_to_bag" value="Add To Bag">
-                                            </form>
                                         </div>
-                                        <div class="product-content">
-                                            <h3 class="title text-truncate">
-                                                <a href="#">{{ product.name }}</a>
-                                            </h3>
-                
-                                            <div class="price">€ {{ product.price }}</div> 
+
+                                        <!-- Product Details and Buttons -->
+                                        <div class="product-content text-center">
+                                            <p class="logo-font text-truncate mb-1">
+                                                {{ item.product.name }}
+                                            </p>
+                                            <div class="price">€ {{ item.product.price }}</div>
+
+                                            <!-- Buttons in a flexbox row -->
+                                            <div class="d-flex justify-content-between mt-2">
+                                                <!-- Wishlist button -->
+                                                <form class="product-links" method="POST" action="{% url 'wishlist_add' item.product.id %}">
+                                                    {% csrf_token %}
+                                                    <button type="submit" class="wishlist" value="submit" aria-label="remove from wishlist">
+                                                        <i class="fa-solid fa-heart"></i>
+                                                    </button>
+                                                    <input type="hidden" name="redirect_url" value="{{ request.get_full_path }}">
+                                                </form>
+                                            
+                                                <!-- Add to Bag button -->
+                                                <form action="{% url 'add_to_bag' item.product.id %}" method="POST">
+                                                    {% csrf_token %}
+                                                    <input type="submit" class="btn btn-cordovan btn-sm" value="Add To Bag">
+                                                </form>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                                 <!-- End Product Card -->
                                 {% endfor %}
-                    
+                            
                                 {% else %}
                                 <div class="d-grid gap-2">
                                     <p class="text-center">No items in wishlist</p>
                                     <a href="{% url 'products' %}" class="btn btn-cordovan d-block mx-auto">Browse Shop</a>
                                 </div>
                                 {% endif %}
-                            </div>
+                            </div>                            
                         </div>
                     </div>
                 </div>

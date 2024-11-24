@@ -480,6 +480,46 @@ button.wishlist {
 }
 
 
+/* Profile page */
+.order-history {
+    max-height: 529px;
+    overflow-y: auto;
+}
+
+/* Sidebar profile page */
+#profile-nav .nav-link {
+    width: fit-content;
+}
+#profile-nav .nav-link.active {
+    border-bottom: 1px solid var(--cordovan);
+}
+
+.sidebar {
+    border-right: 1px solid gray;
+}
+
+.order-history {
+    max-height: 358px; /* height of profile form + submit button */
+    overflow-y: auto;
+}
+
+#profile-update-form .form-control {
+    color: #000;
+}
+
+#profile-update-form input::placeholder {
+    color: #aab7c4;
+}
+
+#id_default_country,
+#id_default_country option:not(:first-child) {
+    color: #000;
+}
+
+#id_default_country option:first-child {
+    color: #aab7c4;
+}
+
 /* FOOTER */
 #footer{
     background-color: var(--licorice);

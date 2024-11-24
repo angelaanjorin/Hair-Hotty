@@ -6,7 +6,7 @@
                 <ul class="nav flex-column mb-auto">
                     <li>
                         <a href="{% url 'profile' %}"
-                            class="nav-link text-black {% if 'my_profile' in request.path %}active{% endif %}">Profile</a>
+                            class="nav-link text-black {% if 'profile' in request.path %}active{% endif %}">My Profile</a>
                     </li>
                     <li>
                         <a href="{% url 'my_orders' profile_id %}"

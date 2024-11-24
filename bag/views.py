@@ -22,8 +22,18 @@ def add_to_bag(request, item_id):
     """ Add a quantity of the specified product to the shopping bag """
 
     product = get_object_or_404(Product, pk=item_id)
-    quantity = int(request.POST.get('quantity'))
-    redirect_url = request.POST.get('redirect_url')
+    # Get the quantity from the request, default to 1 if not provided or invalid
+    quantity = request.POST.get('quantity')
+    if quantity:
+        try:
+            quantity = int(quantity)
+        except ValueError:
+            quantity = 1  # Default to 1 if quantity is not a valid integer
+    else:
+        quantity = 1  # Default to 1 if no quantity is provided
+
+    redirect_url = request.POST.get('redirect_url', reverse('home'))  
+
     size = None
     if 'product_size' in request.POST:
         size = request.POST['product_size']
