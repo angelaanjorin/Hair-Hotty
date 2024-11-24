@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block extra_title %}- Contact{% endblock %}
+
+{% block page_header %}
+    <div class="container header-container">
+        <div class="row">
+            <div class="col"></div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+<!-- CONTACT SECTION -->
+<section id="contact" class="mt-5">
+    <div class="container mb-5">
+        <div class="row">
+            <div class="col-12">
+                <div class="custom-border p-3">
+                    <div class="row">
+                        <!-- Contact Info Section -->
+                        <div class="col-md-4" style="margin-top: 70px; border-right: 2px solid #ddd;">
+                            <div class="contact-details">
+                                <h4>Contact</h4>
+                                <p><i class="fas fa-phone"></i><a href="tel:08006081407" class="post-link"> 0800 608 1407</a></p>
+                                <p><i class="far fa-envelope"></i><a href="mailto:info@globaldoctors.com" class="post-link"> support@hairhotty.com</a></p>
+                                <p><i class="fas fa-home"></i> 1110 S Rogers CIR STE 4, Boca Raton, 33487 Florida, USA</p>
+                            </div>
+                        </div>
+
+                        <!-- Contact Form Section -->
+                        <div class="col-md-8 contact-form">
+                            <h2 class="title text-center mt-2">Contact Form</h2>
+                            <!-- Contact Form -->
+                            <form class= "contact_form" method="POST" enctype="multipart/form-data">
+                                {% csrf_token %}
+                                {{ form.media }}
+                                {{ form|crispy }}
+                                
+                                <div class="text-center mt-4">
+                                    <button class="btn btn-cordovan rounded-0 py-2 px-4" type="submit">Submit</button>
+                                </div>
+                            </form>
+
+                            {% if messages %}
+                            {% for message in messages %}
+                                <div class="alert {% if message.tags %}alert-{{ message.tags }}{% else %}alert-info{% endif %}" role="alert">
+                                    {{ message }}
+                                </div>
+                            {% endfor %}
+                            {% endif %}
+                            <!-- End of Contact Form -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- END OF CONTACT SECTION -->
+
+{% endblock content %}

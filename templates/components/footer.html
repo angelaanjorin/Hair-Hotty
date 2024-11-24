@@ -7,14 +7,14 @@
           <ul class="nav flex-column">
             <li class="nav-item mb-2"><a href="#" class="nav-link p-0">Customer Service</a></li>
             <li class="nav-item mb-2"><a href="#" class="nav-link p-0">Returns</a></li>
-            <li class="nav-item mb-2"><a href="#" class="nav-link p-0">Contact Us</a></li>
+            <li class="nav-item mb-2"><a href="{% url 'contact' %}" class="nav-link p-0">Contact Us</a></li>
           </ul>
         </div>
   
         <div class="col-6 col-md-2 mb-3">
           <h5>ABOUT US</h5>
           <ul class="nav flex-column">
-            <li class="nav-item mb-2"><a href="#" class="nav-link p-0">Home</a></li>
+            <li class="nav-item mb-2"><a href="{% url 'home' %}" class="nav-link p-0">Home</a></li>
             <li class="nav-item mb-2"><a href="#" class="nav-link p-0">About Us</a></li>
             <li class="nav-item mb-2"><a href="#" class="nav-link p-0">FAQs</a></li>
             <li class="nav-item mb-2"><a href="#" class="nav-link p-0">Private Policy</a></li>
@@ -24,9 +24,10 @@
         <div class="col-6 col-md-2 mb-3">
           <h5>SHOP</h5>
           <ul class="nav flex-column">
-            <li class="nav-item mb-2"><a href="#" class="nav-link p-0">Hair Wigs</a></li>
-            <li class="nav-item mb-2"><a href="#" class="nav-link p-0">Hair Extensions</a></li>
-            <li class="nav-item mb-2"><a href="#" class="nav-link p-0">Products</a></li>
+            <li class="nav-item mb-2"><a href="{% url 'products' %}?category=hair_wigs" class="nav-link p-0">Hair Wigs</a></li>
+            <li class="nav-item mb-2"><a href="{% url 'products' %}?category=hair_extensions" class="nav-link p-0">Hair Extensions</a></li>
+            <li class="nav-item mb-2"><a href="{% url 'products' %}?category=hair_produce" class="nav-link p-0">Hair Produce</a></li>
+            <li class="nav-item mb-2"><a href="{% url 'products' %}?category=hair_utensils" class="nav-link p-0">Hair Utensils</a></li>
             <li class="nav-item mb-2"><a href="#" class="nav-link p-0">Events</a></li>
           </ul>
         </div>
@@ -38,7 +39,7 @@
             <div class="d-flex flex-column flex-sm-row w-100 gap-2">
               <label for="newsletter1" class="visually-hidden">Email address</label>
               <input id="newsletter1" type="text" class="form-control" placeholder="Email address">
-              <button class="btn btn-gray text-uppercase" type="button">Subscribe</button>
+              <button class="btn btn-gray text-uppercase" type="submit">Subscribe</button>
             </div>
           </form>
         </div>
