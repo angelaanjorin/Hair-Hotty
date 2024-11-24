@@ -7,8 +7,11 @@ from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 
 from .models import Product, Category
 from .forms import ProductForm
+
 from reviews.models import Review
 from reviews.forms import ReviewForm
+
+from profiles.models import Wishlist
 
 # Create your views here.
 
@@ -86,6 +89,7 @@ def products_pagination(request, products, results):
 def product_detail(request, product_id):
     """" A view to show the details of a chosen product"""
 
+    wishlist = False
     user_review = None
     product = get_object_or_404(Product, pk=product_id)
 
@@ -93,7 +97,9 @@ def product_detail(request, product_id):
     if request.user.is_authenticated:
         profile = request.user.userprofile
         user_review = Review.objects.filter(product=product, user=profile).first()
-    
+        if Wishlist.objects.filter(user=profile, product=product).exists():
+            wishlist = True
+
     # reviews
     review_form = ReviewForm()
     reviews = Review.objects.all().filter(
@@ -103,6 +109,7 @@ def product_detail(request, product_id):
     context = {
         'product': product,
         'reviews': reviews,
+        'wishlist': wishlist,
         'review_form' : review_form,
         'user_review' : user_review,
         'review_count' : review_count,

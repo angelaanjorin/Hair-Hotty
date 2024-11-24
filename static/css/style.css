@@ -419,6 +419,13 @@ input.qty-input-sm {
     color: var(--hot-pink);
 }
 
+button.wishlist {
+    color: var(--cordovan);
+    font-size: 25px;
+    border: none;
+    background-color: transparent;
+}
+
 /* Product Form */
 
 .btn-file {

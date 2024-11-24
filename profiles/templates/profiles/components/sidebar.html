@@ -1,0 +1,25 @@
+<!--Sidebar Menu -->
+<div class="col-12 col-lg-2 sidebar">
+    <div class="container text-start p-2" id="profile-nav">
+        <div class="row">
+            <div class="col-12">
+                <ul class="nav flex-column mb-auto">
+                    <li>
+                        <a href="{% url 'profile' user.userprofile.id %}"
+                            class="nav-link text-black {% if 'my_profile' in request.path %}active{% endif %}">Profile</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'my-orders' user.userprofile.id %}"
+                            class="nav-link text-black {% if 'orders' in request.path %}active{% endif %}">My Orders</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'my-wishlist' user.userprofile.id %}"
+                            class="nav-link text-black {% if 'wishlist' in request.path %}active{% endif %}">My Wishlist</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <hr class="d-lg-none d-block">
+    </div>
+
+</div>
