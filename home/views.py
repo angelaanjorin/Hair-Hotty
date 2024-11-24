@@ -49,3 +49,8 @@ def privacy_policy(request):
 def faq_page(request):
     ''' Renders FAQ page  '''
     return render(request, 'home/faq_page.html')
+
+
+def returns(request):
+    ''' Renders FAQ page  '''
+    return render(request, 'home/returns.html')
