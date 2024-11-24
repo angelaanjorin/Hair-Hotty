@@ -39,3 +39,8 @@ def contact(request):
             'form': form
         }
     )
+
+
+def privacy_policy(request):
+    ''' Renders Privacy Policy page '''
+    return render(request, 'home/privacy_policy.html')
