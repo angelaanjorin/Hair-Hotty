@@ -1,6 +1,15 @@
 // Star rating functionality for review form
 let stars = document.getElementsByClassName("rating-star");
 
+// Initialize stars based on pre-filled rating value
+let ratingField = document.getElementsByClassName("rating-field")[0];
+let initialRating = parseInt(ratingField?.value || 0);
+for (let j = 0; j < stars.length; j++) {
+    if (j < initialRating) {
+        stars[j].classList.add("rating-star-selected");
+    }
+}
+
 // Loop through stars
 for (let i = 0; i < stars.length; i++) {
     // Attach click event for rating select
@@ -11,7 +20,6 @@ for (let i = 0; i < stars.length; i++) {
         let selectedStar = parseInt(this.getAttribute("data-star"));
 
         // Set the hidden input value
-        let ratingField = document.getElementsByClassName("rating-field")[0];
         if (ratingField) {
             ratingField.value = selectedStar;
         }

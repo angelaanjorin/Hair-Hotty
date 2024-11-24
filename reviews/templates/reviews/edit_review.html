@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% load widget_tweaks %}
+{% load static %}
+{% block title %}
+Edit review
+{% endblock title %}
+{% block page_header %}
+    <div class="container header_container">
+        <div class="row">
+            <div class="col"></div>
+        </div>
+    </div>
+{% endblock%}
+
+{% block content %}
+<section class="edit-review">
+    <div class="container edit-review my-5">
+        <div class="row d-flex justify-content-center">
+            <div class="col-12 col-md-10 custom-border py-4">
+                <div class="row">
+                    <div class="col-8">
+                        <h4>Edit Review</h4>
+                        <form class="mb-3 edit-review-form" action="{% url 'edit_review' review.id %}" method="POST">
+                            {% csrf_token %}
+                            <div class="rating-div form-floating mb-2">
+                                {% for i in "12345" %}
+                                    <button type="button" class="rating-star fa fa-star fa-2x star-{{ i }}"
+                                            data-star="{{ i }}" {% if review_form.initial.rating|stringformat:"s" == i %}class="active"{% endif %}>
+                                    </button>
+                                {% endfor %}
+                                <input type="hidden" name="rating" class="rating-field visually-hidden" value="{{ review_form.initial.rating }}">
+                                <!-- Rating Error Handling -->
+                                {% for error in review_form.rating.errors %}
+                                    <span class="text-danger">{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                            
+                            <div class="form-floating mb-2">
+                                {% render_field review_form.review|add_required_class:"is-required" class="form-control" %}
+                                <label for="{{  review_form.review.id_for_label }}" class="form-label">Review*</label>
+                                {% for error in  review_form.review.errors %}
+                                <span class="text-danger">{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                            <a href="{% url 'product_detail' product.id %}" class="btn btn-gray">Back</a>
+                            <button type="submit" class="btn btn-cordovan ps-2">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock content %}

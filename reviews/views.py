@@ -69,3 +69,60 @@ def add_review(request, product_id):
     }
 
     return render(request, template, context)
+
+
+@login_required
+def edit_review(request, review_id):
+    ''' A view to handle edit review,
+    it takes request and review id '''
+    review = get_object_or_404(Review, pk=review_id)
+    product = review.product
+
+    if request.method == 'POST':
+        user = request.user.userprofile
+        if request.user.is_superuser or user == review.user:
+            form = ReviewForm(request.POST, request.FILES, instance=review)
+            if form.is_valid():
+                review = form.save()
+                messages.success(request, 'Review updated successfully')
+                return redirect(reverse('product_detail', args=[product.id]))
+            messages.error(
+                request, 'Something went wrong. Please try again.')
+        else:
+            messages.error(
+                request, 'You are not allowed to edit this review')
+    else:
+        # Prepopulate the form with existing review data for GET requests
+        form = ReviewForm(instance=review)
+        
+    context = {'review_form': form,
+               'review': review,
+               'product': product,
+               }
+    return render(request, 'reviews/edit_review.html', context)
+
+
+@login_required
+def delete_review(request, review_id):
+    """ Delete a review """
+
+    review = get_object_or_404(Review, pk=review_id)
+    product = review.product
+
+    if request.method == 'POST':
+        user = request.user.userprofile
+        if request.user.is_superuser or user == review.user:
+            try:
+                review.delete()
+                messages.success(request, 'Review deleted successfully.')
+            except ObjectDoesNotExist:
+                messages.error(
+                    request, 'This review cannot be found in the database.')
+            return redirect(reverse('product_detail', args=[product.id]))
+
+    context = {
+        'review': review,
+        'product': product,
+    }
+
+    return render(request, 'reviews/delete_review.html', context)

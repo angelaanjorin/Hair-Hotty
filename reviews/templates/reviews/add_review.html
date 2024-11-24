@@ -7,11 +7,11 @@
         <form class="mb-3" action="{% url 'add_review' product.id %}" method="POST">
             {% csrf_token %}
             <div class="rating-div form-floating mb-2">
-                <button type="button" class="rating-star fa fa-star fa-2x star-1" data-star="1" id="first"></button>
-                <button type="button" class="rating-star fa fa-star fa-2x star-2" data-star="2" id="second"></button>
-                <button type="button" class="rating-star fa fa-star fa-2x star-3" data-star="3" id="third"></button>
-                <button type="button" class="rating-star fa fa-star fa-2x star-4" data-star="4" id="fourth"></button>
-                <button type="button" class="rating-star fa fa-star fa-2x star-5" data-star="5" id="fifth"></button>
+                <button type="button" class="rating-star fa fa-star fa-2x star-1" data-star="1" ></button>
+                <button type="button" class="rating-star fa fa-star fa-2x star-2" data-star="2" ></button>
+                <button type="button" class="rating-star fa fa-star fa-2x star-3" data-star="3" ></button>
+                <button type="button" class="rating-star fa fa-star fa-2x star-4" data-star="4" ></button>
+                <button type="button" class="rating-star fa fa-star fa-2x star-5" data-star="5" ></button>
                 <input type="hidden" name="rating" class="rating-field visually-hidden" value="0">
                  <!-- Rating Error Handling -->
                 {% for error in review_form.rating.errors %}
@@ -30,8 +30,3 @@
     </div>
 </div>
 {% endblock%}
-
-{% block extra_js_end %}
-    <!-- Rating Selector JS -->
-    <script src="{% static 'reviews/js/ratings_select.js' %}"></script>
-{% endblock %}
