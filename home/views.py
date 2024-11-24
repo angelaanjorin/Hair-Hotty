@@ -44,3 +44,8 @@ def contact(request):
 def privacy_policy(request):
     ''' Renders Privacy Policy page '''
     return render(request, 'home/privacy_policy.html')
+
+
+def faq_page(request):
+    ''' Renders FAQ page  '''
+    return render(request, 'home/faq_page.html')
