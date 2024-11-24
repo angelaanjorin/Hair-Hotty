@@ -1,0 +1,87 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block page_header %}
+    <div class="container header-container">
+        <div class="row">
+            <div class="col"></div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+<section class="cms-section cms-ehaboutusplain param-blog">
+    <div class="container container-xl">
+        <article class="cmsContent">
+            <div class="row hero-holder">
+                <div class="col-12">
+                    <div class="heading text-center">
+                        <h1 class="h2">About Us</h1>
+                        <p>#hairhotty</p>
+                    </div>
+            </div>
+            <!-- Social media section -->
+            <div class="social-media-holder text-center">
+                <div class="py-4 my-4 border-top">
+                    <ul class="list-unstyled d-inline-flex justify-content-center" id="social-about-links">
+                        <li class="ms-3">
+                            <a href="https://www.facebook.com/profile.php?id=100064214191331" target="_blank" rel="noopener" class="me-4 text-reset text-white" aria-label="Link to Facebook">
+                                <i class="fab fa-facebook-f" style="font-size: 24px;"></i>
+                            </a>
+                        </li>
+                        <li class="ms-3">
+                            <a href="https://www.instagram.com/hairhotty/" target="_blank" rel="noopener" class="me-4 text-reset" aria-label="Link to Instagram">
+                                <i class="fab fa-instagram" style="font-size: 24px;"></i>
+                            </a>
+                        </li>
+                        <li class="ms-3">
+                            <a href="https://www.pinterest.com/" target="_blank" rel="noopener" class="me-4 text-reset" aria-label="Link to Pinterest">
+                                <i class="fab fa-pinterest" style="font-size: 24px;"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>            
+            <!-- Content Section -->
+            <div class="article-content">
+                <p>We don't know what you have already tried, or how hard you have fought to achieve your desired hair length or the fullness you've always wanted. We also don't know if it's a long-awaited dream for long, full hair or if you simply want to look stunning for a special occasion.</p>
+
+                <h3 class="quote-text text-center">"But we firmly believe that every woman deserves to wear the hair of her dreams."</h3>
+
+                <div class="clearfix">
+                    <figure class="end text-center">
+                        <img src="{% static 'images/hero-banner2.jpg' %}" alt="About Us" class="img-fluid">
+                        <figcaption></figcaption>
+                    </figure>
+
+                    <p>We founded Hair Hotty to accompany you, as well as many other women, on the journey to their dream hair. Our mission is to offer all customers a unique shopping experience with perfect customer service, fast shipping, and excellent real hair products.</p>
+
+                    <h4 class="hashtag text-center">#hairhotty</h4>
+
+                    <p>We place great importance on carefully selected raw materials and strict quality controls. All of our products are made exclusively from the highest quality Remy human hair, which has been perfectly processed down to the smallest detail to redefine hair love with every product.</p>
+
+                    <h3 class="quote-text text-center">"We are proud to have fulfilled the hair dreams of over 100,000 women since 2010."</h3>
+
+                    <p>"And just as proud to have convinced countless stylists and celebrities around the world of our mission and quality."</p>
+
+                    <p><span style="color: black;">"We are delighted with every customer who shares our vision of beautiful hair for greater confidence and self-love, and we are grateful that you have chosen Elegance-Hair products for the special moments in your life."</span></p>
+
+                </div>
+
+                    
+                <figure class="end text-center">
+                    <img src="{% static 'images/much-love-xoxo.png' %}" alt="Elegance-Hair" class="img-fluid">
+                    <figcaption><p></p></figcaption>
+                </figure>
+
+                <figure class="end text-center">
+                    <img src="{% static 'images/people-working.jpg' %}" alt="Elegance-Hair" class="img-fluid">
+                    <figcaption><p></p></figcaption>
+                </figure>
+
+            </div>
+        </article>
+    </div>
+</section>
+{% endblock %}

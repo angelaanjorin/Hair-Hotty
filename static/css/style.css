@@ -214,12 +214,6 @@ input.qty-input-sm {
     color: var(--licorice) !important;
 }
 
-/* Style for placeholder text in contact form*/
-.contact_form::placeholder {
-    font-size: 0.875rem; 
-    color: rgba(0, 0, 0, 0.4); 
-}
-
 /* Toasts */
 .message-container {
     position: fixed;
@@ -473,11 +467,11 @@ button.wishlist {
 }
 
 .rating-star.rating-star-selected {
-    color: gold; /* Highlight color for selected stars */
+    color: gold; 
 }
 
 .rating-star.rating-star-hover {
-    color: gold; /* Highlight color for hovered stars */
+    color: gold;
 }
 
 .product-rating-link:hover .rating-div p {
@@ -505,7 +499,7 @@ button.wishlist {
 }
 
 .order-history {
-    max-height: 358px; /* height of profile form + submit button */
+    max-height: 358px;
     overflow-y: auto;
 }
 
@@ -524,6 +518,95 @@ button.wishlist {
 
 #id_default_country option:first-child {
     color: #aab7c4;
+}
+
+/* About Us page adjustments */
+.cms-section {
+    margin-top: 50px;
+}
+
+.hero-holder .img-holder {
+    height: 100%;
+    background-position: center;
+    background-size: cover;
+}
+
+.hero-holder .heading {
+    padding: 37px 25px 29px;
+    font-size: 14px;
+    background-color: #f2f2f2;
+    position: relative;
+}
+
+.social-media-holder {
+    margin-top: 30px;
+}
+
+.quote-text {
+    font-size: 1.5rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    font-style: italic;
+}
+
+.hashtag {
+    font-weight: normal;
+    font-size: 18px;
+    letter-spacing: 3px;
+}
+
+.article-content p {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.article-content center img {
+    margin-top: 30px;
+}
+
+#social-about-links a {
+    text-decoration: none;
+}
+
+#social-about-links a i {
+    color: var(--dark-gray);
+    font-size: 25px;
+}
+
+#social-about-links a i:hover {
+    color: #6f6a6a;
+}
+
+/* Contact Us Page */
+
+form .form-label {
+    display: none;  
+}
+
+input::placeholder, textarea::placeholder {
+    color: #999;
+    font-size: 14px;
+}
+
+.contact_form .form-group {
+    margin-bottom: 20px;  
+}
+
+.contact_form input,
+.contact_form textarea {
+    width: 100%;  
+    padding: 10px;  
+    border-radius: 5px;  
+    border: 1px solid #ddd;  
+}
+
+
+.contact_form button {
+    padding: 12px 30px;
+    font-size: 16px;
+    border-radius: 5px;
 }
 
 /* FOOTER */
