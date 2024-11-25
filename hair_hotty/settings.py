@@ -79,6 +79,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'allauth.account.middleware.AccountMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'hair_hotty.urls'
@@ -216,7 +217,7 @@ if 'USE_AWS' in os.environ:
     # Override static and media URLs in production
     STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{STATICFILES_LOCATION}/'
     MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{MEDIAFILES_LOCATION}/'
-    
+
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
@@ -227,4 +228,4 @@ STRIPE_CURRENCY = 'usd'
 STRIPE_PUBLIC_KEY = os.getenv("STRIPE_PUBLIC_KEY", '')
 STRIPE_SECRET_KEY = os.getenv("STRIPE_SECRET_KEY", '')
 STRIPE_WH_SECRET = os.getenv("STRIPE_WH_SECRET", '')
-DEFAULT_FROM_EMAIL = 'info@hairhotty.com'
+DEFAULT_FROM_EMAIL = 'support@hairhotty.com'
