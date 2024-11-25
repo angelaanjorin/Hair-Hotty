@@ -4,11 +4,16 @@ from django.shortcuts import get_object_or_404
 from products.models import Product
 
 def bag_contents(request):
-
+    '''
+    Handles the shopping bag contents
+    '''
     bag_items = []
     total = 0
     product_count = 0
     bag = request.session.get('bag', {})
+    items_to_remove = []
+    discount = request.session.get('discount')
+    discount_amount = 0
 
     for item_id, item_data in bag.items():
         if isinstance(item_data, int):
@@ -31,6 +36,10 @@ def bag_contents(request):
                     'product': product,
                     'size': size,
                 })
+     # Apply discount to total amount excluding delivery
+    if discount:
+        discount_amount = (total * discount)/100
+        total -= discount_amount
 
     if total < settings.FREE_DELIVERY_THRESHOLD:
         delivery = total * Decimal(settings.STANDARD_DELIVERY_PERCENTAGE / 100)
@@ -49,6 +58,7 @@ def bag_contents(request):
         'free_delivery_delta': free_delivery_delta,
         'free_delivery_threshold': settings.FREE_DELIVERY_THRESHOLD,
         'grand_total': grand_total,
+        'discount_amount': discount_amount,
     }
 
     return context
