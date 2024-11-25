@@ -40,7 +40,7 @@
                         <a class="text-danger" href="{% url 'delete_product' product.id %}">Delete</a>
                     </small>
                 {% endif %}
-                <p class="text-left .weight-semibold" style="font-size: 2rem;">${{ product.price }}</p>
+                
                 {% if product.category %}
                 <p class="small mt-1 mb-0">
                     <a href="{% url 'products' %}?category={{ product.category.name }}" class="category-badge  d-flex text-decoration-none align-items-center">
@@ -56,6 +56,23 @@
                 {% else %}
                     <small class="text-muted">No reviews yet.</small>
                 {% endif %}
+                {% if product.sale_price %}
+                <div class="price"><s>${{ product.price }}</s>
+                    <p style="font-size: 2rem;"> ${{ product.sale_price }}</p>
+                </div>
+                {% else %}
+                <div class="price">
+                    <p style="font-size: 2rem;">${{ product.price }}</p>
+                </div>
+                {% endif %}
+                <div class="stock d-flex ">
+                    {% if product.in_stock %}
+                    <p class="in-stock-label me-3"> <strong>IN STOCK</strong></p>
+                    <p class="p-2 mb-0"> <strong>{{ product.stock_amount }}</strong></p>
+                    {% else %}
+                    <p class="out-of-stock-label"><strong>OUT OF STOCK</strong></p>
+                    {% endif %}
+                </div>
                 <div class="row">
                     <div class="col-12">
                         <form class="product-links" method="POST" action="{% url 'wishlist_add' product.id %}">
@@ -117,15 +134,23 @@
                         </div>
 
                         <div class="col{% if s %}-12 mt-2{% endif %}">
-                            <a href="{% url 'products' %}" class="btn btn-outline-cordovan rounded-0 mt-5">
-                                <span class="icon">
-                                    <i class="fas fa-chevron-left"></i>
-                                </span>
-                                <span class="text-uppercase">Keep Shopping</span>
-                            </a>
-                            <input type="submit" class="btn btn-cordovan rounded-0 text-uppercase mt-5" value="Add to Bag">
+                            <div class="d-flex">
+                                <!-- Keep Shopping Button -->
+                                <a href="{% url 'products' %}" class="btn btn-outline-cordovan rounded-0 mt-5 me-2">
+                                    <span class="icon">
+                                        <i class="fas fa-chevron-left"></i>
+                                    </span>
+                                    <span class="text-uppercase">Keep Shopping</span>
+                                </a>
+                                <!-- Add to Bag Button -->
+                                {% if product.in_stock %}
+                                    <input type="submit" class="btn btn-cordovan rounded-0 text-uppercase mt-5" value="Add to Bag">
+                                {% else %}
+                                    <input type="submit" class="btn-not-allowed rounded-0 text-uppercase mt-5" value="Add To Bag" disabled>
+                                {% endif %}
+                            </div>
                         </div>
-                        <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                            <input type="hidden" name="redirect_url" value="{{ request.path }}">
                         {% endwith %}
                     </div>
                 </form>

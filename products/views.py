@@ -23,6 +23,8 @@ def all_products(request):
     categories = None
     sort = None
     direction = None
+    deals = None
+    new_arrivals = None
 
     if request.GET:
         if 'sort' in request.GET:
@@ -44,6 +46,14 @@ def all_products(request):
             products =products.filter(category__name__in=categories)
             categories = Category.objects.filter(name__in=categories)
 
+        if 'deals' in request.GET:
+            books = books.filter(on_sale=True)
+            deals = True
+
+        if 'new_arrivals' in request.GET:
+            books = books[:8]
+            new_arrivals = True
+            
         if 'q' in request.GET:
             query = request.GET['q']
             if not query:
@@ -64,6 +74,8 @@ def all_products(request):
         'search_term' : query,
         'current_categories' : categories,
         'current_sorting': current_sorting,
+        'new_arrivals': new_arrivals,
+        'deals': deals,
     }
 
     return render(request, 'products/products.html', context)

@@ -1,4 +1,5 @@
 from django.db import models
+from django.core.validators import MaxValueValidator, MinValueValidator
 import uuid
 
 
@@ -22,10 +23,56 @@ class Product(models.Model):
     name = models.CharField(max_length=254)
     description = models.TextField()
     has_sizes = models.BooleanField(default=False,null=True, blank=True)
+    stock_amount = models.IntegerField(
+        default=1, validators=[MinValueValidator(0), MaxValueValidator(1000)])
+    in_stock = models.BooleanField(default=True)
     price = models.DecimalField(max_digits=6, decimal_places=2)
+    discount = models.IntegerField(null=True, blank=True)
+    on_sale = models.BooleanField(default=False)
+    sale_price = models.DecimalField(
+        max_digits=6, decimal_places=2, null=True, blank=True)
     rating = models.DecimalField(max_digits=6, decimal_places=2, null=True, blank=True)
     image_url = models.URLField(max_length=1024, null=True, blank=True)
     image = models.ImageField(null=True, blank=True)
 
     def __str__(self):
         return self.name
+    
+    @property
+    def price_discount(self):
+        '''
+        Calculate discount based on new price
+        '''
+        if self.sale_price:
+            discount = ((self.price - self.sale_price) / self.price) * 100
+            return round(discount)
+        else:
+            return None
+
+    @property
+    def product_in_stock(self):
+        '''
+        Determines if the product is in stock
+        based on the stock amount.
+        '''
+        if self.stock_amount >= 1:
+            return True
+        else:
+            return False
+
+    @property
+    def product_price(self):
+        '''
+        Returns the price of item based on
+        if item is on sale
+        '''
+        if self.on_sale and self.sale_price < self.price:
+            return self.sale_price
+        return self.price
+
+    def save(self, *args, **kwargs):
+        self.discount = self.price_discount
+        self.in_stock = self.product_in_stock
+        if not self.on_sale:
+            self.sale_price = 0
+        super().save(*args, **kwargs)
