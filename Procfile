@@ -1,0 +1,1 @@
+web: gunicorn hair_hotty.wsgi:application
