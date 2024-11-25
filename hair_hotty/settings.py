@@ -38,6 +38,7 @@ ALLOWED_HOSTS = [
     'localhost',
     '.gitpod.io',
     '127.0.0.1',
+    'app-hairhotty.herokuapp.com',
 ]
 
 
