@@ -47,11 +47,11 @@ def all_products(request):
             categories = Category.objects.filter(name__in=categories)
 
         if 'deals' in request.GET:
-            books = books.filter(on_sale=True)
+            products = products.filter(on_sale=True)
             deals = True
 
         if 'new_arrivals' in request.GET:
-            books = books[:8]
+            products = products[:8]
             new_arrivals = True
             
         if 'q' in request.GET:
@@ -67,6 +67,9 @@ def all_products(request):
     products = products_pagination(request, products, 6)
     
     current_sorting = f'{sort}_{direction}'
+    
+    reviews = Review.objects.all().filter()
+    review_count = reviews.count()
 
     context = {
         'products': products,
@@ -76,6 +79,7 @@ def all_products(request):
         'current_sorting': current_sorting,
         'new_arrivals': new_arrivals,
         'deals': deals,
+        'review_count' : review_count,
     }
 
     return render(request, 'products/products.html', context)

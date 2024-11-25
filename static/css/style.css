@@ -410,6 +410,18 @@ input.qty-input-sm {
     border-color: var(--white);
 }
 
+/*All Products page*/
+.product-discount-label {
+    color: var(--white);
+    background: var(--cordovan);
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 25px;
+    padding: 0 20px;
+    position: absolute;
+    left: 0;
+}
+
 /* Product Detail page */
 .product-page-category {
     color: var(--cordovan)
@@ -693,4 +705,60 @@ input::placeholder, textarea::placeholder {
 
 #social-links a i:hover {
     color: #6f6a6a;
+}
+
+/* MEDIA QUERY */
+@media (max-width: 576px) {
+    .card-footer .price {
+        flex-direction: column; 
+        text-align: center;
+    }
+    
+    .card-footer .sale-price, .card-footer .regular-price {
+        font-size: 1.5rem; 
+    }
+    
+    .card-footer .rating-div small {
+        font-size: 0.9rem; 
+    }
+    
+    .card-footer .original-price {
+        font-size: 1.2rem; 
+    }
+    
+    .card-footer .regular-price {
+        font-size: 1.6rem; 
+    }
+}
+
+/* Medium screens (tablet) */
+@media (max-width: 768px) {
+    .card-footer .price {
+        flex-direction: column; /
+        text-align: center;
+    }
+    
+    .card-footer .sale-price, .card-footer .regular-price {
+        font-size: 1.75rem; 
+    }
+    
+    .card-footer .rating-div small {
+        font-size: 1rem; 
+    }
+}
+
+/* Large screens */
+@media (min-width: 992px) {
+    .card-footer .price {
+        flex-direction: row; 
+        text-align: left;
+    }
+    
+    .card-footer .sale-price, .card-footer .regular-price {
+        font-size: 2rem; 
+    }
+
+    .card-footer .rating-div small {
+        font-size: 1.1rem; 
+    }
 }
