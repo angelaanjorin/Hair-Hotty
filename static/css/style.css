@@ -411,6 +411,10 @@ input.qty-input-sm {
 }
 
 /*All Products page*/
+.prodcut-card .product-image a.image {
+    display: block;
+}
+
 .product-discount-label {
     color: var(--white);
     background: var(--cordovan);
@@ -419,8 +423,40 @@ input.qty-input-sm {
     line-height: 25px;
     padding: 0 20px;
     position: absolute;
-    left: 0;
+    right: 0;
 }
+
+.prodcut-card .product-links {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    position: absolute;
+    top: 10px;
+    right: -50px;
+    transition: all 0.5s ease 0s;
+}
+.prodcut-card:hover .product-links {
+    right: 10px;
+}
+.prodcut-card .product-links button {
+    color: var(--cordovan);
+    background: transparent;
+    font-size: 17px;
+    line-height: 38px;
+    width: 38px;
+    height: 38px;
+    border: 1px solid #333;
+    border-bottom: none;
+    display: block;
+    transition: all 0.3s;
+    border-bottom: 1px solid #333;
+}
+
+.prodcut-card .product-links button:hover {
+    color: var(--white);
+    background: var(--cordovan);
+}
+
 
 /* Product Detail page */
 .product-page-category {

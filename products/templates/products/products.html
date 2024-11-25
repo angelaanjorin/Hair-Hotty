@@ -56,27 +56,43 @@
                     <!-- Product Card -->
                         <div class="col-md-6 col-lg-4 gy-3">
                             <div class="card shadow product-card h-100">
-                                    <div  class="card-category-label mb-1 position-absolute">
-                                        <a href="{% url 'products' %}?category={{ product.category.name }}" class="category-badge m-2 d-flex text-decoration-none align-items-center">
-                                            <span class="p-2 weight-semibold text-uppercase badge badge-white text-black rounded-0 border border-dark">{{ product.category.friendly_name }}</span>
-                                        </a>
-                                        </a>
-                                        {% if product.price_discount %}
-                                            <span class="product-discount-label">-{{ product.price_discount }}%</span>
+                                <div  class="product-grid mb-1 position-absolute">
+                                    <a href="{% url 'products' %}?category={{ product.category.name }}" class="category-badge m-2 d-flex text-decoration-none align-items-center">
+                                        <span class="p-2 weight-semibold text-uppercase badge badge-white text-black rounded-0 border border-dark">{{ product.category.friendly_name }}</span>
+                                    </a>
+                                    <form class="product-links" method="POST" action="{% url 'wishlist_add' product.id %}">
+                                        {% csrf_token %}
+                                        
+                                        {% if product.is_in_wishlist %}
+                                            <!-- Heart icon when product is in wishlist -->
+                                            <button type="submit" class="wishlist" name="wishlist" value="submit" aria-label="remove from wishlist"><i
+                                                class="fa-solid fa-heart"></i>
+                                            </button>
+                            
+                                        {% else %}
+                                            <!-- Heart icon when product is not in wishlist -->
+                                            <button type="submit" class="wishlist" name="wishlist" value="submit" aria-label="add to wishlist">
+                                                <i class="fa-regular fa-heart fa-flip"></i> <!-- Empty heart with a flip effect -->
+                                            </button>
                                         {% endif %}
-                                    </div>
+                                        
+                                        <input type="hidden" name="redirect_url" value="{{ request.get_full_path }}">
+                                    </form>
+                                </div>
 
-                                    <!-- Product Image -->
-                                    {% if product.image %}
-                                    <a href="{% url 'product_detail' product.id %}">
-                                        <img class="card-img-top img-fluid" src="{{ product.image.url }}" alt="{{ product.name }}">
-                                    </a>
-                                    {% else %}
-                                    <a href="{% url 'product_detail' product.id %}">
-                                        <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
-                                    </a>
-                                    {% endif %}
-
+                                <!-- Product Image -->
+                                {% if product.image %}
+                                <a href="{% url 'product_detail' product.id %}">
+                                    <img class="card-img-top img-fluid" src="{{ product.image.url }}" alt="{{ product.name }}">
+                                </a>
+                                {% else %}
+                                <a href="{% url 'product_detail' product.id %}">
+                                    <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
+                                </a>
+                                {% endif %}
+                                {% if product.price_discount %}
+                                        <span class="product-discount-label">-{{ product.price_discount }}%</span>
+                                {% endif %}
                                  <!-- Product Name -->
                                 <div class="card-body bg-ib-white pb-2">
                                     <h2 class="text-uppercase text-center weight-semibold text-ib-dark">{{ product.name }}</h2>

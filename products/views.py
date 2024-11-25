@@ -25,6 +25,7 @@ def all_products(request):
     direction = None
     deals = None
     new_arrivals = None
+    wishlist_products = []
 
     if request.GET:
         if 'sort' in request.GET:
@@ -71,6 +72,17 @@ def all_products(request):
     reviews = Review.objects.all().filter()
     review_count = reviews.count()
 
+    # Checking if the logged-in user has any products in their wishlist
+    wishlist = False
+    if request.user.is_authenticated:
+        profile = request.user.userprofile
+        # Fetch the wishlist items for the user
+        wishlist_products = Wishlist.objects.filter(user=profile)
+    
+    # Add the information about whether each product is in the user's wishlist
+    for product in products:
+        product.is_in_wishlist = wishlist_products.filter(product=product).exists()
+
     context = {
         'products': products,
         'products_count': products_count,
@@ -80,6 +92,7 @@ def all_products(request):
         'new_arrivals': new_arrivals,
         'deals': deals,
         'review_count' : review_count,
+        'wishlist_products' : wishlist_products,
     }
 
     return render(request, 'products/products.html', context)
