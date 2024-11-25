@@ -84,13 +84,6 @@ def checkout(request):
                     )
                     order.delete()
                     return redirect(reverse('view_bag'))
-
-            # calculate discount
-            if discount:
-                discount_amount = (order.order_total * discount)/100
-                order.discount = discount_amount
-                order.update_total()
-                order.save()
                 
             # Save the info to the user's profile if all is well
             request.session['save_info'] = 'save-info' in request.POST

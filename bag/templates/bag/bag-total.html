@@ -1,41 +1,6 @@
-<div class="col-12 col-md-8 col-lg-3 mt-3 mt-lg-0 custom-border p-4">
-    <div class="row">
-        <div class="col-12">
-            {% if discount_amount > 0 %}
-            <p class="text-success">Discount code applied.</p>
-            <a href="{% url 'remove_discount' %}" class="btn btn-sm btn-brown"><i class="fa-solid fa-trash-can"></i>
-                Remove</a>
-            {% else %}
-            <form action="{% url 'add_discount' %}" method="POST" class="d-flex flex-column">
-                {% csrf_token %}
-                <label for="discount">Discount</label>
-                <input class="mb-md-0 mb-2" type="text" name="discount" id="discount">
-                <button type="submit" class="btn btn-cordovan mt-md-2" aria-label="add discount code">Add</button>
-            </form>
-            {% endif %}
-        </div>
-    </div>
-    <hr>
-    <div class="row">
-        <div class="col-12">
-            {% if discount_amount > 0 %}
-            <div class="discount d-flex justify-content-between">
-                <p class="text-success fw-bold">Discount:</p>
-                <p class="text-success fw-bold">- €{{ discount_amount|floatformat:2 }}</p>
-            </div>
-            {% endif %}
-            <div class="subtotal d-flex justify-content-between">
-                <h6><strong>Bag Subtotal: ${{ total|floatformat:2 }}</strong></h6>
-            </div>
-            <div class="delivery d-flex justify-content-between">
-                <h6>Delivery: ${{ delivery|floatformat:2 }}</h6>  
-            </div>
-            <hr>
-            <div class="total d-flex justify-content-between">
-                <h4 class="mt-4"><strong>Grand Total: ${{ grand_total|floatformat:2 }}</strong></h4>
-            </div>
-        </div>
-    </div>
+<h6><strong>Bag Total: ${{ total|floatformat:2 }}</strong></h6>
+<h6>Delivery: ${{ delivery|floatformat:2 }}</h6>
+<h4 class="mt-4"><strong>Grand Total: ${{ grand_total|floatformat:2 }}</strong></h4>
 {% if free_delivery_delta > 0 %}
     <p class="mb-1 text-danger">
         You could get free delivery by spending just <strong>${{ free_delivery_delta }}</strong> more!
