@@ -1,1 +1,1 @@
-web: gunicorn hair_hotty.wsgi:application
+web: gunicorn hair_hotty.wsgi
