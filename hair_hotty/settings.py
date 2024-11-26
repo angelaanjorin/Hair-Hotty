@@ -32,7 +32,10 @@ DEVELOPMENT = os.environ.get('DEVELOPMENT', False)
 DEBUG = DEVELOPMENT
 
 
-CSRF_TRUSTED_ORIGINS = ['https://*.gitpod.io']
+CSRF_TRUSTED_ORIGINS = [
+    'https://*.gitpod.io', 
+    'https://app-hairhotty-9ddf6a2299e6.herokuapp.com/',
+]
 
 ALLOWED_HOSTS = [ 
     'localhost',
