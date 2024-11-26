@@ -80,8 +80,8 @@ def all_products(request):
         wishlist_products = Wishlist.objects.filter(user=profile)
     
     # Add the information about whether each product is in the user's wishlist
-    for product in products:
-        product.is_in_wishlist = wishlist_products.filter(product=product).exists()
+    #for product in products:
+        #product.is_in_wishlist = wishlist_products.filter(product=product).exists()
 
     context = {
         'products': products,
