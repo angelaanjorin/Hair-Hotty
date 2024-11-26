@@ -28,8 +28,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get('SECRET_KEY', '')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEVELOPMENT = os.environ.get('DEVELOPMENT', False)
-DEBUG = DEVELOPMENT
+#DEVELOPMENT = os.environ.get('DEVELOPMENT', False)
+#DEBUG = DEVELOPMENT
+DEBUG = False
 
 
 CSRF_TRUSTED_ORIGINS = [
