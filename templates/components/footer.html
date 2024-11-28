@@ -1,94 +1,183 @@
 {% load static %}
 <div class="container">
-    <footer class="py-5">
-      <div class="row"id="footer-links">
-        <div class="col-6 col-md-2 mb-3">
-          <h5>SERVICES</h5>
-          <ul class="nav flex-column">
-            <li class="nav-item mb-2"><a href="{% url 'contact' %}" class="nav-link p-0">Customer Service</a></li>
-            <li class="nav-item mb-2"><a href="{% url 'returns' %}" class="nav-link p-0">Returns</a></li>
-            <li class="nav-item mb-2"><a href="{% url 'contact' %}" class="nav-link p-0">Contact Us</a></li>
-          </ul>
-        </div>
-  
-        <div class="col-6 col-md-2 mb-3">
-          <h5>ABOUT US</h5>
-          <ul class="nav flex-column">
-            <li class="nav-item mb-2"><a href="{% url 'home' %}" class="nav-link p-0">Home</a></li>
-            <li class="nav-item mb-2"><a href="{% url 'about' %}" class="nav-link p-0">About Us</a></li>
-            <li class="nav-item mb-2"><a href="{% url 'faq_page' %}" class="nav-link p-0">FAQs</a></li>
-            <li class="nav-item mb-2"><a href="{% url 'privacy_policy' %}" class="nav-link p-0">Privacy Policy</a></li>
-          </ul>
-        </div>
-  
-        <div class="col-6 col-md-2 mb-3">
-          <h5>SHOP</h5>
-          <ul class="nav flex-column">
-            <li class="nav-item mb-2"><a href="{% url 'products' %}?category=hair_wigs" class="nav-link p-0">Hair Wigs</a></li>
-            <li class="nav-item mb-2"><a href="{% url 'products' %}?category=hair_extensions" class="nav-link p-0">Hair Extensions</a></li>
-            <li class="nav-item mb-2"><a href="{% url 'products' %}?category=hair_produce" class="nav-link p-0">Hair Produce</a></li>
-            <li class="nav-item mb-2"><a href="{% url 'products' %}?category=hair_utensils" class="nav-link p-0">Hair Utensils</a></li>
-            <li class="nav-item mb-2"><a href="#" class="nav-link p-0">Events</a></li>
-          </ul>
-        </div>
-        <div class="col-md-5 offset-md-1 mb-3" id="mc_embed_shell">
-          <div id="mc_embed_signup">
-              <form action="https://herokuapp.us11.list-manage.com/subscribe/post?u=a68a0d8673d5b81e22ffaf851&amp;id=da217b77ec&amp;f_id=000e9ae0f0" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank">
-          
-                <h2>Subscribe</h2>
-                <p>Monthly digest of what's new and exciting from us.</p>
-                <div class = "d-flex flex-column flex-sm-row w-100 gap-2"></div>
-                      <div class="indicates-required"><span class="asterisk">*</span> indicates required</div>
-                      <div class="mc-field-group">
-                        <label for="mce-EMAIL">Email Address <span class="asterisk">*</span></label>
-                        <input type="email" name="EMAIL" class="required email" id="mce-EMAIL" required="" value="">
-                      </div>
-                      <div id="mce-responses" class="clear foot">
-                          <div class="response" id="mce-error-response" style="display: none;"></div>
-                          <div class="response" id="mce-success-response" style="display: none;"></div>
-                      </div>
-              <div aria-hidden="true" style="position: absolute; left: -5000px;">
-                  /* real people should not fill this in and expect good things - do not remove this or risk form bot signups */
-                  <input type="text" name="b_a68a0d8673d5b81e22ffaf851_da217b77ec" tabindex="-1" value="">
-              </div>
-                  <div class="optionalParent">
-                      <div class="clear foot">
-                          <input type="submit" name="subscribe" id="mc-embedded-subscribe" class="button" value="Subscribe">
-                          <p style="margin: 0px auto;"><a href="http://eepurl.com/i46O-E" title="Mailchimp - email marketing made easy and fun"><span style="display: inline-block; background-color: transparent; border-radius: 4px;"><img class="refferal_badge" src="https://digitalasset.intuit.com/render/content/dam/intuit/mc-fe/en_us/images/intuit-mc-rewards-text-dark.svg" alt="Intuit Mailchimp" style="width: 220px; height: 40px; display: flex; padding: 2px 0px; justify-content: center; align-items: center;"></span></a></p>
-                      </div>
-                  </div>
-              </div>
-          </form>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-5 offset-md-1 mb-3">
-        <form>
-          <h5>Subscribe to our newsletter</h5>
-          <p>Monthly digest of what's new and exciting from us.</p>
-          <div class="d-flex flex-column flex-sm-row w-100 gap-2">
-            <label for="newsletter1" class="visually-hidden">Email address</label>
-            <input id="newsletter1" type="text" class="form-control" placeholder="Email address">
-            <button class="btn btn-gray text-uppercase" type="submit">Subscribe</button>
-          </div>
-        </form>
-      </div>
-       
-      <div class="d-flex flex-column flex-sm-row justify-content-between py-4 my-4 border-top">
-        <p>© 2024 Hair Hotty. All rights reserved.</p>
-        <ul class="list-unstyled d-flex" id="social-links">
-            <li class="ms-3">
-                <a href="https://www.facebook.com/profile.php?id=100064214191331" target="_blank" rel="noopener"
-                class="me-4 text-reset text-white" aria-label="Link to Facebook">
-                <i class="fab fa-facebook-f"></i>
-                </a></li>
-              <li class="ms-3"><a href="https://www.instagram.com/hairhotty/" target="_blank" rel="noopener" class="me-4 text-reset" aria-label="Link to Instagram">
-                <i class="fab fa-instagram"></i>
-              </a></li>
-              <li class="ms-3"><a href="https://www.pinterest.com/" target="_blank" rel="noopener" class="me-4 text-reset" aria-label="Link to Pinterest">
-                <i class="fab fa-pinterest"></i>
-            </a></li>
+  <footer class="py-5">
+    <div class="row" id="footer-links">
+      <div class="col-6 col-md-2 mb-3">
+        <h5>SERVICES</h5>
+        <ul class="nav flex-column">
+          <li class="nav-item mb-2">
+            <a href="{% url 'contact' %}" class="nav-link p-0">Customer Service</a>
+          </li>
+          <li class="nav-item mb-2">
+            <a href="{% url 'returns' %}" class="nav-link p-0">Returns</a>
+          </li>
+          <li class="nav-item mb-2">
+            <a href="{% url 'contact' %}" class="nav-link p-0">Contact Us</a>
+          </li>
         </ul>
       </div>
-    </footer>
+
+      <div class="col-6 col-md-2 mb-3">
+        <h5>ABOUT US</h5>
+        <ul class="nav flex-column">
+          <li class="nav-item mb-2">
+            <a href="{% url 'home' %}" class="nav-link p-0">Home</a>
+          </li>
+          <li class="nav-item mb-2">
+            <a href="{% url 'about' %}" class="nav-link p-0">About Us</a>
+          </li>
+          <li class="nav-item mb-2">
+            <a href="{% url 'faq_page' %}" class="nav-link p-0">FAQs</a>
+          </li>
+          <li class="nav-item mb-2">
+            <a href="{% url 'privacy_policy' %}" class="nav-link p-0">Privacy Policy</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="col-6 col-md-2 mb-3">
+        <h5>SHOP</h5>
+        <ul class="nav flex-column">
+          <li class="nav-item mb-2">
+            <a href="{% url 'products' %}?category=hair_wigs" class="nav-link p-0">Hair Wigs</a>
+          </li>
+          <li class="nav-item mb-2">
+            <a href="{% url 'products' %}?category=hair_extensions" class="nav-link p-0">Hair Extensions</a>
+          </li>
+          <li class="nav-item mb-2">
+            <a href="{% url 'products' %}?category=hair_produce" class="nav-link p-0">Hair Produce</a>
+          </li>
+          <li class="nav-item mb-2">
+            <a href="{% url 'products' %}?category=hair_utensils" class="nav-link p-0">Hair Utensils</a>
+          </li>
+          <li class="nav-item mb-2">
+            <a href="#" class="nav-link p-0">Events</a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Mailchimp -->
+      <div class="col-md-5 offset-md-1 mb-3">
+        
+        <div id="mc_embed_shell" class="d-flex justify-content-center flex-wrap">
+          <div id="mc_embed_signup">
+            <form
+              action="https://herokuapp.us21.list-manage.com/subscribe/post?u=9578948f3ccf0308ede4bdb1e&amp;id=f0a8e6ba48&amp;f_id=00fdede6f0"
+              method="post"
+              id="mc-embedded-subscribe-form"
+              name="mc-embedded-subscribe-form"
+              class="validate"
+              target="_blank"
+            >
+              <h5>Subscribe to our Newsletter</h5>
+              <p>Monthly digest of what's new and exciting from us.</p>
+              <div id="mc_embed_signup_scroll">
+                <div class="mc-field-group">
+                  <input
+                    type="email"
+                    name="EMAIL"
+                    class="required email form-control"
+                    placeholder="Email*"
+                    id="mce-EMAIL"
+                    required=""
+                    value=""
+                  />
+                  <label for="mce-EMAIL" class="form-label"></label>
+                  <span id="mce-EMAIL-HELPERTEXT" class="helper_text"></span>
+                </div>
+                <div id="mce-responses" class="clear foot">
+                  <div class="response" id="mce-error-response" style="display: none;"></div>
+                  <div class="response" id="mce-success-response" style="display: none;"></div>
+                </div>
+                <div aria-hidden="true" style="position: absolute; left: -5000px;">
+                  <input
+                    type="text"
+                    name="b_9578948f3ccf0308ede4bdb1e_f0a8e6ba48"
+                    tabindex="-1"
+                    value=""
+                  />
+                </div>
+                <div class="optionalParent">
+                  <div class="clear foot">
+                    <input
+                      type="submit"
+                      name="subscribe"
+                      id="mc-embedded-subscribe"
+                      class="button"
+                      value="Subscribe"
+                    />
+                    <p style="margin: 0px auto;">
+                      <a
+                        target="_blank"
+                        rel="noopener"
+                        href="http://eepurl.com/iE4wCA"
+                        title="Mailchimp - email marketing made easy and fun"
+                      >
+                        <span
+                          style="display: inline-block; background-color: transparent; border-radius: 4px;"
+                        >
+                          <img
+                            class="refferal_badge"
+                            src="https://digitalasset.intuit.com/render/content/dam/intuit/mc-fe/en_us/images/intuit-mc-rewards-text-light.svg"
+                            alt="Intuit Mailchimp"
+                            style="
+                              height: 40px;
+                              display: flex;
+                              padding: 2px 0px;
+                              justify-content: center;
+                              align-items: center;
+                            "
+                          />
+                        </span>
+                      </a>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <!-- Mailchimp end -->
+    </div>
+
+    <div class="d-flex flex-column flex-sm-row justify-content-between py-4 my-4 border-top">
+      <p>© 2024 Hair Hotty. All rights reserved.</p>
+      <ul class="list-unstyled d-flex" id="social-links">
+        <li class="ms-3">
+          <a
+            href="https://www.facebook.com/profile.php?id=100064214191331"
+            target="_blank"
+            rel="noopener"
+            class="me-4 text-reset text-white"
+            aria-label="Link to Facebook"
+          >
+            <i class="fab fa-facebook-f"></i>
+          </a>
+        </li>
+        <li class="ms-3">
+          <a
+            href="https://www.instagram.com/hairhotty/"
+            target="_blank"
+            rel="noopener"
+            class="me-4 text-reset"
+            aria-label="Link to Instagram"
+          >
+            <i class="fab fa-instagram"></i>
+          </a>
+        </li>
+        <li class="ms-3">
+          <a
+            href="https://www.pinterest.com/"
+            target="_blank"
+            rel="noopener"
+            class="me-4 text-reset"
+            aria-label="Link to Pinterest"
+          >
+            <i class="fab fa-pinterest"></i>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </footer>
 </div>
