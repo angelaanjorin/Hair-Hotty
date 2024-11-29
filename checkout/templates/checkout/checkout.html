@@ -32,7 +32,7 @@
                     <div class="col-7 offset-2">
                         <p class="mb-1 mt-0 small text-muted">Item</p>
                     </div>
-                    <div class="col-3 text-right">
+                    <div class="col-3 text-center">
                         <p class="mb-1 mt-0 small text-muted">Subtotal</p>
                     </div>
                 </div>
@@ -52,13 +52,13 @@
                             <p class="my-0 small">Size: {% if item.product.has_sizes %}{{ item.size|upper }}{% else %}N/A{% endif %}</p>
                             <p class="my-0 small text-muted">Qty: {{ item.quantity }}</p>
                         </div>
-                        <div class="col-3 text-right">
+                        <div class="col-3 text-center">
                             <p class="my-0 small text-muted">${{ item.product.price | calc_subtotal:item.quantity }}</p>
                         </div>
                     </div>
                 {% endfor %}
                 <hr class="my-0">
-                <div class="row text-black text-end">
+                <div class="row text-black text-center">
                     <div class="col-7 offset-2">
                         {% if discount_amount > 0 %}
                         <p class="my-0 text-success fw-bold">Discount:</p>
@@ -69,10 +69,10 @@
                     </div>
                     <div class="col-3 text-center">
                         {% if discount_amount > 0 %}
-                        <p class="my-0 text-success fw-bold">- €{{ discount_amount | floatformat:2 }}</p>
+                        <p class="my-0 text-success fw-bold">- ${{ discount_amount | floatformat:2 }}</p>
                         {% endif %}
-                        <p class="my-0">€{{ total | floatformat:2 }}</p>
-                        <p class="my-0">€{{ delivery_fee | floatformat:2 }}</p>
+                        <p class="my-0">${{ total | floatformat:2 }}</p>
+                        <p class="my-0">${{ delivery | floatformat:2 }}</p>
                         <p class="my-0"><strong>€{{ grand_total | floatformat:2 }}</strong></p>
                     </div>
                 </div>
