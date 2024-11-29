@@ -112,12 +112,17 @@ class Product(models.Model):
             #If there is no sale price then clear it
             self.sale_price = None
 
-        if self.has_sizes:
-            #if the product has sizes then calculate total stock from size associated stock
-            self.stock_amount = sum(
-                size.stock for size in self.sizes.all()
-            )
+        # Update 'has_sizes' field based on ProductSize records
+        if self.sizes.exists():
+            self.has_sizes = True
         else:
-            self.sizes.all().delete()
+            self.has_sizes = False
+
+        # Recalculate the total stock for the product, considering the sizes.
+        if self.has_sizes:
+            self.stock_amount = sum(size.stock for size in self.sizes.all())
+        else:
+            self.stock_amount = 0
 
         super().save(*args, **kwargs)
+

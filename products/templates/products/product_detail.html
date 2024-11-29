@@ -68,8 +68,8 @@
                 <!--Stock amount with consideration for sizes if applicable-->
                 <div class="stock d-flex">
                     {% if product.has_sizes %}
+        
                         <p class="in-stock-label mb-2"><strong>Stock Availability:</strong></p>
-                    
                         <p id="stock-display" class="text-muted">Select a size to view stock.</p>
                         <ul id="stock-list" class="d-none">
                             {% for size in sizes %}
@@ -109,13 +109,14 @@
                         {% if s %}
                             <div class="col-12">
                                 <p><strong>Size:</strong></p>
-                                <select class="form-control rounded-0 w-50" name="product_size" id='id_product_size'>
-                                    <option value="xs">XS</option>
-                                    <option value="s">S</option>
-                                    <option value="m" selected>M</option>
-                                    <option value="l">L</option>
-                                    <option value="xl">XL</option>
-                                </select>
+                                <select class="form-control rounded-0 w-50" name="product_size" id="id_product_size" onchange="updateStockDisplay()">
+                                    <option value="" disabled selected>Select a size</option>
+                                    {% for size in sizes %}
+                                        <option value="{{ size.size }}" data-stock="{{ size.stock }}">
+                                            {{ size.size|upper }}
+                                        </option>
+                                    {% endfor %}
+                                </select> 
                             </div>
                         {% endif %}
                         <div class="col-12">
