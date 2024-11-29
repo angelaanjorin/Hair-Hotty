@@ -2,11 +2,11 @@
 {% load i18n %}
 {% load allauth account %}
 {% block head_title %}
-    {% translate "Sign In" %}
+    {% translate "Login" %}
 {% endblock head_title %}
 {% block content %}
     {% element h1 %}
-        {% translate "Enter Sign-In Code" %}
+        {% translate "Enter Login Code" %}
     {% endelement %}
     {% setvar email_link %}
         <a href="mailto:{{ email }}">{{ email }}</a>
@@ -24,7 +24,7 @@
         {% endslot %}
         {% slot actions %}
             {% element button type="submit" tags="prominent,login" %}
-                {% translate "Sign In" %}
+                {% translate "Login" %}
             {% endelement %}
         {% endslot %}
     {% endelement %}
