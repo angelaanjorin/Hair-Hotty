@@ -4,6 +4,7 @@ from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from django.db.models.functions import Lower
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
+from django.db.models import Sum
 
 from .models import Product, Category
 from .forms import ProductForm
@@ -79,9 +80,6 @@ def all_products(request):
         # Fetch the wishlist items for the user
         wishlist_products = Wishlist.objects.filter(user=profile)
     
-    # Add the information about whether each product is in the user's wishlist
-    #for product in products:
-        #product.is_in_wishlist = wishlist_products.filter(product=product).exists()
 
     context = {
         'products': products,
@@ -129,6 +127,9 @@ def product_detail(request, product_id):
         if Wishlist.objects.filter(user=profile, product=product).exists():
             wishlist = True
 
+    # Fetch size-specific stock data if the product has sizes
+    sizes = product.sizes.all() if product.has_sizes else None
+
     # reviews
     review_form = ReviewForm()
     reviews = Review.objects.all().filter(
@@ -137,6 +138,7 @@ def product_detail(request, product_id):
     
     context = {
         'product': product,
+        'sizes' : sizes,
         'reviews': reviews,
         'wishlist': wishlist,
         'review_form' : review_form,

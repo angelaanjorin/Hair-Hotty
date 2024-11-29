@@ -3,6 +3,36 @@ from django.core.validators import MaxValueValidator, MinValueValidator
 import uuid
 
 
+class ProductSize(models.Model):
+    """
+    Model to manage sizes and stock amounts for products.
+    """
+    SIZE_CHOICES = [
+        ('XS', 'Extra Small'),
+        ('S', 'Small'),
+        ('M', 'Medium'),
+        ('L', 'Large'),
+        ('XL', 'Extra Large'),
+    ]
+
+    product = models.ForeignKey(
+        'Product',
+        on_delete=models.CASCADE,
+        related_name='sizes'
+    )
+    size = models.CharField(max_length=2, choices=SIZE_CHOICES)
+    stock = models.IntegerField(
+        default=0, validators=[MinValueValidator(0), MaxValueValidator(1000)]
+    )
+
+    class Meta:
+        unique_together = ('product', 'size')  # Ensure unique size for each product
+
+    def __str__(self):
+        return f"{self.product.name} - {self.size} (Stock: {self.stock})"
+        
+
+
 class Category(models.Model):
 
     class Meta:
@@ -16,6 +46,7 @@ class Category(models.Model):
 
     def get_friendly_name(self):
         return self.friendly_name
+
 
 class Product(models.Model):
     category = models.ForeignKey('Category', null=True, blank=True, on_delete=models.SET_NULL)
@@ -71,8 +102,22 @@ class Product(models.Model):
         return self.price
 
     def save(self, *args, **kwargs):
+        #Set the discount value based on price and sale_price
         self.discount = self.price_discount
+        
+        #Check for stock staus
         self.in_stock = self.product_in_stock
+        
         if not self.on_sale:
-            self.sale_price = 0
+            #If there is no sale price then clear it
+            self.sale_price = None
+
+        if self.has_sizes:
+            #if the product has sizes then calculate total stock from size associated stock
+            self.stock_amount = sum(
+                size.stock for size in self.sizes.all()
+            )
+        else:
+            self.sizes.all().delete()
+
         super().save(*args, **kwargs)

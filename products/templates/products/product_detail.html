@@ -65,12 +65,24 @@
                     <p style="font-size: 2rem;">${{ product.price }}</p>
                 </div>
                 {% endif %}
-                <div class="stock d-flex ">
-                    {% if product.in_stock %}
-                    <p class="in-stock-label me-3"> <strong>IN STOCK</strong></p>
-                    <p class="p-2 mb-0"> <strong>{{ product.stock_amount }}</strong></p>
+                <!--Stock amount with consideration for sizes if applicable-->
+                <div class="stock d-flex">
+                    {% if product.has_sizes %}
+                        <p class="in-stock-label mb-2"><strong>Stock Availability:</strong></p>
+                    
+                        <p id="stock-display" class="text-muted">Select a size to view stock.</p>
+                        <ul id="stock-list" class="d-none">
+                            {% for size in sizes %}
+                                <li data-size="{{ size.size }}" data-stock="{{ size.stock }}"></li>
+                            {% endfor %}
+                        </ul>
                     {% else %}
-                    <p class="out-of-stock-label"><strong>OUT OF STOCK</strong></p>
+                        {% if product.in_stock %}
+                            <p class="in-stock-label me-3"><strong>IN STOCK</strong></p>
+                            <p class="p-2 mb-0"><strong>{{ product.stock_amount }}</strong></p>
+                        {% else %}
+                            <p class="out-of-stock-label"><strong>OUT OF STOCK</strong></p>
+                        {% endif %}
                     {% endif %}
                 </div>
                 <div class="row">
