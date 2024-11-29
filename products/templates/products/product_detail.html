@@ -65,26 +65,6 @@
                     <p style="font-size: 2rem;">${{ product.price }}</p>
                 </div>
                 {% endif %}
-                <!--Stock amount with consideration for sizes if applicable-->
-                <div class="stock d-flex">
-                    {% if product.has_sizes %}
-        
-                        <p class="in-stock-label mb-2"><strong>Stock Availability:</strong></p>
-                        <p id="stock-display" class="text-muted">Select a size to view stock.</p>
-                        <ul id="stock-list" class="d-none">
-                            {% for size in sizes %}
-                                <li data-size="{{ size.size }}" data-stock="{{ size.stock }}"></li>
-                            {% endfor %}
-                        </ul>
-                    {% else %}
-                        {% if product.in_stock %}
-                            <p class="in-stock-label me-3"><strong>IN STOCK</strong></p>
-                            <p class="p-2 mb-0"><strong>{{ product.stock_amount }}</strong></p>
-                        {% else %}
-                            <p class="out-of-stock-label"><strong>OUT OF STOCK</strong></p>
-                        {% endif %}
-                    {% endif %}
-                </div>
                 <div class="row">
                     <div class="col-12">
                         <form class="product-links" method="POST" action="{% url 'wishlist_add' product.id %}">
@@ -102,22 +82,44 @@
                         </form>
                     </div>
                 </div>
+                <!--Stock amount with consideration for sizes if applicable-->
+                <div class="stock d-flex">
+                    {% if product.has_sizes %}
+                        <!--<p class="mb-2"><strong>Stock Availability:</strong></p>-->
+                    
+                        <p id="stock-display" class="in-stock-label mb-2 text-muted">Select a size to view stock.</p>
+                        <ul id="stock-list" class="d-none">
+                            {% for size in sizes %}
+                                <li data-size="{{ size.size }}" data-stock="{{ size.stock }}"></li>
+                            {% endfor %}
+                        </ul>
+                    {% else %}
+                        {% if product.in_stock %}
+                            <p class="in-stock-label me-3 text dark"><strong>IN STOCK</strong></p>
+                            <p class="p-2 mb-0"><strong>{{ product.stock_amount }}</strong></p>
+                        {% else %}
+                            <p class="out-of-stock-label"><strong>OUT OF STOCK</strong></p>
+                        {% endif %}
+                    {% endif %}
+                </div>
+            
                 <form class="form" action="{% url 'add_to_bag' product.id %}" method="POST">
                     {% csrf_token %}
                     <div class="form-row">
+                        <!-- Size Dropdown -->
                         {% with product.has_sizes as s %}
                         {% if s %}
-                            <div class="col-12">
-                                <p><strong>Size:</strong></p>
-                                <select class="form-control rounded-0 w-50" name="product_size" id="id_product_size" onchange="updateStockDisplay()">
-                                    <option value="" disabled selected>Select a size</option>
-                                    {% for size in sizes %}
-                                        <option value="{{ size.size }}" data-stock="{{ size.stock }}">
-                                            {{ size.size|upper }}
-                                        </option>
-                                    {% endfor %}
-                                </select> 
-                            </div>
+                        <div class="col-12">
+                            <p><strong>Size:</strong></p>
+                            <select class="form-control rounded-0 w-50" name="product_size" id="id_product_size" onchange="updateStockDisplay()">
+                                <option value="" disabled selected>Select a size</option>
+                                {% for size in sizes %}
+                                    <option value="{{ size.size }}" data-stock="{{ size.stock }}">
+                                        {{ size.size|upper }}
+                                    </option>
+                                {% endfor %}
+                            </select>                            
+                        </div>
                         {% endif %}
                         <div class="col-12">
                             <p class="mt-3"><strong>Quantity:</strong></p>
@@ -273,4 +275,9 @@
         </div>
     </div>
 </section>
+{% endblock %}
+
+{% block postloadjs %}
+    {{ block.super }}
+    <script type="text/javascript" src="{% static 'products/js/stock_display.js' %}"></script>
 {% endblock %}
