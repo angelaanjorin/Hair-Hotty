@@ -32,14 +32,32 @@ class ProductSize(models.Model):
         return f"{self.product.name} - {self.size} (Stock: {self.stock})"
         
 
-
-class Category(models.Model):
-
-    class Meta:
-        verbose_name_plural = 'Categories'
-        
+class PrimaryCategory(models.Model):
+    """
+    Categories that are unique to a product, like hair_wigs, hair_extensions, etc.
+    """
     name = models.CharField(max_length=254)
     friendly_name = models.CharField(max_length=254, null=True, blank=True)
+
+    class Meta:
+        verbose_name_plural = 'Primary Categories'
+
+    def __str__(self):
+        return self.name
+
+    def get_friendly_name(self):
+        return self.friendly_name
+
+
+class SpecialCategory(models.Model):
+    """
+    Optional categories like deals, new_arrivals, and best_collections.
+    """
+    name = models.CharField(max_length=254)
+    friendly_name = models.CharField(max_length=254, null=True, blank=True)
+
+    class Meta:
+        verbose_name_plural = 'Special Categories'
 
     def __str__(self):
         return self.name
@@ -49,7 +67,18 @@ class Category(models.Model):
 
 
 class Product(models.Model):
-    category = models.ForeignKey('Category', null=True, blank=True, on_delete=models.SET_NULL)
+    primary_category = models.ForeignKey(
+        PrimaryCategory,
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name='products'
+    )
+    special_categories = models.ManyToManyField(
+        SpecialCategory,
+        blank=True,
+        related_name='products'
+    )
     id = models.UUIDField(default=uuid.uuid4, unique=True, primary_key=True, editable=False)
     name = models.CharField(max_length=254)
     description = models.TextField()

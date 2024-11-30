@@ -6,7 +6,7 @@ from django.db.models.functions import Lower
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 from django.db.models import Sum
 
-from .models import Product, Category
+from .models import ProductSize, Product, PrimaryCategory, SpecialCategory
 from .forms import ProductForm
 
 from reviews.models import Review
@@ -21,7 +21,8 @@ def all_products(request):
 
     products = Product.objects.all()
     query = None
-    categories = None
+    primary_categories = None
+    special_categories = None
     sort = None
     direction = None
     deals = None
@@ -35,18 +36,22 @@ def all_products(request):
             if sortkey == 'name':
                 sortkey ='lower_name'
                 products = products.annotate(lower_name=Lower('name'))
-            if sortkey == 'category':
-                sortkey = 'category__name'
+
             if 'direction' in request.GET:
                 direction = request.GET['direction']
                 if direction == 'desc':
                     sortkey = f'-{sortkey}'
             products = products.order_by(sortkey)
 
-        if 'category' in request.GET:
-            categories = request.GET['category'].split(',')
-            products =products.filter(category__name__in=categories)
-            categories = Category.objects.filter(name__in=categories)
+        if 'primary_category' in request.GET:
+            primary_categories = request.GET['primary_category'].split(',')
+            products = products.filter(primary_category__name__in=primary_categories)
+            primary_categories = PrimaryCategory.objects.filter(name__in=primary_categories)
+
+        if 'special_category' in request.GET:
+            special_categories = request.GET['special_category'].split(',')
+            products = products.filter(special_category__name__in=special_categories)
+            special_categories = SpecialCategory.objects.filter(name__in=special_categories)
 
         if 'deals' in request.GET:
             products = products.filter(on_sale=True)
@@ -85,7 +90,8 @@ def all_products(request):
         'products': products,
         'products_count': products_count,
         'search_term' : query,
-        'current_categories' : categories,
+        'current_primary_categories' : primary_categories,
+        'current_special_categories' : speicial_categories,
         'current_sorting': current_sorting,
         'new_arrivals': new_arrivals,
         'deals': deals,
