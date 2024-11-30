@@ -9,9 +9,7 @@
             <div class="col"></div>
         </div>
     </div>
-{% endblock%}
-
-{% block extra_css %}{% endblock extra_css %}
+{% endblock %}
 
 {% block content %}
     <div class="overlay"></div>
@@ -38,11 +36,11 @@
         <div class="row d-flex justify-content-center">
             <div class="product-container col-10">
                 <!-- Product sort -->
-                 <div class="row mx-2">
+                <div class="row mx-2">
                     <div class="col-12 col-md-6 my-auto order-md-last d-flex justify-content-center justify-content-md-end">
                         <div class="sort-select-wrapper">
-                            <select class="form-select" id="sort-selector">
-                                <option value="reset" {% if current_sorting == 'None_None' %}selected{% endif %}>Sort by...</option>
+                            <select class="form-select" id="sort-selector" onchange="window.location.href = this.value;">
+                                <option value="?sort=reset" {% if current_sorting == 'None_None' %}selected{% endif %}>Sort by...</option>
                                 <option value="price_asc" {% if current_sorting == 'price_asc' %}selected{% endif %}> Price (low to high)</option>
                                 <option value="price_desc" {% if current_sorting == 'price_desc' %}selected{% endif %}>Price (high to low)</option>
                                 <option value="rating_asc" {% if current_sorting == 'rating_asc' %}selected{% endif %}>Rating (low to high)</option>
@@ -56,8 +54,16 @@
                             {{ products_count }} Products
                         </p>
                     </div>
-                 </div>
-                 <!-- Product sort end -->
+                </div>
+                <!-- Product sort end -->
+                
+                <!-- Display the chosen filters by category name-->
+                {% if category_name %}
+                    <p class="text-muted text-center">Category: {{ category_name }}</p>
+                {% elif special_category_name %}
+                    <p class="text-muted text-center">Special Category: {{ special_category_name }}</p>
+                {% endif %}
+
                 <div class="row pb-4">
                     {% for product in products %}
                     <!-- Product Card -->
@@ -170,36 +176,33 @@
             </div>
         </div>
     </div>
-     <!-- Pagination -->
-     <div class="row">
+    <!-- Pagination -->
+    <div class="row">
         <div class="col-md-12">
             {% if products.has_other_pages %}
             <ul class="pagination justify-content-center">
                 {% if products.has_previous %}
                 <li class="page-item">
-                    <a class="page-link" href="?page=1">&laquo;First</a>
+                    <a class="page-link" href="{{ full_url }}&page=1">&laquo;First</a>
                 </li>
                 <li class="page-item">
-                    <a class="page-link" href="?page={{ products.previous_page_number }}">&laquo;Previous</a>
+                    <a class="page-link" href="{{ full_url }}&page={{ products.previous_page_number }}">&laquo;Previous</a>
                 </li>
                 {% endif %}
                 <li class="page-item active" aria-current="page">
-                    <span class="page-link">Page {{ products.number }} of
-                        {{ products.paginator.num_pages }}</span>
+                    <span class="page-link">Page {{ products.number }} of {{ products.paginator.num_pages }}</span>
                 </li>
                 {% if products.has_next %}
                 <li class="page-item">
-                    <a class="page-link" href="?page={{ products.next_page_number }}">&raquo;Next</a>
+                    <a class="page-link" href="{{ full_url }}&page={{ products.next_page_number }}">&raquo;Next</a>
                 </li>
                 <li class="page-item">
-                    <a class="page-link" href="?page={{ products.paginator.num_pages }}">Last &raquo;</a>
+                    <a class="page-link" href="{{ full_url }}&page={{ products.paginator.num_pages }}">Last &raquo;</a>
                 </li>
                 {% endif %}
             </ul>
             {% endif %}
         </div>
     </div>
-{% endblock %}
 
-{% block extra_js %}
 {% endblock%}
