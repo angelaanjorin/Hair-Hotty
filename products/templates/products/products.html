@@ -19,11 +19,19 @@
         <div class="row">
             <div class="col text-center mt-3">
                 <h2 class="logo-font">Products</h2>
-                {% for c in current_categories %}
-                    <a class="category-badge text-decoration-none" href="{% url 'products' %}?category={{ c.name }}">
-                        <span class="p-2 mt-2 badge badge-white text-black rounded-0 border border-dark">{{ c.friendly_name }}</span>
+
+                 <!-- Category Name-->
+                {% if product.primary_category %}
+                    <a class="category-badge text-decoration-none" href="{% url 'products' %}?primary_category={{ primary_category.name }}">
+                        <span class="p-2 mt-2 badge badge-white text-black rounded-0 border border-dark">{{ product.primary_category.friendly_name }}</span>
                     </a>
-                {% endfor %}
+                {% else %}
+                    <a class="category-badge text-decoration-none" href="{% url 'products' %}?special_category={{ special_category.name }}">
+                        <span class="p-2 mt-2 badge badge-white text-black rounded-0 border border-dark">{{ product.special_category.friendly_name }}</span>
+                    </a>
+                {% endif %}
+               
+
                 <hr class= "mb-1">
             </div>
         </div>
@@ -39,12 +47,11 @@
                                 <option value="price_desc" {% if current_sorting == 'price_desc' %}selected{% endif %}>Price (high to low)</option>
                                 <option value="rating_asc" {% if current_sorting == 'rating_asc' %}selected{% endif %}>Rating (low to high)</option>
                                 <option value="rating_desc" {% if current_sorting == 'rating_desc' %}selected{% endif %}>Rating (high to low)</option>
-                                <option value="category_asc" {% if current_sorting == 'category_asc' %}selected{% endif %}>Category (A-Z)</option>
-                                <option value="category_desc" {% if current_sorting == 'category_desc' %}selected{% endif %}>Category (Z-A)</option>
                             </select>
                         </div>
                     </div>
                     <div class="col-12 col-md-6 order-md-first">
+            
                         <p class="text-muted mt-3 text-center text-md-left">
                             {{ products_count }} Products
                         </p>

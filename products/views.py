@@ -25,9 +25,11 @@ def all_products(request):
     special_categories = None
     sort = None
     direction = None
-    deals = None
-    new_arrivals = None
     wishlist_products = []
+    current_primary_categories = None
+    current_special_categories = None
+    category_name = None
+    special_category_name = None
 
     if request.GET:
         if 'sort' in request.GET:
@@ -43,23 +45,21 @@ def all_products(request):
                     sortkey = f'-{sortkey}'
             products = products.order_by(sortkey)
 
+        # Handle filtering by primary category
         if 'primary_category' in request.GET:
-            primary_categories = request.GET['primary_category'].split(',')
-            products = products.filter(primary_category__name__in=primary_categories)
-            primary_categories = PrimaryCategory.objects.filter(name__in=primary_categories)
+            category_name = request.GET['primary_category']
+            products = products.filter(primary_category__name=category_name)
+            primary_categories = PrimaryCategory.objects.filter(name=category_name)
 
+        # Handle filtering by special category
         if 'special_category' in request.GET:
-            special_categories = request.GET['special_category'].split(',')
-            products = products.filter(special_category__name__in=special_categories)
-            special_categories = SpecialCategory.objects.filter(name__in=special_categories)
+            special_category_name = request.GET['special_category']
+            products = products.filter(special_categories__name=special_category_name)
+            special_categories = SpecialCategory.objects.filter(name=special_category_name)
 
         if 'deals' in request.GET:
             products = products.filter(on_sale=True)
             deals = True
-
-        if 'new_arrivals' in request.GET:
-            products = products[:8]
-            new_arrivals = True
             
         if 'q' in request.GET:
             query = request.GET['q']
@@ -90,11 +90,11 @@ def all_products(request):
         'products': products,
         'products_count': products_count,
         'search_term' : query,
-        'current_primary_categories' : primary_categories,
-        'current_special_categories' : speicial_categories,
+        'current_primary_categories': primary_categories,
+        'current_special_categories': special_categories,
+        'category_name': category_name,  # For primary category
+        'special_category_name': special_category_name,  # For special categories
         'current_sorting': current_sorting,
-        'new_arrivals': new_arrivals,
-        'deals': deals,
         'review_count' : review_count,
         'wishlist_products' : wishlist_products,
     }

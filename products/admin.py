@@ -29,6 +29,15 @@ class ProductAdmin(admin.ModelAdmin):
         return ", ".join([category.name for category in obj.special_categories.all()])
     get_special_categories.short_description = 'Special Categories' 
 
+    def save_model(self, request, obj, form, change):
+        """
+        Custom save_model method to ensure new products don't have default special categories.
+        """
+        is_new = obj.pk is None  # Check if the product is new
+        super().save_model(request, obj, form, change)  # Save the product
+        if is_new:
+            obj.special_categories.clear() 
+            
 
 class PrimaryCategoryAdmin(admin.ModelAdmin):
     list_display = ('friendly_name', 'name')
