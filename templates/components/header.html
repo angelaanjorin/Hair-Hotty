@@ -166,10 +166,13 @@
                             SPECIAL OFFERS
                         </a>
                         <div class="dropdown-menu border-0" aria-labelledby="specials-link">
-                            <a href="{% url 'products' %}?special_category=deals,new_arrivals,best_collections" class="dropdown-item">ALL SPECIAL OFFERS</a>
-                            <a href="{% url 'products' %}?special_category=deals" class="dropdown-item">DEALS</a>
-                            <a href="{% url 'products' %}?special_category=new_arrivals" class="dropdown-item">NEW ARRIVALS</a>
-                            <a href="{% url 'products' %}?special_category=best_collections" class="dropdown-item">BEST COLLECTIONS</a>
+                            <!-- Link for All Special Offers -->
+                            <a href="{% url 'products' %}?special_category=all_special_offers" class="dropdown-item">All Special Offers</a>
+                            
+                            <!-- Render other specific special categories dynamically -->
+                            {% for category in special_categories %}
+                            <a href="{% url 'products' %}?special_category={{ category.name }}" class="dropdown-item">{{ category.name }}</a>
+                            {% endfor %}
                         </div>
                     </li>
                     <li class="nav-item">

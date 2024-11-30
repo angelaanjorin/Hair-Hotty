@@ -48,13 +48,17 @@ def all_products(request):
         # Handle filtering by primary category
         if 'primary_category' in request.GET:
             category_name = request.GET['primary_category']
-            products = products.filter(primary_category__name=category_name)
-            primary_categories = PrimaryCategory.objects.filter(name=category_name)
+            products = products.filter(primary_category__name__in=category_name.split(','))
+            primary_categories = PrimaryCategory.objects.filter(name__in=category_name.split(','))
 
         # Handle filtering by special category
         if 'special_category' in request.GET:
             special_category_name = request.GET['special_category']
-            products = products.filter(special_categories__name=special_category_name)
+            if special_category_name == "all_special_offers":
+                # Show all products in special categories
+                products = products.filter(special_categories__isnull=False).distinct()
+            else:
+                products = products.filter(special_categories__name=special_category_name)
             special_categories = SpecialCategory.objects.filter(name=special_category_name)
 
         if 'deals' in request.GET:
@@ -97,6 +101,7 @@ def all_products(request):
         'current_sorting': current_sorting,
         'review_count' : review_count,
         'wishlist_products' : wishlist_products,
+        'special_categories': SpecialCategory.objects.all(),
     }
 
     return render(request, 'products/products.html', context)
