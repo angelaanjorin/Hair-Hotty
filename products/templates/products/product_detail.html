@@ -20,6 +20,11 @@
     <div class="row">
         <div class="col-12 col-md-6 col-lg-4 offset-lg-2">
             <div class="image-container my-5">
+                <div  class="product-grid mb-1 position-absolute">
+                    <a href="{% url 'products' %}?primary_category={{ product.primary_category.friendly_name }}" class="category-badge m-2 d-flex text-decoration-none align-items-center">
+                        <span class="p-2 weight-semibold text-uppercase badge badge-white text-black rounded-0 border border-dark">{{ product.primary_category.friendly_name }}</span>
+                    </a>
+                </div>
                 {% if product.image %}
                     <a href="{{ product.image.url }}" target="_blank">
                         <img class="card-img-top img-fluid" src="{{ product.image.url }}" alt="{{ product.name }}">
@@ -41,13 +46,7 @@
                     </small>
                 {% endif %}
                 
-                {% if product.category %}
-                <p class="small mt-1 mb-0">
-                    <a href="{% url 'products' %}?category={{ product.category.name }}" class="category-badge  d-flex text-decoration-none align-items-center">
-                        <span class="p-2 weight-semibold text-uppercase badge badge-white text-black rounded-0 border border-dark">{{ product.category.friendly_name }}</span>
-                    </a>
-                </p>
-                {% endif %}
+                <!--Reviews-->
                 {% if review_count %}
                     <small class="text-muted">
                         <i class="fas fa-star me-2 fa-solid" style="color:gold"></i>

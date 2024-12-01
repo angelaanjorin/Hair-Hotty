@@ -30,6 +30,8 @@ def all_products(request):
     current_special_categories = None
     category_name = None
     special_category_name = None
+    category_friendly_name = None
+    special_category_friendly_name = None
 
     if request.GET:
         if 'sort' in request.GET:
@@ -50,6 +52,10 @@ def all_products(request):
             category_name = request.GET['primary_category']
             products = products.filter(primary_category__name__in=category_name.split(','))
             primary_categories = PrimaryCategory.objects.filter(name__in=category_name.split(','))
+            # Fetch friendly name for display
+            category_friendly_name = ', '.join(
+                primary_categories.values_list('friendly_name', flat=True)
+            )
 
         # Handle filtering by special category
         if 'special_category' in request.GET:
@@ -59,7 +65,10 @@ def all_products(request):
                 products = products.filter(special_categories__isnull=False).distinct()
             else:
                 products = products.filter(special_categories__name=special_category_name)
-            special_categories = SpecialCategory.objects.filter(name=special_category_name)
+                special_categories = SpecialCategory.objects.filter(name=special_category_name)
+                # Fetch friendly name for display
+                if special_categories.exists():
+                    special_category_friendly_name = special_categories.first().friendly_name
 
         if 'deals' in request.GET:
             products = products.filter(on_sale=True)
@@ -96,8 +105,10 @@ def all_products(request):
         'search_term' : query,
         'current_primary_categories': primary_categories,
         'current_special_categories': special_categories,
-        'category_name': category_name,  # For primary category
-        'special_category_name': special_category_name,  # For special categories
+        'category_name': category_name,  
+        'special_category_name': special_category_name,  
+        'category_friendly_name': category_friendly_name,  
+        'special_category_friendly_name': special_category_friendly_name,
         'current_sorting': current_sorting,
         'review_count' : review_count,
         'wishlist_products' : wishlist_products,

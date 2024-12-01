@@ -410,6 +410,11 @@ input.qty-input-sm {
 }
 
 /*All Products page*/
+a.shop-badge > h2.badge:hover {
+    background: var(--dark) !important;
+    color: #fff !important;
+}
+
 .prodcut-card .product-image a.image {
     display: block;
 }

@@ -16,17 +16,17 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col text-center mt-3">
-                <h2 class="logo-font">Products</h2>
-
-                 <!-- Category Name-->
-                {% if product.primary_category %}
-                    <a class="category-badge text-decoration-none" href="{% url 'products' %}?primary_category={{ primary_category.name }}">
-                        <span class="p-2 mt-2 badge badge-white text-black rounded-0 border border-dark">{{ product.primary_category.friendly_name }}</span>
-                    </a>
-                {% else %}
-                    <a class="category-badge text-decoration-none" href="{% url 'products' %}?special_category={{ special_category.name }}">
-                        <span class="p-2 mt-2 badge badge-white text-black rounded-0 border border-dark">{{ product.special_category.friendly_name }}</span>
-                    </a>
+                <a class= "shop-badge" href="{% url 'products' %}?all_products=true" class="text-decoration-none">
+                    <h2 class="logo-font p-2 badge badge-white text-black rounded-0 border border-dark">
+                        SHOP
+                    </h2>
+                </a>
+                
+                <!-- Category Name-->
+                {% if category_friendly_name %}
+                    <h5 >{{ category_friendly_name }}</h5>
+                {% elif special_category_friendly_name %}
+                    <h5>{{ special_category_friendly_name }}</h5>
                 {% endif %}
                
 
@@ -56,13 +56,6 @@
                     </div>
                 </div>
                 <!-- Product sort end -->
-                
-                <!-- Display the chosen filters by category name-->
-                {% if category_name %}
-                    <p class="text-muted text-center">Category: {{ category_name }}</p>
-                {% elif special_category_name %}
-                    <p class="text-muted text-center">Special Category: {{ special_category_name }}</p>
-                {% endif %}
 
                 <div class="row pb-4">
                     {% for product in products %}
@@ -70,8 +63,8 @@
                         <div class="col-md-6 col-lg-4 gy-3">
                             <div class="card shadow product-card h-100">
                                 <div  class="product-grid mb-1 position-absolute">
-                                    <a href="{% url 'products' %}?category={{ product.category.name }}" class="category-badge m-2 d-flex text-decoration-none align-items-center">
-                                        <span class="p-2 weight-semibold text-uppercase badge badge-white text-black rounded-0 border border-dark">{{ product.category.friendly_name }}</span>
+                                    <a href="{% url 'products' %}?primary_category={{ product.primary_category.friendly_name }}" class="category-badge m-2 d-flex text-decoration-none align-items-center">
+                                        <span class="p-2 weight-semibold text-uppercase badge badge-white text-black rounded-0 border border-dark">{{ product.primary_category.friendly_name }}</span>
                                     </a>
                                     <form class="product-links" method="POST" action="{% url 'wishlist_add' product.id %}">
                                         {% csrf_token %}
@@ -110,18 +103,7 @@
                                 <div class="card-body bg-ib-white pb-2">
                                     <h2 class="text-uppercase text-center weight-semibold text-ib-dark">{{ product.name }}</h2>
                                 </div>
-                                <!--Add to bag -->
-                                <form action="{% url 'add_to_bag' product.id %}" method="POST">
-                                    {% csrf_token %}
-                                        <input type="hidden" name="quantity" value="1">
-                                    {% if product.in_stock %}
-                                        <input type="submit" class="btn btn-cordovan add_to_bag rounded-0 text-uppercase" value="Add To Bag">
-                                    {% else %}
-                                        <input type="submit" class="btn-gray add_to_bag" value="Out of stock" disabled>
-                                    {% endif %}
-                                        <input type="hidden" name="redirect_url" value="{{ request.get_full_path }}">
-                                </form>
-                                <!-- Card Footer - Rating, Price & Edit/Delete -->
+                            
                                 <div class="card-footer pt-0 pb-3">
 
                                     <div class="row">
@@ -129,10 +111,20 @@
                                             
                                             <!-- Product Rating -->
                                             <div class="rating-div pe-0">
-                                                {% if review_count %}
+                                                {% if product.rating %}
                                                     <small class="text-muted">
-                                                        <i class="fas fa-star me-2 fa-solid" style="color:gold"></i>
-                                                        {{ product.rating }}/5 of {{ review_count }} REVIEW{% if review_count != 1 %}S{% endif %}
+                                                        <!-- Display numeric rating -->
+                                                        <span>{{ product.rating }}</span>
+
+                                                        {% for i in "12345" %}
+                                                            {% if forloop.counter <= product.rating|default:0 %}
+                                                                <!-- Filled star -->
+                                                                <i class="fas fa-star fa-solid" style="color:gold;"></i>
+                                                            {% else %}
+                                                                <!-- Empty star -->
+                                                                <i class="far fa-star" style="color:gold;"></i>
+                                                            {% endif %}
+                                                        {% endfor %}
                                                     </small>
                                                 {% else %}
                                                     <small class="text-muted">No reviews yet.</small>
