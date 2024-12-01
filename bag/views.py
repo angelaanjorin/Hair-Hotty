@@ -26,27 +26,56 @@ def add_to_bag(request, item_id):
     size = None
     if 'product_size' in request.POST:
         size = request.POST['product_size']
+
     bag = request.session.get('bag', {})
 
     if size:
-        if item_id in list(bag.keys()):
-            if size in bag[item_id]['items_by_size'].keys():
+        # For products with sizes
+        product_size = product.sizes.filter(size=size).first()
+        if not product_size:
+            messages.error(request, "Selected size is not available.")
+            return redirect(redirect_url)
+
+        current_quantity = bag.get(item_id, {}).get('items_by_size', {}).get(size, 0)
+        
+        if current_quantity + quantity > product_size.stock:
+            messages.error(request, f"Only {product_size.stock - current_quantity} left in stock for size {size.upper()}!")
+            return redirect(redirect_url)
+
+        # Add to bag logic
+        if item_id in bag:
+            if size in bag[item_id]['items_by_size']:
                 bag[item_id]['items_by_size'][size] += quantity
-                messages.success(request, f'Updated size {size.upper()} {product.name} quantity to {bag[item_id]["items_by_size"][size]}')
             else:
                 bag[item_id]['items_by_size'][size] = quantity
-                messages.success(request, f'Added size {size.upper()} {product.name} to your bag')
         else:
             bag[item_id] = {'items_by_size': {size: quantity}}
-            messages.success(request, f'Added size {size.upper()} {product.name} to your bag')
+
+        # Decrement stock
+        product_size.stock -= quantity
+        product_size.save()
+
+        messages.success(request, f"Added {quantity} of size {size.upper()} {product.name} to your bag.")
     else:
-        if item_id in list(bag.keys()):
+        # For products without sizes
+        current_quantity = bag.get(item_id, 0)
+
+        if current_quantity + quantity > product.stock_amount:
+            messages.error(request, f"Only {product.stock_amount - current_quantity} left in stock!")
+            return redirect(redirect_url)
+
+        # Add to bag logic
+        if item_id in bag:
             bag[item_id] += quantity
-            messages.success(request, f'Updated {product.name} quantity to {bag[item_id]}')
         else:
             bag[item_id] = quantity
-            messages.success(request, f'Added {product.name} to your bag')
 
+        # Decrement stock
+        product.stock_amount -= quantity
+        product.save()
+
+        messages.success(request, f"Added {quantity} of {product.name} to your bag.")
+        
     request.session['bag'] = bag
     return redirect(redirect_url)
     

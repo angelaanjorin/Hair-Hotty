@@ -84,7 +84,7 @@ class Product(models.Model):
     description = models.TextField()
     has_sizes = models.BooleanField(default=False,null=True, blank=True)
     stock_amount = models.IntegerField(
-        default=1, validators=[MinValueValidator(0), MaxValueValidator(1000)])
+        default=0, validators=[MinValueValidator(0), MaxValueValidator(1000)])
     in_stock = models.BooleanField(default=True)
     price = models.DecimalField(max_digits=6, decimal_places=2)
     discount = models.IntegerField(null=True, blank=True)
@@ -131,27 +131,28 @@ class Product(models.Model):
         return self.price
 
     def save(self, *args, **kwargs):
-        #Set the discount value based on price and sale_price
+        # Set the discount value based on price and sale_price
         self.discount = self.price_discount
         
-        #Check for stock staus
+        # Check for stock status
         self.in_stock = self.product_in_stock
         
         if not self.on_sale:
-            #If there is no sale price then clear it
+            # If there is no sale price then clear it
             self.sale_price = None
 
-        # Update 'has_sizes' field based on ProductSize records
-        if self.sizes.exists():
-            self.has_sizes = True
-        else:
-            self.has_sizes = False
+        # First, save the product to ensure it has a primary key (which is needed for related fields like sizes)
+        super().save(*args, **kwargs)
 
-        # Recalculate the total stock for the product, considering the sizes.
+        # Update 'has_sizes' field based on ProductSize records
+        self.has_sizes = self.sizes.exists()
+        
+        # If there are sizes, update stock_amount to reflect the total stock across all sizes
         if self.has_sizes:
             self.stock_amount = sum(size.stock for size in self.sizes.all())
         else:
-            self.stock_amount = 0
+            self.stock_amount = max(self.stock_amount, 0)
 
-        super().save(*args, **kwargs)
+        # Save again to update the 'has_sizes' and 'stock_amount' fields
+        super().save(update_fields=['has_sizes', 'stock_amount'])
 
