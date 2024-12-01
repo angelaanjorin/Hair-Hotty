@@ -18,12 +18,12 @@ document.addEventListener('DOMContentLoaded', function () {
                 sizeSelected = true;
 
                 if (stockAmount > 0) {
-                    stockDisplay.innerHTML = `<span class="text-white">In Stock: ${stockAmount}</span>`;
+                    stockDisplay.innerHTML = `<span class="in-stock-label text-success">In Stock: ${stockAmount}</span>`;
                     addToBagButton.disabled = false;  // Enable the button
                     addToBagButton.classList.remove("btn-not-allowed");
                     addToBagButton.classList.add("btn-cordovan");  // Change button color to cordovan
                 } else {
-                    stockDisplay.innerHTML = `<span class="text-white">Out of Stock</span>`;
+                    stockDisplay.innerHTML = `<span class="out-of-stock-label text-danger">Out of Stock</span>`;
                     addToBagButton.disabled = true;   // Disable the button
                     addToBagButton.classList.remove("btn-cordovan");
                     addToBagButton.classList.add("btn-not-allowed");  // Revert button color to disabled state

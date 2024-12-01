@@ -486,13 +486,6 @@ a.shop-badge > h2.badge:hover {
 }
 
 /* Product Detail page */
-.product-page-category {
-    color: var(--cordovan)
-}
-
-.product-page-category:hover {
-    color: var(--hot-pink);
-}
 .product-form {
     width: fit-content;
 }
@@ -529,7 +522,12 @@ button.wishlist {
     border: none;
     background-color: transparent;
 }
-
+.stock-status-label {
+    box-shadow: 2px 3px 2px 1px #8f8f8f;
+    background-color: var(--gray);
+    border-radius: 9px;
+    padding: 6px;
+}
 .in-stock-label {
     box-shadow: 2px 3px 2px 1px #8f8f8f;
     background-color: #309e30;

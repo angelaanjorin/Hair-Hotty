@@ -63,7 +63,7 @@
                         <div class="col-md-6 col-lg-4 gy-3">
                             <div class="card shadow product-card h-100">
                                 <div  class="product-grid mb-1 position-absolute">
-                                    <a href="{% url 'products' %}?primary_category={{ product.primary_category.friendly_name }}" class="category-badge m-2 d-flex text-decoration-none align-items-center">
+                                    <a href="{% url 'products' %}?primary_category={{ product.primary_category.name }}" class="category-badge m-2 d-flex text-decoration-none align-items-center">
                                         <span class="p-2 weight-semibold text-uppercase badge badge-white text-black rounded-0 border border-dark">{{ product.primary_category.friendly_name }}</span>
                                     </a>
                                     <form class="product-links" method="POST" action="{% url 'wishlist_add' product.id %}">
