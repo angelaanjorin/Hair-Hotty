@@ -58,9 +58,9 @@
                             <div><i class="fas fa-shopping-bag fa-lg" aria-hidden="true"></i></div>
                             <p class="my-0">
                                 {% if grand_total %}
-                                €{{ grand_total|floatformat:2 }}
+                                ${{ grand_total|floatformat:2 }}
                                 {% else %}
-                                €0.00
+                                $0.00
                                 {% endif %}
                             </p>
                         </div>
@@ -128,7 +128,7 @@
                                 {% if grand_total %}
                                 ${{ grand_total|floatformat:2 }}
                                 {% else %}
-                                €0.00
+                                $0.00
                                 {% endif %}
                             </p>
                         </div>
@@ -166,10 +166,9 @@
                             SPECIAL OFFERS
                         </a>
                         <div class="dropdown-menu border-0" aria-labelledby="specials-link">
-                            <!-- Render other specific special categories dynamically -->
-                            {% for category in special_categories %}
-                            <a href="{% url 'products' %}?special_category={{ category.name }}" class="dropdown-item">{{ category.friendly_name }}</a>
-                            {% endfor %}
+                            <a href="{% url 'products' %}?special_category=deals" class="dropdown-item">DEALS</a>
+                            <a href="{% url 'products' %}?special_category=new_arrivals" class="dropdown-item">NEW ARRIVALS</a>
+                            <a href="{% url 'products' %}?special_category=best_collections" class="dropdown-item">BEST COLLECTIONS</a>
                         </div>
                     </li>
                     <li class="nav-item">
