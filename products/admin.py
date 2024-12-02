@@ -8,6 +8,12 @@ class ProductSizeInline(admin.TabularInline):
     min_num = 0 
 
 
+    def has_add_permission(self, request, obj=None):
+        # Allow adding sizes only if the product has sizes
+        return obj and obj.has_sizes
+
+
+
 class ProductAdmin(admin.ModelAdmin):
     list_display = (
         'name',
@@ -17,6 +23,11 @@ class ProductAdmin(admin.ModelAdmin):
         'rating',
         'image',
     )
+    
+    def get_readonly_fields(self, request, obj=None):
+        if obj and obj.sizes.exists():
+            return ['stock_amount']
+        return super().get_readonly_fields(request, obj)
 
     inlines = [ProductSizeInline]
 

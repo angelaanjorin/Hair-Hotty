@@ -28,6 +28,13 @@ class ProductSize(models.Model):
     class Meta:
         unique_together = ('product', 'size')  # Ensure unique size for each product
 
+
+    def clean(self):
+        # Ensure only products with `has_sizes=True` have related sizes
+        if not self.product.has_sizes:
+            raise ValidationError("Cannot add sizes to a product without sizes enabled.")
+
+
     def __str__(self):
         return f"{self.product.name} - {self.size} (Stock: {self.stock})"
         
@@ -147,16 +154,21 @@ class Product(models.Model):
 
         # First, save the product to ensure it has a primary key (which is needed for related fields like sizes)
         super().save(*args, **kwargs)
-
-        # Update 'has_sizes' field based on ProductSize records
-        self.has_sizes = self.sizes.exists()
         
         # If there are sizes, update stock_amount to reflect the total stock across all sizes
-        if self.has_sizes:
+        if self.sizes.exists():
             self.stock_amount = sum(size.stock for size in self.sizes.all())
+            self.has_sizes = True
         else:
-            self.stock_amount = max(self.stock_amount, 0)
+            self.has_sizes = False
 
-            # Save again to update the 'has_sizes' and 'stock_amount' fields
-            super().save(update_fields=['has_sizes', 'stock_amount'])
+             # If no sizes, ensure stock_amount is never negative
+        if not self.has_sizes:
+            self.stock_amount = min(self.stock_amount, 0)
+
+        # Update in_stock status
+        self.in_stock = self.stock_amount > 0
+
+        # Save again to update the 'has_sizes' and 'stock_amount' fields
+        super().save(update_fields=['has_sizes', 'stock_amount'])
 
