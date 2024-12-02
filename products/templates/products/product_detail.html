@@ -181,9 +181,6 @@
                             aria-selected="true" role="tab">Description</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-black" data-bs-toggle="tab" data-bs-target="#details">Details</a>
-                    </li>
-                    <li class="nav-item">
                         <a class="nav-link text-black" data-bs-toggle="tab" data-bs-target="#reviews">Reviews</a>
                     </li>
                 </ul>
@@ -191,32 +188,6 @@
                     <div id="description" class="tab-pane fade show active">
                         <h5 class="my-2">Description:</h5>
                         <p>{{ product.description }}</p>
-                    </div>
-                    <div id="details" class="tab-pane fade">
-                        <h5 class="my-2">Details:</h5>
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-8">
-                                    <table class="table description">
-                                        <thead>
-                                            <tr>
-                                                <th colspan="2">Product Information</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>Cap Sizes:</td>
-                                                <td></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Hair color:</td>
-                                                <td></td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                     <div id="reviews" class="tab-pane fade">
                         {% if user.is_authenticated %}
