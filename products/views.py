@@ -83,8 +83,16 @@ def all_products(request):
             queries = Q(name__icontains=query) | Q(description__icontains=query)
             products = products.filter(queries)
 
+        if not sort:
+            products = products.order_by('name')
+
+    # Count of products
     products_count = products.count()
+    
+    #Paginate Products
     products = products_pagination(request, products, 6)
+    
+   
     
     current_sorting = f'{sort}_{direction}'
     
@@ -109,7 +117,7 @@ def all_products(request):
         'special_category_name': special_category_name,  
         'category_friendly_name': category_friendly_name,  
         'special_category_friendly_name': special_category_friendly_name,
-        'current_sorting': current_sorting,
+        'current_sorting':  f'{sort}_{direction}',
         'review_count' : review_count,
         'wishlist_products' : wishlist_products,
         'special_categories': SpecialCategory.objects.all(),
@@ -124,13 +132,11 @@ def products_pagination(request, products, results):
     page_number = request.GET.get('page')
 
     try:
-        products = paginator.page(page_number)
+        return paginator.page(page_number)
     except PageNotAnInteger:
-        page_number = 1
-        products = paginator.page(page_number)
+        return paginator.page(1)
     except EmptyPage:
-        page_number = paginator.num_pages
-        products = paginator.page(page_number)
+        return paginator.page(paginator.num_pages)
 
     return products
 

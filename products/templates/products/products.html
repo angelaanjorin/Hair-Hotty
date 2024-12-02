@@ -43,8 +43,9 @@
                                 <option value="?sort=reset" {% if current_sorting == 'None_None' %}selected{% endif %}>Sort by...</option>
                                 <option value="price_asc" {% if current_sorting == 'price_asc' %}selected{% endif %}> Price (low to high)</option>
                                 <option value="price_desc" {% if current_sorting == 'price_desc' %}selected{% endif %}>Price (high to low)</option>
-                                <option value="rating_asc" {% if current_sorting == 'rating_asc' %}selected{% endif %}>Rating (low to high)</option>
                                 <option value="rating_desc" {% if current_sorting == 'rating_desc' %}selected{% endif %}>Rating (high to low)</option>
+                                <option value="rating_asc" {% if current_sorting == 'rating_asc' %}selected{% endif %}>Rating (low to high)</option>
+                                
                             </select>
                         </div>
                     </div>
@@ -170,30 +171,28 @@
     </div>
     <!-- Pagination -->
     <div class="row">
-        <div class="col-md-12">
-            {% if products.has_other_pages %}
-            <ul class="pagination justify-content-center">
+        <div class="col-md-12  d-flex justify-content-center">
+            <ul class="pagination">
                 {% if products.has_previous %}
                 <li class="page-item">
-                    <a class="page-link" href="{{ full_url }}&page=1">&laquo;First</a>
+                    <a class="page-link" href="?page=1&{% for key, value in request.GET.items %}{% if key != 'page' %}{{ key }}={{ value }}&{% endif %}{% endfor %}">First</a>
                 </li>
                 <li class="page-item">
-                    <a class="page-link" href="{{ full_url }}&page={{ products.previous_page_number }}">&laquo;Previous</a>
+                    <a class="page-link" href="?page={{ products.previous_page_number }}&{% for key, value in request.GET.items %}{% if key != 'page' %}{{ key }}={{ value }}&{% endif %}{% endfor %}">Previous</a>
                 </li>
                 {% endif %}
-                <li class="page-item active" aria-current="page">
+                <li class="page-item active">
                     <span class="page-link">Page {{ products.number }} of {{ products.paginator.num_pages }}</span>
                 </li>
                 {% if products.has_next %}
                 <li class="page-item">
-                    <a class="page-link" href="{{ full_url }}&page={{ products.next_page_number }}">&raquo;Next</a>
+                    <a class="page-link" href="?page={{ products.next_page_number }}&{% for key, value in request.GET.items %}{% if key != 'page' %}{{ key }}={{ value }}&{% endif %}{% endfor %}">Next</a>
                 </li>
                 <li class="page-item">
-                    <a class="page-link" href="{{ full_url }}&page={{ products.paginator.num_pages }}">Last &raquo;</a>
+                    <a class="page-link" href="?page={{ products.paginator.num_pages }}&{% for key, value in request.GET.items %}{% if key != 'page' %}{{ key }}={{ value }}&{% endif %}{% endfor %}">Last</a>
                 </li>
                 {% endif %}
-            </ul>
-            {% endif %}
+            </ul>                        
         </div>
     </div>
 
