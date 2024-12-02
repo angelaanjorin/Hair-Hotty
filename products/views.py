@@ -2,7 +2,8 @@ from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
-from django.db.models.functions import Lower
+from django.db.models import F, Case, When, DecimalField
+#from django.db.models.functions import Lower
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 from django.db.models import Sum
 
@@ -20,6 +21,14 @@ def all_products(request):
     """" A view to show all products, including sorting and search queries"""
 
     products = Product.objects.all()
+    
+    products = products.annotate(
+        dynamic_price=Case(
+            When(on_sale=True, then=F('sale_price')),
+            default=F('price'),
+            output_field=DecimalField(),
+        )
+    )
     query = None
     primary_categories = None
     special_categories = None
@@ -37,9 +46,8 @@ def all_products(request):
         if 'sort' in request.GET:
             sortkey = request.GET['sort']
             sort = sortkey
-            if sortkey == 'name':
-                sortkey ='lower_name'
-                products = products.annotate(lower_name=Lower('name'))
+            if sortkey == 'price':
+                sortkey = 'dynamic_price'
 
             if 'direction' in request.GET:
                 direction = request.GET['direction']
