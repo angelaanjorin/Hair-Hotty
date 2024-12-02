@@ -2,6 +2,10 @@ from django.db import models
 from django.core.validators import (
     MaxValueValidator, MinValueValidator
 )
+from django.db.models.signals import post_save, post_delete
+from django.dispatch import receiver
+from django.db.models import Avg
+
 from products.models import Product
 from profiles.models import UserProfile
 
@@ -52,3 +56,20 @@ class Review(models.Model):
         """Returns review rating range"""
         return range(self.rating)
 
+
+# Signal to update product rating when a review is added or edited
+@receiver(post_save, sender=Review)
+def update_product_rating_on_save(sender, instance, **kwargs):
+    product = instance.product
+    reviews = product.reviews.all()
+    product.rating = round(reviews.aggregate(Avg('rating'))['rating__avg'], 1) if reviews.exists() else 0
+    product.save()
+
+
+# Signal to update product rating when a review is deleted
+@receiver(post_delete, sender=Review)
+def update_product_rating_on_delete(sender, instance, **kwargs):
+    product = instance.product
+    reviews = product.reviews.all()
+    product.rating = round(reviews.aggregate(Avg('rating'))['rating__avg'], 1) if reviews.exists() else 0
+    product.save()

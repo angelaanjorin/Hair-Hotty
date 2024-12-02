@@ -5,6 +5,8 @@ from django.db.models import Avg
 
 from products.models import Product
 
+from profiles.models import UserProfile
+
 from .models import Review
 from .forms import ReviewForm
 
