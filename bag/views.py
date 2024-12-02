@@ -27,8 +27,11 @@ def add_to_bag(request, item_id):
     if 'product_size' in request.POST:
         size = request.POST['product_size']
 
-    bag = request.session.get('bag', {})
+    # Choose the correct price based on sale status
+    price = product.sale_price if product.on_sale and product.sale_price else product.price
 
+    bag = request.session.get('bag', {})
+    
     if size:
         # For products with sizes
         product_size = product.sizes.filter(size=size).first()
@@ -88,6 +91,11 @@ def adjust_bag(request, item_id):
     size = None
     if 'product_size' in request.POST:
         size = request.POST['product_size']
+    
+     # Choose the correct price based on sale status
+    price = product.sale_price if product.on_sale and product.sale_price else product.price
+    print(price)
+
     bag = request.session.get('bag', {})
 
     if size:

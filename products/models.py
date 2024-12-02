@@ -115,7 +115,7 @@ class Product(models.Model):
         Determines if the product is in stock
         based on the stock amount.
         '''
-        if self.stock_amount >= 1:
+        if self.stock_amount >= 0:
             return True
         else:
             return False
@@ -131,6 +131,10 @@ class Product(models.Model):
         return self.price
 
     def save(self, *args, **kwargs):
+        # If on_sale is True, ensure sale_price is set
+        if self.on_sale and self.sale_price is None:
+            raise ValueError("Sale price must be provided if the product is on sale.")
+
         # Set the discount value based on price and sale_price
         self.discount = self.price_discount
         
@@ -153,6 +157,6 @@ class Product(models.Model):
         else:
             self.stock_amount = max(self.stock_amount, 0)
 
-        # Save again to update the 'has_sizes' and 'stock_amount' fields
-        super().save(update_fields=['has_sizes', 'stock_amount'])
+            # Save again to update the 'has_sizes' and 'stock_amount' fields
+            super().save(update_fields=['has_sizes', 'stock_amount'])
 
