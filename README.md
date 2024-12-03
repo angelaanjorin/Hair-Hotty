@@ -3,11 +3,68 @@
 
 [Link to deployed site](https://app-hairhotty-9ddf6a2299e6.herokuapp.com/)
 Hair Hotty is an online hair shop, built using Python, Django, HTML, CSS, JavaScript, Amazon S3 and Stripe. 
+If you wish to make a test purchase, you can use the following [Stripe Dummy Card](https://stripe.com/docs/testing) details:
 
-## User Experience
+- Success Card Number: 4242424242424242
+- 3D Secure Auth Number: 4000 0027 6000 3184
+- Exp Date: Any date in the future using the format MM/YY
+- CVN: any 3 digit number
+- Postcode: any 5 numerals  
 
-### User Stories
--Get from kanbaan
+Any payments made using a valid debit/credit card will not be processed and the card will not be charged. No orders made will be fulfilled.
+
+For full Admin access to Django Admin panel with relevant sign-in credentials (supplied to the evaluator only): [Hair Hotty Admin](https://app-hairhotty-9ddf6a2299e6.herokuapp.com/admin/)
+
+
+## Overview
+Hair Hotty is a products store focusing on offering the best in sustainable, long-lasting products. Hair Hotty is accessible via all browsers with full responsiveness on different screen sizes. Users are invited to:
+
+- View the store as Guests
+- Register for an Account
+- Use the stores Wishlist feature to record liked products
+- Browse products by categories, ratings and price
+- View, add and edit products in their bag
+- As registered users, view past orders
+- As registered users, view, add and edit thier reviews
+- Sign up for a monthly newsletter featuring new products and developments
+
+# UX/UI - User Experience/User Interface
+
+## Design Inspiration
+From the beginning of the project, I knew that the colour palette would have shades of purple acting as the primary colour with pops of color using shades of pink. The website is kept clean, with a good flow, using plenty of white space to draw attention to the products.
+
+
+A simple logo, created using [Canva](https://www.canva.com/) and [Favicon.io](https://favicon.io/favicon-converter/)is used as a favicon. The logo depicts two "H" representing the two aspects of the brand name Hair Hotty. Another logo with the name Hari Hotty was also created using Canva for the heading of the website.
+
+![Hair Hotty logo as Favicon](./assets/readme_images/h-Logo-12-03-2024_03_05_PM.png)  
+*Hair Hotty logo*
+
+![Hair Hotty logo for the website heading](./assets/readme_images/website-logo.png)  
+*Hair Hotty logo for heading*
+
+The images for the Hero Carousel were created using AI [Canva](https://www.canva.com/), with the first image edited in canva to highlight Halloween and discounts as this is a very good season for customers to purchase wigs. 
+
+![First Hero Images for the Carousel](./static/images/hero-banner1.png)
+- *First Hero image*
+
+![First Hero Images for the Carousel](./static/images/hero-banner2.jpg)
+- *Second Hero image*
+
+![First Hero Images for the Carousel](./static/images/hero-banner3.jpg)
+- *Third Hero image*
+
+Product images are kept clean with no backgrounds so that focus is on the product itself. Feedback is continuously provided to the user via the website's header which displays whether the user is logged in and how many items are in their bag. Message 'toasts' are also visible upon user actions to display further information. Buttons are kept similar for continuity.
+
+![Header Feedback](./assets/readme_images/headerfeedback.png)  
+*Header feedback is kept clean and intuitive*
+
+
+# Project Planning
+## Strategy Plane
+
+The primary objective was to create an e-commerce store that satisfied the assessment criteria of the Code Institute's Project 5: E-Commerce Module. The store must provide the expected functions of a responsive e-commerce store using Stripe as a payment system, user/guest views for authentication and store features, some extra features of my choosing, wishlist and Ratings/Reviews, and demonstration of some marketing/SEO skills. The User, whether paying customer or just browsing, must receive the best in UX and feel that Hair Hotty is relatable and trust-worthy. 
+
+The site's design and graphic assets were collected through various copyright-free image websites. The products images were gotten from a another hair website [Her Given Hair](https://www.hergivenhair.com/). The hero-images on the home page was created by AI on [Leonardo AI](https://leonardo.ai/). Bootstrap and Crispy Forms were used for the project's frontend to speed up the process and to keep the templates consistent. Further customisation to the buttons, forms, modals, toasts and user feedback processes were added to the project's CSS files. 
 
 ### Site Goals
 1. To provide users with a place to purchase hair products.
@@ -22,12 +79,12 @@ The project aims to develop an e-commerce website offering different hair produc
  - Reset Password
  - Browse, search and find hair products for sale
  - Add products to thier shopping bag
- - Apply discount codes
  - View product stock levels
+ - Add, edit and delete Reviews and Ratings
  - Update quantity in shopping bag
  - Delete items from shopping bag
  - Pay for items securely by using the integrated Stripe payment system
- - Save bproducts to thier wishlist
+ - Save products to thier wishlist
  - Update personal information
  - View past orders
 
@@ -39,29 +96,27 @@ Key Features:
 - An early deployment of the application will be carried out to confirm the initial setup's functionality.
 2. Products:
 - Users can view products for sale and refine them by category
-- Users can sort products by price, title, or category
+- Users can sort products by price and rating.
 - Users can view details about each product including image, description, stock level and reviews and review count
 - Search products by title or description
-- Registered users can leave reviews.
+- Registered users can leave reviews and ratings.
 3. User Authentication:
 - Users can register an account, allowing them access to all of the website's functionality.
 - Registered users can login and access wishlist, reviews, past orders and saving personal details.
 - Users can reset their password
 - Users can add or remove items from their wishlist
+- Registered users have CRUD functionality for thier reviews and ratings
 4. Orders and checkout:
 - Users can add items to their shopping bag
 - Users can update the quantity of the items in their shopping cbag
 - Users can remove products from their shopping bag
-- Users can apply discount codes
 - Users can use secure checkout functionality to pay for their items
 5. Admin functionality:
 The functionality in this section is limited to superusers or admins.
 - Admins can add products for sale.
 - Admins can delete products from the system.
 - Admins can edit products and stock levels.
-- Admins can access Orders section, where the order status can be updated.
-- Admins can sort orders by status (In Progress, Completed, Cancelled)
-- Admins can access the discount codes page, where codes can be created, deactivated or deleted.
+- Admins can access orders section in the backend.
 6. Notification Messages:
 Users will receive notification messages when performing CRUD operations, login/logout, and signup actions.
 
@@ -117,28 +172,31 @@ The below colours were used to compliment the main colours. Due to the fact that
 The User model is part of Django Allauth. The model comes with predefined fields as standard. Some of them are username, email, name, password, and more. This model is used for user authentication, hence why changes directly to this model are not advisory. The User model is connected to the UserProfile model with one to one relationship.
 
 2. UserProfile:
-The UserProfile model is a custom custom-created model to handle the user profile details. Signals are used to reflect the changes between the User and UserProfile models.
+The UserProfile model is a custom-created model to handle the user profile details.
 
-3. Category
-This model was created for the purpose of defining categories for the products
+3. PrimaryCategory
+This model was created for the purpose of defining a primary category for the products. All products should have a singel primary category (Foreignkey relationship).
 
-4. Product
-This is a custom product model. It is connected to a category as a foreign key. In addition to that it has fields for handling stock. Stock_amount holds the integer value of the stock levels. In_stock is a Boolean field which sets the product to being in stock or not. A method called product_in_stock determines if a product is in stock based on the stock_amount value. The result of this method updates the in_stock boolean field. 
+4. SpecialCategory
+This model was created so that products can have one or many special categories or none (manytomany relationship).
 
-5. Wishlist
+5. Product
+This is a custom product model. It is connected to athe PrimaryCategory as a foreign key and SpecialCategory (manytomany relationship). In addition to that it has fields for handling stock. Stock_amount holds the integer value of the stock levels. In_stock is a Boolean field which sets the product to being in stock or not. A method called product_in_stock determines if a product is in stock based on the stock_amount value. The result of this method updates the in_stock boolean field. 
+
+6. Wishlist
 This model stores products to a wishlist for authenticated users. It is connected to UserProfile and Product models as a ForeignKey
 
-8. ProductReview 
+7. Review 
 This model stores the user's reviews for a product. It is connected to the UserProfile and the Product models as a ForeignKey
 
-9. Order 
+8. Order 
 This model holds all the information of the user's order. It is connected to the UserProfile as a ForeignKey.
 
-10. OrderLineItem
+9. OrderLineItem
 This model is connected to the Order and Product as a ForeignKey. It is created for each item in the order
 
-11. DiscountCode
-This model has no specified relationship to the other models. It contains three fields - code, discount and active. It allows the admin to create discount codes, determine the amount of a discount and if the code is active. 
+
+
 
 ### Fonts
 In addition to Bootstrap 5 built in font family the below two fonts were used throughout the application
@@ -150,48 +208,44 @@ In addition to Bootstrap 5 built in font family the below two fonts were used th
 
 ![Libre Baskerville](./assets/readme_images/Libre-Baskerville-Google-Fonts-12-03-2024_01_38_PM.png)
 
-### Wireframes
-- Home
-<details>
-<summary>Home</summary>
 
-![Home]()
+## Agile Methodologies
 
-</details>
+Hair Hotty followed Agile planning methodologies to its completion. [GitHub Projects](https://github.com/users/angelaanjorin/projects/4) provided an ideal platform to create issues, boards and milestones for each of the project's Epics. Using labels I could easily identify my next task and organise them into the appropriate Milestones and Sprints. Keeping focused on individual sections as I built Hair Hotty reduced the number of bugs and human errors.
 
-- Product
+### MoSCoW Prioritization
 
-<details>
-<summary>Product</summary>
+I chose to follow the MoSCoW Prioritization method for Hair Hotty, identifying and labeling my:
 
-![product]()
+- **Must Haves**: the 'required', critical components of the project. Completing my 'Must Haves' helped me to reach the MVP (Minimum Viable Product) for this project.
+- **Should Haves**: the components that are valuable to the project but not absolutely 'vital' at the MVP stage. The 'Must Haves' must receive priority over the 'Should Haves'.
+- **Could Haves**: these are the features that are a 'bonus' to the project, it would be nice to have them in this phase, but only if the most important issues have been completed first and time allows.
+- **Won't Haves**: the features or components that either no longer fit the project's brief or are of very low priority for this release.
 
-</details>
+### Sprints
 
-### Agile Methodology
-#### Overview
-This project was created using the agile principles. As this is my second full-stack project, using agile, it was easier to identify the relevant milestones. Using the agile approach allowed me to plan all the features of the website through user stories. Each user story has acceptance criteria and tasks to clearly outline the requirements for each feature to be completed.
+My Sprints were broken down into appropriately sized chunks from the beginning and I followed them to the best of my abilities. It is difficult to quantify the time taken exactly for each sprint as running a busy household outside of the course meant the hours the project was completed in hours outside of the normal working week. I have done my best to record them below. They are representative of a general timeframe of focus on the project areas.
 
-#### Epics(Milestones)
-The user stories are grouped into nine EPICS or Milestones. An additional Milestone called Project Backlog was created to manage any additional features, bugs, or tasks that may arise during development.
+| Sprint No. | Sprint Content |
+|------------|----------------|
+|    # 1     | Initial Setup, Backend, User Authentication, Frontend and Test Deployments |
+|    # 2     | Implementing Product Management and User Cart Functionality |
+|    # 3     | Implementing Stripe Checkout Functionality |
+|    # 4     | Implementing Admin Dashboard & User Profile Functionality |
+|    # 5     | Enhanced Interactivity and Robust Validation |
+|    # 6     | Feature Completion and User Engagement Boosters |
+|    # 7     | UI/UX Optimization Sprint  |
+|    # 8     | Test Deployment and Project Completion |
+|    # 9     | Code Validation, Documentation, and Refinement  |
 
-![Milestones]()
-#### User Stories Issues
-The structure of the user story issue consists of the user story, acceptance criteria, and tasks that outline the steps that are required for this issue to be completed. During development where possible, the commit messages are connected to their corresponding issues.
+## User Stories
 
-![User Story]()
-
-![User Story]()
-
-#### MoSCoW prioritization
-This prioritization technique was used to effectively prioritize the features and requirements of the project based on their importance. The acronym "MoSCoW" stands for "Must have, Should have, Could have, and Won't have." Each category helps categorize and prioritize features to guide the development process and ensure that the most critical elements are addressed first.
-
-![MoSCoW]()
+User stories and features were recorded and managed on [GitHub Projects](https://github.com/users/angelaanjorin/projects/4)
 
 #### GitHub Projects
-The project was created using a basic Kanban Board structure, divided into columns such as Todo, In Progress, Done, and Backlog. This setup provides a clear and organized way to track the status of tasks and visualize and manage the workflow.
+The project was created using a basic Kanban Board structure, divided into columns such as Todo, In progress, Done, Won´t do and Backlog. This setup provides a clear and organized way to track the status of tasks and visualize and manage the workflow.
 
-![Project]()
+![Project](assets/readme_images/Backlog-·-hairhotty-pp5-12-03-2024_04_34_PM.png)
 
 ## Features
 #### Navbar
@@ -449,21 +503,23 @@ The website uses django allauth's built in functionality which allows the users 
 ### Business Model
 The B2C (Business-to-Consumer) ecommerce model for this online store operates as a platform catering to individual consumers looking to purchase a wide array of hair wigs, extension and utensils conveniently from their homes. This model revolves around offering a selection of different Hair wigs, extensions and accessories.
 
-The target customers for this online store encompass diverse demographics of women but mostly women of colour. 
+The target customers for this online store encompasses diverse demographics of women but mostly women of colour. 
 
 ### SEO
-- Descriptive meta tags were added to the main template, including title, description and keywords.
-- A sitemap was generated using [xml-sitemaps](https://www.xml-sitemaps.com/) This was generated using the deployed website. The file is included in the root level of the project.
-- Robots.txt file was created at the root level of the project. This file tells the search engine crawlers which URLs they can access on the website.
+Within the head's meta tags of the base template are researched keywords and a description of Hair Hotty's goal as a business. These keywords have been researched using[Wordtracker](https://www.wordtracker.com/) to ensure that both short-tail and long-tail keywords are included. Keywords such as 'hairwig', 'black hair' and 'curly hair products' aim to reach most of the market, with additional descriptive key phrases such as 'buy human hair wigs for black women' and 'buy 
+human hair half wigs for black women' to draw in users who know exactly what type of product they are looking for. Important keywords like 'human hair', 'full wigs' and 'half wigs' are present in the product names and descriptions in the hope to catch a chance to appear at the top of the customers' Google searches.
+
+In addition to this, sitemap.xml and robots.txt files are included to increase the site's visibility. These files are essential for SEO (Search Engine Optimisation). The sitemap.xml was generated using [XML Sitemap](https://www.xml-sitemaps.com/) and included in the root folder of the project. A robots.txt file was created in the root folder to instruct search engine crawlers on how to access and crawl the site's pages.
 
 
 ### Marketing
-- Using Mailchimp with thier embedded subscirption form that was customizes a possiblity for users to sign up for the monthly Newsletter is included in the Footer. This section facilitates user engagement and promotes the e-commerce store through effective email marketing and social media presence.
+- Using Mailchimp with thier embedded subscirption form that was customized and is included in the Footer, provides a possiblity for users to sign up for the monthly Newsletter. This section facilitates user engagement and promotes the e-commerce store through effective email marketing and social media presence.
 
 - Facebook Page
+A [Hair Hotty Facebook Page](https://www.facebook.com/people/Hairhotty/100064214191331/) that I have had for years was linked to this project to demonstrate promotion of the Hair Hotty store on social media. Posts informing customers of deals and new products are available on the page with the hopes of drawing in more revenue. Facebook provides an easy, minimal-step process to allow business owners to promote their business, with additional paid 'boost' features to further promote and spread the reach of the posts. Hair Hotty also offers a newsletter subscription service through MailChimp. The benefit of both of these services is that the customer is not forced to sign up to either and potentially worry that they will be spammed with an unnecessary amount of information. Hair Hotty avoids this in order to keep its brand clean and uphold its eco-friendly efforts.
 
-[Hair Hotty]()
-![Facebook Page]()
+![Hair Hotty Facebook Business Page](./assets/readme_images/-20-Hairhotty-Facebook-12-03-2024_04_23_PM.png)
+*Hair Hotty Facebook Business Page*
 
 
 ## Testing
