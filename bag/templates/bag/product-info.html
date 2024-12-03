@@ -1,2 +1,6 @@
 <p class="my-0"><strong>{{ item.product.name }}</strong></p>
-<p class="my-0"><strong>Size: </strong>{% if item.product.has_sizes %}{{ item.size|upper }}{% else %}N/A{% endif %}</p>
+<p class="my-0"><strong>Size: </strong>{% if item.product.has_sizes %}{{ item.size|upper }}- Stock: {{ item.virtual_stock }}
+    {% else %}
+        <p>Stock: {{ item.virtual_stock }}</p>
+    {% endif %}
+</p>

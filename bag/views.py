@@ -41,7 +41,7 @@ def add_to_bag(request, item_id):
 
         current_quantity = bag.get(item_id, {}).get('items_by_size', {}).get(size, 0)
         
-        if current_quantity + quantity > product_size.stock:
+        if current_quantity + quantity == product_size.stock:
             messages.error(request, f"Only {product_size.stock - current_quantity} left in stock for size {size.upper()}!")
             return redirect(redirect_url)
 

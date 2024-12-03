@@ -28,13 +28,6 @@ class ProductSize(models.Model):
     class Meta:
         unique_together = ('product', 'size')  # Ensure unique size for each product
 
-
-    def clean(self):
-        # Ensure only products with `has_sizes=True` have related sizes
-        if not self.product.has_sizes:
-            raise ValidationError("Cannot add sizes to a product without sizes enabled.")
-
-
     def __str__(self):
         return f"{self.product.name} - {self.size} (Stock: {self.stock})"
         
@@ -117,15 +110,15 @@ class Product(models.Model):
             return None
 
     @property
-    def product_in_stock(self):
-        '''
-        Determines if the product is in stock
-        based on the stock amount.
-        '''
-        if self.stock_amount >= 0:
-            return True
-        else:
-            return False
+    def stock_details(self):
+        """
+        Returns stock details. 
+        For products with sizes, returns size-wise stock dictionary.
+        """
+        if self.has_sizes and self.sizes.exists():
+            return {size.size: size.stock for size in self.sizes.all()}
+        return {"stock": self.stock_amount}
+
 
     @property
     def product_price(self):
@@ -138,37 +131,33 @@ class Product(models.Model):
         return self.price
 
     def save(self, *args, **kwargs):
-        # If on_sale is True, ensure sale_price is set
-        if self.on_sale and self.sale_price is None:
-            raise ValueError("Sale price must be provided if the product is on sale.")
+        # If the product is on sale, calculate the sale_price if a discount is provided
+        if self.on_sale:
+            if self.discount is not None:
+                # Calculate the sale price based on the discount percentage
+                self.sale_price = round(self.price * (1 - self.discount / 100), 2)
+            elif self.sale_price is None:
+                # If no discount or sale_price is provided, raise an error
+                raise ValueError("Either sale_price or discount must be provided if the product is on sale.")
 
-        # Set the discount value based on price and sale_price
-        self.discount = self.price_discount
-        
-        # Check for stock status
-        self.in_stock = self.product_in_stock
-        
+        # Ensure discount is calculated correctly when sale_price is manually set
+        if self.sale_price and self.sale_price < self.price:
+            self.discount = round((1 - self.sale_price / self.price) * 100)
+
+        # Reset sale_price and discount if not on sale
         if not self.on_sale:
-            # If there is no sale price then clear it
             self.sale_price = None
+            self.discount = None
 
-        # First, save the product to ensure it has a primary key (which is needed for related fields like sizes)
-        super().save(*args, **kwargs)
-        
-        # If there are sizes, update stock_amount to reflect the total stock across all sizes
+        # Compute stock and in_stock status
         if self.sizes.exists():
             self.stock_amount = sum(size.stock for size in self.sizes.all())
             self.has_sizes = True
         else:
             self.has_sizes = False
+            self.stock_amount = max(self.stock_amount, 0)
 
-             # If no sizes, ensure stock_amount is never negative
-        if not self.has_sizes:
-            self.stock_amount = min(self.stock_amount, 0)
-
-        # Update in_stock status
         self.in_stock = self.stock_amount > 0
 
-        # Save again to update the 'has_sizes' and 'stock_amount' fields
-        super().save(update_fields=['has_sizes', 'stock_amount'])
-
+        # Save the product
+        super().save(*args, **kwargs)

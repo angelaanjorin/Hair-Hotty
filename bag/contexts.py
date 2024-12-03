@@ -1,7 +1,10 @@
 from decimal import Decimal
 from django.conf import settings
+from django.contrib import messages
 from django.shortcuts import get_object_or_404
+
 from products.models import Product
+
 
 def bag_contents(request):
 
@@ -16,7 +19,10 @@ def bag_contents(request):
     for item_id, item_data in bag.items():
         product = get_object_or_404(Product, pk=item_id)
 
-         # remove items that are out of stock
+        # Calculate the virtual stock amount
+        virtual_stock = product.stock_amount
+
+         # remove items that are out of real stock
         if product.in_stock is False:
             items_to_remove.append(item_id)
 
@@ -27,26 +33,40 @@ def bag_contents(request):
             price = product.product_price
 
         if isinstance(item_data, int):
-           # Product without sizes
-            total += item_data * product.product_price
-            product_count += item_data
-            bag_items.append({
-                'item_id': item_id,
-                'quantity': item_data,
-                'product': product,
-                'size': None,
-            })
+            # Product without sizes
+            virtual_stock -= item_data # reduce virtual quantity by quantitiy in bag
+            if virtual_stock < 0: #Ensures no negative virtual stock values
+                items_to_remove.append(item_id)
+            else:
+                total += item_data * product.product_price
+                product_count += item_data
+                bag_items.append({
+                    'item_id': item_id,
+                    'quantity': item_data,
+                    'product': product,
+                    'size': None,
+                    'virtual_stock': virtual_stock,
+                })
         else:
             #Product with sizes
             for size, quantity in item_data['items_by_size'].items():
-                total += quantity * product.product_price
-                product_count += quantity
-                bag_items.append({
-                    'item_id': item_id,
-                    'quantity': quantity,
-                    'product': product,
-                    'size': size,
-                })
+                size_stock = product.sizes.get(size=size).stock
+                virtual_size_stock = size_stock - quantity
+
+                if virtual_size_stock < 0:
+                    items_to_remove.append(item_id)
+                    messages.error(request,
+                                   f'Insufficient stock for {product.name} (Size: {size}).')
+                else:                   
+                    total += quantity * product.product_price
+                    product_count += quantity
+                    bag_items.append({
+                        'item_id': item_id,
+                        'quantity': quantity,
+                        'product': product,
+                        'size': size,
+                        'virtual_stock': virtual_size_stock, 
+                    })
 
     for item_id in items_to_remove:
         bag.pop(item_id)

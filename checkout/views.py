@@ -5,6 +5,7 @@ from django.conf import settings
 
 from .forms import OrderForm
 from .models import Order, OrderLineItem
+from .utility import validate_bag_stock
 
 from products.models import Product
 from profiles.models import UserProfile
@@ -37,6 +38,21 @@ def checkout(request):
     stripe_secret_key = settings.STRIPE_SECRET_KEY
 
     if request.method == 'POST':
+        #Validate stock before proceeding to checkout
+        items_to_remove, errors = validate_bag_stock(request)
+
+        #if there are errors, notify the user and redirect to the shopping bag page
+        if errors:
+            for error in errors:
+                messages.error(request, error)
+            # Remove the items with invalid stock from the session bag
+            bag = request.session.get('bag', {})
+            for item_id in items_to_remove:
+                bag.pop(item_id, None)
+            request.session ['bag'] = bag
+            return redirect(reverse('view_bag'))
+
+        #Proceed with creating the order if stock validation is successful        
         bag = request.session.get('bag', {})
 
         form_data = {

@@ -84,7 +84,7 @@
                 <!--Stock amount with consideration for sizes if applicable-->
                 <div class="stock d-flex">
                     {% if product.has_sizes %}
-                        <p id="stock-display" class="stock-status-label mb-2 text-muted">Select a size to view stock status.</p>
+                        <p id="stock-display" class="mb-2 text-muted">Select a size to view stock status.</p>
                         <ul id="stock-list" class="d-none">
                             {% for size in sizes %}
                                 <li data-size="{{ size.size }}" data-stock="{{ size.stock }}"></li>
@@ -92,7 +92,7 @@
                         </ul>
                     {% else %}
                         {% if product.in_stock %}
-                            <p class="in-stock-label me-3 text-dark"><strong>IN STOCK</strong></p>
+                            <p class="in-stock-label me-3 text-dark"><strong>IN STOCK: {{ product.stock_amount }}</strong></p>
                         {% else %}
                             <p class="out-of-stock-label"><strong>OUT OF STOCK</strong></p>
                         {% endif %}
