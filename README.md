@@ -1,5 +1,5 @@
 # Hair-Hotty-PP5
-![Hair Hotty website preview](./assets/readme_images/Multi-Device-Website-Mockup-Generator-12-03-2024_01_11_PM.png)
+![Hair Hotty website preview](https://res.cloudinary.com/dzesjeplp/image/upload/v1733263099/READMEPP5/Multi-Device-Website-Mockup-Generator-12-03-2024_01_11_PM_qpgaq1.png)
 
 [Link to deployed site](https://app-hairhotty-9ddf6a2299e6.herokuapp.com/)
 Hair Hotty is an online hair shop, built using Python, Django, HTML, CSS, JavaScript, Amazon S3 and Stripe. 
@@ -36,10 +36,10 @@ From the beginning of the project, I knew that the colour palette would have sha
 
 A simple logo, created using [Canva](https://www.canva.com/) and [Favicon.io](https://favicon.io/favicon-converter/)is used as a favicon. The logo depicts two "H" representing the two aspects of the brand name Hair Hotty. Another logo with the name Hari Hotty was also created using Canva for the heading of the website.
 
-![Hair Hotty logo as Favicon](./assets/readme_images/h-Logo-12-03-2024_03_05_PM.png)  
+![Hair Hotty logo as Favicon](https://res.cloudinary.com/dzesjeplp/image/upload/v1733263959/h-Logo-12-03-2024_03_05_PM_cdh37l.png)  
 *Hair Hotty logo*
 
-![Hair Hotty logo for the website heading](./assets/readme_images/website-logo.png)  
+![Hair Hotty logo for the website heading](https://res.cloudinary.com/dzesjeplp/image/upload/v1733263006/READMEPP5/readme/Untitled-design-422-_-80px-12-03-2024_03_07_PM_hrfxas.png)  
 *Hair Hotty logo for heading*
 
 The images for the Hero Carousel were created using AI [Canva](https://www.canva.com/), with the first image edited in canva to highlight Halloween and discounts as this is a very good season for customers to purchase wigs. 
@@ -55,7 +55,7 @@ The images for the Hero Carousel were created using AI [Canva](https://www.canva
 
 Product images are kept clean with no backgrounds so that focus is on the product itself. Feedback is continuously provided to the user via the website's header which displays whether the user is logged in and how many items are in their bag. Message 'toasts' are also visible upon user actions to display further information. Buttons are kept similar for continuity.
 
-![Header Feedback](./assets/readme_images/headerfeedback.png)  
+![Header Feedback](https://res.cloudinary.com/dzesjeplp/image/upload/v1733263001/READMEPP5/readme/headerfeedback_kznyiz.png)  
 *Header feedback is kept clean and intuitive*
 
 
@@ -142,7 +142,7 @@ The main colours set as variables are
     --gray: #959595;
     --dark-gray:#6f6a6a;
 
-![Colour Scheme](./assets/readme_images/Create-a-Palette-Coolors-12-03-2024_01_25_PM.png)
+![Colour Scheme](https://res.cloudinary.com/dzesjeplp/image/upload/v1733263097/READMEPP5/Create-a-Palette-Coolors-12-03-2024_01_25_PM_zoe2ak.png)
 
 The below colours were used to compliment the main colours. Due to the fact that these colours have been used with very little repetition, there was no need to set them as variables
 - #007bff
@@ -199,14 +199,14 @@ This model is connected to the Order and Product as a ForeignKey. It is created 
 
 
 ### Fonts
-In addition to Bootstrap 5 built in font family the below two fonts were used throughout the application
+In addition to Bootstrap 5 built-in font family the below two fonts were used throughout the application
 1. Poppins
 
-![Poppins](./assets/readme_images/Poppins-Google-Fonts-12-03-2024_01_36_PM.png)
+![Poppins](https://res.cloudinary.com/dzesjeplp/image/upload/v1733264757/Poppins-Google-Fonts-12-03-2024_01_36_PM_sjyzlq.png)
 
 2. Libre Baskerville
 
-![Libre Baskerville](./assets/readme_images/Libre-Baskerville-Google-Fonts-12-03-2024_01_38_PM.png)
+![Libre Baskerville](https://res.cloudinary.com/dzesjeplp/image/upload/v1733263002/READMEPP5/readme/Libre-Baskerville-Google-Fonts-12-03-2024_01_38_PM_zataal.png)
 
 
 ## Agile Methodologies
@@ -245,34 +245,44 @@ User stories and features were recorded and managed on [GitHub Projects](https:/
 #### GitHub Projects
 The project was created using a basic Kanban Board structure, divided into columns such as Todo, In progress, Done, Won´t do and Backlog. This setup provides a clear and organized way to track the status of tasks and visualize and manage the workflow.
 
-![Project](assets/readme_images/Backlog-·-hairhotty-pp5-12-03-2024_04_34_PM.png)
+![Project](https://res.cloudinary.com/dzesjeplp/image/upload/v1733264653/READMEPP5/Backlog-_-hairhotty-pp5-12-03-2024_04_34_PM_gagg4r.png)
 
 ## Features
+## Header
+The header section has the banner with information about a halloween sale going on and the discount code for a 55% reduction. This is a feature that will be implemented in the future. The banner messages scroll horizontally across the screen to catch the attension of a visitor immediatly. 
+Then there is the logo, a serach bar and the account and bag icons. Below that are the links and dropdown menus of the different pages of the website.
+
+![Header feedback](https://res.cloudinary.com/dzesjeplp/image/upload/v1733264658/READMEPP5/headerfeedback_gxrccu.png)
+
 #### Navbar
 The navbar was built using bootstrap 5 and it is fully responsive. The search bar allows the users to search for products by keywords from any page of the website. The My Account drop down gives the user the option to log in or register. If the user is authenticated additional menu options are displayed like my profile and Product Managements (if the user is a superuser). The shopping bag icon is a link to the shopping bag and it also displays the total of the items in the bag.
-The nav links allow the user to refine the products by category, special offers or to browse through the FAQ and contact us pages. There is a dropdown for special offers which allows the user to see the new arrivals, deals and best collections.
+The nav links allow the user to refine the products by category, special offers (both are dropsdwon menus) or to browse through the FAQ and contact us pages. There is a dropdown for special offers which allows the user to see the new arrivals, deals and best collections.
 
-![navbar desktop]()
+![navbar desktop](https://res.cloudinary.com/dzesjeplp/image/upload/v1733264663/READMEPP5/navbardesktop_exgult.png)
 
-![navbar desktop]()
+![navbar mobile](https://res.cloudinary.com/dzesjeplp/image/upload/v1733264665/READMEPP5/navbarmobile_byj4wg.png)
 
-![navbar desktop]()
+![navbar mobile with dropdown](https://res.cloudinary.com/dzesjeplp/image/upload/v1733264664/READMEPP5/navbardropdownonmobile_jk1xxg.png)
+
+![All products dropdown menu](https://res.cloudinary.com/dzesjeplp/image/upload/v1733268723/allproductsdropdownmenu_bynd0c.png)
+
+![Special offers dropdown](https://res.cloudinary.com/dzesjeplp/image/upload/v1733264677/READMEPP5/specialoffersdropdownmenu_f8n5tm.png)
 
 ### Toasts
 Toasts from Bootstrap were implemented to provide customers with feedback regarding their actions on the website.
 
-![toasts]()
+![toasts](https://res.cloudinary.com/dzesjeplp/image/upload/v1733264678/READMEPP5/toasterror_qpo6zx.png)
 
 
 #### Footer
 The footer was built as an example model featured on the bootstrap webseite consisting of lists of the different pages of the site and links to social media.
 
-![footer](./assets/readme-images/features/footer.PNG)
+![footer](https://res.cloudinary.com/dzesjeplp/image/upload/v1733264656/READMEPP5/footer_n9kv4t.png)
 
 #### Newsletter
 Part of the footer is a newsletter, which asks users to subscribe to by applying thier emails addresses to recieve the most recent offers and discount codes. The form was integrated using MailChimp.
 
-![newsletter]()
+![newsletter](https://res.cloudinary.com/dzesjeplp/image/upload/v1733264666/READMEPP5/newsletter_scietk.png)
 
 
 ### Home Page
@@ -281,83 +291,86 @@ The hero section is the beginning of the whole customer's journey. That is why I
 All three hero section images were designed using an AI photo creation site (). Using Canva the first image was eidted with text. 
 All three images have a call-to-action button Shop Now which invites the user to browse through the available products.
 
-![hero section]()
+![hero section](https://res.cloudinary.com/dzesjeplp/image/upload/v1733264660/READMEPP5/herosection_nui3mx.png)
 
 #### Trust Badges
 The trust badges serve as visual indicators to reassure the visitors about specific aspects of the services available.
 
-![trust badges]()
+![trust badges](https://res.cloudinary.com/dzesjeplp/image/upload/v1733264679/READMEPP5/trustbadges_aigkhv.png)
 
 
 ### Products Page
-The all products page renders all products to the user. They have the option to sort the products by title, price or category. This page also displays the number of the products available. The pages, which refine the products by category the same template as all products, prefilled with the relevant data.
-At the end of the products result there is pagination to help the user navigate easily through multiple pages of products.
+The all products page renders all products to the user. They have the option to sort the products by price or rating. This page also displays the number of the products available depending on which category is chosen to be displayed. At the end of the products result there is pagination to help the user navigate easily through multiple pages of products.
+![all products](https://res.cloudinary.com/dzesjeplp/image/upload/v1733264652/READMEPP5/allproductssortedwithhighprice_zzjlji.png)
 
-![pagination]()
+![pagination](https://res.cloudinary.com/dzesjeplp/image/upload/v1733264668/READMEPP5/paginationallproducts_welpwd.png)
 
-![all products]()
+
 
 ### Products Card
 The product card consist of an image of the product, title, price, number of reviews, category links, discount percentage and an add to Bag button. A flipping heart draws the user´s iattention to click it and not registered user´s get the promnt to register so that they can add the product to thier wishlist. Registered users can add the product to thie wishlist by clicking the heart. If the product is on sale, then the old price will be displayed with a line through, followed by the new price and a little label at the top of the image showing the percentage of the discount.
 
-![product card]()
+![product card](https://res.cloudinary.com/dzesjeplp/image/upload/v1733264672/READMEPP5/productscardwithoutsale_s1ytdx.png)
 
-![product card sale]()
+![product card sale](https://res.cloudinary.com/dzesjeplp/image/upload/v1733264671/READMEPP5/productscard_qfln7n.png)
 
 ### Products-Detail Page
-On the page's left side, a product image is displayed. On the right side, the most important information about the product is displayed. This includes the title, category link, number of reviews, price, stock levels, add to wishlist icon, sizes with dropdown list of sizes if the product has sizes, a quantitiy choice form, an add to bag button and return to shop button, returning the user to the all products page. 
+On the page's left side, a product image is displayed. On the right side, the most important information about the product is displayed. This includes the title, number of reviews, price, stock levels, add to wishlist icon, sizes with dropdown list of sizes if the product has sizes, a quantitiy choice form, an add to bag button and return to shop button, returning the user to the all products page. 
 Implementing stock levels in the product model, allowed for adding custom logic when it comes to adding items to the bag. The user should not be able to add to their bag a higher quantity than the stock levels and this logic also needs to account for items already in the bag. If the user tries to add more than what is in stock an error message appears to notify them that there is not enough stock to fulfill the order.
-Below the top section, there is a section with tabs allowing the user to switch between description, details, and reviews. The reviews section allows an authenticated user to submit a review for a product. The overall rating is calculated and the number of stars are displayed in the top section of the page. Authenticated users can edit and delete their reviews from the same tab. 
+Below the top section, there is a section with tabs allowing the user to switch between description and reviews. 
+The reviews section allows an authenticated user to submit a review for a product. The overall rating is calculated and the number of stars are displayed in the top section of the page. Authenticated users can edit and delete their reviews from the same tab. 
 The description tab includes a short description of the product which helps the users in making informed decision if they wish to purchase the product.
-The details tab includes more specific information about the product, including materials used etc.
 
-![product page]()
 
-![reviews]()
+![product detail page](https://res.cloudinary.com/dzesjeplp/image/upload/v1733264670/READMEPP5/productdetailpage_rlqxty.png)
+
+The reviews section allows the user to rate the product choosing from 5 stars and then writing a review for the product.These two aspects are stored together and have to be completed together.
+
+![reviews](https://res.cloudinary.com/dzesjeplp/image/upload/v1733264676/READMEPP5/reviewssection_kz3fit.png)
 
 ![not enough stock]()
 
-![add to wishlist]()
+This is a flipping heart to catch the attention of the user so that they can click on the heart and add it to thier wishlist, after which the heart displays as a solid crimson heart.
+![add to wishlist](https://res.cloudinary.com/dzesjeplp/image/upload/v1733264651/READMEPP5/addingtowishlist_mrypjp.png)
 
 ### Edit review page
-This page allows the user to edit their review in the event they changed their mind. It renders prefilled with the original data. 
+This page allows the user to edit their review in the event they changed their mind. It renders prefilled with the original data. The rating with stars is also in this section for the users to edit.
 
-![edit-review]()
+![edit-review](https://res.cloudinary.com/dzesjeplp/image/upload/v1733264655/READMEPP5/editreview_r2egsd.png)
 
 ### Delete review confirmation
 This page asks the user for confirmation if they wish to delete their review
 
-![delete-review]()
+![delete-review](https://res.cloudinary.com/dzesjeplp/image/upload/v1733264654/READMEPP5/deletereview_wxevmv.png)
 
 ### FAQ Page
 The FAQ page consists of the most frequently asked questions.
 
-![faq-page]()
+![faq-page](https://res.cloudinary.com/dzesjeplp/image/upload/v1733266189/FAQ_yuv25z.png)
 
 ### Privacy Policy Page
-The Privacy Policy page was generated using () and displays the privacy policy of the business for all users to access.
+The Privacy Policy page was generated using ![Privacy Policy Generator](https://www.termsfeed.com/privacy-policy-generator/) and displays the privacy policy of the business for all users to access.
 
-![privacy-policy-page]()
+![privacy-policy-page](https://res.cloudinary.com/dzesjeplp/image/upload/v1733266683/privacypolicy_gfcjxf.png)
 
 ### Contact Page
+
 The Contact page consists of all the contact methods with links where appicable, like email, phone number and physical address. There is also a contact form for all users to use, not only registered users. 
 
-![contact-us-page]()
+![contact-us-page](https://res.cloudinary.com/dzesjeplp/image/upload/v1733266188/contactus_ke9qgv.png)
 
 ### About Us Page
 The About us page tells the user about the business and the background story and philosphy behind the brand. There are links to the social media sites to give more information to the users. Through this the user feels more connected to the brand.
 
-![About-Us-page]()
+![About-Us-page](https://res.cloudinary.com/dzesjeplp/image/upload/v1733266682/aboutus_vpklny.png)
 
 ### Return Page
 The Return page consists of the most frequently asked questions about returning a product.
 
-![Return-page]()
+![Return-page](https://res.cloudinary.com/dzesjeplp/image/upload/v1733266190/returns_etgzot.png)
 
 ### Customer-Service Page
 The Customer service page is the same link to the contact-us page, just incase users or customers are specifically searching for customer services.
-
-![Customer-service-page]()
 
 
 ### My Profile Page
@@ -367,28 +380,24 @@ This section contains three pages - my profile, my orders, and my wishlist
 #### Profile
 This page renders a form for the user's address and phone number. If the user has any details saved, it renders prefilled.
 
-![profile]()
+![profile](https://res.cloudinary.com/dzesjeplp/image/upload/v1733264675/READMEPP5/profile_teosyb.png)
 
 #### Order History
 This page displays the past orders of this user.
 
-![orders]()
+![orders](https://res.cloudinary.com/dzesjeplp/image/upload/v1733264667/READMEPP5/orderhistory_rcwuk0.png)
 
 #### My Wishlist
-This page displays the items in the wishlist
+This page displays the items in the wishlist. It uses the same pagination functionality of 6 products per page like the all products page.
 
-![wishlist]()
+![wishlist](https://res.cloudinary.com/dzesjeplp/image/upload/v1733267067/mywishlist_b3l6bc.png)
 
 
 ### Admin CRUD Functionality:
-
-![admin dashboard]()
-
-Refine Products:
-![refine products admin]()
+The admin has the chance while logged on the site on the frontend to carry out CRUD functionality for the products.
 
 #### Add Products
-This page renders the product creation form and all required fields to add an item to the database. Admins can add products on sale by checking the on-sale box and adding the sale price. If the on_sale box is not checked the product will display with the original price. The Author field allows for multiple authors to be selected. If the author's name does not exist in the list, it can be added by clicking on the add author link
+This page renders the product creation form and all required fields to add an item to the database. Admins can add products on sale by checking the on-sale box and adding the sale price or discount. If the on_sale box is not checked the product will display with the original price.
 
 ![add products]()
 
@@ -400,52 +409,9 @@ This page renders the product form prefilled with the existing data in the datab
 #### Delete Product
 ![delete product]()
 
-#### Orders Admin
-The orders page in the admin section provides a breakdown of the order stats based on status.
-Below that there is a drop-down offering the ability to refine by order status. The options are In Progress, Completed, Cancelled, and All.
-Below that the orders are displayed in a table with the order number, date, amount of items, order total, and status. The status field clearly indicates the status of the order. The used colours are red for canceled, green for completed, and blue for in progress. The admin can edit the order status by using the pencil icon on the side of each row.
-
-Admin Orders;
-
-![admin orders]()
-
-Orders Refine:
-
-![admin orders refine]()
-
-#### Edit Order Status
-This page renders a one-field form with a drop-down. It allows the admin the select from the available status choices.
-
-![edit order status]()
-
-#### Admin Discount Codes
-This page has similar layout to the orders and dashboard. It presents the admin with a breakdown of the number of discount codes on the system by status.
-There is a button to create code which opens a modal with the creation form. The discount code consist of the code, the amount of the discount in percentage and a checkbox to determine if the code is active or not.
-The discount codes can be editted and deleted from this section without the need of using Django admin.
-
-Admin Discounts
-
-![admin codes]()
-
-Admin Refine Codes
-
-![admin refine codes]()
-
-Admin Add Code
-
-![admin add code]()
-
-Admin Edit Code
-
-![admin edit codes]()
-
-Admin Delete Code
-
-![admin delete codes]()
-
 ### Shopping bag
-The shopping bag can be accessed from the main nav menu. The shopping bag table section provides a clear and organized representation of the items added to the shopping bag. Each item has a small image, title, author, price, quantity, and subtotal. The users can upgrade the quantity or delete items from the bag with the help of the buttons provided.
-On the right side, there is a section allowing the user to input discount codes and view their subtotal, delivery charges, and total. 
+The shopping bag can be accessed from the main nav menu. The shopping bag table section provides a clear and organized representation of the items added to the shopping bag. Each item has a small image, product name, stockamount left price, quantity, and subtotal. The users can upgrade the quantity or delete items from the bag with the help of the buttons provided.
+On the right side bottom side of the page the users can view their subtotal, delivery charges, and total. 
 
 ![shopping bag]()
 ![shopping bag empty]()
@@ -493,9 +459,15 @@ Once the order is processed and payment has been received, the user will receive
 The website uses django allauth's built in functionality which allows the users to register and log in securely. There is also a reset password functionality which allows the user to input their email address and receive a link where they can securely reset their password.
 
 ## Future Features
-- Add a pop up with the current discount code which can be updated by the admin.
+- Add a pop up with the current discount code which can be updated by the admin. Or allow the admin access to the edit the banner with new discount codes like the one displayed for the halloween season. 
+- CRUD functionality to update the carousel images with new catching edited images depending on the shopping season, exeample the black friday sales, or upcoming christmas sales.
 - Add an event section to host a live online hair bazaar, with vendors, hair stylists and have a lottery with special prizes. Customers can buy the tickets to the lottery online and it will be stored on thier profile and they will be notified per email if they win.
+- Allow different user profiles, like hair stylists can have a unique customizable profile to highlight thier business and make this accessible to other users so that they can get potential customers. 
+- For the online hair bazaar, you can have many different user profiles, like for vendors, hairstylists or moderators of the event.
 - Allow admin to update only stock level fields as a quicker option to restock items. 
+- On the frontend provide the admin with a good overall view of the stocks of the products, so that they can be easily updated. Allow the admin a good overview and management of orders and returns.
+- Allow the management of discount codes by the admin.
+- Have a return section on the user´s profile so that they can monitor thier returns. 
 - Send email to customers when their order changes status.
 
 ## Search Engine Optimization SEO and Marketing
@@ -518,7 +490,7 @@ In addition to this, sitemap.xml and robots.txt files are included to increase t
 - Facebook Page
 A [Hair Hotty Facebook Page](https://www.facebook.com/people/Hairhotty/100064214191331/) that I have had for years was linked to this project to demonstrate promotion of the Hair Hotty store on social media. Posts informing customers of deals and new products are available on the page with the hopes of drawing in more revenue. Facebook provides an easy, minimal-step process to allow business owners to promote their business, with additional paid 'boost' features to further promote and spread the reach of the posts. Hair Hotty also offers a newsletter subscription service through MailChimp. The benefit of both of these services is that the customer is not forced to sign up to either and potentially worry that they will be spammed with an unnecessary amount of information. Hair Hotty avoids this in order to keep its brand clean and uphold its eco-friendly efforts.
 
-![Hair Hotty Facebook Business Page](./assets/readme_images/-20-Hairhotty-Facebook-12-03-2024_04_23_PM.png)
+![Hair Hotty Facebook Business Page](https://res.cloudinary.com/dzesjeplp/image/upload/v1733264650/READMEPP5/-20-Hairhotty-Facebook-12-03-2024_04_23_PM_f4rqhi.png)
 *Hair Hotty Facebook Business Page*
 
 
