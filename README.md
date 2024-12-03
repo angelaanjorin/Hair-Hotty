@@ -249,8 +249,8 @@ The project was created using a basic Kanban Board structure, divided into colum
 
 ## Features
 #### Navbar
-The navbar was built using bootstrap 5 and it is fully responsive. The search bar allows the users to search for products by keywords from any page of the website. The My Account drop down gives the user the option to log in or register. If the user is authenticated additional menu options are displayed like my profile and admin (if the user is a superuser). The shopping bag icon is a link to the shopping bag and it also displays the total of the items in the bag.
-The nav links allow the user to refine the products by category, special offers or to browse through the FAQ and contact us pages. There is a dropdown for special offers which allows the user to see the new arrivals and deals.
+The navbar was built using bootstrap 5 and it is fully responsive. The search bar allows the users to search for products by keywords from any page of the website. The My Account drop down gives the user the option to log in or register. If the user is authenticated additional menu options are displayed like my profile and Product Managements (if the user is a superuser). The shopping bag icon is a link to the shopping bag and it also displays the total of the items in the bag.
+The nav links allow the user to refine the products by category, special offers or to browse through the FAQ and contact us pages. There is a dropdown for special offers which allows the user to see the new arrivals, deals and best collections.
 
 ![navbar desktop]()
 
