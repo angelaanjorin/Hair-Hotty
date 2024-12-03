@@ -1,6 +1,7 @@
 from django.db import models
 from django.core.validators import MaxValueValidator, MinValueValidator
 import uuid
+from decimal import Decimal
 
 
 class ProductSize(models.Model):
@@ -134,8 +135,8 @@ class Product(models.Model):
         # If the product is on sale, calculate the sale_price if a discount is provided
         if self.on_sale:
             if self.discount is not None:
-                # Calculate the sale price based on the discount percentage
-                self.sale_price = round(self.price * (1 - self.discount / 100), 2)
+                # Calculate the sale price based on the discount percentage but convert self.discount to a decimal
+                self.sale_price = round(self.price * (Decimal(1) - Decimal(self.discount)/ 100))
             elif self.sale_price is None:
                 # If no discount or sale_price is provided, raise an error
                 raise ValueError("Either sale_price or discount must be provided if the product is on sale.")

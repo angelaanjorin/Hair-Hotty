@@ -146,14 +146,14 @@
                                             <div class="price d-flex align-items-center">
                                                 {% if product.sale_price %}
                                                     <div class="original-price me-2">
-                                                        <s>${{ product.product_price }}</s>
+                                                        <s>${{ product.price }}</s>
                                                     </div>
                                                     <div class="sale-price">
                                                         ${{ product.sale_price }}
                                                     </div>
                                                 {% else %}
                                                     <div class="regular-price">
-                                                        ${{ product.product_price }}
+                                                        ${{ product.price }}
                                                     </div>
                                                 {% endif %}
                                             </div>

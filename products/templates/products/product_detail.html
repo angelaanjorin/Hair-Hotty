@@ -56,11 +56,11 @@
                     <small class="text-muted">No reviews yet.</small>
                 {% endif %}
                 {% if product.sale_price %}
-                <div class="price"><s>${{ product.price }}</s>
+                <div class="original-price"><s>${{ product.price }}</s>
                     <p style="font-size: 2rem;"> ${{ product.sale_price }}</p>
                 </div>
                 {% else %}
-                <div class="price">
+                <div class="regular-price">
                     <p style="font-size: 2rem;">${{ product.price }}</p>
                 </div>
                 {% endif %}
