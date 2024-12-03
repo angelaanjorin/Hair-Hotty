@@ -15,6 +15,7 @@ My Wishlist
 {% endblock %}
 
 {% block content %}
+<section class="profile mb-3">
     <div class="container">
         <div class="row">
             <div class="col-12">
@@ -28,8 +29,8 @@ My Wishlist
                                 {% if wishlist %}
                                 {% for item in wishlist %}
                                 <!-- Product Card -->
-                                <div class="col-sm-6 col-md-4 col-lg-4 col-xl-3 mb-3">
-                                    <div class="product-grid d-flex flex-column align-items-center h-100">
+                                <div class="col-sm-6 col-md-4 col-lg-4 col-xl-3 mb-3 d-flex flex-column align-items-center h-100">
+                                    <div class="product-grid card shadow product-card" style="padding: 10px;">
                                         <div class="product-image">
                                             {% if item.product.image %}
                                             <a href="{% url 'product_detail' item.product.id %}" class="image">
@@ -47,7 +48,6 @@ My Wishlist
                                             <p class="logo-font text-truncate mb-1">
                                                 {{ item.product.name }}
                                             </p>
-                                            <div class="price">€ {{ item.product.price }}</div>
 
                                             <!-- Buttons in a flexbox row -->
                                             <div class="d-flex justify-content-between mt-2">
@@ -59,12 +59,15 @@ My Wishlist
                                                     </button>
                                                     <input type="hidden" name="redirect_url" value="{{ request.get_full_path }}">
                                                 </form>
-                                            
-                                                <!-- Add to Bag button -->
-                                                <form action="{% url 'add_to_bag' item.product.id %}" method="POST">
-                                                    {% csrf_token %}
-                                                    <input type="submit" class="btn btn-cordovan btn-sm" value="Add To Bag">
-                                                </form>
+                                                {% if item.product.sale_price %}
+                                                <div class="original-price"><s>${{ item.product.price }}</s>
+                                                    <p> <strong>${{ item.product.sale_price }}</strong></p>
+                                                </div>
+                                                {% else %}
+                                                <div class="regular-price">
+                                                    <p>${{ item.product.price }}</p>
+                                                </div>
+                                                {% endif %}
                                             </div>
                                         </div>
                                     </div>
@@ -78,6 +81,32 @@ My Wishlist
                                     <a href="{% url 'products' %}" class="btn btn-cordovan d-block mx-auto">Browse Shop</a>
                                 </div>
                                 {% endif %}
+                                <!-- Pagination -->
+                                <div class="row">
+                                    <div class="col-md-12  d-flex justify-content-center">
+                                        <ul class="pagination">
+                                            {% if wishlist.has_previous %}
+                                            <li class="page-item">
+                                                <a class="page-link" href="?page=1&{% for key, value in request.GET.items %}{% if key != 'page' %}{{ key }}={{ value }}&{% endif %}{% endfor %}">First</a>
+                                            </li>
+                                            <li class="page-item">
+                                                <a class="page-link" href="?page={{ products.previous_page_number }}&{% for key, value in request.GET.items %}{% if key != 'page' %}{{ key }}={{ value }}&{% endif %}{% endfor %}">Previous</a>
+                                            </li>
+                                            {% endif %}
+                                            <li class="page-item active">
+                                                <span class="page-link">Page {{ wishlist.number }} of {{ wishlist.paginator.num_pages }}</span>
+                                            </li>
+                                            {% if wishlist.has_next %}
+                                            <li class="page-item">
+                                                <a class="page-link" href="?page={{ products.next_page_number }}&{% for key, value in request.GET.items %}{% if key != 'page' %}{{ key }}={{ value }}&{% endif %}{% endfor %}">Next</a>
+                                            </li>
+                                            <li class="page-item">
+                                                <a class="page-link" href="?page={{ products.paginator.num_pages }}&{% for key, value in request.GET.items %}{% if key != 'page' %}{{ key }}={{ value }}&{% endif %}{% endfor %}">Last</a>
+                                            </li>
+                                            {% endif %}
+                                        </ul>                        
+                                    </div>
+                                </div>
                             </div>                            
                         </div>
                     </div>

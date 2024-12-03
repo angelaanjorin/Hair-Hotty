@@ -70,7 +70,7 @@
                                     <form class="product-links" method="POST" action="{% url 'wishlist_add' product.id %}">
                                         {% csrf_token %}
                                         
-                                        {% if product.is_in_wishlist %}
+                                        {% if product.in_wishlist %}
                                             <!-- Heart icon when product is in wishlist -->
                                             <button type="submit" class="wishlist" name="wishlist" value="submit" aria-label="remove from wishlist"><i
                                                 class="fa-solid fa-heart"></i>

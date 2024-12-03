@@ -1,14 +1,13 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from django.db.models import Q
-from django.db.models import F, Case, When, DecimalField
-#from django.db.models.functions import Lower
+from django.db.models import F, Case, When, DecimalField, BooleanField, Q
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 from django.db.models import Sum
 
 from .models import ProductSize, Product, PrimaryCategory, SpecialCategory
 from .forms import ProductForm
+from .utils import products_pagination
 
 from reviews.models import Review
 from reviews.forms import ReviewForm
@@ -93,14 +92,7 @@ def all_products(request):
 
         if not sort:
             products = products.order_by('name')
-
-    # Count of products
-    products_count = products.count()
     
-    #Paginate Products
-    products = products_pagination(request, products, 6)
-    
-   
     
     current_sorting = f'{sort}_{direction}'
     
@@ -108,12 +100,32 @@ def all_products(request):
     review_count = reviews.count()
 
     # Checking if the logged-in user has any products in their wishlist
-    wishlist = False
+    
     if request.user.is_authenticated:
         profile = request.user.userprofile
         # Fetch the wishlist items for the user
-        wishlist_products = Wishlist.objects.filter(user=profile)
+        wishlist_products = Wishlist.objects.filter(user=profile).values_list('product_id', flat=True)
+        products = products.annotate(
+            in_wishlist=Case(
+                When(id__in=wishlist_products, then=True),
+                default=False,
+                output_field=BooleanField(),
+            )
+        )
+    else:
+        products = products.annotate(
+            in_wishlist=Case(
+                default=False,
+                output_field=BooleanField(),
+            )
+        )
+
+    # Count of products
+    products_count = products.count()
     
+    #Paginate Products
+    products = products_pagination(request, products, 6)
+
 
     context = {
         'products': products,
@@ -132,21 +144,6 @@ def all_products(request):
     }
 
     return render(request, 'products/products.html', context)
-
-
-def products_pagination(request, products, results):
-    ''' Handles Pagination '''
-    paginator = Paginator(products, results)
-    page_number = request.GET.get('page')
-
-    try:
-        return paginator.page(page_number)
-    except PageNotAnInteger:
-        return paginator.page(1)
-    except EmptyPage:
-        return paginator.page(paginator.num_pages)
-
-    return products
 
 
 def product_detail(request, product_id):

@@ -7,7 +7,7 @@ from .forms import UserProfileForm
 
 from checkout.models import Order
 from products.models import Product
-
+from products.utils import products_pagination
 
 @login_required
 def profile(request):
@@ -72,9 +72,11 @@ def my_orders(request, profile_id):
 def my_wishlist(request, profile_id):
     ''' Renders wishlist page '''
     profile = get_object_or_404(UserProfile, pk=profile_id)
-
+    
     wishlist = Wishlist.objects.filter(user=profile).order_by('-created')
     
+    wishlist = products_pagination(request, wishlist, 6)
+
     context = {
         'wishlist': wishlist,
         'profile_id': profile.id,
