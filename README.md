@@ -1,5 +1,5 @@
 # Hair-Hotty-PP5
-![Hari Hotty website preview]()
+![Hair Hotty website preview](./assets/readme_images/Multi-Device-Website-Mockup-Generator-12-03-2024_01_11_PM.png)
 
 [Link to deployed site](https://app-hairhotty-9ddf6a2299e6.herokuapp.com/)
 Hair Hotty is an online hair shop, built using Python, Django, HTML, CSS, JavaScript, Amazon S3 and Stripe. 
@@ -87,27 +87,29 @@ The main colours set as variables are
     --gray: #959595;
     --dark-gray:#6f6a6a;
 
+![Colour Scheme](./assets/readme_images/Create-a-Palette-Coolors-12-03-2024_01_25_PM.png)
+
 The below colours were used to compliment the main colours. Due to the fact that these colours have been used with very little repetition, there was no need to set them as variables
- #007bff
- #6c757d  
- #28a745 
- #dc3545 
- #ffc107 
- #17a2b8  
- #f8f9fa
- #343a40
- #333
- #eeebe3
- #97908e
- #8f8f8f
- #309e30
- #ff7a7a
- #cdc8c8
- #dc3545
- #gold
+- #007bff
+- #6c757d  
+- #28a745 
+- #dc3545 
+- #ffc107 
+- #17a2b8  
+- #f8f9fa
+- #343a40
+- #333
+- #eeebe3
+- #97908e
+- #8f8f8f
+- #309e30
+- #ff7a7a
+- #cdc8c8
+- #dc3545
+- #gold
 
 
-![Colour Scheme]()
+
 ### Database Schema
 ![database schema]()
 
@@ -142,10 +144,11 @@ This model has no specified relationship to the other models. It contains three 
 In addition to Bootstrap 5 built in font family the below two fonts were used throughout the application
 1. Poppins
 
-![Poppins]()
+![Poppins](./assets/readme_images/Poppins-Google-Fonts-12-03-2024_01_36_PM.png)
+
 2. Libre Baskerville
 
-![Libre Baskerville]()
+![Libre Baskerville](./assets/readme_images/Libre-Baskerville-Google-Fonts-12-03-2024_01_38_PM.png)
 
 ### Wireframes
 - Home
