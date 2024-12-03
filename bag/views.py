@@ -41,9 +41,13 @@ def add_to_bag(request, item_id):
 
         current_quantity = bag.get(item_id, {}).get('items_by_size', {}).get(size, 0)
         
-        if current_quantity + quantity == product_size.stock:
-            messages.error(request, f"Only {product_size.stock - current_quantity} left in stock for size {size.upper()}!")
+        if current_quantity + quantity > product_size.stock:
+            messages.error(request, f"Only {product_size.stock - (current_quantity + quantity)} left in stock for size {size.upper()}!")
             return redirect(redirect_url)
+
+         # Check if we're adding the last available stock
+        if current_quantity + quantity == product_size.stock:
+            messages.success(request, f"You're adding the last {product_size.stock} of size {size.upper()} {product.name} to your bag!")
 
         # Add to bag logic
         if item_id in bag:
@@ -55,10 +59,10 @@ def add_to_bag(request, item_id):
             bag[item_id] = {'items_by_size': {size: quantity}}
 
         # Decrement stock
-        product_size.stock -= quantity
-        product_size.save()
+        #product_size.stock -= quantity
+        #product_size.save()
 
-        messages.success(request, f"Added {quantity} of size {size.upper()} {product.name} to your bag.")
+        messages.success(request, f"Added {quantity} of Size {size.upper()} {product.name} to your bag.")
     else:
         # For products without sizes
         current_quantity = bag.get(item_id, 0)
@@ -67,6 +71,10 @@ def add_to_bag(request, item_id):
             messages.error(request, f"Only {product.stock_amount - current_quantity} left in stock!")
             return redirect(redirect_url)
 
+         # Check if we're adding the last available stock
+        if current_quantity + quantity == product.stock_amount:
+            messages.success(request, f"You're adding the last {product.stock_amount} of {product.name} to your bag!")
+            
         # Add to bag logic
         if item_id in bag:
             bag[item_id] += quantity
@@ -74,8 +82,8 @@ def add_to_bag(request, item_id):
             bag[item_id] = quantity
 
         # Decrement stock
-        product.stock_amount -= quantity
-        product.save()
+        #product.stock_amount -= quantity
+        #product.save()
 
         messages.success(request, f"Added {quantity} of {product.name} to your bag.")
         

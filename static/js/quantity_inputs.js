@@ -74,7 +74,7 @@ $('.increment-qty').click(function(e) {
     if (currentQuantity < stockAmount) {
         $(closestInput).val(currentQuantity + 1);
     } else {
-        showBootstrapToast(`You can only add up to ${stockAmount} items.`);
+        alert(`You can only add up to ${stockAmount} items.`);
     }
 
     handleEnableDisable(itemId);
