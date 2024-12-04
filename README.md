@@ -496,6 +496,10 @@ The Return page consists of the most frequently asked questions about returning 
 ### Customer-Service Page
 The Customer service page is the same link to the contact-us page, just incase users or customers are specifically searching for customer services.
 
+### Event Page
+The Event page consists of an advertisement of future planned online events with hair stylists, influencers from the social medial networks. There is the invitation to join the newsletter again explicitly to be informed when this event will take place.
+
+![Event-page](https://res.cloudinary.com/dzesjeplp/image/upload/v1733340614/eventpage_gkxdjn.png)
 
 ### My Profile Page
 This section is accessible only to authenticated users.
