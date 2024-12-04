@@ -77,14 +77,14 @@
         <script src="{% static 'js/toast.js'%}"></script>
         <!-- Sorting Products JS -->
         <script src="{% static 'products/js/sort_selector.js' %}"></script>
-        <script type="text/javascript" src="{% static 'products/js/stock_display.js' %}"></script>
-        <!-- Product quantitiy inputs JS -->
+        
+        <!-- Product quantitiy inputs JS <script type="text/javascript" src="{% static 'products/js/stock_display.js' %}"></script>-->
         <script src="{% static 'js/quantity_inputs.js' %}"></script>
          <!-- Rating Selector JS -->
         <script src="{% static 'reviews/js/ratings_select.js' %}"></script>
         <!--Mailchimp-->
         <script type="text/javascript" src="//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js"></script>
-        <script type="text/javascript">(function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';fnames[1]='FNAME';ftypes[1]='text';fnames[2]='LNAME';ftypes[2]='text';fnames[3]='ADDRESS';ftypes[3]='address';fnames[4]='PHONE';ftypes[4]='phone';fnames[5]='BIRTHDAY';ftypes[5]='birthday';fnames[6]='COMPANY';ftypes[6]='text';}(jQuery));var $mcj = jQuery.noConflict(true);</script></div>
+        <script src="{% static 'js/mailchimp_form.js'%}"></script>
     {% endblock %}
 
     {% block extra_js_end %}  
