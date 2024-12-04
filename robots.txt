@@ -1,0 +1,7 @@
+User-agent: *
+Disallow: /admin/
+Disallow: /accounts/
+Disallow: /bag/
+Disallow: /checkout/
+Disallow: /profile/
+Sitemap: https://app-hairhotty-9ddf6a2299e6.herokuapp.com/sitemap.xml
