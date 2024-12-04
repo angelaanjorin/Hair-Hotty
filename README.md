@@ -36,7 +36,7 @@ From the beginning of the project, I knew that the colour palette would have sha
 
 A simple logo, created using [Canva](https://www.canva.com/) and [Favicon.io](https://favicon.io/favicon-converter/)is used as a favicon. The logo depicts two "H" representing the two aspects of the brand name Hair Hotty. Another logo with the name Hari Hotty was also created using Canva for the heading of the website.
 
-![Hair Hotty logo as Favicon](https://res.cloudinary.com/dzesjeplp/image/upload/v1733263959/h-Logo-12-03-2024_03_05_PM_cdh37l.png)  
+![Hair Hotty logo as Favicon](https://res.cloudinary.com/dzesjeplp/image/upload/v1733263959/READMEPP5/h-Logo-12-03-2024_03_05_PM_cdh37l.png)  
 *Hair Hotty logo*
 
 ![Hair Hotty logo for the website heading](https://res.cloudinary.com/dzesjeplp/image/upload/v1733263006/READMEPP5/readme/Untitled-design-422-_-80px-12-03-2024_03_07_PM_hrfxas.png)  
@@ -241,6 +241,130 @@ My Sprints were broken down into appropriately sized chunks from the beginning a
 ## User Stories
 
 User stories and features were recorded and managed on [GitHub Projects](https://github.com/users/angelaanjorin/projects/4)
+
+### Epic 1: Initial Setup, Backend, User Authentication, Frontend and Test Deployments 
+
+| User Story | Priority |
+|----------------------------------------------------------------------------------------------------------------------------|---------------|
+| As a developer, I want to initialize a new project repository so that we have a centralized location for code storage and version control| **MUST HAVE** |
+| As a developer, I want to set up a development environment so that the team has a standardized and functional workspace | **MUST HAVE** |
+| As a developer, I want to make the initial commit to populate the repository with a basic project skeleton | **MUST HAVE** |
+| As a developer, I want to set up a Kanban board to manage the project’s tasks and workflow efficiently | **MUST HAVE** |
+| As a developer, I want to create a frontend project skeleton so that i have a structured starting point for frontend development|**MUST HAVE**|
+| As a developer, I want to implement the main layout and UI components so that the frontend has a consistent look and feel.|**MUST HAVE**|
+| As a developer, I want to integrate Django Allauth into the project so that we can leverage its authentication capabilities.|**MUST HAVE**|
+| As a user, I want to be able to register for an account so that I can access the application's features.|**MUST HAVE**|
+| As a user, I want to be able to log in so that I can access my account and use the application.|**MUST HAVE**|
+| As a user, I want to verify my email address so that my account is more secure.|**MUST HAVE**|
+| |**MUST HAVE**|
+||**MUST HAVE**|
+||**MUST HAVE**|
+||**MUST HAVE**|
+||**MUST HAVE**|
+
+||**MUST HAVE**|
+### Epic 2: Implementing Product Management and User Cart Functionality
+
+| User Story | Priority |
+|----------------------------------------------------------------------------------------------------------------------------|---------------|    
+| As a developer, I want to design and implement data models for all products so that product information can be effectively stored and retrieved. | **MUST HAVE** |
+| As a developer, I want to create API endpoints for product management so that product data can be manipulated via the API.| **MUST HAVE** |
+| As a user, I want to easily find and view products that interest me through a frontend interface complete with a filtering system into categories.| **MUST HAVE** |
+| As a user, I want to add products to a cart before finalizing my shopping, and I want to include specific contexts like selected sizes and colours.| **MUST HAVE** |
+
+### Epic 3: Implementing Stripe Checkout Functionality
+
+| User Story | Priority |
+|----------------------------------------------------------------------------------------------------------------------------|---------------|
+| As a developer, I want to set up a Stripe account and retrieve API keys so that I can integrate Stripe into the application.| **MUST HAVE** |
+| As a developer, I want to integrate the Stripe API into the backend so that payments can be processed securely. | **MUST HAVE** |
+| As a developer, I want to integrate Stripe's frontend library to capture user payment details securely.| **MUST HAVE** |
+| As a user, I want a seamless checkout process that includes reviewing my cart, entering payment details, and receiving confirmation so that I can finalize my shopping 
+| with confidence.| **MUST HAVE** |
+| As a developer, I want to thoroughly test the Stripe payment process to ensure it's secure and reliable. | **MUST HAVE** |
+| As a developer, I want to set up and handle Stripe webhooks so that the backend can receive real-time notifications about payment events and update the application state accordingly. | **MUST HAVE** |
+
+
+  
+### Epic 4: Implementing Admin Dashboard & User Profile Functionality
+
+| User Story | Priority |
+|----------------------------------------------------------------------------------------------------------------------------|---------------|
+| As a user, I want to read and write reviews for purchased products so that I can make more informed decisions later on and share my experiences.| **MUST HAVE** |
+| As a user, I want to mark products as favorites so that I can easily find them again inmy wish list in the future. | **MUST HAVE** |
+| As a user, I want a search function to find products based on keywords so that I can more easily find products that interest me. | **COULD HAVE** |
+| As a user, I want a profile page where I can view and edit my personal information, my wish list and reviews, see my past purchases and request refunds. | **MUST HAVE** |
+
+### Epic 5: Enhanced Interactivity and Robust Validation
+
+| User Story | Priority |
+|----------------------------------------------------------------------------------------------------------------------------|---------------|
+| As a user, I want to receive real-time feedback when filling out forms, so that I can correct errors before submission. | **MUST HAVE** |
+| As a user, I want to see toast notifications after certain actions, so I'm assured that my action was successful. | **SHOULD HAVE** |
+| As a user, I want to receive email notifications for essential activities like registration, password reset, and order confirmation, so I can stay informed.| **SHOULD HAVE** |
+| As a User or Visitor I want to be able to navigate to the About Us and Contact Pages to get information about the site.| **SHOULD HAVE** |
+| As a User I want to be able to navigate to the privacy policy page to learn about the policies of the site. | **COULD HAVE** |
+| As a User I want to be able to read frequently asked questions to get information about questions I might have. | **COULD HAVE** |
+| As a User I want to get information about how to return my product incase it is not what I want or I want another product. | **COULD HAVE** |
+| As a User I would like to make use of discount codes if they are provided to enjoy the discounted sales price.|**SHOULD HAVE**|
+| As a User I want to be informed of price reduction of products or products that are on sale so that I can make an informed purchase.
+As an Admin I want to be able to set some of the products in the store on sale and to reverse this condition as well.|**COULD HAVE**|
+| As a user, I want to reset my password in case I forget it, so that I can recover access to my account.|**SHOULD HAVE**|
+| As a user I can filter to see the products in thier primary categories and also filter them with thier secondary categories.
+As an admin I can edit the categories of the products.|**SHOULD HAVE**|
+| As a User I want to be notified of how many items of the product that interests me to buy are in stock so that I can make an informed purchase.|**COULD HAVE**|
+
+
+### Epic 6: Feature Completion and User Engagement Boosters
+
+| User Story | Priority |
+|----------------------------------------------------------------------------------------------------------------------------|---------------|
+| As a developer, I want to install and configure PostgreSQL so that the application has a scalable and cloud-based database. | **MUST HAVE** |
+| As a developer, I want to create AWS S3 buckets so that we have a dedicated place to store static and media files. | **MUST HAVE** |
+| As a developer, I want to configure Django to use AWS S3 so that static and media files are served from S3. | **MUST HAVE** |
+| As a developer, I want to prepare the codebase for Heroku deployment to ensure that it meets Heroku's requirements. | **MUST HAVE** |
+| As a developer, I want to deploy a test version of the application to Heroku to validate that it runs as expected in a cloud environment.| **MUST HAVE** |
+| As a developer, I want to validate that all functionalities work as expected in the Heroku test environment.| **SHOULD HAVE** |
+| As a user, I want to see carousels showcasing products categories and top products on the home page so that I can discover new and interesting products| **COULD HAVE**|
+| As a developer, I want the README file to be comprehensive and up-to-date, so that anyone engaging with the project can have a full understanding of its scope, features, and strategies.| **MUST HAVE**|
+| As a developer, I want to set up a custom domain for my application hosted on Heroku, so that it can be accessed via a more professional and memorable URL.| **WONT HAVE**|
+
+
+### Epic 7: UI/UX Optimization Sprint
+
+| User Story | Priority |
+|----------------------------------------------------------------------------------------------------------------------------|---------------|
+| As a user, I want the design elements to be consistent across all pages so that the website feels cohesive and professional. |**MUST HAVE**|
+| As a user, I want the website to be fully responsive so that I can have an optimal viewing experience on different devices.|**MUST HAVE**|
+| As a user, I want immediate feedback for my interactions, like button clicks and form submissions, so that I know my actions have been acknowledged. |**SHOULD HAVE**|
+| As a user, I want an intuitive navigation system so that I can easily find what I'm looking for. |**COULD HAVE**|
+| As a user, I want the website to be accessible so that people with disabilities can also use it effectively. |**SHOULD HAVE**|
+| As a user, I want the website to load quickly so that I don't have to wait to access content. |**COULD HAVE**|
+| As a developer, I want to conduct a final UX audit to ensure that all UI/UX improvements have been effectively implemented. |**COULD HAVE**|
+| As a developer, I want to review the project's current status and set up the Kanban board for the final phases, focusing on finalizing the project with tasks like UX/UI improvements, code refactoring, bug fixes, further testing, and documentation. I also want to consider potential future features. |**SHOULD HAVE**|
+
+
+### Epic 8: Test Deployment and Project Completion
+
+| User Story | Priority |
+|----------------------------------------------------------------------------------------------------------------------------|---------------|
+| As a developer, I want to deploy the latest build of the project to an existing Heroku test environment. The goal is to verify that AWS services, the database, and all styling, static, and media files are functioning as expected. This will allow the team to validate the project's performance, functionality, and reliability under real-world conditions.|**MUST HAVE**|
+| As a developer, I want to thoroughly test the checkout workflow, including the sending of confirmation emails and the operation of webhooks, to ensure that users experience a seamless and reliable checkout process. |**MUST HAVE**|
+| As a developer, I want to identify and fix all critical and non-critical bugs so that users have a smooth experience. |**MUST HAVE**|
+| As a developer, I want to finalize all features, optimizations, and tasks so that the project is ready for launch. |**SHOULD HAVE**|
+
+
+### Epic 9: Code Validation, Documentation, and Refinement
+
+| User Story | Priority |
+|----------------------------------------------------------------------------------------------------------------------------|---------------|
+| As a developer, I want to update the project documentation to reflect detailed descriptions of features, outline possible future enhancements for academic purposes, and enumerate the technologies used, to provide clear project understanding for evaluators and for my personal portfolio. |**MUST HAVE**|
+| As a developer, I want to conduct thorough manual testing and write automated tests using Python's unittest framework to ensure the application functions correctly, aiming for a high-quality application. |**SHOULD HAVE**|
+| As a developer, I want to validate my Python and JavaScript code to ensure there are no issues, and confirm that HTML and CSS are compliant with W3C standards, to ensure a high-quality, standards-compliant project. |**MUST HAVE**|
+| As a developer, I want to use the WAVE tool to evaluate and enhance the accessibility of the web application, ensuring it is usable by people with various disabilities and complies with web accessibility standards. |**COULD HAVE**|
+| As a developer, I want to utilize Google's PageSpeed Insights to analyze and enhance the performance of the web application, aiming to improve load times, efficiency, and overall user experience. |**COULD HAVE**|
+| As a developer, I want to thoroughly review and clean up the project's codebase, removing any unnecessary commented code, redundant files, and ensuring overall code quality, to finalize the project with a clean, efficient, and maintainable codebase. |**MUST HAVE**|
+
 
 #### GitHub Projects
 The project was created using a basic Kanban Board structure, divided into columns such as Todo, In progress, Done, Won´t do and Backlog. This setup provides a clear and organized way to track the status of tasks and visualize and manage the workflow.
