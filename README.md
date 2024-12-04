@@ -42,7 +42,7 @@ A simple logo, created using [Canva](https://www.canva.com/) and [Favicon.io](ht
 ![Hair Hotty logo for the website heading](https://res.cloudinary.com/dzesjeplp/image/upload/v1733263006/READMEPP5/readme/Untitled-design-422-_-80px-12-03-2024_03_07_PM_hrfxas.png)  
 *Hair Hotty logo for heading*
 
-The images for the Hero Carousel were created using AI [Canva](https://www.canva.com/), with the first image edited in canva to highlight Halloween and discounts as this is a very good season for customers to purchase wigs. 
+The images for the Hero Carousel were created using AI [Leonardo.io](https://leonardo.ai/), with the first image edited in canva as well, to highlight Halloween and discounts as this is a very good season for customers to purchase wigs. 
 
 ![First Hero Images for the Carousel](./static/images/hero-banner1.png)
 - *First Hero image*
@@ -408,6 +408,10 @@ Part of the footer is a newsletter, which asks users to subscribe to by applying
 
 ![newsletter](https://res.cloudinary.com/dzesjeplp/image/upload/v1733264666/READMEPP5/newsletter_scietk.png)
 
+### Mailchimp Dashboard
+Mailchimp was implemented as a marketing tool to gather email addresses of users to use for email marketing.
+
+![Mailchimp Dashboard](https://res.cloudinary.com/dzesjeplp/image/upload/v1733345637/Contacts-Mailchimp-11-28-2024_07_00_PM_uzsz2d.png)
 
 ### Home Page
 #### Hero Section
@@ -527,15 +531,21 @@ The admin has the chance while logged on the site on the frontend to carry out C
 #### Add Products
 This page renders the product creation form and all required fields to add an item to the database. Admins can add products on sale by checking the on-sale box and adding the sale price or discount. If the on_sale box is not checked the product will display with the original price.
 
-![add products]()
+![add products](https://res.cloudinary.com/dzesjeplp/image/upload/v1733346711/addproductadmin_sh6rex.png)
 
 #### Edit Product
-This page renders the product form prefilled with the existing data in the database. It allows the admin to modify the stock levels and any other details about the products.
+This page renders the product form prefilled with the existing data in the database. It allows the admin to modify all details about the product.
 
-![edit product]()
+![edit product](https://res.cloudinary.com/dzesjeplp/image/upload/v1733346711/editproductadmin_b41bar.png)
+
+The admin receives an update success message after succesfully updating the product.
+
+![eidt product success message](https://res.cloudinary.com/dzesjeplp/image/upload/v1733346711/editedimagewithtoastsuccessmessage_hiapba.png)
 
 #### Delete Product
-![delete product]()
+This delete process does not come with a modal asking if the admin is sure they want to delete the product. The admin receives a success message after the deletion is complete. In the future a delete modal will be implemented to ask the admin if they really want to delete the product, as the delete button is very small and it could be clicked by accident and then a product will be deleted that the admin doesn´t want to delete.
+
+![delete product](https://res.cloudinary.com/dzesjeplp/image/upload/v1733346711/deletedproductsuccess_y91igc.png)
 
 ### Shopping bag
 The shopping bag can be accessed from the main nav menu. The shopping bag table section provides a clear and organized representation of the items added to the shopping bag. Each item has a small image, product name, stockamount left price, quantity, and subtotal. The users can upgrade the quantity or delete items from the bag with the help of the buttons provided.
@@ -566,22 +576,31 @@ The error messages recognise invalid and not active codes as well.
 ### Checkout
 This page contains a form for the user's delivery and payment information and a summary of the user's order. If the user has an account, they can save their delivery information on their profile to automatically be filled in the checkout.
 - The checkout Form
-In the checkout the user can add their details and if they're logged in, can check the box to save their details for future transactions. Users must enter their payment information before completing the checkout and all payments are handled via Stripe.
+In the checkout the user can add their details and if they're logged in, can check the box to save their details for future transactions. Users must enter their payment information before completing the checkout and all payments are handled via Stripe. If there is an error with the creditcard details, stripe will handle the process and the user gets an error message and the checkout is stalled. 
+
+![checkouterror](https://res.cloudinary.com/dzesjeplp/image/upload/v1733348064/ccdateexpired_dgk9og.png)
+
+![checkouterror](https://res.cloudinary.com/dzesjeplp/image/upload/v1733348064/ccinvalidnumber_talxsl.png)
+
+![checkouterror](https://res.cloudinary.com/dzesjeplp/image/upload/v1733348064/ccpostalcodeerror_k1lsvh.png)
+
 
 - Order summary
 A final summary of the user's order is shown containing all the user's bag items, quantity and subtotal for each item. The user can also see their order total, delivery costs, any discounts that have been applied and the grand total in the summary.
 
-![checkout]()
+![checkout](https://res.cloudinary.com/dzesjeplp/image/upload/v1733347563/checkout_dbhwn8.png)
+
+
 
 ### Order confirmation page
 After the order has been completed, the user is redirected to a confirmation page containing a final rundown of the order and what the user purchased. This page can be accessed again from the user's profile if they have an account on the site by clicking the order number from the list of past orders.
 
-![order confirmation]()
+![order confirmation](https://res.cloudinary.com/dzesjeplp/image/upload/v1733347563/checkoutsuccess_jfrriv.png)
 
 ### Confirmation email
 Once the order is processed and payment has been received, the user will receive an email with the order details.
 
-![email confirmation]()
+![email confirmation](https://res.cloudinary.com/dzesjeplp/image/upload/v1733345352/Hair-Hotty-Confirmation-for-Order-Number-angela-anjorin-gmail-com-Gmail-12-04-2024_09_48_PM_v4it14.png)
 
 ### User Authentication
 The website uses django allauth's built in functionality which allows the users to register and log in securely. There is also a reset password functionality which allows the user to input their email address and receive a link where they can securely reset their password.
