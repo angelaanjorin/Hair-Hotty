@@ -57,10 +57,10 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    // Check enable/disable every time the quantity input is changed
-    $('.qty_input').change(function() {
+    // Validate input field directly
+    $('.qty_input').on('input', function () {
         var itemId = $(this).data('item_id');
-        var currentQuantity = parseInt($(this).val());
+        var currentQuantity = parseInt($(this).val()) || 1; // Default to 1 if input is invalid
         var stockAmount = 0;
 
         // Get selected size's stock amount
@@ -75,10 +75,13 @@ document.addEventListener('DOMContentLoaded', function () {
         if (currentQuantity > stockAmount) {
             alert(`Only ${stockAmount} items are available in stock.`);
             $(this).val(stockAmount); // Reset quantity to max stock
+        } else if (currentQuantity < 1) {
+            alert(`Quantity cannot be less than 1.`);
+            $(this).val(1); // Reset to minimum allowed value
         }
 
         handleEnableDisable(itemId);
-        updateStockDisplay();  // Update stock display based on quantity change
+        updateStockDisplay(); // Update stock display based on quantity change
     });
 
     // Increment quantity
@@ -104,7 +107,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
 
         handleEnableDisable(itemId);
-        updateStockDisplay();  // Update stock display after increment
+        updateStockDisplay(); // Update stock display after increment
     });
 
     // Decrement quantity
@@ -119,7 +122,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
 
         handleEnableDisable(itemId);
-        updateStockDisplay();  // Update stock display after decrement
+        updateStockDisplay(); // Update stock display after decrement
     });
 
     // Attach the updateStockDisplay function to the 'onchange' event of the size dropdown

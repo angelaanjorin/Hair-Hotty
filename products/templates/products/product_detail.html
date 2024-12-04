@@ -86,13 +86,13 @@
                     {% if product.has_sizes %}
                         <p id="stock-display" class="mb-2 text-muted">Select a size to view stock status.</p>
                         <ul id="stock-list" class="d-none">
-                            {% for size in sizes %}
-                                <li data-size="{{ size.size }}" data-stock="{{ size.stock }}"></li>
+                            {% for size, stock in virtual_stock.items  %}
+                                <li data-size="{{ size }}" data-stock="{{ stock }}"></li>
                             {% endfor %}
                         </ul>
                     {% else %}
                         {% if product.in_stock %}
-                            <p class="in-stock-label me-3 text-dark"><strong>IN STOCK: {{ product.stock_amount }}</strong></p>
+                            <p class="in-stock-label me-3 text-dark"><strong>IN STOCK: {{ virtual.stock }}</strong></p>
                         {% else %}
                             <p class="out-of-stock-label"><strong>OUT OF STOCK</strong></p>
                         {% endif %}

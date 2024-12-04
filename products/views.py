@@ -14,6 +14,8 @@ from reviews.forms import ReviewForm
 
 from profiles.models import Wishlist
 
+from bag.utils import calculate_virtual_stock
+
 # Create your views here.
 
 def all_products(request):
@@ -152,6 +154,8 @@ def product_detail(request, product_id):
     wishlist = False
     user_review = None
     product = get_object_or_404(Product, pk=product_id)
+    bag = request.session.get('bag', {})
+    virtual_stock = calculate_virtual_stock(product, bag)
 
     #Retrieve the user´s review if authenticated
     if request.user.is_authenticated:
@@ -172,6 +176,7 @@ def product_detail(request, product_id):
     context = {
         'product': product,
         'sizes' : sizes,
+        'virtual_stock' : virtual_stock,
         'reviews': reviews,
         'wishlist': wishlist,
         'review_form' : review_form,

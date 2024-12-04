@@ -3,6 +3,8 @@ from django.conf import settings
 from django.contrib import messages
 from django.shortcuts import get_object_or_404
 
+from .utils import calculate_virtual_stock
+
 from products.models import Product
 
 
@@ -20,25 +22,20 @@ def bag_contents(request):
         product = get_object_or_404(Product, pk=item_id)
 
         # Calculate the virtual stock amount
-        virtual_stock = product.stock_amount
+        virtual_stock = calculate_virtual_stock(product, bag)
 
-         # remove items that are out of real stock
-        if product.in_stock is False:
-            items_to_remove.append(item_id)
+        if not product.in_stock:
+            items_to_remove.append((item_id, f"{product.name} is out of stock."))
+            continue
 
-        # Choose the correct price (sale price if on sale, otherwise regular price)
-        if product.on_sale and product.sale_price:
-            price = product.sale_price
-        else:
-            price = product.product_price
+        price = product.sale_price if product.on_sale and product.sale_price else product.price
 
         if isinstance(item_data, int):
             # Product without sizes
-            virtual_stock -= item_data # reduce virtual quantity by quantitiy in bag
-            if virtual_stock < 0: #Ensures no negative virtual stock values
-                items_to_remove.append(item_id)
+            if isinstance(virtual_stock, int) and virtual_stock < item_data:
+                items_to_remove.append((item_id, f"Insufficient stock for {product.name}."))
             else:
-                total += item_data * product.product_price
+                total += item_data * price
                 product_count += item_data
                 bag_items.append({
                     'item_id': item_id,
@@ -47,37 +44,33 @@ def bag_contents(request):
                     'size': None,
                     'virtual_stock': virtual_stock,
                 })
-        else:
-            #Product with sizes
+        elif isinstance(item_data, dict):
+            # Product with sizes
             for size, quantity in item_data['items_by_size'].items():
-                size_stock = product.sizes.get(size=size).stock
-                virtual_size_stock = size_stock - quantity
-
-                if virtual_size_stock < 0:
-                    items_to_remove.append(item_id)
-                    messages.error(request,
-                                   f'Insufficient stock for {product.name} (Size: {size}).')
-                else:                   
-                    total += quantity * product.product_price
+                size_stock = virtual_stock.get(size, 0)
+                if size_stock < quantity:
+                    items_to_remove.append((item_id, f"Insufficient stock for {product.name} (Size: {size})."))
+                else:
+                    total += quantity * price
                     product_count += quantity
                     bag_items.append({
                         'item_id': item_id,
                         'quantity': quantity,
                         'product': product,
                         'size': size,
-                        'virtual_stock': virtual_size_stock, 
+                        'virtual_stock': size_stock,
                     })
 
-    for item_id in items_to_remove:
-        bag.pop(item_id)
-        messages.error(request,
-                       f'{product.name} is out of stock and has been removed')
+    # Remove items after processing
+    for item_id, message in items_to_remove:
+        bag.pop(item_id, None)
+        messages.error(request, message)
 
     request.session['bag'] = bag
 
     # Apply discount to total amount excluding delivery
     if discount:
-        discount_amount = (total * discount)/100
+        discount_amount = (total * discount) / 100
         total -= discount_amount
 
     if total < settings.FREE_DELIVERY_THRESHOLD:
