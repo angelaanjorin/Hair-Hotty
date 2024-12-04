@@ -52,5 +52,9 @@ def faq_page(request):
 
 
 def returns(request):
-    ''' Renders FAQ page  '''
+    ''' Renders Return page  '''
     return render(request, 'home/returns.html')
+
+def events(request):
+    ''' Renders events page  '''
+    return render(request, 'home/events.html')
