@@ -548,11 +548,18 @@ This delete process does not come with a modal asking if the admin is sure they 
 ![delete product](https://res.cloudinary.com/dzesjeplp/image/upload/v1733346711/deletedproductsuccess_y91igc.png)
 
 ### Shopping bag
-The shopping bag can be accessed from the main nav menu. The shopping bag table section provides a clear and organized representation of the items added to the shopping bag. Each item has a small image, product name, stockamount left price, quantity, and subtotal. The users can upgrade the quantity or delete items from the bag with the help of the buttons provided.
-On the right side bottom side of the page the users can view their subtotal, delivery charges, and total. 
+The shopping bag can be accessed from the main nav menu. The shopping bag table section provides a clear and organized representation of the items added to the shopping bag. Each item has a small image, product name, remaining stockamount, price, quantity, and subtotal. The users can upgrade the quantity or delete items from the bag with the help of the buttons provided.
+On the right side bottom side of the page the users can view their subtotal, delivery charges, and total on medium screens and above. 
 
-![shopping bag]()
-![shopping bag empty]()
+![shopping bag](https://res.cloudinary.com/dzesjeplp/image/upload/v1733353289/shoppingbag_tbfquk.png)
+
+On mobile screen the informatio of the Grandtotal and checkout buttons appear on the top of the screen with the rest of the details for the shopping bag appearing below.
+
+![shopping bag o nmobile](https://res.cloudinary.com/dzesjeplp/image/upload/v1733353375/shoppingbagonmobile_dmdhhf.png)
+
+If there are no products in the shopping bag there is a view for that with a link to invite users to keep shopping.
+
+![shopping bag empty](https://res.cloudinary.com/dzesjeplp/image/upload/v1733353288/emptyshoppingbag_qbabdi.png)
 
 ##### Stock Quantity
 Stock amounts have been implemented into the product model. Every time a user adds an item or updates quantity the shopping bag checks the quantity selected + the quantity of that item in the bag (if any) and compares it to the stock levels of the product. The user cannot add to the bag more items that there are in stock. 
