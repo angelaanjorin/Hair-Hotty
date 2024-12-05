@@ -886,7 +886,8 @@ To ensure the application is deployed correctly on Heroku it is mandatory to upd
     1. [Portfolio Project 5 by Dayana_N](https://github.com/Dayana-N/Book-Heaven-PP5)
     2. [Portfolio Project 5 Emma Hewson](https://github.com/emmahewson/island-bees)
     3. [Portfolio Project 5 Amy Richardson](https://github.com/amylour/everneed), especially for the testing and readme section of the project.
-    4. [Eleganz Hair](https://www.elegance-hair.de/index.php?lang=0&)
+    4. [Portfolio Project 4 Angela Anjorin](https://github.com/angelaanjorin/travel-doc), I used a lot of my own code from my Project 4 for the blog section of the project.
+    5. [Eleganz Hair](https://www.elegance-hair.de/index.php?lang=0&)
 * [Styling django all auth pages](https://builtwithdjango.com/blog/styling-authentication-pages)
 * [The right way to use Many To Many Field](https://www.reddit.com/r/django/comments/l937f1/the_right_way_to_use_a_manytomanyfield_in_django/)
 * [Looping through integer in templates](https://copyprogramming.com/howto/how-do-i-loop-a-intergerfield-in-django-templates#how-do-i-loop-a-intergerfield-in-django-templates)
