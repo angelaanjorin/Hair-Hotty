@@ -544,6 +544,15 @@ This page displays the items in the wishlist. It uses the same pagination functi
 
 ![wishlist](https://res.cloudinary.com/dzesjeplp/image/upload/v1733267067/mywishlist_b3l6bc.png)
 
+#### My Posts
+This page displays the posts a registered user has written so that they can edit, delete or view them. The published status is also visible to the user so they know if the status is still in a draft status or published status and therefore visible for all. 
+
+![my posts](https://res.cloudinary.com/dzesjeplp/image/upload/v1733423784/POSTS_m1c7jo.png)
+
+After pressing the edit button the use is taken to the Add a Post page with the prefilled postform with the content of thier post. They can edit it and resubmit, whereby the status will change from published to draft again if it was formerly published or remain in the draft status if that was the former status.
+
+When users choose to delete their post they are asked through a modal if they are sure they want to delete thier post as this step can not be reversed.
+![my posts delete ](https://res.cloudinary.com/dzesjeplp/image/upload/v1733423784/deletmodelposts_j0ea1e.png)
 
 ### Admin CRUD Functionality:
 The admin has the chance while logged on the site on the frontend to carry out CRUD functionality for the products.
