@@ -25,10 +25,13 @@ from .views import handler403, handler404, handler500
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('allauth.urls')),
+    path('djrichtextfield/', include('djrichtextfield.urls')),
+    path('summernote/', include('django_summernote.urls')),
     path('', include('home.urls')),
-    path('products/', include('products.urls')),
     path('bag/', include('bag.urls')),
+    path('blog/', include('blog.urls')),
     path('checkout/', include('checkout.urls')),
+    path('products/', include('products.urls')),
     path('profile/', include('profiles.urls')),
     path('reviews/', include('reviews.urls')),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

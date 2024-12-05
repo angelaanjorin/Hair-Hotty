@@ -19,6 +19,11 @@ if os.path.isfile('env.py'):
 
     import env
 
+
+CLOUDINARY_STORAGE = {
+    'CLOUDINARY_URL': os.environ.get('CLOUDINARY_URL')
+}
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -65,9 +70,12 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'cloudinary',
+    'crispy_bootstrap5',
+    'django_summernote',
     'home',
     'products',
     'bag',
+    'blog',
     'checkout',
     'profiles',
     'reviews',
@@ -93,7 +101,8 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'hair_hotty.urls'
 
-CRISPY_TEMPLATE_PACK = 'bootstrap4'
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
+CRISPY_TEMPLATE_PACK = "bootstrap5"
 
 TEMPLATES = [
     {
