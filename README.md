@@ -87,6 +87,8 @@ The project aims to develop an e-commerce website offering different hair produc
  - Save products to thier wishlist
  - Update personal information
  - View past orders
+ - View blog with CRUD functionality for comments and liking the posts. 
+ - As a registered User you can write a post and send it to the admin for review.
 
 Key Features:
 
@@ -471,6 +473,29 @@ This page asks the user for confirmation if they wish to delete their review
 
 ![delete-review](https://res.cloudinary.com/dzesjeplp/image/upload/v1733264654/READMEPP5/deletereview_wxevmv.png)
 
+### Blog
+
+The Blog page consists of 6 blogs per page when clicked. Each Blog card has a link via the title to the detail blog post. The name of the author, the number of likes and comments are on the index page of the blog. 
+
+![blog all posts](https://res.cloudinary.com/dzesjeplp/image/upload/v1733401931/postindexwithlikedandunlikedheart_dnvnb0.png)
+
+On the detail page of each blog post, the user is invited to leave a comment, but can only do that if they are registered. Registered users can write, edit and delete thier comments. They can also like and unlike the post. 
+
+![detail blog post](https://res.cloudinary.com/dzesjeplp/image/upload/v1733401930/postdetailview_sergjr.png)
+
+![Add a post](https://res.cloudinary.com/dzesjeplp/image/upload/v1733401928/addpost_pym7jv.png)
+
+![Edit a post](https://res.cloudinary.com/dzesjeplp/image/upload/v1733401928/editpost_eo0xau.png) 
+
+![delete a post](https://res.cloudinary.com/dzesjeplp/image/upload/v1733401928/deletepostmodal_gcavou.png)
+
+### Contact Page
+
+The Contact page consists of all the contact methods with links where appicable, like email, phone number and physical address. There is also a contact form for all users to use, not only registered users. 
+
+![contact-us-page](https://res.cloudinary.com/dzesjeplp/image/upload/v1733266188/contactus_ke9qgv.png)
+
+
 ### FAQ Page
 The FAQ page consists of the most frequently asked questions.
 
@@ -481,11 +506,6 @@ The Privacy Policy page was generated using ![Privacy Policy Generator](https://
 
 ![privacy-policy-page](https://res.cloudinary.com/dzesjeplp/image/upload/v1733266683/privacypolicy_gfcjxf.png)
 
-### Contact Page
-
-The Contact page consists of all the contact methods with links where appicable, like email, phone number and physical address. There is also a contact form for all users to use, not only registered users. 
-
-![contact-us-page](https://res.cloudinary.com/dzesjeplp/image/upload/v1733266188/contactus_ke9qgv.png)
 
 ### About Us Page
 The About us page tells the user about the business and the background story and philosphy behind the brand. There are links to the social media sites to give more information to the users. Through this the user feels more connected to the brand.
