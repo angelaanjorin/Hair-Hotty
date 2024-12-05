@@ -1,6 +1,6 @@
 from django.shortcuts import get_object_or_404
 
-from products.models import ProductSize, Product
+from products.models import Product
 
 
 def validate_bag_stock(request):

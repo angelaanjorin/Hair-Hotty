@@ -1,13 +1,14 @@
 from django.db import models
 from django.core.validators import MaxValueValidator, MinValueValidator
+from djrichtextfield.models import RichTextField
 import uuid
 from decimal import Decimal
 
 
-class ProductSize(models.Model):
-    """
+"""class ProductSize(models.Model):
+    
     Model to manage sizes and stock amounts for products.
-    """
+    "
     SIZE_CHOICES = [
         ('XS', 'Extra Small'),
         ('S', 'Small'),
@@ -30,7 +31,7 @@ class ProductSize(models.Model):
         unique_together = ('product', 'size')  # Ensure unique size for each product
 
     def __str__(self):
-        return f"{self.product.name} - {self.size} (Stock: {self.stock})"
+        return f"{self.product.name} - {self.size} (Stock: {self.stock})"""
         
 
 class PrimaryCategory(models.Model):
@@ -84,9 +85,6 @@ class Product(models.Model):
     name = models.CharField(max_length=254)
     description = models.TextField()
     has_sizes = models.BooleanField(default=False,null=True, blank=True)
-    stock_amount = models.IntegerField(
-        default=1, validators=[MinValueValidator(0), MaxValueValidator(1000)])
-    in_stock = models.BooleanField(default=True)
     price = models.DecimalField(max_digits=8, decimal_places=2)
     discount = models.IntegerField(null=True, blank=True)
     on_sale = models.BooleanField(default=False)
@@ -110,12 +108,12 @@ class Product(models.Model):
         else:
             return None
 
-    @property
+    """@property
     def stock_details(self):
-        """
+       
         Returns stock details. 
         For products with sizes, returns size-wise stock dictionary.
-        """
+        
         if self.has_sizes and self.sizes.exists():
             return {size.size: size.stock for size in self.sizes.all()}
         return {"stock": self.stock_amount}
@@ -123,7 +121,7 @@ class Product(models.Model):
         if size.stock and self.stock_amount >=1:
             return True
         else:
-            return False
+            return False"""
 
 
     @property
@@ -156,14 +154,14 @@ class Product(models.Model):
             self.discount = None
 
         # Compute stock and in_stock status
-        if self.sizes.exists():
-            self.stock_amount = sum(size.stock for size in self.sizes.all())
-            self.has_sizes = True
-        else:
-            self.has_sizes = False
-            self.stock_amount = max(self.stock_amount, 0)
+        #if self.sizes.exists():
+            #self.stock_amount = sum(size.stock for size in self.sizes.all())
+            #self.has_sizes = True
+        #else:
+            #self.has_sizes = False
+           # self.stock_amount = max(self.stock_amount, 0)
 
-        self.in_stock = self.stock_amount > 0
+        #self.in_stock = self.stock_amount > 0
 
         # Save the product
         super().save(*args, **kwargs)

@@ -81,7 +81,7 @@
                         </form>
                     </div>
                 </div>
-                <!--Stock amount with consideration for sizes if applicable-->
+                <!--Stock amount with consideration for sizes if applicable
                 <div class="stock d-flex">
                     {% if product.has_sizes %}
                         <p id="stock-display" class="mb-2 text-muted">Select a size to view stock status.</p>
@@ -97,7 +97,7 @@
                             <p class="out-of-stock-label"><strong>OUT OF STOCK</strong></p>
                         {% endif %}
                     {% endif %}
-                </div>
+                </div>-->
                 
             
                 <form class="form" action="{% url 'add_to_bag' product.id %}" method="POST">
@@ -106,18 +106,18 @@
                         <!-- Size Dropdown -->
                         {% with product.has_sizes as s %}
                         {% if s %}
-                        <div class="col-12">
-                            <p><strong>Size:</strong></p>
-                            <select class="form-control rounded-0 w-50" name="product_size" id="id_product_size">
-                                <option value="" disabled {% if not product.has_sizes %}selected{% endif %}>Select a size</option>
-                                {% for size in sizes %}
-                                    <option value="{{ size.size }}" data-stock="{{ size.stock }}">
-                                        {{ size.size|upper }}
-                                    </option>
-                                {% endfor %}
-                            </select>                            
-                        </div>
+                            <div class="col-12">
+                                <p><strong>Size:</strong></p>
+                                <select class="form-control rounded-0 w-50" name="product_size" id='id_product_size'>
+                                    <option value="xs">XS</option>
+                                    <option value="s">S</option>
+                                    <option value="m" selected>M</option>
+                                    <option value="l">L</option>
+                                    <option value="xl">XL</option>
+                                </select>                            
+                            </div>
                         {% endif %}
+                        <!-- Quantitity input-->
                         <div class="col-12">
                             <p class="mt-3"><strong>Quantity:</strong></p>
                             <div class="form-group w-50">
@@ -155,14 +155,10 @@
                                     <span class="text-uppercase">Keep Shopping</span>
                                 </a>
                                 <!-- Add to Bag Button -->
-                                {% if product.in_stock %}
-                                    <input type="submit" class="btn btn-cordovan rounded-0 text-uppercase mt-5" value="Add to Bag">
-                                {% else %}
-                                    <input type="submit" class="btn-not-allowed rounded-0 text-uppercase mt-5" value="Add To Bag" disabled>
-                                {% endif %}
+                                <input type="submit" class="btn btn-cordovan rounded-0 text-uppercase mt-5" value="Add to Bag">
                             </div>
                         </div>
-                            <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                        <input type="hidden" name="redirect_url" value="{{ request.path }}">
                         {% endwith %}
                     </div>
                 </form>
@@ -246,6 +242,6 @@
 {% endblock %}
 
 {% block postloadjs %}
-    {{ block.super }} 
-    <script src="{% static 'products/js/product_detail.js' %}"></script> 
+{{ block.super }}
+{% include 'products/includes/quantity_input_script.html' %}
 {% endblock %}

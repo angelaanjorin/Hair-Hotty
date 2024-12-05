@@ -1,18 +1,8 @@
 from django.contrib import admin
-from .models import ProductSize, Product, PrimaryCategory, SpecialCategory
+from .models import Product, PrimaryCategory, SpecialCategory
+
 
 # Register your models here.
-class ProductSizeInline(admin.TabularInline):
-    model = ProductSize
-    extra = 1  
-    min_num = 0 
-
-
-    def has_add_permission(self, request, obj=None):
-        # Allow adding sizes only if the product has sizes
-        return obj and obj.has_sizes
-
-
 
 class ProductAdmin(admin.ModelAdmin):
     list_display = (
@@ -23,13 +13,6 @@ class ProductAdmin(admin.ModelAdmin):
         'rating',
         'image',
     )
-    
-    def get_readonly_fields(self, request, obj=None):
-        if obj and obj.sizes.exists():
-            return ['stock_amount']
-        return super().get_readonly_fields(request, obj)
-
-    inlines = [ProductSizeInline]
 
     ordering = ('name',)
 
@@ -44,8 +27,8 @@ class ProductAdmin(admin.ModelAdmin):
         """
         Custom save_model method to ensure new products don't have default special categories.
         """
-        is_new = obj.pk is None  # Check if the product is new
-        super().save_model(request, obj, form, change)  # Save the product
+        is_new = obj.pk is None  
+        super().save_model(request, obj, form, change)
         if is_new:
             obj.special_categories.clear() 
             

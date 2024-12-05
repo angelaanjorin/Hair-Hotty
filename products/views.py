@@ -5,7 +5,7 @@ from django.db.models import F, Case, When, DecimalField, BooleanField, Q
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 from django.db.models import Sum
 
-from .models import ProductSize, Product, PrimaryCategory, SpecialCategory
+from .models import Product, PrimaryCategory, SpecialCategory
 from .forms import ProductForm
 from .utils import products_pagination
 
@@ -14,7 +14,6 @@ from reviews.forms import ReviewForm
 
 from profiles.models import Wishlist
 
-from bag.utils import calculate_virtual_stock
 
 # Create your views here.
 
@@ -154,8 +153,7 @@ def product_detail(request, product_id):
     wishlist = False
     user_review = None
     product = get_object_or_404(Product, pk=product_id)
-    bag = request.session.get('bag', {})
-    virtual_stock = calculate_virtual_stock(product, bag)
+    #bag = request.session.get('bag', {})
 
     #Retrieve the user´s review if authenticated
     if request.user.is_authenticated:
@@ -163,9 +161,6 @@ def product_detail(request, product_id):
         user_review = Review.objects.filter(product=product, user=profile).first()
         if Wishlist.objects.filter(user=profile, product=product).exists():
             wishlist = True
-
-    # Fetch size-specific stock data if the product has sizes
-    sizes = product.sizes.all() if product.has_sizes else None
 
     # reviews
     review_form = ReviewForm()
@@ -175,8 +170,6 @@ def product_detail(request, product_id):
     
     context = {
         'product': product,
-        'sizes' : sizes,
-        'virtual_stock' : virtual_stock,
         'reviews': reviews,
         'wishlist': wishlist,
         'review_form' : review_form,
