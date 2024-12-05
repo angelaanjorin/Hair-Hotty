@@ -1,0 +1,47 @@
+a {
+    color: #B00058;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #FF69B4;
+}
+
+/* Buttons styling */
+.btn-delete{
+    background-color: red;
+    color: #fff;
+    border-color: crimson;
+    }
+    
+    
+.btn-edit{
+        background-color: #8d9292;
+        color: #fff;
+        border-color:#2d3636;
+    }
+
+    
+    .btn-edit:hover,
+    .btn-edit:active {
+        background-color: #363535;
+        color: #fefefe;  
+    }
+    
+    .btn-delete:hover,
+    .btn-delete:active {
+        background-color: #920f0f;
+        color: #fefefe;
+    }
+
+
+    .post_like {
+        color:#920f0f;
+        background-color: transparent;
+        border:none;
+    }
+
+    .far fa-comments {
+        color: #920f0f;
+        font-size: 25px;
+    }

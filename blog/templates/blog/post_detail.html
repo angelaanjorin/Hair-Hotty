@@ -1,8 +1,12 @@
-{% extends 'base.html' %} {% block content %}
+{% extends 'base.html' %} 
 {% load static %}
 {% load crispy_forms_tags %}
 
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'blog/css/blog.css' %}">
+{% endblock %}
 
+{% block content %}
 <div class="container">
 <header class="section-header mt-3" style="text-align: center;" >
     <h1 class="post-title">{{ post.title }}</h1>
@@ -35,17 +39,17 @@
                       {% csrf_token %}
                       {% if liked %}
                       <button type="submit" class="post_like" name="blogpost_id" value="{{ post.slug }}">
-                          <span class="text-secondary text-muted"><i class="fas fa-heart"></i>
+                          <span><i class="fa-solid fa-heart"></i>
                             {{ post.number_of_likes }}</span>
                       </button>
                       {% else %}
                       <button type="submit" class="post_like" name="blogpost_id" value="{{ post.slug }}">
-                          <span class="text-secondary text-muted"><i class="fas fa-heart"></i>
+                          <span ><i class="fa-regular fa-heart"></i>
                             {{ post.number_of_likes }}</span>
                           {% endif %}
                   </form>
                   {% else %}
-                    <span class="text-secondary text-muted "><i class="fas fa-heart"></i>
+                    <span><i class="fa-solid fa-heart"></i>
                       {{ post.number_of_likes }}</span>
                   {% endif %}
                 </div>
@@ -54,7 +58,7 @@
         <!-- Comment icon with comment count for article -->
         <div class="col-4">
           {% with comments.count as total_comments %}
-          <strong class="text-secondary text-muted"><i class="far fa-comments"></i>
+          <strong><i class="far fa-comments"></i>
               <!-- Our total_comments variable goes before the closing strong tag -->
               {{ total_comments }}</strong>
           {% endwith %}  
@@ -100,7 +104,7 @@
           {{ comment_form | crispy }}
           {% csrf_token %}
           <button id="submitButton" type="submit"
-            class="btn btn-signup btn-lg">Submit</button>
+            class="btn btn-signup btn-lg btn-cordovan">Submit</button>
         </form>
         {% else %}
         <!--Log in to leave a comment as link to login page-->

@@ -1,4 +1,5 @@
 from django.shortcuts import render, get_object_or_404, reverse, redirect
+from django.contrib.auth.decorators import login_required
 from django.views import generic, View
 from django.views.generic import ListView, CreateView, UpdateView
 from django.contrib import messages
@@ -7,9 +8,11 @@ from .models import Post, Comment
 from .forms import CommentForm, PostForm
 from django.urls import reverse_lazy
 from django.contrib.auth.mixins import UserPassesTestMixin, LoginRequiredMixin
-
+from profiles.models import UserProfile
 
 # Create or edit a post.
+
+
 class PostCreateOrUpdateView(
         LoginRequiredMixin, UserPassesTestMixin, CreateView, UpdateView):
     model = Post
@@ -24,8 +27,9 @@ class PostCreateOrUpdateView(
             response = super().form_valid(form)
             messages.success(self.request, "Post updated successfully!")
 
-            return redirect(reverse_lazy('profile',
-                            kwargs={'pk': form.instance.author.profile.pk}))
+            user_profile = UserProfile.objects.get(user=form.instance.author)
+            return redirect(reverse_lazy('UserProfile', kwargs={'pk': user_profile.pk}))
+
 
         else:  # If no object exists, it´s a new job creation
             form.instance.author = self.request.user
@@ -39,7 +43,8 @@ class PostCreateOrUpdateView(
         return response
 
     def test_func(self):
-        return self.request.user.profile
+        return UserProfile.objects.filter(user=self.request.user).exists()
+
 
     def get_object(self, get_queryset=None):
         post_id = self.kwargs.get('pk')
