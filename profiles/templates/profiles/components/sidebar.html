@@ -17,7 +17,7 @@
                             class="nav-link text-black {% if 'wishlist' in request.path %}active{% endif %}">My Wishlist</a>
                     </li>
                     <li>
-                        <a href="#"
+                        <a href="{% url 'my_posts' profile_id %}"
                             class="nav-link text-black {% if 'my_posts' in request.path %}active{% endif %}">My Posts</a>
                     </li>
                 </ul>

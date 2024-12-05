@@ -4,7 +4,7 @@ from django.contrib.auth.decorators import login_required
 
 from .models import UserProfile, Wishlist
 from .forms import UserProfileForm
-
+from blog.models import Post
 from checkout.models import Order
 from products.models import Product
 from products.utils import products_pagination
@@ -109,13 +109,10 @@ def wishlist_add(request, product_id):
 def my_posts(request, profile_id):
     ''' Renders my-posts page '''
     profile = get_object_or_404(UserProfile, pk=profile_id)
-    
-    posts = Post.objects.filter(user=profile).order_by('-created')
-    
-    my_posts = posts_pagination(request, my_posts, 6)
+    posts = Post.objects.filter(author=profile.user).order_by('-created_on')
 
     context = {
-        'my_posts': my_posts,
+        'my_posts': my_posts, 
         'profile_id': profile.id,
     }
     return render(request, 'profiles/my_posts.html', context)
