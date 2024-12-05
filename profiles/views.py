@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-
+from django.contrib.auth.models import User
 from .models import UserProfile, Wishlist
 from .forms import UserProfileForm
 from blog.models import Post
@@ -110,9 +110,15 @@ def my_posts(request, profile_id):
     ''' Renders my-posts page '''
     profile = get_object_or_404(UserProfile, pk=profile_id)
     posts = Post.objects.filter(author=profile.user).order_by('-created_on')
+    
+
+    # Replace with the username of the user you are testing with
+    user = User.objects.get(username="lulu")
+    posts = Post.objects.filter(author=user)
 
     context = {
-        'my_posts': my_posts, 
-        'profile_id': profile.id,
+        'my_posts': posts, 
+        'profile_id': profile_id,
     }
+
     return render(request, 'profiles/my_posts.html', context)
