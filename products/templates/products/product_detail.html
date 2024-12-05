@@ -108,8 +108,8 @@
                         {% if s %}
                         <div class="col-12">
                             <p><strong>Size:</strong></p>
-                            <select class="form-control rounded-0 w-50" name="product_size" id="id_product_size" onchange="updateStockDisplay()">
-                                <option value="" disabled selected>Select a size</option>
+                            <select class="form-control rounded-0 w-50" name="product_size" id="id_product_size">
+                                <option value="" disabled {% if not product.has_sizes %}selected{% endif %}>Select a size</option>
                                 {% for size in sizes %}
                                     <option value="{{ size.size }}" data-stock="{{ size.stock }}">
                                         {{ size.size|upper }}
@@ -243,4 +243,9 @@
         </div>
     </div>
 </section>
+{% endblock %}
+
+{% block postloadjs %}
+    {{ block.super }} 
+    <script src="{% static 'products/js/product_detail.js' %}"></script> 
 {% endblock %}

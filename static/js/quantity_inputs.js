@@ -48,8 +48,8 @@ document.addEventListener('DOMContentLoaded', function () {
             const currentValue = parseInt(input.value);
 
             // Disable buttons if quantity is at min or max
-            decrementButton.disabled = currentValue <= 1;
-            incrementButton.disabled = currentValue >= 99; // Assuming max quantity is 99
+            decrementButton.disabled = currentValue <= 0;
+            incrementButton.disabled = currentValue >= 100; // Assuming max quantity is 100
         }
 
         // Attach event listeners to the quantity input and buttons
@@ -59,13 +59,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
         document.querySelector(`.decrement-qty_${itemId}`).addEventListener('click', e => {
             e.preventDefault();
-            if (input.value > 1) input.value--;
+            if (input.value > 0) input.value--;
             handleEnableDisable();
         });
 
         document.querySelector(`.increment-qty_${itemId}`).addEventListener('click', e => {
             e.preventDefault();
-            if (input.value < 99) input.value++;
+            if (input.value < 100) input.value++;
             handleEnableDisable();
         });
 

@@ -8,17 +8,14 @@ def calculate_virtual_stock(product, bag):
         
         if str(product.id) in bag and isinstance(bag[str(product.id)], dict):
             # Adjust size stock based on the quantities in the bag
-            for size, quantity in bag[str(product.id)]['items_by_size'].items():
+            for size, quantity in bag[str(product.id)].get('items_by_size', {}).items():
                 if size in virtual_stock:
-                    virtual_stock[size] -= quantity
-                    # Ensure no negative stock
-                    virtual_stock[size] = max(0, virtual_stock[size])
+                    virtual_stock[size] = max(0, virtual_stock[size] - quantity)
     else:
         # Single stock amount for products without sizes
         virtual_stock = product.stock_amount
         if str(product.id) in bag and isinstance(bag[str(product.id)], int):
-            virtual_stock -= bag[str(product.id)]
-            # Ensure no negative stock
-            virtual_stock = max(0, virtual_stock)
+            virtual_stock = max(0, virtual_stock - bag[str(product.id)])
 
     return virtual_stock
+
