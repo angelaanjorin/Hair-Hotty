@@ -102,3 +102,20 @@ def wishlist_add(request, product_id):
             request, f'{product.name} removed from your wishlist')
 
     return redirect(redirect_url)
+
+
+
+@login_required
+def my_posts(request, profile_id):
+    ''' Renders my-posts page '''
+    profile = get_object_or_404(UserProfile, pk=profile_id)
+    
+    posts = Post.objects.filter(user=profile).order_by('-created')
+    
+    my_posts = posts_pagination(request, my_posts, 6)
+
+    context = {
+        'my_posts': my_posts,
+        'profile_id': profile.id,
+    }
+    return render(request, 'profiles/my_posts.html', context)
