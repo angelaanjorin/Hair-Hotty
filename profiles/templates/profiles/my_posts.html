@@ -2,6 +2,10 @@
 {% load static %}
 {% load widget_tweaks %}
 
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'blog/css/blog.css' %}">
+{% endblock %}
+
 {% block title %}
 My Posts
 {% endblock title %}
@@ -80,5 +84,26 @@ My Posts
 
 {% block postloadjs %}
     {{ block.super }}
-<script src="{% static 'blog/js/comments.js' %}"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+    const submitButton = document.getElementById("submitButton");
+    const deleteModal = new bootstrap.Modal(document.getElementById("deleteModal"));
+    const deleteConfirm = document.getElementById("deleteConfirm");
+
+    //For deletion of Posts
+    document.querySelectorAll(".btn-delete[post_id]").forEach(button => {
+      button.addEventListener("click", (e) => {
+        e.preventDefault();
+        const postId = e.target.getAttribute("post_id");
+        deleteConfirm.href = `/post/${postId}/delete/`;
+        deleteModal.show();
+      });
+    });
+
+
+    document.getElementById('deleteModal').addEventListener('hidden.bs.modal', function () {
+      document.querySelector('.modal-backdrop').remove();
+    });
+  });
+</script>
 {% endblock %}

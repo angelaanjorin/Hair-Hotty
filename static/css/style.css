@@ -776,13 +776,13 @@ input::placeholder, textarea::placeholder {
 #mc_embed_signup .helper_text {
     background-color: transparent !important;
 }
-
+    
 #mc_embed_signup .button {
-    background-color: var(--gray) !important;
+    background-color:#8d9292 !important;
 }
 
 #mc_embed_signup .button:hover {
-    background-color: var(--dark-gray) !important;
+    background-color: #363535 !important;
 }
 
 .refferal_badge :hover {

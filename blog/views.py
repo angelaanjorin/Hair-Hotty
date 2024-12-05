@@ -28,10 +28,10 @@ class PostCreateOrUpdateView(
             messages.success(self.request, "Post updated successfully!")
 
             user_profile = UserProfile.objects.get(user=form.instance.author)
-            return redirect(reverse_lazy('UserProfile', kwargs={'pk': user_profile.pk}))
+            return redirect(reverse('my_posts', kwargs={'profile_id': user_profile.id}))
 
 
-        else:  # If no object exists, it´s a new job creation
+        else:  # If no object exists, it´s a new post creation
             form.instance.author = self.request.user
             response = super().form_valid(form)
 
@@ -67,7 +67,7 @@ def post_delete_view(request, pk):
     else:
         messages.error(request, "You can only delete your own post")
 
-    return redirect('profile', pk=request.user.pk)
+    return redirect(reverse('my_posts', kwargs={'profile_id': user_profile.id}))
 
 
 class PostList(generic.ListView):
