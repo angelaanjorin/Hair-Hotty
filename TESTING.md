@@ -1,6 +1,6 @@
 # Testing
 
-This is the TESTING file for the [Hair Hotty]() website.
+This is the TESTING file for the [Hair Hotty](https://app-hairhotty-9ddf6a2299e6.herokuapp.com/) website.
 
 Return back to the [README.md](README.md) file.
 
@@ -31,11 +31,11 @@ Return back to the [README.md](README.md) file.
 
 For my HTML files I have used [HTML W3C Validator](https://validator.w3.org) to validate all of my HTML files.
 
-I have had to follow a different approach for validating my HTML for this project as the majority of my pages are developed using Jinja syntax such as '{% extends "base.html" %}' and '{{ form|crispy }}' and most require user authentication. The HTML validator will throw errors if I were to use my website's URL so I have had to follow the below approach for every page:
+I had to follow a different approach for validating my HTML for this project as the majority of my pages are developed using Jinja syntax such as '{% extends "base.html" %}' and '{{ form|crispy }}' and most require user authentication. The HTML validator will throw errors if I were to use my website's URL so I have had to follow the below approach for every page:
 
-- Via the deployed Heroku app link, I have navigated to each individual page.
+- Via the deployed Heroku app link, I navigated to each individual page.
 - Right clicking on the screen/CTRL+U/⌘+U on Mac, allows a menu to appear, giving me the option to 'View page source'.
-- The complete HTML code for the deployed page will appear, allowing you to select the entire code using CTRL+A/⌘+A on Mac.
+- The complete HTML code for the deployed page will appear, allowing me to select the entire code using CTRL+A/⌘+A on Mac.
 - Paste the copied code into the [validate by input](https://validator.w3.org/#validate_by_input) option.
 - Check for errors and warnings, fix any issues, revalidate by following the above steps and record the results.
 
@@ -48,38 +48,41 @@ All HTML pages were validated and received a 'No errors or warning to show' for 
 | Home | 0 | 0 |
 | Log In | 0 | 0 |
 | Register | 0 | 0 |
+| Logout | 0 | 0 |
+| Email Confirmation Sent | 0 | 0 |
+| Email Confirmation | 0 | 0 |
 | Account | 0 | 0 |
-| Wishlist | 0 | 0 |
-| Admin Dashboard | 0 | 0 |
-| Admin Article List | 0 | 0 |
-| Admin Add Article | 0 | 0 |
-| Admin Edit Article | 0 | 0 |
-| Admin Delete Article | 0 | 0 |
-| Admin Product List | 0 | 0 |
+| Admin Project Management | 0 | 0 |
+| Admin and User Add post | 0 | 0 |
+| Admin Edit post | 0 | 0 |
+| Admin Delete post | 0 | 0 |
 | Admin Product Detail | 0 | 0 |
 | Admin Add Product | ID error -> Errors/Warnings present as a result of Bootstraps form elements, not from the code that I have created. The name ID from the contact form html within the base.html is clashing with the name ID from the add product html. These ID elements are embedded within the Bootstrap forms and are inaccessible to me without breaking my code up and reconfiguring the code. This is the same for the `<p>` and `<strong>` error. This was double checked with the Assessment Team Oct'23 who confirmed that code not authored by myself, and is Bootstrap/CrispyForms rendering, would not be subject to assessment mark down as long as it is referenced in the README. I will reinvestigate and break into the code when my Diploma has been awarded to remove errors like these. ![html validation duplicate id bootstrap forms](docs/testing_images/add_prod_er.png) | As before |
 | Admin Edit Product | 0 | 0 |
 | Admin Delete Product | 0 | 0 |
 | All Products | 0 | 0 |
-| User Article List | 0 | 0 |
+| User Product Detail | 0 | 0 |
+| Review Delete | 0 | 0 |
 | Bag - Empty | 0 | 0 |
 | Bag - Products | 0 | 0 |
 | Checkout | Errors/Warnings present as a result of Bootstraps form elements, not from the code that I have created. The name/email ID from the contact form html within the base.html is clashing with the name/email ID from the checkout html. These ID elements are embedded within the Bootstrap forms and are inaccessible to me without breaking my code up and reconfiguring the code. This was double checked with the Assessment Team Oct'23 who confirmed that code not authored by myself, and is Bootstrap/CrispyForms rendering, would not be subject to assessment mark down as long as it is referenced in the README. I will reinvestigate and break into the code when my Diploma has been awarded to remove errors like these. ![html validation duplicate id bootstrap forms](docs/testing_images/contactus_form_id.png) ![html validation duplicate id bootstrap forms](docs/testing_images/contact_html_issue.png) | As before |
-| Wear| 0 | 0 |
-| Care | 0 | 0 |
-| Eat | 0 | 0 |
-| Travel | 0 | 0 |
-| Read | 0 | 0 |
+| Checkout Success | 0 | 0|
 | Profile/Account | 0 | 0 |
 | Order History | 0 | 0 |
 | Wishlist | 0 | 0 |
+| Blog | 0  | 0 |
+| Blog Detail Page | 0  | 0 |
+| Blog - Add a Post | 0 | 0 |
+| Events | 0 | 0 |
+| Contact | 0 | 0 |
+| Footer - Returns | 0  | 0 |
+| Footer - About us | 0 | 0 |
+| Footer    | Privacy Policy | External link - N/A | External link - N/A |
+| Footer - FAQ  | Outside of my control there are multiple errors present as this page contains HTML Content from [Termly.com](https://termly.io/products/terms-and-conditions-generator/) to display the Terms & Conditions for Hair Hotty. None of my templated code contains errors and I felt that attempting to correct all of the Termly errors would render the document incorrectly. I used Termly as they provided this content without personal cost to me. | As before. |
 | Forgot Password | 0 | 0 |
 | Error 403 | 0 | 0 |
 | Error 404 | 0 | 0 |
 | Error 500 | 0  | 0 |
-| Footer - Contact Us & Thank You page | 0 | 0 |
-| Footer    | Privacy Policy | External link - N/A | External link - N/A |
-| Footer - Terms & Conditions   | Outside of my control there are multiple errors present as this page contains HTML Content from [Termly.com](https://termly.io/products/terms-and-conditions-generator/) to display the Terms & Conditions for Hair Hotty. None of my templated code contains errors and I felt that attempting to correct all of the Termly errors would render the document incorrectly. I used Termly as they provided this content without personal cost to me. | As before. |
 
 ### JavaScript Validation
 
@@ -87,12 +90,14 @@ All HTML pages were validated and received a 'No errors or warning to show' for 
 
 | Page | Screenshot | Errors | Warnings |
 | ---- | ---------- | ------ | -------- |
-| Home | ![js from Home page](docs/testing_images/home_script.png) | none | none |
-| Article | ![js from Article section](docs/testing_images/article_js_valid.png) | none | none |
-| Bag - Quantity Script | ![js from Bag page](docs/testing_images/quantity_input_validation.png) | none | none |
+| bag | ![js from Bag page](docs/testing_images/home_script.png) | none | none |
+| blog - Comment js | ![js from post section](docs/testing_images/post_js_valid.png) | none | none |
 | Stripe JS | ![js from Stripe elements](docs/testing_images/stripe_js.png) | none | none |
-| Products Quantity Input Script | ![js from product quantity script](docs/testing_images/quantity_input_script_js.png) | none (code has been highlighted red at the top of the code block but no errors returned from JSHint and code functions as intended. I could not get a definitive answer on why JSHint colours these lines red.) | none |
-| Products Script | ![js from product script](docs/testing_images/product_script.png) | none | none |
+| Products Product Detail Script | ![js from product detail script](docs/testing_images/quantity_input_script_js.png) | none (code has been highlighted red at the top of the code block but no errors returned from JSHint and code functions as intended. I could not get a definitive answer on why JSHint colours these lines red.) | none |
+| Products Sort Selector Script | ![js from sort selector script](docs/testing_images/product_script.png) | none | none |
+| Products Add Product Script | ![js from add product page](docs/testing_images/product_script.png) | none | none |
+| Products Edit Product Script | ![js from edit product page](docs/testing_images/product_script.png) | none | none |
+| Review - Ratings Selector Script | ![js from ratings selector script](docs/testing_images/base_script_valid.png) | none | none |
 | Base Script | ![js from base script](docs/testing_images/base_script_valid.png) | none | none |
 
 ### Python Validation
@@ -101,13 +106,13 @@ All HTML pages were validated and received a 'No errors or warning to show' for 
 
 | Feature | admin | forms | models | urls | views | extra |
 |---------|----------|----------|-----------|---------|----------|-------|
-| Article | none ![python validation](docs/testing_images/a_admin.png) | none ![python validation](docs/testing_images/a_forms.png) | none ![python validation](docs/testing_images/a_models.png) | none ![python validation](docs/testing_images/a_urls.png) | none ![python validation](docs/testing_images/a_views.png) | n/a |
-| Bag  | n/a | n/a | n/a | none | none ![python validation](docs/testing_images/b_views.png) | contexts ![python validation](docs/testing_images/b_contexts.png) |
+| bag | none ![python validation](docs/testing_images/a_admin.png) | none ![python validation](docs/testing_images/a_forms.png) | none ![python validation](docs/testing_images/a_models.png) | none ![python validation](docs/testing_images/a_urls.png) | none ![python validation](docs/testing_images/a_views.png) | n/a |
+| blog  | n/a | n/a | n/a | none | none ![python validation](docs/testing_images/b_views.png) | contexts ![python validation](docs/testing_images/b_contexts.png) |
 | Checkout | none ![python validation](docs/testing_images/c_admin.png) | none ![python validation](docs/testing_images/c_forms.png) | none ![python validation](docs/testing_images/c_models.png) | none | none ![python validation](docs/testing_images/c_views.png) | none ![python validation](docs/testing_images/c_webh.png) | n/a |
 | Home | none | none | none | none | none ![python validation](docs/testing_images/h_views.png) | n/a |
 | Products | none ![python validation](docs/testing_images/p_admin.png) | none ![python validation](docs/testing_images/p_forms.png) | none ![python validation](docs/testing_images/p_models.png) | none | none ![python validation](docs/testing_images/p_views.png) | none |
 | Profiles | none | none ![python validation](docs/testing_images/pro_forms.png) | none ![python validation](docs/testing_images/pro_models.png) | none | none ![python validation](docs/testing_images/pro_views.png) | n/a |
-| Wishlist | none | none | none | none | none ![python validation](docs/testing_images/wish_views.png) | none |
+| Reviews | none | none | none | none | none ![python validation](docs/testing_images/wish_views.png) | none |
 
 ### CSS Validation
 
@@ -118,10 +123,8 @@ To keep my document concise I have not included every screenshot of the CSS vali
 
 | CSS File | Errors | Warnings |
 | ---- | ------ | -------- |
-| Article | 0 | 0 |
+| blog | 0 | 0 |
 | Checkout | 0 | 0 |
-| Admin Products | 0 | 0 |
-| Profiles/Accounts | 0 | 0 |
 | Base CSS | 0 | 0 |
 
 ### Lighthouse Scores
@@ -132,7 +135,7 @@ Lighthouse testing was carried out in Incognito mode to achieve the best result.
 | ---- | ----------------- | -------- |
 | Home |   ![lighthouse home](docs/testing_images/home_lh.png)   |    ![best practise errors](docs/testing_images/home_lh_bp.png)  Score lower due to aspect ratio or images, not using webp images and Stripe Cookie    |
 | All  |  ![lighthouse all](docs/testing_images/prod_lh.png)  |  None        |
-| Read  | ![lighthouse article](docs/testing_images/article_lh.png)   |   None  |
+| Read  | ![lighthouse post](docs/testing_images/post_lh.png)   |   None  |
 | Account |  ![lighthouse account](docs/testing_images/profile_lh.png)              |    As before with Stripe Cookie  |
 | Wishlist |  ![lighthouse wishlist](docs/testing_images/wishlist_lh.png)   |  As before with images rendering and Stripe Cookie   |
 
@@ -140,7 +143,7 @@ Lighthouse testing was carried out in Incognito mode to achieve the best result.
 | ---- | ----------------- | -------- |
 | Home |  ![lighthouse home](docs/testing_images/home_moblh.png) | ![performance errors](docs/testing_images/home_perform_mob_er.png) Score lower due to images not being webp and STripe/jQuery CDN. I will look into this for future versions to better understand how I can improve this score.  |
 | All  | ![lighthouse all products mobile](docs/testing_images/all_moblh.png)   | As before  |
-| Read |  ![lighthouse article mobile](docs/testing_images/read_moblh.png) |  As before  |
+| Read |  ![lighthouse post mobile](docs/testing_images/read_moblh.png) |  As before  |
 | Account | ![lighthouse account mobile](docs/testing_images/account_moblh.png)   |  As before  |
 | Wishlist | ![lighthouse wishlist mobile](docs/testing_images/wishlist_moblh.png)  | As before   |
 
@@ -155,7 +158,7 @@ Accessibility was included in every planning stage for Hair Hotty, through the u
 
 ### User Input/Form Validation
 
-Testing was carried out on desktop using a Chrome browser to ensure all forms take the intended input and process the input appropriately.
+Testing was carried out on desktop using a Chrome browser to ensure all forms take the intended input and process appropriately.
 
 | Feature                    | Tested?  | User Input Required | User Feedback Provided     | Pass/Fail | Fix |
 |----------------------------|----------|---------------------|----------------------------|-----------|-----|
@@ -163,20 +166,21 @@ Testing was carried out on desktop using a Chrome browser to ensure all forms ta
 | Home Page                  | Yes      | Hover/Click interactive features | Carousel moves, Accordion FAQ section | Pass | N/A |
 | Register Page              | Yes      | Text Input/Click Links | Form field highlight/Font weight change on hover/Toast message | Pass | N/A |
 | Email Validate             | Yes      | Click Links | Button animation/Toast message | Pass | N/A |
-| Forgot Password             | Yes     | Text Input/Click Links | Form field highlight/Button animation/Toast message | Pass | N/A |
+| Forgot Password            | Yes      | Text Input/Click Links | Form field highlight/Button animation/Toast message | Pass | N/A |
 | Log In Page                | Yes      | Text Input/Click Links | Form field highlight/Font weight on hover/Toast message | Pass | N/A |
 | Log Out Page               | Yes      | Click Links bring user to correct destination | Button animation/Font color change/Toast message | Pass | N/A |
 | Account - Edit Address     | Yes      | Text Input/Click to Save | Form field highlight/Button animation/Toast message | Pass | N/A |
 | Search                     | Yes      | Text Input/Click to Search | Pop up Modal/Form field highlight/Button Animation | Pass | N/A |
+| Event                      | Yes      | Text Input/Click to Search | Pop up Modal/Form field highlight/Button Animation | Pass | N/A |
 | Contact Us Form            | Yes      | Text Input/Click to Save | Pop up Modal/Form field highlight/Button animation | Pass | N/A |
+| Blog index                 | Yes      | Text Input/Click to Search | Pop up Modal/Form field highlight/Button Animation | Pass | N/A |
+| Blog detail                | Yes      | Text Input/Click to Search | Pop up Modal/Form field highlight/Button Animation | Pass | N/A |
 | Newsletter Sign Up         | Yes      | Text Input/ Click to Subscribe | Button animation/New tab subscription confirmation | Pass | N/A |
-| Admin Dashboard            | Yes      | Click Links brings user to correct URL | Button animation on hover | Pass | N/A |
 | Products                   | Yes      | Click product brings user to product description | Pointer change on hover of products | Pass | N/A |
 | Add Product                | Yes      | Navigated to Admin Dashboard, clicked 'Add Product', Completed form, Form submits correctly to display the product. | Form field highlight/Button animation/Toast message, new product uploaded. | Pass | N/A |
 | Edit Product               | Yes      | Navigated to Admin Dashboard, clicked 'Edit Product', Completed form, Form submits correctly to display the edited product. | Form field highlight/Button animation/Toast message, product updated. | Pass | N/a |
-| View Article               | Yes      | Click link for article | Article card border change on hover | Pass | N/A |
-| Add Article                | Yes      | Navigated to Admin Dashboard, clicked 'Add Article', Completed form, Form submits correctly to display the article. | Form field highlight/Button animation/Toast message, new article uploaded. | Pass | N/A |
-| Edit Article               | Yes      | Navigated to Admin Dashboard, clicked 'Edit Article', Completed form, Form submits correctly to display the edited article. | Form field highlight/Button animation/Toast message, article edited and uploaded. | Pass | N/A |
+| Add post                | Yes      | Navigated to Account for registered, clicked 'Add post', Completed form, Form submits correctly to display the post. | Form field highlight/Button animation/Toast message, new post uploaded. | Pass | N/A |
+| Edit post               | Yes      | Navigated to Profile, my posts, clicked 'Edit post', Completed form, Form submits correctly to display the edited post. | Form field highlight/Button animation/Toast message, post edited and uploaded. | Pass | N/A |
 | Product Quantity           | Yes      | Click increment/decrement | Colour change on hover/product quantity successfully changed | Pass | N/A |
 | Product Sizes              | Yes      | Click dropdown/Click to select | Form field highlight/Size highlight | Pass | N/A |
 | Checkout                   | Yes      | Click 'Secure Checkout', correct products in bag, entered delivery and payment details, submitted form to process payment. | Form field highlight/Button animation/Toast message, Loading spinner when processing order, order processed saved to account and email sent. | Pass | N/A |
@@ -185,7 +189,7 @@ Testing was carried out on desktop using a Chrome browser to ensure all forms ta
 
 ### Browser Compatibility
 
-Hair Hotty was tested on the following browsers, purchases were made, article/products added/edited/deleted, error pages, all features were accessible and working as intended:
+Hair Hotty was tested on the following browsers, purchases were made, post/products added/edited/deleted, error pages, all features were accessible and working as intended:
 
 - Chrome v117.0.5938.92
 - Firefox v114.0.2
@@ -209,48 +213,11 @@ Using the Bootstrap framework allowed a more rapid development of a responsive w
 ![Hair Hotty Desktop/Mobile Products](docs/testing_images/dt_mob_prod_resp.png)  
 *Hair Hotty Desktop/Mobile Products Responsive Views*
 
-![Hair Hotty Desktop/Mobile Articles](docs/testing_images/dt_mob_art_resp.png)  
-*Hair Hotty Desktop/Mobile Articles Responsive Views*
+![Hair Hotty Desktop/Mobile posts](docs/testing_images/dt_mob_art_resp.png)  
+*Hair Hotty Desktop/Mobile posts Responsive Views*
 
 ![Hair Hotty Desktop/Mobile Bag](docs/testing_images/dt_mob_bag_resp.png)  
 *Hair Hotty Desktop/Mobile Bag Responsive Views*
-
-
-
-### Testing User Stories
-
-User Stories are documented in the Hair Hotty [GitHub Projects Board](https://github.com/users/amylour/projects/6). User Stories are completed, with Acceptance Criteria and Tasks detailed within. Testing was carried out on Dev Tools for desktop/tablet/mobile, by creating multiple accounts for test users: Test01, Test02, Test03 etc and following through by ensuring that the Acceptance Criteria were met. All features were tested to ensure that they provided the user with the expected output and action.
-
-| User Story                 | Acceptance Criteria Met?  | Tested | Response     | Pass/Fail | Fix     |
-|----------------------------|---------------------------|--------|--------------|-----------|---------|
-| As a **customer**, I can **view the site's home page** so that I can **understand the site's intentions and purpose**. | Yes | Yes | Home page is visible | Pass | n/a |
-| As a **customer**, I can **see and use the navigation bar** so that I can **make my way around the site and get to where I would like**. | Yes | Yes | Navbar visible to all users in desktop/tablet and mobile views | Pass | n/a |
-| As a **customer**, I can **enter text into the search bar** so that I can **search for a specific item**. | Yes | Yes | Search bar accepts user input and returns search results when search form is submitted | Pass | n/a |
-| As a **customer** I can **create and manage an account with Hair Hotty** so that I can **keep my personal details, order history and speed up my checkout process**. | Yes | Yes | Register form takes new user information, sends verification email link to confirm account. User may then sign in to view their account, edit their personal information and start saving their order histories from purchases made | Pass | n/a |
-| As a **customer**, I can **edit my personal details on my account** so that I can **keep them up to date**. | Yes | Yes | User information is editable | Pass | n/a |
-| As a **site user**, I can **enter my login details** so that I can **login in to my account**. | Yes | Yes | User may login with correct details | Pass | n/a |
-|  As a **site user**, I can **click on the visible links in the footer** so that I can **view the relevant information and destinations**. | Yes | Yes | Footer links return user to relevant area in website and external links open in a new tab | Pass | n/a |
-| As a **site user**, I can **register my email and receive a validation link via email** so that I can **create an account with Hair Hotty to track my spending and purchases**. | Yes | Yes | Registration process works as expected to accept new users | Pass | n/a |
-| As a **customer**, I can **use the Contact Us form** so I can **send a message to the business/site admin**. | Yes | Yes | Contact form opens in a modal, accepts user input, submits form and returns thank you page for user, and email to Hair Hotty Admin's inbox. | Pass | n/a |
-| As a **site user** I can **interact with sorting and view features on the 'All Products' page** so that I can **improve my shopping experience on the site**. | Yes | Yes | Price, category, A-Z, rating works as expected to display products in a certain order. | Pass | n/a |
-| As a **site user**, I can **click on a navbar item for a specific category** so that I can **choose to view a smaller amount of related products**. | Yes | Yes | Products sorted correctly into categories. | Pass | n/a |
-| As a **customer**, I can **choose an individual product** so that I can **view its description, price, colours, sizes available etc**. | Yes | Yes | Individual products returned when clicked on, all relevant information displayed and is interactable. | Pass | n/a |
-| As a **site admin** I can **add a product to my inventory using a frontend from** so that I can **increase my range/amount of products available on site**. | Yes | Yes | Add product form takes new information and displays it in the product template correctly. | Pass | n/a |
-| As a **site admin**, I can **edit existing inventory from a frontend form** so I can **change the quantity of stock, sizes, colours or edit products description, price or image**. | Yes | Yes | Edit product form takes user input and returns it correctly in the template. Product stock levels will be implemented in future features. | Pass | n/a |
-| As a **site admin**, I can **delete products from the inventory using a frontend form** so that I can **remove it from sale**. | Yes | Yes | Delete product modal appears when clicked on and delete confirmation is needed before product is removed from database. | Pass | n/a |
-| As a **customer** I can **create and manage an account with Hair Hotty** so that I can **keep my personal details, order history and speed up my checkout process**. | Yes | Yes | Account functions as expected, all user information is handled appropriately and displayed within the account template | Pass | n/a |
-| As a **customer**, I can **click on 'Add to Bag' in my product view**so that I can **add the product to my bag**. | Yes | Yes | Add to Bag works when clicked and product is added to bag and displayed in a success toast with the product displayed. A link to the bag is displayed in the toast message. | Pass | n/a |
-| As a **customer**, I can **increase/decrease/remove quantities of a product in my bag** so that I can **have control over what I wish to purchase**. | Yes | Yes | Increment/Decrement/Remove buttons work as expected when clicked by user. | Pass | n/a |
-| As a **customer**, I can **view my bag total from any page** so that I can **keep track of my potential spending**. | Yes | Yes | Bag item quantity is displayed in a small bubble top right of shopping bag icon in navbar. Bubble disappears if no items in customers bag. | Pass | n/a |
-| As a **customer**, I can **view my running total of carbon saved when I add products** so that I can **see how much carbon my purchases would had saved in their production vs non eco-friendly products of the same type**. | Yes | Yes | Customer can see their carbon total in #cc4818 orange font below their grand total. They are further informed of their carbon total in the checkout page | Pass | n/a |
-| As a **customer**, I can **view my total carbon footprint saving on checkout and it's associated climate impact/lifestyle changes** so that I can **understand the equivalent value of carbon saved versus purchasing the same non eco-friendly products**. | Yes | Yes | Carbon totals again displayed in green portion of checkout page to inform customer of their savings. | Pass | n/a |
-| As a **customer**, I can **checkout my products securely** so that I can **complete my purchase**. | Yes | Yes | Payments handled correctly through Stripe's payment system, tested many times using the '4242424242...' Stripe testing card credentials. | Pass | n/a |
-| As a **customer**, I can **receive an email after purchasing** so that I can **confirm my purchase and keep a record of my order**. | Yes | Yes | Email is delivered to customer after making a purchase. |Pass | n/a |
-| As a **site user** I can **view error pages with 'Home' links** so that I can **return to the main page if a page is missing or forbidden**. | Yes | Yes | Error pages display correctly when user attempts to access non-existent content, restricted content. | Pass | n/a |
-|  As a **logged-in user** I can **click the 'Add to Wishlist' button** so that I can **keep a record of my favourite items**. | Yes | Yes | Add to wishlist button works for logged in user. | Pass | n/a |
-|  As a **logged-in user** I can **click the 'Remove' icon beside my Wishlist item** so that I can **remove that product from my Wishlist**. | Yes | Yes | Remove button eliminates product from user's wishlist | Pass | n/a |
-| As a **customer**, I can **enter my details into the newsletter form** so I can **receive emails about products or environmental issues/climate saving tips**. | Yes | Yes | Newsletter form submission brings user to new tab of MailChimp subscription confirmation. When checked, MailChimp subscription address book shows new user added. | Pass | n/a |
-
 
 ### Dev Tools/Real World Device Testing
 
