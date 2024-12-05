@@ -28,10 +28,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ.get('SECRET_KEY', '')
 
+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEVELOPMENT = os.environ.get('DEVELOPMENT', False)
 DEBUG = DEVELOPMENT
-#DEBUG = True
+
 
 
 CSRF_TRUSTED_ORIGINS = [
@@ -201,16 +202,16 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
+if DEVELOPMENT:
+    # Local storage settings for development
+    STATIC_URL = '/static/'
+    STATICFILES_DIRS =  (os.path.join(BASE_DIR, 'static'),)
+    STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-STATIC_URL = '/static/'
-STATICFILES_DIRS =  (os.path.join(BASE_DIR, 'static'),)
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-
-if 'USE_AWS' in os.environ:
+    MEDIA_URL = '/media/'
+    MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+else:
     # Cache control
     AWS_S3_OBJECT_PARAMETERS = {
         'Expires': 'Thu, 31 Dec 2099 20:00:00 GMT',
@@ -226,19 +227,19 @@ if 'USE_AWS' in os.environ:
 
     # Static and media files
     STORAGES = {
-    "default": {
-        "BACKEND": "custom_storages.MediaStorage",
-    },
-    "staticfiles": {"BACKEND": "custom_storages.StaticStorage"},}
+        "default": {"BACKEND": "custom_storages.MediaStorage"},
+        "staticfiles": {"BACKEND": "custom_storages.StaticStorage"},
+    }
 
     STATICFILES_LOCATION = 'static'
-    #DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
     MEDIAFILES_LOCATION = 'media'
 
     # Override static and media URLs in production
     STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{STATICFILES_LOCATION}/'
     MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{MEDIAFILES_LOCATION}/'
 
+if not DEVELOPMENT:
+    print(f"Using S3 with bucket: {AWS_STORAGE_BUCKET_NAME}")
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
