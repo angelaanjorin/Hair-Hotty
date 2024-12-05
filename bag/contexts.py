@@ -9,7 +9,9 @@ from products.models import Product
 
 
 def bag_contents(request):
-
+    '''
+    Handles the shopping bag contents
+    '''
     bag_items = []
     total = 0
     product_count = 0
@@ -18,53 +20,24 @@ def bag_contents(request):
     discount = request.session.get('discount')
     discount_amount = 0
 
-    for item_id, item_data in bag.items():
+    for item_id, quantity in bag.items():
         product = get_object_or_404(Product, pk=item_id)
+        # remove items that are out of stock
+        if product.in_stock is False:
+            items_to_remove.append(item_id)
 
-        # Calculate the virtual stock amount
-        virtual_stock = calculate_virtual_stock(product, bag)
+        total += product.product_price * int(quantity)
+        product_count += int(quantity)
+        bag_items.append({
+            'item_id': item_id,
+            'quantity': int(quantity),
+            'product': product,
+        })
 
-        if not product.in_stock:
-            items_to_remove.append((item_id, f"{product.name} is out of stock."))
-            continue
-
-        price = product.sale_price if product.on_sale and product.sale_price else product.price
-
-        if isinstance(item_data, int):
-            # Product without sizes
-            if isinstance(virtual_stock, int) and virtual_stock < item_data:
-                items_to_remove.append((item_id, f"Insufficient stock for {product.name}."))
-            else:
-                total += item_data * price
-                product_count += item_data
-                bag_items.append({
-                    'item_id': item_id,
-                    'quantity': item_data,
-                    'product': product,
-                    'size': None,
-                    'virtual_stock': virtual_stock,
-                })
-        elif isinstance(item_data, dict):
-            # Product with sizes
-            for size, quantity in item_data['items_by_size'].items():
-                size_stock = virtual_stock.get(size, 0)
-                if size_stock < quantity:
-                    items_to_remove.append((item_id, f"Insufficient stock for {product.name} (Size: {size})."))
-                else:
-                    total += quantity * price
-                    product_count += quantity
-                    bag_items.append({
-                        'item_id': item_id,
-                        'quantity': quantity,
-                        'product': product,
-                        'size': size,
-                        'virtual_stock': size_stock,
-                    })
-
-    # Remove items after processing
-    for item_id, message in items_to_remove:
-        bag.pop(item_id, None)
-        messages.error(request, message)
+    for item_id in items_to_remove:
+        bag.pop(item_id)
+        messages.error(request,
+                       f'{item.title} is out of stock and has been removed')
 
     request.session['bag'] = bag
 

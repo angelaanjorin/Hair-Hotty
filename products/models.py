@@ -85,7 +85,7 @@ class Product(models.Model):
     description = models.TextField()
     has_sizes = models.BooleanField(default=False,null=True, blank=True)
     stock_amount = models.IntegerField(
-        default=0, validators=[MinValueValidator(0), MaxValueValidator(1000)])
+        default=1, validators=[MinValueValidator(0), MaxValueValidator(1000)])
     in_stock = models.BooleanField(default=True)
     price = models.DecimalField(max_digits=8, decimal_places=2)
     discount = models.IntegerField(null=True, blank=True)
@@ -119,6 +119,11 @@ class Product(models.Model):
         if self.has_sizes and self.sizes.exists():
             return {size.size: size.stock for size in self.sizes.all()}
         return {"stock": self.stock_amount}
+
+        if size.stock and self.stock_amount >=1:
+            return True
+        else:
+            return False
 
 
     @property
