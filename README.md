@@ -452,7 +452,7 @@ The reviews section allows an authenticated user to submit a review for a produc
 The description tab includes a short description of the product which helps the users in making informed decision if they wish to purchase the product.
 
 
-![product detail page](https://res.cloudinary.com/dzesjeplp/image/upload/v1733264670/READMEPP5/productdetailpage_rlqxty.png)
+![product detail page](https://res.cloudinary.com/dzesjeplp/image/upload/v1733437832/productdetailpageafterfix_fhxyad.png)
 
 The reviews section allows the user to rate the product choosing from 5 stars and then writing a review for the product.These two aspects are stored together and have to be completed together.
 
@@ -590,24 +590,6 @@ If there are no products in the shopping bag there is a view for that with a lin
 
 ![shopping bag empty](https://res.cloudinary.com/dzesjeplp/image/upload/v1733353288/emptyshoppingbag_qbabdi.png)
 
-##### Stock Quantity
-Stock amounts have been implemented into the product model. Every time a user adds an item or updates quantity the shopping bag checks the quantity selected + the quantity of that item in the bag (if any) and compares it to the stock levels of the product. The user cannot add to the bag more items that there are in stock. 
-In the event that another user purchases all units of a product while the product is sitting in another bag, when the user refreshes the page or continues to checkout, the item will be removed from their bag and an error message will be displayed letting them know that this item is not out of stock. In the event that 2 orders go through at the same time, the admin can cancel the status of the order and contact the customer for a refund. 
-
-Trying to update quantity to levels above stock
-
-![shopping bag no stock]()
-
-##### Discount Codes
-When an active discount code is applied, the subtotal is recalculated minus the percentage of the discount code. This excludes delivery fees. The discount amount is presented to the user and the total is updated. The code can be removed by clicking the remove button. A notification message is displayed to the user and the total price is adjusted accordingly.
-
-![discount code success]()
-
-The error messages recognise invalid and not active codes as well. 
-
-![discount code invalid]()
-
-![discount code inactive]()
 
 ### Checkout
 This page contains a form for the user's delivery and payment information and a summary of the user's order. If the user has an account, they can save their delivery information on their profile to automatically be filled in the checkout.
@@ -627,7 +609,6 @@ A final summary of the user's order is shown containing all the user's bag items
 ![checkout](https://res.cloudinary.com/dzesjeplp/image/upload/v1733347563/checkout_dbhwn8.png)
 
 
-
 ### Order confirmation page
 After the order has been completed, the user is redirected to a confirmation page containing a final rundown of the order and what the user purchased. This page can be accessed again from the user's profile if they have an account on the site by clicking the order number from the list of past orders.
 
@@ -642,6 +623,8 @@ Once the order is processed and payment has been received, the user will receive
 The website uses django allauth's built in functionality which allows the users to register and log in securely. There is also a reset password functionality which allows the user to input their email address and receive a link where they can securely reset their password.
 
 ## Future Features
+- Add Stock amount for products with and without sizes.
+- Add different wig hair lenghts and colours. This will cause every product to have many variations and the management of the complexity will be a challenge to master.
 - Add a pop up with the current discount code which can be updated by the admin. Or allow the admin access to the edit the banner with new discount codes like the one displayed for the halloween season. 
 - CRUD functionality to update the carousel images with new catching edited images depending on the shopping season, exeample the black friday sales, or upcoming christmas sales.
 - Add an event section to host a live online hair bazaar, with vendors, hair stylists and have a lottery with special prizes. Customers can buy the tickets to the lottery online and it will be stored on thier profile and they will be notified per email if they win.
@@ -678,16 +661,10 @@ A [Hair Hotty Facebook Page](https://www.facebook.com/people/Hairhotty/100064214
 
 
 ## Testing
-Testing documentation can be found [](TESTING.md)
+Testing documentation can be found here: [](TESTING.md)
+
 ## Bugs
-|Bug|Status|
-| ---| ---|
-|[BUG: ](https://res.cloudinary.com/dzesjeplp/image/upload/v1733356200/changeofstaticstoragelocation_pblil2.png)|Closed|
-|[BUG: ]()|Closed|
-|[BUG: ]()|Closed|
-|[BUG: ]()|Closed|
-|[BUG: ]()|Closed|
-|[BUG: ]()|Closed|
+Detail Bugs and thier fixes can be found here: [](TESTING.md)
  
 
 
@@ -721,6 +698,7 @@ Testing documentation can be found [](TESTING.md)
 - s3transfer - S3 Transfer is a library for managing file transfers to and from Amazon S3 storage.
 
 - whitenoise - Whitenoise is a middleware for serving static files directly from your Django application.
+
 ### Technologies and programs
 - [Favicon Generator](https://favicon.io/favicon-converter/) was used to generate Favicon
 - [GitHub](https://github.com/) is the hosting site used to store the code for the website.
@@ -896,22 +874,28 @@ To ensure the application is deployed correctly on Heroku it is mandatory to upd
 
 ## Credits
 ### Media
-- [Defaut avatar image](https://www.pngwing.com/en/free-png-azzyd)
-- [Default product image]()
-- [Logo]()
+- [Carousel images](https://app.leonardo.ai/)
+- [Logo](https://canva.com/)
 
 
-
-### Code
-- Boutique Ado Walkthrough was used for the base of this project
-- [Styling django all auth pages](https://builtwithdjango.com/blog/styling-authentication-pages)
-- [The right way to use Many To Many Field](https://www.reddit.com/r/django/comments/l937f1/the_right_way_to_use_a_manytomanyfield_in_django/)
-- [Looping through integer in templates](https://copyprogramming.com/howto/how-do-i-loop-a-intergerfield-in-django-templates#how-do-i-loop-a-intergerfield-in-django-templates)
-- [Product Card](https://bestjquery.com/tutorial/product-grid/demo199/) - the product cards were modified to suit the project
-- [How to create automated tests](https://learndjango.com/tutorials/django-testing-tutorial)
+### Code and Content
+* Boutique Ado Walkthrough was used for the base of this project
+* Images for the shop are from Her Given Hair <a href="https://www.hergivenhair.com/" target="_blank"><strong>Her Given Hair</strong></a>
+* Images and content for the blog section of site are from Black Curl magic <a href="https://www.blackcurlmagic.com/blog" target="_blank"><strong>Black Curl Magic</strong></a>
+* I got additional inspiration from the following :
+    1. [Portfolio Project 5 by Dayana_N](https://github.com/Dayana-N/Book-Heaven-PP5)
+    2. [Portfolio Project 5 Emma Hewson](https://github.com/emmahewson/island-bees)
+    3. [Portfolio Project 5 Amy Richardson](https://github.com/amylour/everneed), especially for the testing and readme section of the project.
+    4. [Eleganz Hair](https://www.elegance-hair.de/index.php?lang=0&)
+* [Styling django all auth pages](https://builtwithdjango.com/blog/styling-authentication-pages)
+* [The right way to use Many To Many Field](https://www.reddit.com/r/django/comments/l937f1/the_right_way_to_use_a_manytomanyfield_in_django/)
+* [Looping through integer in templates](https://copyprogramming.com/howto/how-do-i-loop-a-intergerfield-in-django-templates#how-do-i-loop-a-intergerfield-in-django-templates)
+* [Product Card](https://bestjquery.com/tutorial/product-grid/demo199/) - the product cards were modified to suit the project
+* [How to create automated tests](https://learndjango.com/tutorials/django-testing-tutorial)
 
 ### Acknowledgements
 - Huge thank you to my mentor Gareth McGirr for all the help and resources.
 - The Slack community and especially Indrek who listened to my struggles during development once again.
-### Comments
 
+### Comments
+I wouldn´t have started without the urging and help of my partner Eric Jones with this training for full stack developer from Code Institute. And it was a very rearding journey and I thank him whole heardetly.
