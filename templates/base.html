@@ -81,6 +81,7 @@
     
    <!-- Postload Javascript-->
     {% block postloadjs %}
+        {{ block.super }}
         <!-- Toasts /Messages JS -->
         <script src="{% static 'js/toast.js'%}"></script>
         <!-- Sorting Products JS -->

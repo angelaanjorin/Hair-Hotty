@@ -653,7 +653,7 @@ Testing documentation can be found [](TESTING.md)
 ## Bugs
 |Bug|Status|
 | ---| ---|
-|[BUG: ]()|Closed|
+|[BUG: ](https://res.cloudinary.com/dzesjeplp/image/upload/v1733356200/changeofstaticstoragelocation_pblil2.png)|Closed|
 |[BUG: ]()|Closed|
 |[BUG: ]()|Closed|
 |[BUG: ]()|Closed|
