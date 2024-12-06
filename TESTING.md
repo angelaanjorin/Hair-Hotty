@@ -90,30 +90,45 @@ Testing was carried out on desktop using a Chrome browser to ensure all forms ta
 
 | Feature                    | Tested?  | User Input Required | User Feedback Provided     | Pass/Fail | Fix |
 |----------------------------|----------|---------------------|----------------------------|-----------|-----|
+| Header Banner              | Yes      | None | Second below banner message moves horizontally across the screen | Pass | N/A |
 | Navbar Logo and Icons      | Yes      | Click Links bring user to correct destination    | Text Colour Change/Icon Animation/Dropdowns | Pass | N/A |
-| Home Page                  | Yes      | Hover/Click interactive features | Carousel moves, Accordion FAQ section | Pass | N/A |
-| Register Page              | Yes      | Text Input/Click Links | Form field highlight/Font weight change on hover/Toast message | Pass | N/A |
+| Home Page                  | Yes      | Hover/Click interactive features | Carousel moves| Pass | N/A |
+| Home Page                  | Yes      | Hover/Click Shop button with interactive features | Button changes color vby hovering and takes the user to the all products shop page | Pass | N/A |
+| Register Page              | Yes      | Text Input/Click Links | Form field highlight/Button animation/ change on hover/Toast message | Pass | N/A |
 | Email Validate             | Yes      | Click Links | Button animation/Toast message | Pass | N/A |
 | Forgot Password            | Yes      | Text Input/Click Links | Form field highlight/Button animation/Toast message | Pass | N/A |
-| Log In Page                | Yes      | Text Input/Click Links | Form field highlight/Font weight on hover/Toast message | Pass | N/A |
-| Log Out Page               | Yes      | Click Links bring user to correct destination | Button animation/Font color change/Toast message | Pass | N/A |
-| Account - Edit Address     | Yes      | Text Input/Click to Save | Form field highlight/Button animation/Toast message | Pass | N/A |
+| Log In Page                | Yes      | Text Input/Click Links | Form field highlight on hover/Button animation//Toast message | Pass | N/A |
+| Log Out Page               | Yes      | Click Links bring user to correct destination | Button animation/Toast message | Pass | N/A |
+| Account - My Profile       | Yes      | Text Input/Click to Save | Form field highlight/Button animation/Toast message | Pass | N/A |
+| Account - My Orders        | Yes      | Click to view old orders | Text highlight/Button animation/Toast message | Pass | N/A |
+| Account - My Wishlist      | Yes      | Click heart to remove from wishlist| Heart animation/Toast message | Pass | N/A |
+| Account - My Posts         | Yes      | Click to delete or edit post | Delete modal/ Add post rendered with post/Button animation/Toast message | Pass | N/A |
 | Search                     | Yes      | Text Input/Click to Search | Pop up Modal/Form field highlight/Button Animation | Pass | N/A |
-| Event                      | Yes      | Text Input/Click to Search | Pop up Modal/Form field highlight/Button Animation | Pass | N/A |
-| Contact Us Form            | Yes      | Text Input/Click to Save | Pop up Modal/Form field highlight/Button animation | Pass | N/A |
-| Blog index                 | Yes      | Text Input/Click to Search | Pop up Modal/Form field highlight/Button Animation | Pass | N/A |
-| Blog detail                | Yes      | Text Input/Click to Search | Pop up Modal/Form field highlight/Button Animation | Pass | N/A |
+| Events Page                | Yes      | Text Input/Click to Subscribe to Newsletter | Success Message from Mailchimp/Form field highlight/Button Animation | Pass | N/A |
+| Contact Us Page            | Yes      | Text Input/Click to Save/ contact links | Pop up Modal/Form field highlight/Button animation/Toast message/contact links work | Pass | N/A |
+| Blog index                 | Yes      | Click to open post detail page/click to view next pages| Post titel highlight/Button Animation | Pass | N/A |
+| Blog detail                | Yes      | Text Input/Click heart to like | Pop up Modal/Form field highlight/Button Animation/Toast messages | Pass | N/A |
 | Newsletter Sign Up         | Yes      | Text Input/ Click to Subscribe | Button animation/New tab subscription confirmation | Pass | N/A |
-| Products                   | Yes      | Click product brings user to product description | Pointer change on hover of products | Pass | N/A |
-| Add Product                | Yes      | Navigated to Admin Dashboard, clicked 'Add Product', Completed form, Form submits correctly to display the product. | Form field highlight/Button animation/Toast message, new product uploaded. | Pass | N/A |
-| Edit Product               | Yes      | Navigated to Admin Dashboard, clicked 'Edit Product', Completed form, Form submits correctly to display the edited product. | Form field highlight/Button animation/Toast message, product updated. | Pass | N/a |
+|  All Products page         | Yes      | Click product image brings user to product detail page/click heart/click pagination buttons/sorting section/primary category link | Pointer change on hover of category link/ product´s image, heart changes colour/Toast message, Navigation to next page/sorting works | Pass | N/A |
+| Add Product(admin)                | Yes      | Navigated to Admin Dashboard, clicked 'Add Product', Completed form, Form submits correctly to display the product. | Form field highlight/Button animation/Toast message, new product uploaded. | Pass | N/A |
+| Edit Product(admin)              | Yes      | Navigated to Admin Dashboard, clicked 'Edit Product', Completed form, Form submits correctly to display the edited product. | Form field highlight/Button animation/Toast message, product updated. | Pass | N/a |
 | Add post                | Yes      | Navigated to Account for registered, clicked 'Add post', Completed form, Form submits correctly to display the post. | Form field highlight/Button animation/Toast message, new post uploaded. | Pass | N/A |
 | Edit post               | Yes      | Navigated to Profile, my posts, clicked 'Edit post', Completed form, Form submits correctly to display the edited post. | Form field highlight/Button animation/Toast message, post edited and uploaded. | Pass | N/A |
+| Product Detail - heart     | Yes      | Click the heart  | Adds the product to wishlist or removes it | Pass | N/A |
+| Product Detail- Rating     | Yes      | None | Shows the correct average | Pass | N/A |
+| Rating/Reviews Section     | Yes      | Click dropdown tab, click stars, write review | Pop up Modal/Form field highlight/Button animation/Toast message/ | Pass | N/A |
+| Edit Review                | Yes      | Navigate to review section tab, click edit button, completed form appears on another page, Form submits correctly to display the edited product. | Form field highlight/Button animation/Toast message, review updated. | Pass | N/a |
+| Delete Review              | Yes      | Navigated to review section, click 'delete button'| New page with delete or cancel buttons, button animation/Toast message, review deleted. | Pass | N/a |
+| Privacy Policy             | Yes      | Click the links in text  | Opens all links on click | Pass | N/A |
 | Product Quantity           | Yes      | Click increment/decrement | Colour change on hover/product quantity successfully changed | Pass | N/A |
 | Product Sizes              | Yes      | Click dropdown/Click to select | Form field highlight/Size highlight | Pass | N/A |
 | Checkout                   | Yes      | Click 'Secure Checkout', correct products in bag, entered delivery and payment details, submitted form to process payment. | Form field highlight/Button animation/Toast message, Loading spinner when processing order, order processed saved to account and email sent. | Pass | N/A |
-| Footer                     | Yes      | Click Link brings user to FAQ section on Home Page | Font colour change on hover | Pass | N/A |
-| Delivery Banner            | Yes      | Click dropdown to reveal banner | Dropdown arrow resize on hover/banner dropdown | Pass | N/A |
+| Footer                     | Yes      | Click Links brings user to all referenced Pages | Font colour change on hover | Pass | N/A |
+| FAQ Page                   | Yes      | Click opens the dropdown answers to the FAQs | colour change on click | Pass | N/A |
+| Returns Page               | Yes      | Click opens the dropdown answers to the Return Questions | colour change on click | Pass | N/A |
+| About Us                   | Yes      | Click social media links | Opens the relevant links on click | Pass | N/A |
+| Privacy Policy             | Yes      | Click the links in text  | Opens all links on click | Pass | N/A |
+
 
 ### Browser Compatibility
 
@@ -134,18 +149,6 @@ Hair Hotty was tested on the following browsers, purchases were made, post/produ
 ### Responsiveness
 
 Using the Bootstrap framework allowed a more rapid development of a responsive website. Starting with mobile first, Hair Hotty was created to ensure the customer has an unhindered, positive experience when shopping. Hair Hotty was regularly tested during development using Dev Tools to check for display issues on iPhone4 -> iPhone 12/Samsung Galaxy S20, iPad/iPad Pro and laptop/desktop screen sizes. Once deployed to Heroku, Hair Hotty was tested on real world devices. No major issues were detected, changes were made to the checkout view to remove the product image on smaller screens and only display important product information. There were no major differences between desktop and tablet views thanks to the Bootstrap Grid system of columns. A selection of the screen size view differences are displayed below:
-
-![Hair Hotty Desktop/Mobile Home]()  
-*Hair Hotty Desktop/Mobile Home Responsive Views*
-
-![Hair Hotty Desktop/Mobile Products]()  
-*Hair Hotty Desktop/Mobile Products Responsive Views*
-
-![Hair Hotty Desktop/Mobile posts]()  
-*Hair Hotty Desktop/Mobile posts Responsive Views*
-
-![Hair Hotty Desktop/Mobile Bag]()  
-*Hair Hotty Desktop/Mobile Bag Responsive Views*
 
 ### Dev Tools/Real World Device Testing
 
