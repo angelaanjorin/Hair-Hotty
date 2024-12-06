@@ -111,10 +111,6 @@ def my_posts(request, profile_id):
     profile = get_object_or_404(UserProfile, pk=profile_id)
     posts = Post.objects.filter(author=profile.user).order_by('-created_on')
 
-    # Replace with the username of the user you are testing with
-    user = User.objects.get(username="lulu")
-    posts = Post.objects.filter(author=user)
-
     context = {
         'my_posts': posts,
         'profile_id': profile_id,
