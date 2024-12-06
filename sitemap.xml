@@ -9,278 +9,533 @@
 
 <url>
   <loc>https://app-hairhotty-9ddf6a2299e6.herokuapp.com/</loc>
-  <lastmod>2024-12-04T18:00:27+00:00</lastmod>
+  <lastmod>2024-12-06T12:23:26+00:00</lastmod>
   <priority>1.00</priority>
 </url>
 <url>
   <loc>https://app-hairhotty-9ddf6a2299e6.herokuapp.com/accounts/signup/</loc>
-  <lastmod>2024-12-04T18:00:27+00:00</lastmod>
+  <lastmod>2024-12-06T12:23:26+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://app-hairhotty-9ddf6a2299e6.herokuapp.com/accounts/login/</loc>
-  <lastmod>2024-12-04T18:00:27+00:00</lastmod>
+  <lastmod>2024-12-06T12:23:26+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://app-hairhotty-9ddf6a2299e6.herokuapp.com/bag/</loc>
-  <lastmod>2024-12-04T18:00:27+00:00</lastmod>
+  <lastmod>2024-12-06T12:23:26+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://app-hairhotty-9ddf6a2299e6.herokuapp.com/products/</loc>
-  <lastmod>2024-12-04T18:00:27+00:00</lastmod>
+  <lastmod>2024-12-06T12:23:26+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://app-hairhotty-9ddf6a2299e6.herokuapp.com/products/?primary_category=hair_wigs</loc>
-  <lastmod>2024-12-04T18:00:27+00:00</lastmod>
+  <lastmod>2024-12-06T12:23:26+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://app-hairhotty-9ddf6a2299e6.herokuapp.com/products/?primary_category=hair_extensions</loc>
-  <lastmod>2024-12-04T18:00:27+00:00</lastmod>
+  <lastmod>2024-12-06T12:23:26+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://app-hairhotty-9ddf6a2299e6.herokuapp.com/products/?primary_category=hair_produce</loc>
-  <lastmod>2024-12-04T18:00:27+00:00</lastmod>
+  <lastmod>2024-12-06T12:23:26+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://app-hairhotty-9ddf6a2299e6.herokuapp.com/products/?primary_category=hair_utensils</loc>
-  <lastmod>2024-12-04T18:00:27+00:00</lastmod>
+  <lastmod>2024-12-06T12:23:26+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://app-hairhotty-9ddf6a2299e6.herokuapp.com/events/</loc>
-  <lastmod>2024-12-04T18:00:27+00:00</lastmod>
+  <lastmod>2024-12-06T12:23:26+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://app-hairhotty-9ddf6a2299e6.herokuapp.com/products/?special_category=deals</loc>
-  <lastmod>2024-12-04T18:00:27+00:00</lastmod>
+  <lastmod>2024-12-06T12:23:26+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://app-hairhotty-9ddf6a2299e6.herokuapp.com/products/?special_category=new_arrivals</loc>
-  <lastmod>2024-12-04T18:00:27+00:00</lastmod>
+  <lastmod>2024-12-06T12:23:26+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://app-hairhotty-9ddf6a2299e6.herokuapp.com/products/?special_category=best_collections</loc>
-  <lastmod>2024-12-04T18:00:27+00:00</lastmod>
+  <lastmod>2024-12-06T12:23:26+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://app-hairhotty-9ddf6a2299e6.herokuapp.com/faq/</loc>
-  <lastmod>2024-12-04T18:00:27+00:00</lastmod>
+  <loc>https://app-hairhotty-9ddf6a2299e6.herokuapp.com/blog/</loc>
+  <lastmod>2024-12-06T12:23:26+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://app-hairhotty-9ddf6a2299e6.herokuapp.com/contact/</loc>
-  <lastmod>2024-12-04T18:00:27+00:00</lastmod>
+  <lastmod>2024-12-06T12:23:26+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://app-hairhotty-9ddf6a2299e6.herokuapp.com/products/?category=new_arrivals</loc>
-  <lastmod>2024-12-04T18:00:27+00:00</lastmod>
+  <lastmod>2024-12-06T12:23:26+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://app-hairhotty-9ddf6a2299e6.herokuapp.com/products/?category=best_collections</loc>
-  <lastmod>2024-12-04T18:00:27+00:00</lastmod>
+  <lastmod>2024-12-06T12:23:26+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://app-hairhotty-9ddf6a2299e6.herokuapp.com/returns/</loc>
-  <lastmod>2024-12-04T18:00:27+00:00</lastmod>
+  <lastmod>2024-12-06T12:23:26+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://app-hairhotty-9ddf6a2299e6.herokuapp.com/faq/</loc>
+  <lastmod>2024-12-06T12:23:26+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://app-hairhotty-9ddf6a2299e6.herokuapp.com/about/</loc>
-  <lastmod>2024-12-04T18:00:27+00:00</lastmod>
+  <lastmod>2024-12-06T12:23:26+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://app-hairhotty-9ddf6a2299e6.herokuapp.com/privacy_policy/</loc>
-  <lastmod>2024-12-04T18:00:27+00:00</lastmod>
+  <lastmod>2024-12-06T12:23:26+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://app-hairhotty-9ddf6a2299e6.herokuapp.com/accounts/password/reset/</loc>
-  <lastmod>2024-12-04T18:00:27+00:00</lastmod>
+  <lastmod>2024-12-06T12:23:26+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>https://app-hairhotty-9ddf6a2299e6.herokuapp.com/products/?all_products=true</loc>
-  <lastmod>2024-12-04T18:00:27+00:00</lastmod>
+  <lastmod>2024-12-06T12:23:26+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://app-hairhotty-9ddf6a2299e6.herokuapp.com/products/7a16036d-1fe1-4710-bec7-ab82011e1829/</loc>
-  <lastmod>2024-12-04T18:00:27+00:00</lastmod>
+  <loc>https://app-hairhotty-9ddf6a2299e6.herokuapp.com/products/3c1453f4-bcba-49db-bc24-dc54fa85eb78/</loc>
+  <lastmod>2024-12-06T12:23:26+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://app-hairhotty-9ddf6a2299e6.herokuapp.com/products/c1520aad-0c01-4ec2-96ed-40bfed39fbd5/</loc>
-  <lastmod>2024-12-04T18:00:27+00:00</lastmod>
+  <loc>https://app-hairhotty-9ddf6a2299e6.herokuapp.com/products/6bb2c772-35e3-4deb-aff3-2d2285d06bda/</loc>
+  <lastmod>2024-12-06T12:23:26+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://app-hairhotty-9ddf6a2299e6.herokuapp.com/products/d86217f6-42d7-411f-b3bf-dc6a979e8c3e/</loc>
-  <lastmod>2024-12-04T18:00:27+00:00</lastmod>
+  <loc>https://app-hairhotty-9ddf6a2299e6.herokuapp.com/products/8ffb3ce6-7d88-469d-ad73-2cd44889d29f/</loc>
+  <lastmod>2024-12-06T12:23:26+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://app-hairhotty-9ddf6a2299e6.herokuapp.com/products/df740490-79ef-4fbe-ae9e-f92510cc1c98/</loc>
-  <lastmod>2024-12-04T18:00:27+00:00</lastmod>
+  <loc>https://app-hairhotty-9ddf6a2299e6.herokuapp.com/products/93583e87-bdbb-4011-8d86-d27556a58b6f/</loc>
+  <lastmod>2024-12-06T12:23:26+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://app-hairhotty-9ddf6a2299e6.herokuapp.com/products/ccad0077-8a94-4006-a028-f5eee873da33/</loc>
-  <lastmod>2024-12-04T18:00:27+00:00</lastmod>
+  <loc>https://app-hairhotty-9ddf6a2299e6.herokuapp.com/products/31b53540-8a09-48fa-9279-8f74cd1fc3af/</loc>
+  <lastmod>2024-12-06T12:23:26+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://app-hairhotty-9ddf6a2299e6.herokuapp.com/products/34731682-66d9-425b-8541-6f03e063d65d/</loc>
-  <lastmod>2024-12-04T18:00:27+00:00</lastmod>
+  <loc>https://app-hairhotty-9ddf6a2299e6.herokuapp.com/products/dd6e3a8a-b002-4d80-ac64-16e994adf7fe/</loc>
+  <lastmod>2024-12-06T12:23:26+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>https://app-hairhotty-9ddf6a2299e6.herokuapp.com/products/?page=2&amp;</loc>
-  <lastmod>2024-12-04T18:00:27+00:00</lastmod>
+  <lastmod>2024-12-06T12:23:26+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://app-hairhotty-9ddf6a2299e6.herokuapp.com/products/?page=3&amp;</loc>
-  <lastmod>2024-12-04T18:00:27+00:00</lastmod>
+  <loc>https://app-hairhotty-9ddf6a2299e6.herokuapp.com/products/?page=6&amp;</loc>
+  <lastmod>2024-12-06T12:23:26+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://app-hairhotty-9ddf6a2299e6.herokuapp.com/products/8f9c98da-6708-49fa-be5d-7ec6697f2d35/</loc>
-  <lastmod>2024-12-04T18:00:27+00:00</lastmod>
+  <loc>https://app-hairhotty-9ddf6a2299e6.herokuapp.com/products/cf0f09ad-f4d4-428d-9e9a-cddafbc0fd25/</loc>
+  <lastmod>2024-12-06T12:23:26+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://app-hairhotty-9ddf6a2299e6.herokuapp.com/products/ee266378-4b5f-4092-987c-b95272b6026d/</loc>
-  <lastmod>2024-12-04T18:00:27+00:00</lastmod>
+  <loc>https://app-hairhotty-9ddf6a2299e6.herokuapp.com/products/ad350e35-2860-439c-93b2-f2e0f2a89b0b/</loc>
+  <lastmod>2024-12-06T12:23:26+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://app-hairhotty-9ddf6a2299e6.herokuapp.com/products/aca9a078-b728-45f8-a4a4-c8290a8d1ce8/</loc>
-  <lastmod>2024-12-04T18:00:27+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://app-hairhotty-9ddf6a2299e6.herokuapp.com/products/604696fd-75d7-49d5-8248-da09a0255946/</loc>
-  <lastmod>2024-12-04T18:00:27+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://app-hairhotty-9ddf6a2299e6.herokuapp.com/products/77fed194-210d-4617-9a1c-aeff6e2b089d/</loc>
-  <lastmod>2024-12-04T18:00:27+00:00</lastmod>
+  <loc>https://app-hairhotty-9ddf6a2299e6.herokuapp.com/products/d5a845a4-6d3b-43bf-bb83-cec617be57d0/</loc>
+  <lastmod>2024-12-06T12:23:26+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>https://app-hairhotty-9ddf6a2299e6.herokuapp.com/products/?page=2&amp;primary_category=hair_wigs&amp;</loc>
-  <lastmod>2024-12-04T18:00:27+00:00</lastmod>
+  <lastmod>2024-12-06T12:23:26+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://app-hairhotty-9ddf6a2299e6.herokuapp.com/products/ca534d80-574c-4ef9-a83a-5666c5b84ec4/</loc>
-  <lastmod>2024-12-04T18:00:27+00:00</lastmod>
+  <loc>https://app-hairhotty-9ddf6a2299e6.herokuapp.com/products/?page=3&amp;primary_category=hair_wigs&amp;</loc>
+  <lastmod>2024-12-06T12:23:26+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://app-hairhotty-9ddf6a2299e6.herokuapp.com/products/3b48552e-3e2c-48e4-b910-b6c190cd0099/</loc>
-  <lastmod>2024-12-04T18:00:27+00:00</lastmod>
+  <loc>https://app-hairhotty-9ddf6a2299e6.herokuapp.com/products/70eb9e11-b2c5-4115-a764-66bbbb7f9074/</loc>
+  <lastmod>2024-12-06T12:23:26+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://app-hairhotty-9ddf6a2299e6.herokuapp.com/products/5ade0e63-1c87-46cc-b26b-37e7377359c3/</loc>
-  <lastmod>2024-12-04T18:00:27+00:00</lastmod>
+  <loc>https://app-hairhotty-9ddf6a2299e6.herokuapp.com/products/6a20b002-ab4b-4676-8e5f-7131cbf259d5/</loc>
+  <lastmod>2024-12-06T12:23:26+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://app-hairhotty-9ddf6a2299e6.herokuapp.com/products/fa80151a-444b-461c-aa84-30bce7cb6f06/</loc>
-  <lastmod>2024-12-04T18:00:27+00:00</lastmod>
+  <loc>https://app-hairhotty-9ddf6a2299e6.herokuapp.com/products/55341c5d-4523-4e99-87f8-ecdf96ea564a/</loc>
+  <lastmod>2024-12-06T12:23:26+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://app-hairhotty-9ddf6a2299e6.herokuapp.com/products/93d661f3-6a83-47b4-b660-23ed7bc713ff/</loc>
-  <lastmod>2024-12-04T18:00:27+00:00</lastmod>
+  <loc>https://app-hairhotty-9ddf6a2299e6.herokuapp.com/products/b3d9b33b-9cfa-406e-a597-65063a80ec54/</loc>
+  <lastmod>2024-12-06T12:23:26+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://app-hairhotty-9ddf6a2299e6.herokuapp.com/products/ae7fc8ec-a34b-413c-b691-5e9585dba762/</loc>
+  <lastmod>2024-12-06T12:23:26+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://app-hairhotty-9ddf6a2299e6.herokuapp.com/products/51a13fea-a84e-486b-bf52-fc55fbbf5a96/</loc>
+  <lastmod>2024-12-06T12:23:26+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://app-hairhotty-9ddf6a2299e6.herokuapp.com/products/25359bc2-b416-4c3d-a1a0-a5593a27bd4b/</loc>
+  <lastmod>2024-12-06T12:23:26+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://app-hairhotty-9ddf6a2299e6.herokuapp.com/products/c60f5ac6-292c-4f3b-a175-789a53322380/</loc>
+  <lastmod>2024-12-06T12:23:26+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://app-hairhotty-9ddf6a2299e6.herokuapp.com/products/bd8034cf-bbde-4016-9927-71dbe8fdd7bb/</loc>
+  <lastmod>2024-12-06T12:23:26+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://app-hairhotty-9ddf6a2299e6.herokuapp.com/products/b2535aa0-c71c-4166-9d55-14a59d3690d9/</loc>
+  <lastmod>2024-12-06T12:23:26+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://app-hairhotty-9ddf6a2299e6.herokuapp.com/products/968d83f1-c0b8-445a-969f-7acc934b3677/</loc>
+  <lastmod>2024-12-06T12:23:26+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://app-hairhotty-9ddf6a2299e6.herokuapp.com/products/8e719bd2-aca5-4316-bf18-b6e1e8b70a8f/</loc>
+  <lastmod>2024-12-06T12:23:26+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://app-hairhotty-9ddf6a2299e6.herokuapp.com/products/ae51df82-c251-4b7d-a0a5-b71424ef4d34/</loc>
+  <lastmod>2024-12-06T12:23:26+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://app-hairhotty-9ddf6a2299e6.herokuapp.com/products/3afa9aef-c60a-4a99-98fc-c7665273ce60/</loc>
+  <lastmod>2024-12-06T12:23:26+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://app-hairhotty-9ddf6a2299e6.herokuapp.com/products/3427331b-0429-467d-82ec-1579880a0334/</loc>
+  <lastmod>2024-12-06T12:23:26+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://app-hairhotty-9ddf6a2299e6.herokuapp.com/products/9c41c45a-51d4-476e-a691-1c48b6e0f16a/</loc>
+  <lastmod>2024-12-06T12:23:26+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://app-hairhotty-9ddf6a2299e6.herokuapp.com/products/892fb1de-c4e9-4bfd-9da9-2ad93743bbdc/</loc>
+  <lastmod>2024-12-06T12:23:26+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://app-hairhotty-9ddf6a2299e6.herokuapp.com/products/?page=2&amp;primary_category=hair_utensils&amp;</loc>
+  <lastmod>2024-12-06T12:23:26+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://app-hairhotty-9ddf6a2299e6.herokuapp.com/products/?page=2&amp;special_category=deals&amp;</loc>
+  <lastmod>2024-12-06T12:23:26+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>https://app-hairhotty-9ddf6a2299e6.herokuapp.com/products/?page=2&amp;special_category=new_arrivals&amp;</loc>
-  <lastmod>2024-12-04T18:00:27+00:00</lastmod>
+  <lastmod>2024-12-06T12:23:26+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://app-hairhotty-9ddf6a2299e6.herokuapp.com/products/1bd2709a-7269-4d76-ba77-22c8a45087c6/</loc>
+  <lastmod>2024-12-06T12:23:26+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://app-hairhotty-9ddf6a2299e6.herokuapp.com/products/d69cf4d3-08b2-44d3-9988-3cfbd2f66b6d/</loc>
+  <lastmod>2024-12-06T12:23:26+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://app-hairhotty-9ddf6a2299e6.herokuapp.com/products/?page=2&amp;special_category=best_collections&amp;</loc>
+  <lastmod>2024-12-06T12:23:26+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://app-hairhotty-9ddf6a2299e6.herokuapp.com/blog/blog/3-ways-to-determine-if-a-brands-marketing-matches-your-hair-care-needs/</loc>
+  <lastmod>2024-12-06T12:23:26+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://app-hairhotty-9ddf6a2299e6.herokuapp.com/blog/blog/5-things-were-not-doing-to-our-natural-hair-in-2025/</loc>
+  <lastmod>2024-12-06T12:23:26+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://app-hairhotty-9ddf6a2299e6.herokuapp.com/blog/blog/3-reasons-why-we-use-a-detangler-brush-for-natural-hair/</loc>
+  <lastmod>2024-12-06T12:23:26+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://app-hairhotty-9ddf6a2299e6.herokuapp.com/blog/blog/3-ways-to-achieve-a-voluminous-wash-go-for-natural-hair/</loc>
+  <lastmod>2024-12-06T12:23:26+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://app-hairhotty-9ddf6a2299e6.herokuapp.com/blog/blog/3-signs-you-need-to-use-a-deep-conditioner-for-your-natural-hair/</loc>
+  <lastmod>2024-12-06T12:23:26+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://app-hairhotty-9ddf6a2299e6.herokuapp.com/blog/blog/defining-hair-color-techniques-for-type-4-naturals/</loc>
+  <lastmod>2024-12-06T12:23:26+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://app-hairhotty-9ddf6a2299e6.herokuapp.com/blog/?page=2</loc>
+  <lastmod>2024-12-06T12:23:26+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>https://app-hairhotty-9ddf6a2299e6.herokuapp.com/products/?page=2&amp;category=new_arrivals&amp;</loc>
-  <lastmod>2024-12-04T18:00:27+00:00</lastmod>
+  <lastmod>2024-12-06T12:23:26+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://app-hairhotty-9ddf6a2299e6.herokuapp.com/products/?page=3&amp;category=new_arrivals&amp;</loc>
-  <lastmod>2024-12-04T18:00:27+00:00</lastmod>
+  <loc>https://app-hairhotty-9ddf6a2299e6.herokuapp.com/products/?page=6&amp;category=new_arrivals&amp;</loc>
+  <lastmod>2024-12-06T12:23:26+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>https://app-hairhotty-9ddf6a2299e6.herokuapp.com/products/?page=2&amp;category=best_collections&amp;</loc>
-  <lastmod>2024-12-04T18:00:27+00:00</lastmod>
+  <lastmod>2024-12-06T12:23:26+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://app-hairhotty-9ddf6a2299e6.herokuapp.com/products/?page=3&amp;category=best_collections&amp;</loc>
-  <lastmod>2024-12-04T18:00:27+00:00</lastmod>
+  <loc>https://app-hairhotty-9ddf6a2299e6.herokuapp.com/products/?page=6&amp;category=best_collections&amp;</loc>
+  <lastmod>2024-12-06T12:23:26+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>https://app-hairhotty-9ddf6a2299e6.herokuapp.com/products/?page=2&amp;all_products=true&amp;</loc>
-  <lastmod>2024-12-04T18:00:27+00:00</lastmod>
+  <lastmod>2024-12-06T12:23:26+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
-  <loc>https://app-hairhotty-9ddf6a2299e6.herokuapp.com/products/?page=3&amp;all_products=true&amp;</loc>
-  <lastmod>2024-12-04T18:00:27+00:00</lastmod>
+  <loc>https://app-hairhotty-9ddf6a2299e6.herokuapp.com/products/?page=6&amp;all_products=true&amp;</loc>
+  <lastmod>2024-12-06T12:23:26+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
   <loc>https://app-hairhotty-9ddf6a2299e6.herokuapp.com/products/?page=1&amp;</loc>
-  <lastmod>2024-12-04T18:00:27+00:00</lastmod>
+  <lastmod>2024-12-06T12:23:26+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
-  <loc>https://app-hairhotty-9ddf6a2299e6.herokuapp.com/products/8679ccc3-1065-4a9b-a181-9381d19ddc7b/</loc>
-  <lastmod>2024-12-04T18:00:27+00:00</lastmod>
+  <loc>https://app-hairhotty-9ddf6a2299e6.herokuapp.com/products/?page=3&amp;</loc>
+  <lastmod>2024-12-06T12:23:26+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://app-hairhotty-9ddf6a2299e6.herokuapp.com/products/a88119d9-eddf-49f9-abc0-9808bf804094/</loc>
+  <lastmod>2024-12-06T12:23:26+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://app-hairhotty-9ddf6a2299e6.herokuapp.com/products/a6ffbf12-285f-47ed-b53e-49c5cd41f2f3/</loc>
+  <lastmod>2024-12-06T12:23:26+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://app-hairhotty-9ddf6a2299e6.herokuapp.com/products/65796a47-d585-4fe2-90f2-b758293085e1/</loc>
+  <lastmod>2024-12-06T12:23:26+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://app-hairhotty-9ddf6a2299e6.herokuapp.com/products/?page=5&amp;</loc>
+  <lastmod>2024-12-06T12:23:26+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://app-hairhotty-9ddf6a2299e6.herokuapp.com/products/36b6cabe-038f-4544-be01-a350de187e5b/</loc>
+  <lastmod>2024-12-06T12:23:26+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://app-hairhotty-9ddf6a2299e6.herokuapp.com/products/50539b99-c955-4ffc-adc5-e263cac9b790/</loc>
+  <lastmod>2024-12-06T12:23:26+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
   <loc>https://app-hairhotty-9ddf6a2299e6.herokuapp.com/products/?page=1&amp;primary_category=hair_wigs&amp;</loc>
-  <lastmod>2024-12-04T18:00:27+00:00</lastmod>
+  <lastmod>2024-12-06T12:23:26+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://app-hairhotty-9ddf6a2299e6.herokuapp.com/products/9680b6d4-5e98-4094-8502-446f0442d2b8/</loc>
+  <lastmod>2024-12-06T12:23:26+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://app-hairhotty-9ddf6a2299e6.herokuapp.com/products/?page=1&amp;primary_category=hair_utensils&amp;</loc>
+  <lastmod>2024-12-06T12:23:26+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://app-hairhotty-9ddf6a2299e6.herokuapp.com/products/?page=1&amp;special_category=deals&amp;</loc>
+  <lastmod>2024-12-06T12:23:26+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
   <loc>https://app-hairhotty-9ddf6a2299e6.herokuapp.com/products/?page=1&amp;special_category=new_arrivals&amp;</loc>
-  <lastmod>2024-12-04T18:00:27+00:00</lastmod>
+  <lastmod>2024-12-06T12:23:26+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://app-hairhotty-9ddf6a2299e6.herokuapp.com/products/?page=1&amp;special_category=best_collections&amp;</loc>
+  <lastmod>2024-12-06T12:23:26+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://app-hairhotty-9ddf6a2299e6.herokuapp.com/blog/blog/10-long-curly-natural-hair-styling-ideas/</loc>
+  <lastmod>2024-12-06T12:23:26+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://app-hairhotty-9ddf6a2299e6.herokuapp.com/blog/blog/how-to-care-for-your-wig-weaves/</loc>
+  <lastmod>2024-12-06T12:23:26+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://app-hairhotty-9ddf6a2299e6.herokuapp.com/blog/blog/3-ways-to-use-conditioner-for-your-natural-hair/</loc>
+  <lastmod>2024-12-06T12:23:26+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://app-hairhotty-9ddf6a2299e6.herokuapp.com/blog/blog/3-ways-to-refresh-your-natural-hair/</loc>
+  <lastmod>2024-12-06T12:23:26+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://app-hairhotty-9ddf6a2299e6.herokuapp.com/blog/?page=1</loc>
+  <lastmod>2024-12-06T12:23:26+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
   <loc>https://app-hairhotty-9ddf6a2299e6.herokuapp.com/products/?page=1&amp;category=new_arrivals&amp;</loc>
-  <lastmod>2024-12-04T18:00:27+00:00</lastmod>
+  <lastmod>2024-12-06T12:23:26+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://app-hairhotty-9ddf6a2299e6.herokuapp.com/products/?page=3&amp;category=new_arrivals&amp;</loc>
+  <lastmod>2024-12-06T12:23:26+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://app-hairhotty-9ddf6a2299e6.herokuapp.com/products/?page=5&amp;category=new_arrivals&amp;</loc>
+  <lastmod>2024-12-06T12:23:26+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
   <loc>https://app-hairhotty-9ddf6a2299e6.herokuapp.com/products/?page=1&amp;category=best_collections&amp;</loc>
-  <lastmod>2024-12-04T18:00:27+00:00</lastmod>
+  <lastmod>2024-12-06T12:23:26+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://app-hairhotty-9ddf6a2299e6.herokuapp.com/products/?page=3&amp;category=best_collections&amp;</loc>
+  <lastmod>2024-12-06T12:23:26+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://app-hairhotty-9ddf6a2299e6.herokuapp.com/products/?page=5&amp;category=best_collections&amp;</loc>
+  <lastmod>2024-12-06T12:23:26+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
   <loc>https://app-hairhotty-9ddf6a2299e6.herokuapp.com/products/?page=1&amp;all_products=true&amp;</loc>
-  <lastmod>2024-12-04T18:00:27+00:00</lastmod>
+  <lastmod>2024-12-06T12:23:26+00:00</lastmod>
   <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://app-hairhotty-9ddf6a2299e6.herokuapp.com/products/?page=3&amp;all_products=true&amp;</loc>
+  <lastmod>2024-12-06T12:23:26+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://app-hairhotty-9ddf6a2299e6.herokuapp.com/products/?page=5&amp;all_products=true&amp;</loc>
+  <lastmod>2024-12-06T12:23:26+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://app-hairhotty-9ddf6a2299e6.herokuapp.com/products/?page=4&amp;</loc>
+  <lastmod>2024-12-06T12:23:26+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://app-hairhotty-9ddf6a2299e6.herokuapp.com/products/?page=4&amp;category=new_arrivals&amp;</loc>
+  <lastmod>2024-12-06T12:23:26+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://app-hairhotty-9ddf6a2299e6.herokuapp.com/products/?page=4&amp;category=best_collections&amp;</loc>
+  <lastmod>2024-12-06T12:23:26+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://app-hairhotty-9ddf6a2299e6.herokuapp.com/products/?page=4&amp;all_products=true&amp;</loc>
+  <lastmod>2024-12-06T12:23:26+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://app-hairhotty-9ddf6a2299e6.herokuapp.com/products/?primary_category=</loc>
+  <lastmod>2024-12-06T12:23:26+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://app-hairhotty-9ddf6a2299e6.herokuapp.com/products/f78757ca-4c27-4e09-ad27-acf21ab3a932/</loc>
+  <lastmod>2024-12-06T12:23:26+00:00</lastmod>
+  <priority>0.33</priority>
 </url>
 
 
