@@ -646,6 +646,13 @@ button.wishlist {
     margin-top: 50px;
 }
 
+.text-truncate {
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
 .hero-holder .img-holder {
     height: 100%;
     background-position: center;

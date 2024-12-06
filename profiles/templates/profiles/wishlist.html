@@ -25,12 +25,12 @@ My Wishlist
                         <div class="col-12 col-lg-10 mt-4 mt-lg-0">
                             <h4 class="text-start fs-3 fw-4">My Wishlist:</h4>
                             <hr>
-                            <div class="row mt-3 d-flex justify-content-center">
+                            <div class="row g-4 mt-3">
                                 {% if wishlist %}
                                 {% for item in wishlist %}
                                 <!-- Product Card -->
-                                <div class="col-sm-6 col-md-4 col-lg-4 col-xl-3 mb-3 d-flex flex-column align-items-center h-100">
-                                    <div class="product-grid card shadow product-card" style="padding: 10px;">
+                                <div class="col-6 col-md-4 col-lg-3 d-flex align-items-stretch">
+                                    <div class="product-grid card shadow product-card h-100">
                                         <div class="product-image">
                                             {% if item.product.image %}
                                             <a href="{% url 'product_detail' item.product.id %}" class="image">
@@ -44,8 +44,8 @@ My Wishlist
                                         </div>
 
                                         <!-- Product Details and Buttons -->
-                                        <div class="product-content text-center">
-                                            <p class="logo-font text-truncate mb-1">
+                                        <div class="product-content text-center p-2">
+                                            <p class="text-truncate mb-1">
                                                 {{ item.product.name }}
                                             </p>
 
@@ -81,32 +81,6 @@ My Wishlist
                                     <a href="{% url 'products' %}" class="btn btn-cordovan d-block mx-auto">Browse Shop</a>
                                 </div>
                                 {% endif %}
-                                <!-- Pagination -->
-                                <div class="row">
-                                    <div class="col-md-12  d-flex justify-content-center">
-                                        <ul class="pagination">
-                                            {% if wishlist.has_previous %}
-                                            <li class="page-item">
-                                                <a class="page-link" href="?page=1&{% for key, value in request.GET.items %}{% if key != 'page' %}{{ key }}={{ value }}&{% endif %}{% endfor %}">First</a>
-                                            </li>
-                                            <li class="page-item">
-                                                <a class="page-link" href="?page={{ products.previous_page_number }}&{% for key, value in request.GET.items %}{% if key != 'page' %}{{ key }}={{ value }}&{% endif %}{% endfor %}">Previous</a>
-                                            </li>
-                                            {% endif %}
-                                            <li class="page-item active">
-                                                <span class="page-link">Page {{ wishlist.number }} of {{ wishlist.paginator.num_pages }}</span>
-                                            </li>
-                                            {% if wishlist.has_next %}
-                                            <li class="page-item">
-                                                <a class="page-link" href="?page={{ products.next_page_number }}&{% for key, value in request.GET.items %}{% if key != 'page' %}{{ key }}={{ value }}&{% endif %}{% endfor %}">Next</a>
-                                            </li>
-                                            <li class="page-item">
-                                                <a class="page-link" href="?page={{ products.paginator.num_pages }}&{% for key, value in request.GET.items %}{% if key != 'page' %}{{ key }}={{ value }}&{% endif %}{% endfor %}">Last</a>
-                                            </li>
-                                            {% endif %}
-                                        </ul>                        
-                                    </div>
-                                </div>
                             </div>                            
                         </div>
                     </div>
