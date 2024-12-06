@@ -26,8 +26,9 @@ class PostCreateOrUpdateView(
             response = super().form_valid(form)
             messages.success(self.request, "Post updated successfully!")
 
-            return redirect(reverse_lazy('profile',
-                            kwargs={'pk': form.instance.author.profile.pk}))
+            user_profile = UserProfile.objects.get(user=form.instance.author)
+            return redirect(reverse(
+                'my_posts', kwargs={'profile_id': user_profile.id}))
 
         else:  # If no object exists, it´s a new job creation
             form.instance.author = self.request.user
@@ -41,7 +42,7 @@ class PostCreateOrUpdateView(
         return response
 
     def test_func(self):
-        return self.request.user.profile
+        return UserProfile.objects.filter(user=self.request.user).exists()
 
     def get_object(self, get_queryset=None):
         post_id = self.kwargs.get('pk')
