@@ -81,25 +81,6 @@
                         </form>
                     </div>
                 </div>
-                <!--Stock amount with consideration for sizes if applicable
-                <div class="stock d-flex">
-                    {% if product.has_sizes %}
-                        <p id="stock-display" class="mb-2 text-muted">Select a size to view stock status.</p>
-                        <ul id="stock-list" class="d-none">
-                            {% for size, stock in virtual_stock.items  %}
-                                <li data-size="{{ size }}" data-stock="{{ stock }}"></li>
-                            {% endfor %}
-                        </ul>
-                    {% else %}
-                        {% if product.in_stock %}
-                            <p class="in-stock-label me-3 text-dark"><strong>IN STOCK: {{ virtual.stock }}</strong></p>
-                        {% else %}
-                            <p class="out-of-stock-label"><strong>OUT OF STOCK</strong></p>
-                        {% endif %}
-                    {% endif %}
-                </div>-->
-                
-            
                 <form class="form" action="{% url 'add_to_bag' product.id %}" method="POST">
                     {% csrf_token %}
                     <div class="form-row">
