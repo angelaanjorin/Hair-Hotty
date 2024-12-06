@@ -40,17 +40,23 @@ All HTML pages were validated and received a 'No errors or warning to show' resu
 
 [JSHint](https://jshint.com/) was used to validate the JavaScript code added to the project. External JS, for Bootstrap, jQuery and Fontawesome purposes were not validated through JSHint.
 
-| Page | Screenshot | Errors | Warnings |
+| Page | Screenshot | Errors |
 | ---- | ---------- | ------ | -------- |
-| bag | ![js from Bag page](docs/testing_images/home_script.png) | none | none |
-| blog - Comment js | ![js from post section](docs/testing_images/post_js_valid.png) | none | none |
-| Stripe JS | ![js from Stripe elements](docs/testing_images/stripe_js.png) | none | none |
-| Products Product Detail Script | ![js from product detail script](docs/testing_images/quantity_input_script_js.png) | none (code has been highlighted red at the top of the code block but no errors returned from JSHint and code functions as intended. I could not get a definitive answer on why JSHint colours these lines red.) | none |
-| Products Sort Selector Script | ![js from sort selector script](docs/testing_images/product_script.png) | none | none |
-| Products Add Product Script | ![js from add product page](docs/testing_images/product_script.png) | none | none |
-| Products Edit Product Script | ![js from edit product page](docs/testing_images/product_script.png) | none | none |
-| Review - Ratings Selector Script | ![js from ratings selector script](docs/testing_images/base_script_valid.png) | none | none |
-| Base Script | ![js from base script](docs/testing_images/base_script_valid.png) | none | none |
+| bag | ![js from Bag page](https://res.cloudinary.com/dzesjeplp/image/upload/v1733500628/JSHint-bag_u7ggll.png) | none |
+| blog - Comment js | ![js from post section](https://res.cloudinary.com/dzesjeplp/image/upload/v1733500628/JSHint-comments-blog_blri1k.pngg) | none |
+| Stripe JS | ![js from Stripe elements](https://res.cloudinary.com/dzesjeplp/image/upload/v1733500628/JSHint-a-JavaScript-stripe_oyrfik.png) | none |
+| Products Product quantitiyinput Script | ![js from product quantityinput script](https://res.cloudinary.com/dzesjeplp/image/upload/v1733500626/JSHint-a-JavaScript-quantityinput_haelbp.png) | none (code has been highlighted red at the top of the code block but no errors returned from JSHint and code functions as intended. I could not get a definitive answer on why JSHint colours these lines red.) |
+| Products  | ![js from sortproducts script](https://res.cloudinary.com/dzesjeplp/image/upload/v1733500626/JSHint-a-JavaScript-sortproducts_houdhz.png) | none |
+| Products Add and Edit Product Script | ![js from add and edit product page](https://res.cloudinary.com/dzesjeplp/image/upload/v1733500625/JSHint-a-JavaScript-add-products_vqifrh.png) | none |
+| Products Productdetail Script | ![js from productdetail page](https://res.cloudinary.com/dzesjeplp/image/upload/v1733500626/JSHint-a-JavaScript-productdetail_exlvow.png) | none |
+| Profile| ![js myposts script](https://res.cloudinary.com/dzesjeplp/image/upload/v1733500625/JSHint-a-JavaScript-mypostsprofile_vkg0d9.png) | none |
+| Review - Ratings Selector Script | ![js from ratings selector script](docs/testing_images/base_script_valid.png) | none |
+| Base Script | ![js Sort Selector Script script](https://res.cloudinary.com/dzesjeplp/image/upload/v1733500626/JSHint-a-JavaScript-sortselectorproduct_mmq6xz.png) | none |
+| Base Script | ![js mailchimp script](https://res.cloudinary.com/dzesjeplp/image/upload/v1733500625/JSHint-a-JavaScript-mailchimp_ddtl2s.png) | none |
+| Base Script | ![js toast script](https://res.cloudinary.com/dzesjeplp/image/upload/v1733500628/JSHint-a-JavaScript-toast_bsjawq.png) | none |
+| Base Script | ![js quantityinput script](https://res.cloudinary.com/dzesjeplp/image/upload/v1733500626/JSHint-a-JavaScript-quantityinputforstockcontrol_c4zd0z.png) | none |
+
+<a href="#top">Back to the top.</a>
 
 ### Python Validation
 
@@ -65,6 +71,8 @@ All HTML pages were validated and received a 'No errors or warning to show' resu
 | Products | none ![python validation](docs/testing_images/p_admin.png) | none ![python validation](docs/testing_images/p_forms.png) | none ![python validation](docs/testing_images/p_models.png) | none | none ![python validation](docs/testing_images/p_views.png) | none |
 | Profiles | none | none ![python validation](docs/testing_images/pro_forms.png) | none ![python validation](docs/testing_images/pro_models.png) | none | none ![python validation](docs/testing_images/pro_views.png) | n/a |
 | Reviews | none | none | none | none | none ![python validation](docs/testing_images/wish_views.png) | none |
+
+<a href="#top">Back to the top.</a>
 
 ### CSS Validation
 
@@ -90,8 +98,10 @@ Lighthouse was used to test Performance, Best Practices, Accessibility, and SEO 
 
 Accessibility was included in every planning stage for Hair Hotty, through the use of the WAVE report tool I could ensure that any necessary changes were made to make the website as accessible as it could be. Only 2 issues persisted with form labels. Form label was assigned to the newsletter field with hidden visibility styling applied in the CSS file, as it affected the form field positioning, but error persisted. No other issues, contrast or structural issues.
 
-![WAVE Report](docs/testing_images/wave_report.png)  
+![WAVE Report](https://res.cloudinary.com/dzesjeplp/image/upload/v1733498867/WAVE-Report-of-Hair-Hotty_o5azwo.png)  
 *WAVE Report for Hair Hotty*
+
+<a href="#top">Back to the top.</a>
 
 ## Manual Testing
 
@@ -146,16 +156,16 @@ Hair Hotty was tested on the following browsers, purchases were made, post/produ
 
 Using the Bootstrap framework allowed a more rapid development of a responsive website. Starting with mobile first, Hair Hotty was created to ensure the customer has an unhindered, positive experience when shopping. Hair Hotty was regularly tested during development using Dev Tools to check for display issues on iPhone4 -> iPhone 12/Samsung Galaxy S20, iPad/iPad Pro and laptop/desktop screen sizes. Once deployed to Heroku, Hair Hotty was tested on real world devices. No major issues were detected, changes were made to the checkout view to remove the product image on smaller screens and only display important product information. There were no major differences between desktop and tablet views thanks to the Bootstrap Grid system of columns. A selection of the screen size view differences are displayed below:
 
-![Hair Hotty Desktop/Mobile Home](docs/testing_images/dt_mob_home_resp.png)  
+![Hair Hotty Desktop/Mobile Home]()  
 *Hair Hotty Desktop/Mobile Home Responsive Views*
 
-![Hair Hotty Desktop/Mobile Products](docs/testing_images/dt_mob_prod_resp.png)  
+![Hair Hotty Desktop/Mobile Products]()  
 *Hair Hotty Desktop/Mobile Products Responsive Views*
 
-![Hair Hotty Desktop/Mobile posts](docs/testing_images/dt_mob_art_resp.png)  
+![Hair Hotty Desktop/Mobile posts]()  
 *Hair Hotty Desktop/Mobile posts Responsive Views*
 
-![Hair Hotty Desktop/Mobile Bag](docs/testing_images/dt_mob_bag_resp.png)  
+![Hair Hotty Desktop/Mobile Bag]()  
 *Hair Hotty Desktop/Mobile Bag Responsive Views*
 
 ### Dev Tools/Real World Device Testing
@@ -195,3 +205,4 @@ Responsiveness testing was carried out using Google Dev Tools on the devices det
 
 ### Unresolved/Known Bugs
 
+<a href="#top">Back to the top.</a>
