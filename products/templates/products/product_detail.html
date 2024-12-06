@@ -184,7 +184,7 @@
                 <div class="tab-content">
                     <div id="description" class="tab-pane fade show active">
                         <h5 class="my-2">Description:</h5>
-                        <p>{{ product.description }}</p>
+                        <p>{{ product.description | safe }}</p>
                     </div>
                     <div id="reviews" class="tab-pane fade">
                         {% if user.is_authenticated %}
