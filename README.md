@@ -881,7 +881,7 @@ To ensure the application is deployed correctly on Heroku it is mandatory to upd
 ### Code and Content
 * Boutique Ado Walkthrough was used for the base of this project
 * Images for the shop are from Her Given Hair <a href="https://www.hergivenhair.com/" target="_blank"><strong>Her Given Hair</strong></a>
-* Images and content for the blog section of site are from Black Curl magic <a href="https://www.blackcurlmagic.com/blog" target="_blank"><strong>Black Curl Magic</strong></a>
+* Images and content for the blog section of site are from Black Curl Magic <a href="https://www.blackcurlmagic.com/blog/" target="_blank"><strong>Black Curl Magic</strong></a>
 * I got additional inspiration from the following :
     1. [Portfolio Project 5 by Dayana_N](https://github.com/Dayana-N/Book-Heaven-PP5)
     2. [Portfolio Project 5 Emma Hewson](https://github.com/emmahewson/island-bees)
