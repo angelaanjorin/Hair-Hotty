@@ -3,6 +3,25 @@
 This is the TESTING file for the [Hair Hotty](https://app-hairhotty-9ddf6a2299e6.herokuapp.com/) website.
 
 Return back to the [README.md](README.md) file.
+# Table of Content
+- [Testing](#testing)
+   * [Validation](#validation)
+      + [HTML Validation](#html-validation)
+      + [JavaScript Validation](#javascript-validation)
+      + [Python Validation](#python-validation)
+      + [CSS Validation](#css-validation)
+      + [Lighthouse Scores](#lighthouse-scores)
+      + [Lighthouse](#lighthouse)
+            * [Desktop Results:](#desktop-results)
+               + [Mobile Results:](#mobile-results)
+      + [Wave Accessibility Score](#wave-accessibility-score)
+   * [Manual Testing](#manual-testing)
+      + [User Input/Form Validation](#user-inputform-validation)
+      + [Browser Compatibility](#browser-compatibility)
+      + [Responsiveness](#responsiveness)
+      + [Dev Tools/Real World Device Testing](#dev-toolsreal-world-device-testing)
+   * [Bugs](#bugs)
+      + [Unresolved/Known Bugs](#unresolvedknown-bugs)
 
 ## Validation
 
