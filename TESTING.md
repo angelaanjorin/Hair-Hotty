@@ -30,59 +30,11 @@ Return back to the [README.md](README.md) file.
 ### HTML Validation
 
 For my HTML files I have used [HTML W3C Validator](https://validator.w3.org) to validate all of my HTML files.
+Via the deployed Heroku app link, I was able to carry out the validation using the url method.
 
-I had to follow a different approach for validating my HTML for this project as the majority of my pages are developed using Jinja syntax such as '{% extends "base.html" %}' and '{{ form|crispy }}' and most require user authentication. The HTML validator will throw errors if I were to use my website's URL so I have had to follow the below approach for every page:
+![html validation](https://res.cloudinary.com/dzesjeplp/image/upload/v1733494370/Showing-results-for-https-app-hairhotty-9ddf6a2299e6-herokuapp-com-Nu-Html-Checker-12-06-2024_03_05_PM_kzihnh.png)  
 
-- Via the deployed Heroku app link, I navigated to each individual page.
-- Right clicking on the screen/CTRL+U/⌘+U on Mac, allows a menu to appear, giving me the option to 'View page source'.
-- The complete HTML code for the deployed page will appear, allowing me to select the entire code using CTRL+A/⌘+A on Mac.
-- Paste the copied code into the [validate by input](https://validator.w3.org/#validate_by_input) option.
-- Check for errors and warnings, fix any issues, revalidate by following the above steps and record the results.
-
-![html validation](docs/testing_images/html_validation.png)  
-
-All HTML pages were validated and received a 'No errors or warning to show' for code that I had written, result as shown above.
-
-| HTML Source Code/Page | Errors | Warnings |
-| ---- | ------ | -------- |
-| Home | 0 | 0 |
-| Log In | 0 | 0 |
-| Register | 0 | 0 |
-| Logout | 0 | 0 |
-| Email Confirmation Sent | 0 | 0 |
-| Email Confirmation | 0 | 0 |
-| Account | 0 | 0 |
-| Admin Project Management | 0 | 0 |
-| Admin and User Add post | 0 | 0 |
-| Admin Edit post | 0 | 0 |
-| Admin Delete post | 0 | 0 |
-| Admin Product Detail | 0 | 0 |
-| Admin Add Product | ID error -> Errors/Warnings present as a result of Bootstraps form elements, not from the code that I have created. The name ID from the contact form html within the base.html is clashing with the name ID from the add product html. These ID elements are embedded within the Bootstrap forms and are inaccessible to me without breaking my code up and reconfiguring the code. This is the same for the `<p>` and `<strong>` error. This was double checked with the Assessment Team Oct'23 who confirmed that code not authored by myself, and is Bootstrap/CrispyForms rendering, would not be subject to assessment mark down as long as it is referenced in the README. I will reinvestigate and break into the code when my Diploma has been awarded to remove errors like these. ![html validation duplicate id bootstrap forms](docs/testing_images/add_prod_er.png) | As before |
-| Admin Edit Product | 0 | 0 |
-| Admin Delete Product | 0 | 0 |
-| All Products | 0 | 0 |
-| User Product Detail | 0 | 0 |
-| Review Delete | 0 | 0 |
-| Bag - Empty | 0 | 0 |
-| Bag - Products | 0 | 0 |
-| Checkout | Errors/Warnings present as a result of Bootstraps form elements, not from the code that I have created. The name/email ID from the contact form html within the base.html is clashing with the name/email ID from the checkout html. These ID elements are embedded within the Bootstrap forms and are inaccessible to me without breaking my code up and reconfiguring the code. This was double checked with the Assessment Team Oct'23 who confirmed that code not authored by myself, and is Bootstrap/CrispyForms rendering, would not be subject to assessment mark down as long as it is referenced in the README. I will reinvestigate and break into the code when my Diploma has been awarded to remove errors like these. ![html validation duplicate id bootstrap forms](docs/testing_images/contactus_form_id.png) ![html validation duplicate id bootstrap forms](docs/testing_images/contact_html_issue.png) | As before |
-| Checkout Success | 0 | 0|
-| Profile/Account | 0 | 0 |
-| Order History | 0 | 0 |
-| Wishlist | 0 | 0 |
-| Blog | 0  | 0 |
-| Blog Detail Page | 0  | 0 |
-| Blog - Add a Post | 0 | 0 |
-| Events | 0 | 0 |
-| Contact | 0 | 0 |
-| Footer - Returns | 0  | 0 |
-| Footer - About us | 0 | 0 |
-| Footer    | Privacy Policy | External link - N/A | External link - N/A |
-| Footer - FAQ  | Outside of my control there are multiple errors present as this page contains HTML Content from [Termly.com](https://termly.io/products/terms-and-conditions-generator/) to display the Terms & Conditions for Hair Hotty. None of my templated code contains errors and I felt that attempting to correct all of the Termly errors would render the document incorrectly. I used Termly as they provided this content without personal cost to me. | As before. |
-| Forgot Password | 0 | 0 |
-| Error 403 | 0 | 0 |
-| Error 404 | 0 | 0 |
-| Error 500 | 0  | 0 |
+All HTML pages were validated and received a 'No errors or warning to show' result as shown above.
 
 ### JavaScript Validation
 
@@ -118,34 +70,21 @@ All HTML pages were validated and received a 'No errors or warning to show' for 
 
 [W3C CSS Validator](https://jigsaw.w3.org/css-validator/) was used to validate my CSS files. External CSS for Bootstrap, provided by [CDN](https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css) was not tested.
 
-To keep my document concise I have not included every screenshot of the CSS validations, as they are all the same, but the results are as follows.
-![css validation](docs/testing_images/css_validation.png)
+I used the url of the deployed Heroku to carry out the validation. Results were good as shown below.
+![css validation](https://res.cloudinary.com/dzesjeplp/image/upload/v1733494370/W3C-CSS-Validator-results-for-https-app-hairhotty-9ddf6a2299e6-herokuapp-com-CSS-level-3-SVG--12-06-2024_03_07_PM_anlvsa.png)
 
-| CSS File | Errors | Warnings |
-| ---- | ------ | -------- |
-| blog | 0 | 0 |
-| Checkout | 0 | 0 |
-| Base CSS | 0 | 0 |
 
 ### Lighthouse Scores
 
-Lighthouse testing was carried out in Incognito mode to achieve the best result. Images used in the site's design were saved in png format, and compressed using [tinypng](https://tinypng.com/) and [Convertio](https://www.convertio.co) to offer the best chance for a decent performance score.
+### Lighthouse
+Lighthouse was used to test Performance, Best Practices, Accessibility, and SEO on Desktop.
 
-| Page | Lighthouse Scores - Desktop | Notes |
-| ---- | ----------------- | -------- |
-| Home |   ![lighthouse home](docs/testing_images/home_lh.png)   |    ![best practise errors](docs/testing_images/home_lh_bp.png)  Score lower due to aspect ratio or images, not using webp images and Stripe Cookie    |
-| All  |  ![lighthouse all](docs/testing_images/prod_lh.png)  |  None        |
-| Read  | ![lighthouse post](docs/testing_images/post_lh.png)   |   None  |
-| Account |  ![lighthouse account](docs/testing_images/profile_lh.png)              |    As before with Stripe Cookie  |
-| Wishlist |  ![lighthouse wishlist](docs/testing_images/wishlist_lh.png)   |  As before with images rendering and Stripe Cookie   |
+##### Desktop Results:
+![Lighthouse Desktop Result](https://res.cloudinary.com/dzesjeplp/image/upload/v1733494370/Lighthouse-Report-Viewer-12-06-2024_02_14_PM_qgngib.png).
 
-| Page | Lighthouse Scores - Mobile | Notes |
-| ---- | ----------------- | -------- |
-| Home |  ![lighthouse home](docs/testing_images/home_moblh.png) | ![performance errors](docs/testing_images/home_perform_mob_er.png) Score lower due to images not being webp and STripe/jQuery CDN. I will look into this for future versions to better understand how I can improve this score.  |
-| All  | ![lighthouse all products mobile](docs/testing_images/all_moblh.png)   | As before  |
-| Read |  ![lighthouse post mobile](docs/testing_images/read_moblh.png) |  As before  |
-| Account | ![lighthouse account mobile](docs/testing_images/account_moblh.png)   |  As before  |
-| Wishlist | ![lighthouse wishlist mobile](docs/testing_images/wishlist_moblh.png)  | As before   |
+###### Mobile Results:
+![Lighthouse Mobile Result](https://res.cloudinary.com/dzesjeplp/image/upload/v1733494370/Lighthouse-Report-Viewer-12-06-2024_02_18_PM_m0ygdz.png).
+
 
 ### Wave Accessibility Score
 
