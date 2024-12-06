@@ -10,8 +10,6 @@ from products.models import Product
 from profiles.models import UserProfile
 
 
-
-
 class Review(models.Model):
     """ Review Model """
 
@@ -24,7 +22,7 @@ class Review(models.Model):
     )
     product = models.ForeignKey(
         Product,
-        on_delete=models.CASCADE, 
+        on_delete=models.CASCADE,
         null=True,
         blank=True,
         related_name="reviews"
@@ -47,7 +45,6 @@ class Review(models.Model):
         null=False,
     )
 
-
     def __str__(self):
         return self.product.name
 
@@ -62,7 +59,9 @@ class Review(models.Model):
 def update_product_rating_on_save(sender, instance, **kwargs):
     product = instance.product
     reviews = product.reviews.all()
-    product.rating = round(reviews.aggregate(Avg('rating'))['rating__avg'], 1) if reviews.exists() else 0
+    product.rating = round(
+        reviews.aggregate(
+             Avg('rating'))['rating__avg'], 1)if reviews.exists() else 0
     product.save()
 
 
@@ -71,5 +70,7 @@ def update_product_rating_on_save(sender, instance, **kwargs):
 def update_product_rating_on_delete(sender, instance, **kwargs):
     product = instance.product
     reviews = product.reviews.all()
-    product.rating = round(reviews.aggregate(Avg('rating'))['rating__avg'], 1) if reviews.exists() else 0
+    product.rating = round(
+        reviews.aggregate(
+             Avg('rating'))['rating__avg'], 1)if reviews.exists() else 0
     product.save()

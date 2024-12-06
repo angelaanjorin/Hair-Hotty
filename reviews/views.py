@@ -39,7 +39,8 @@ def add_review(request, product_id):
             review_count = reviews.count()
 
             if review_count > 0:
-                avg_rating = round(reviews.aggregate(Avg('rating'))['rating__avg'], 1)
+                avg_rating = round(
+                 reviews.aggregate(Avg('rating'))['rating__avg'], 1)
             else:
                 avg_rating = 0
 
@@ -67,7 +68,7 @@ def add_review(request, product_id):
         'product': product,
         'avg_rating': product.rating,
         'review_count': product.reviews.count(),
-        'review' : product.reviews.all(),
+        'review': product.reviews.all(),
     }
 
     return render(request, template, context)
@@ -96,7 +97,7 @@ def edit_review(request, review_id):
     else:
         # Prepopulate the form with existing review data for GET requests
         form = ReviewForm(instance=review)
-        
+
     context = {'review_form': form,
                'review': review,
                'product': product,

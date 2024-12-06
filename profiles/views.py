@@ -9,6 +9,7 @@ from checkout.models import Order
 from products.models import Product
 from products.utils import products_pagination
 
+
 @login_required
 def profile(request):
     """ Display the user's profile. """
@@ -20,7 +21,8 @@ def profile(request):
             form.save()
             messages.success(request, 'Profile updated successfully')
         else:
-            messages.error(request, 'Update failed. Please ensure the form is valid.')
+            messages.error(request, 'Update failed.\
+                 Please ensure the form is valid.')
     else:
         form = UserProfileForm(instance=profile)
     orders = profile.orders.all()
@@ -59,7 +61,7 @@ def my_orders(request, profile_id):
     profile = get_object_or_404(UserProfile, pk=profile_id)
 
     orders = profile.orders.all().order_by('-date')
-    
+
     context = {
         'orders': orders,
         'profile_id': profile.id,
@@ -67,14 +69,13 @@ def my_orders(request, profile_id):
     return render(request, 'profiles/my_orders.html', context)
 
 
-
 @login_required
 def my_wishlist(request, profile_id):
     ''' Renders wishlist page '''
     profile = get_object_or_404(UserProfile, pk=profile_id)
-    
+
     wishlist = Wishlist.objects.filter(user=profile).order_by('-created')
-    
+
     wishlist = products_pagination(request, wishlist, 6)
 
     context = {
@@ -104,20 +105,18 @@ def wishlist_add(request, product_id):
     return redirect(redirect_url)
 
 
-
 @login_required
 def my_posts(request, profile_id):
     ''' Renders my-posts page '''
     profile = get_object_or_404(UserProfile, pk=profile_id)
     posts = Post.objects.filter(author=profile.user).order_by('-created_on')
-    
 
     # Replace with the username of the user you are testing with
     user = User.objects.get(username="lulu")
     posts = Post.objects.filter(author=user)
 
     context = {
-        'my_posts': posts, 
+        'my_posts': posts,
         'profile_id': profile_id,
     }
 

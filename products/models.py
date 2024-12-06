@@ -3,14 +3,16 @@ from django.core.validators import MaxValueValidator, MinValueValidator
 from djrichtextfield.models import RichTextField
 import uuid
 from decimal import Decimal
-        
+
 
 class PrimaryCategory(models.Model):
     """
-    Categories that are unique to a product, like hair_wigs, hair_extensions, etc.
+    Categories that are unique to a product,
+    like hair_wigs, hair_extensions, etc.
     """
     name = models.CharField(max_length=254)
-    friendly_name = models.CharField(max_length=254, null=True, blank=True)
+    friendly_name = models.CharField(
+        max_length=254, null=True, blank=True)
 
     class Meta:
         verbose_name_plural = 'Primary Categories'
@@ -24,10 +26,12 @@ class PrimaryCategory(models.Model):
 
 class SpecialCategory(models.Model):
     """
-    Optional categories like deals, new_arrivals, and best_collections.
+    Optional categories like deals,
+    new_arrivals, and best_collections.
     """
     name = models.CharField(max_length=254)
-    friendly_name = models.CharField(max_length=254, null=True, blank=True)
+    friendly_name = models.CharField(
+        max_length=254, null=True, blank=True)
 
     class Meta:
         verbose_name_plural = 'Special Categories'
@@ -52,7 +56,8 @@ class Product(models.Model):
         blank=True,
         related_name='products'
     )
-    id = models.UUIDField(default=uuid.uuid4, unique=True, primary_key=True, editable=False)
+    id = models.UUIDField(
+        default=uuid.uuid4, unique=True, primary_key=True, editable=False)
     name = models.CharField(max_length=254)
     description = models.TextField()
     has_sizes = models.BooleanField(default=False,null=True, blank=True)
@@ -61,13 +66,14 @@ class Product(models.Model):
     on_sale = models.BooleanField(default=False)
     sale_price = models.DecimalField(
         max_digits=6, decimal_places=2, null=True, blank=True)
-    rating = models.DecimalField(max_digits=6, decimal_places=1, null=True, blank=True)
+    rating = models.DecimalField(
+        max_digits=6, decimal_places=1, null=True, blank=True)
     image_url = models.URLField(max_length=1024, null=True, blank=True)
     image = models.ImageField(null=True, blank=True)
 
     def __str__(self):
         return self.name
-    
+
     @property
     def price_discount(self):
         '''
@@ -78,7 +84,6 @@ class Product(models.Model):
             return round(discount)
         else:
             return None
-
 
     @property
     def product_price(self):
@@ -91,16 +96,15 @@ class Product(models.Model):
         return self.price
 
     def save(self, *args, **kwargs):
-        # If the product is on sale, calculate the sale_price if a discount is provided
         if self.on_sale:
             if self.discount is not None:
-                # Calculate the sale price based on the discount percentage but convert self.discount to a decimal
-                self.sale_price = round(self.price * (Decimal(1) - Decimal(self.discount)/ 100))
+                self.sale_price = round(
+                    self.price * (Decimal(1) - Decimal(self.discount)/ 100))
             elif self.sale_price is None:
                 # If no discount or sale_price is provided, raise an error
-                raise ValueError("Either sale_price or discount must be provided if the product is on sale.")
+                raise ValueError("Either sale_price or discount must be \
+                    provided if the product is on sale.")
 
-        # Ensure discount is calculated correctly when sale_price is manually set
         if self.sale_price and self.sale_price < self.price:
             self.discount = round((1 - self.sale_price / self.price) * 100)
 

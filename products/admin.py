@@ -20,14 +20,18 @@ class ProductAdmin(SummernoteModelAdmin):
 
     def get_special_categories(self, obj):
         """
-        Returns a comma-separated list of special categories a product belongs to.
+        Returns a comma-separated list of 
+        special categories a product belongs to.
         """
-        return ", ".join([category.name for category in obj.special_categories.all()])
+        return ", ".join(
+            [category.name for category in obj.special_categories.all()
+        ])
     get_special_categories.short_description = 'Special Categories' 
 
     def save_model(self, request, obj, form, change):
         """
-        Custom save_model method to ensure new products don't have default special categories.
+        Custom save_model method to ensure new products 
+        don't have default special categories.
         """
         is_new = obj.pk is None  
         super().save_model(request, obj, form, change)

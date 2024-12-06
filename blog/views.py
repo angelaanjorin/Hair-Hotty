@@ -28,8 +28,8 @@ class PostCreateOrUpdateView(
             messages.success(self.request, "Post updated successfully!")
 
             user_profile = UserProfile.objects.get(user=form.instance.author)
-            return redirect(reverse('my_posts', kwargs={'profile_id': user_profile.id}))
-
+            return redirect(reverse(
+                'my_posts', kwargs={'profile_id': user_profile.id}))
 
         else:  # If no object exists, it´s a new post creation
             form.instance.author = self.request.user
@@ -44,7 +44,6 @@ class PostCreateOrUpdateView(
 
     def test_func(self):
         return UserProfile.objects.filter(user=self.request.user).exists()
-
 
     def get_object(self, get_queryset=None):
         post_id = self.kwargs.get('pk')
@@ -67,7 +66,8 @@ def post_delete_view(request, pk):
     else:
         messages.error(request, "You can only delete your own post")
 
-    return redirect(reverse('my_posts', kwargs={'profile_id': user_profile.id}))
+    return redirect(reverse(
+        'my_posts', kwargs={'profile_id': user_profile.id}))
 
 
 class PostList(generic.ListView):
@@ -81,7 +81,7 @@ class PostList(generic.ListView):
 
     def get_context_data(self, *args, **kwargs):
         context = super(PostList, self).get_context_data(*args, **kwargs)
-        
+
         return context
 
 
@@ -214,9 +214,3 @@ class PostLike(View):
 
         return HttpResponseRedirect(reverse(
             'post_detail', args=[slug]))
-
-
-
-
-
-

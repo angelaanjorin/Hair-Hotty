@@ -4,27 +4,6 @@ This is the TESTING file for the [Hair Hotty](https://app-hairhotty-9ddf6a2299e6
 
 Return back to the [README.md](README.md) file.
 
-## Testing Contents  
-  
-- [Testing](#testing)
-  - [Testing Contents](#testing-contents)
-  - [Validation](#validation)
-    - [HTML Validation](#html-validation)
-    - [JavaScript Validation](#javascript-validation)
-    - [Python Validation](#python-validation)
-    - [CSS Validation](#css-validation)
-    - [Lighthouse Scores](#lighthouse-scores)
-    - [Wave Accessibility Score](#wave-accessibility-score)
-  - [Manual Testing](#manual-testing)
-    - [User Input/Form Validation](#user-inputform-validation)
-    - [Browser Compatibility](#browser-compatibility)
-    - [Responsiveness](#responsiveness)
-    - [Testing User Stories](#testing-user-stories)
-    - [Dev Tools/Real World Device Testing](#dev-toolsreal-world-device-testing)
-  - [Bugs](#bugs)
-    - [Unresolved/Known Bugs](#unresolvedknown-bugs)
-
-
 ## Validation
 
 ### HTML Validation

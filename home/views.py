@@ -4,6 +4,7 @@ from .forms import ContactForm
 
 # Create your views here.
 
+
 def index(request):
     """" A view to return the index page """
 
@@ -54,6 +55,7 @@ def faq_page(request):
 def returns(request):
     ''' Renders Return page  '''
     return render(request, 'home/returns.html')
+
 
 def events(request):
     ''' Renders events page  '''
