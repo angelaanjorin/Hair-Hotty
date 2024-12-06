@@ -153,7 +153,6 @@ def product_detail(request, product_id):
     wishlist = False
     user_review = None
     product = get_object_or_404(Product, pk=product_id)
-    #bag = request.session.get('bag', {})
 
     #Retrieve the user´s review if authenticated
     if request.user.is_authenticated:

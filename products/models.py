@@ -3,35 +3,6 @@ from django.core.validators import MaxValueValidator, MinValueValidator
 from djrichtextfield.models import RichTextField
 import uuid
 from decimal import Decimal
-
-
-"""class ProductSize(models.Model):
-    
-    Model to manage sizes and stock amounts for products.
-    "
-    SIZE_CHOICES = [
-        ('XS', 'Extra Small'),
-        ('S', 'Small'),
-        ('M', 'Medium'),
-        ('L', 'Large'),
-        ('XL', 'Extra Large'),
-    ]
-
-    product = models.ForeignKey(
-        'Product',
-        on_delete=models.CASCADE,
-        related_name='sizes'
-    )
-    size = models.CharField(max_length=2, choices=SIZE_CHOICES)
-    stock = models.IntegerField(
-        default=0, validators=[MinValueValidator(0), MaxValueValidator(1000)]
-    )
-
-    class Meta:
-        unique_together = ('product', 'size')  # Ensure unique size for each product
-
-    def __str__(self):
-        return f"{self.product.name} - {self.size} (Stock: {self.stock})"""
         
 
 class PrimaryCategory(models.Model):
@@ -108,21 +79,6 @@ class Product(models.Model):
         else:
             return None
 
-    """@property
-    def stock_details(self):
-       
-        Returns stock details. 
-        For products with sizes, returns size-wise stock dictionary.
-        
-        if self.has_sizes and self.sizes.exists():
-            return {size.size: size.stock for size in self.sizes.all()}
-        return {"stock": self.stock_amount}
-
-        if size.stock and self.stock_amount >=1:
-            return True
-        else:
-            return False"""
-
 
     @property
     def product_price(self):
@@ -152,16 +108,6 @@ class Product(models.Model):
         if not self.on_sale:
             self.sale_price = None
             self.discount = None
-
-        # Compute stock and in_stock status
-        #if self.sizes.exists():
-            #self.stock_amount = sum(size.stock for size in self.sizes.all())
-            #self.has_sizes = True
-        #else:
-            #self.has_sizes = False
-           # self.stock_amount = max(self.stock_amount, 0)
-
-        #self.in_stock = self.stock_amount > 0
 
         # Save the product
         super().save(*args, **kwargs)
