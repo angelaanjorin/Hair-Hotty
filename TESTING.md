@@ -3,7 +3,8 @@
 This is the TESTING file for the [Hair Hotty](https://app-hairhotty-9ddf6a2299e6.herokuapp.com/) website.
 
 Return back to the [README.md](README.md) file.
-# Table of Content
+
+# Table of content
 - [Testing](#testing)
    * [Validation](#validation)
       + [HTML Validation](#html-validation)
@@ -17,11 +18,13 @@ Return back to the [README.md](README.md) file.
       + [Wave Accessibility Score](#wave-accessibility-score)
    * [Manual Testing](#manual-testing)
       + [User Input/Form Validation](#user-inputform-validation)
+      + [Backend/Admin Panel](#backendadmin-panel)
       + [Browser Compatibility](#browser-compatibility)
       + [Responsiveness](#responsiveness)
       + [Dev Tools/Real World Device Testing](#dev-toolsreal-world-device-testing)
    * [Bugs](#bugs)
-      + [Unresolved/Known Bugs](#unresolvedknown-bugs)
+   * [Fixed Bugs](#fixed-bugs)
+   * [Unfixed Bugs](#unfixed-bugs)
 
 ## Validation
 
@@ -129,10 +132,11 @@ Testing was carried out on desktop using a Chrome browser to ensure all forms ta
 | Blog detail                | Yes      | Text Input/Click heart to like | Pop up Modal/Form field highlight/Button Animation/Toast messages | Pass | N/A |
 | Newsletter Sign Up         | Yes      | Text Input/ Click to Subscribe | Button animation/New tab subscription confirmation | Pass | N/A |
 |  All Products page         | Yes      | Click product image brings user to product detail page/click heart/click pagination buttons/sorting section/primary category link | Pointer change on hover of category link/ product´s image, heart changes colour/Toast message, Navigation to next page/sorting works | Pass | N/A |
-| Add Product(admin)                | Yes      | Navigated to Admin Dashboard, clicked 'Add Product', Completed form, Form submits correctly to display the product. | Form field highlight/Button animation/Toast message, new product uploaded. | Pass | N/A |
-| Edit Product(admin)              | Yes      | Navigated to Admin Dashboard, clicked 'Edit Product', Completed form, Form submits correctly to display the edited product. | Form field highlight/Button animation/Toast message, product updated. | Pass | N/a |
-| Add post                | Yes      | Navigated to Account for registered, clicked 'Add post', Completed form, Form submits correctly to display the post. | Form field highlight/Button animation/Toast message, new post uploaded. | Pass | N/A |
-| Edit post               | Yes      | Navigated to Profile, my posts, clicked 'Edit post', Completed form, Form submits correctly to display the edited post. | Form field highlight/Button animation/Toast message, post edited and uploaded. | Pass | N/A |
+| Add Product(admin)         | Yes      | Navigated to Admin Dashboard, clicked on 'Product Management', Completed form, Form submits to display the product, but the image is not rendered. | Form field highlight/Button animation/Toast message, new product uploaded. | Fail | Fix the issue with crispy forms incompatibility for Bootstrap 5 and Media storage of images |
+| Edit Product(admin)        | Yes      | Navigated to Product, clicked 'Edit', Completed form, Form submits correctly to display the edited product. | Form field highlight/Button animation/Toast message, product updated. | Pass | N/a |
+| Delete Product(admin)      | Yes      | Navigated to Product, clicked 'delete'. |  Pass | N/a | |
+| Add post                | Yes      | Navigated to Account for registered users, clicked 'Add post', Completed form, Form submits. | Form field highlight/Button animation/Toast message, new post in draft and accessible in my_posts for CRUD functionality. | Pass | N/A |
+| Edit post               | Yes      | Navigated to Profile, my posts, clicked 'Edit post', Completed form, Form submits correctly to display the edited post. | Form field highlight/Button animation/Toast message, post edited and availabe in my-post until published by admin. | Pass | N/A |
 | Product Detail - heart     | Yes      | Click the heart  | Adds the product to wishlist or removes it | Pass | N/A |
 | Product Detail- Rating     | Yes      | None | Shows the correct average | Pass | N/A |
 | Rating/Reviews Section     | Yes      | Click dropdown tab, click stars, write review | Pop up Modal/Form field highlight/Button animation/Toast message/ | Pass | N/A |
@@ -147,6 +151,21 @@ Testing was carried out on desktop using a Chrome browser to ensure all forms ta
 | Returns Page               | Yes      | Click opens the dropdown answers to the Return Questions | colour change on click | Pass | N/A |
 | About Us                   | Yes      | Click social media links | Opens the relevant links on click | Pass | N/A |
 | Privacy Policy             | Yes      | Click the links in text  | Opens all links on click | Pass | N/A |
+
+<a href="#top">Back to the top.</a>
+
+
+### Backend/Admin Panel
+* I have tested the Admin Panel repeatedly since the start of the project development. All the models are working without issues.  
+  I have created, deleted, and updated data in all models without errors. The models have the behavior expected for what they were built for.
+* Whenever a user submits a post the Superuser has to approve it before it will be displayed on the website. This functionality is working without issues. The comments to the posts are visible and editable as well.
+* Through the admin I can add products and edit and delete them. 
+* The orders are visible at the backend with CRUD functionality. 
+* The reviews are visible with CRUD functionality.
+* The wishlist is visible and the person it belongs to as well.
+* The profile information of all the users are visible.
+* The email addresses are also visible of all users.
+* The users have a seperate section due to allauth, where the admin can give them differnt permissions to the site.
 
 
 ### Browser Compatibility
@@ -167,7 +186,7 @@ Hair Hotty was tested on the following browsers, purchases were made, post/produ
 
 ### Responsiveness
 
-Using the Bootstrap framework allowed a more rapid development of a responsive website. Starting with mobile first, Hair Hotty was created to ensure the customer has an unhindered, positive experience when shopping. Hair Hotty was regularly tested during development using Dev Tools to check for display issues on iPhone4 -> iPhone 12/Samsung Galaxy S20, iPad/iPad Pro and laptop/desktop screen sizes. Once deployed to Heroku, Hair Hotty was tested on real world devices. No major issues were detected, changes were made to the checkout view to remove the product image on smaller screens and only display important product information. There were no major differences between desktop and tablet views thanks to the Bootstrap Grid system of columns. A selection of the screen size view differences are displayed below:
+Using the Bootstrap framework allowed a more rapid development of a responsive website. Starting with mobile first, Hair Hotty was created to ensure the customer has an unhindered, positive experience when shopping. Hair Hotty was regularly tested during development using Dev Tools to check for display issues on iPhone4 -> iPhone 12/Samsung Galaxy S20, iPad/iPad Pro and laptop/desktop screen sizes. Once deployed to Heroku, Hair Hotty was tested on real world devices. No major issues were detected, changes were made to the my wishlist view to make the product cards responsive on all devices with a good layout. There were no major differences between desktop and tablet views thanks to the Bootstrap Grid system of columns. 
 
 ### Dev Tools/Real World Device Testing
 
@@ -191,19 +210,32 @@ Responsiveness testing was carried out using Google Dev Tools on the devices det
 | iPad Pro 2021 |    All features      |    No issues    |  None needed |
 | Acer Aspire 3 2019 laptop | All features | No issues | None needed |
 
+<a href="#top">Back to the top.</a>
 
 ## Bugs
 
-| No. | Bug | Solved | Fix | Solution Credit | Commit no. |
-| --- | ---------------- | ---- | ------------- | -------------- | ------------|
-| 1   | JavaScript dropdown menu fix | Yes | moving the mouseleave function outside of the main code seems to fix the 'dropdown menu randomly not appearing on hover' issue, This did not fix it, 2nd fix was to update to Bootstrap 4.6 and add 'ease' to menu hover transitions. Currently working consistently, 'pb-2' added to'all' fully fixed it | Investigating the CSS myself | e27b7a5/2aab065 |
-| 2   | UnboundLocalError:Local variable 'categories' referenced before assignment & navbar active item styling. 'All' products option not displaying due to category = None when it was necessary for it to be categories. | Yes | Changed to categories = [] to initialize as empty list and added 'not request.GET.category' to 'all' nav-item li tag to remove bold styling when other product categories selected. | Stackoverflow <https://tinyurl.com/26a5ksrd> & CareerKarma <https://tinyurl.com/yc847kb7> | 76e8ef8 |
-| 3   | Checkout form info not saving to Profile/Account form on checkout success. The 'save_info' section of checkout_success did not save the changed user info to the user's profile. | Yes | I considered that I may have caused an issue with my Wishlist app signals/contexts but after debugging there was no issue. Debugging with print statements to the terminal showed that the checkout form data was not being saved. I tried several fixes. First was to clear the site data via Dev Tools->Application->Clear Site Data and restart the server. No positive fix. I then backtracked to some earlier commits and removed the 'full_name' field that I had added to my UserProfile models and changed the '_' in checkout.html name='save_info' to name='save-info'. Tested my code with superuser and created a new user to find the issue resolved and no issue with Wishlist app. | Fix credit -> Gemma from Tutor Support for helping me to confirm my debugging process was correct and the 'Clear SiteData' tip, and a strong coffee for the second pass at spotting and fixing the bug. | 7659ada |
-| 4  | Email Confirmation for order displaying multiple zeros at the end of the totals. | Yes | Fixed with 'floatformat:2' in confirmation_email.txt | Fixed by developer | 5774e14 |
-| 5  | Bag 'Remove' removes all items with same id but different sizes, if I wanted to remove a medium black tshirt and leave the small black tshirt, code was removing both black tshirts. | Yes | Fixed in quantity_update_script, removed `'size':size` and replaced with `'product_size`:size as per the product models. | Fixed by developer | 3115569 |
-| 6 | Sizes not showing in Checkout Success/Order History | Yes | Fixed by changing products.size to products_size | Fixed by developer, typo | b5f04cb |
+## Fixed Bugs
+* Initially I had problems at the with the webhook handler of my project. I could mke a payment intent but I was not receiving the feedback that stripe was sending back to my computer or project. At first I thought it was a firewire issue and I even downloaded a programm from stripe to set up a runs tests called cli. It runs on the terminal of the computer. It was able to receive the webhook handler or event as stripe has renamed it bit could also not send that same information to my program. It was with the help of tutor support that we figured out that stripe had made an update. To handle the payment intent with the webhook from Stripe  it was no more that the billing details were equal to (billing_details = intent.charges.data[0].billing_details) but (billing_details = stripe_charge.billing_detials) and the grand total was also different. See below code.
+![webhook handler issue](https://res.cloudinary.com/dzesjeplp/image/upload/v1733539751/Dashboard-_-New-business-_-Stripe-Test--11-26-2024_07_58_PM_ngcjmw.png).
 
+![webhook handler issue](https://res.cloudinary.com/dzesjeplp/image/upload/v1733539751/webhook_handler-py-Hair-Hotty-Gitpod-Code-11-26-2024_07_39_PM_vsriks.png).
+* I had a lot of other smaller bugs along the way, like that the STATIC ROOT information to my settings.py file. 
 
-### Unresolved/Known Bugs
+<a href="#top">Back to the top.</a>
+
+## Unfixed Bugs
+![Add Product](https://res.cloudinary.com/dzesjeplp/image/upload/v1733537220/Hair-Hotty-Products-12-07-2024_02_49_AM_wb5cyj.png).
+![Add Product](https://res.cloudinary.com/dzesjeplp/image/upload/v1733537137/DoesNotExist-at-products-delete-677913e5-f5c2-4500-bf44-7ad479e28551--12-07-2024_02_48_AM_wzfkkd.png).
+![Add Product](https://res.cloudinary.com/dzesjeplp/image/upload/v1733538391/add_product-html-_-add_product-html-Hair-Hotty-Gitpod-Code-12-07-2024_03_26_AM_ixw6n5.png).
+* I think the problem lies with Post method and that although the image is stored in the media directory, the product is not accessible because it is not saved in the databank. Trying to delete the image provides the error shown below.It could also lie with the issues I had been encountering with the AWS s3 storage system.
+
+* I spent a considerable amount of time trying to add stock amount to the products. But ran into so many issues with the products with sizes. I tried using the instance or as I called it virtual shopping session and bag content to control the different quantity amounts of the different sizes. Initially I had the quantity input javascript file in my static directory and had it called in the base template which caused so many issues with both the product detail and shopping bag templates calling on the script. I had conficting and overriding functionality of the buttons and quantity field forms of both templates. 
+* Due to time constraints I decided to delete this function and revert to following the Boutique Ado walkthrough project to have at least a functioning store. 
+  
+![Crispyforms](https://res.cloudinary.com/dzesjeplp/image/upload/v1733534294/crispyformsissue_ufccsa.png).
+![Crispyforms](https://res.cloudinary.com/dzesjeplp/image/upload/v1733534294/crispyformsdetailsmyprofile_ybyphi.png).
+![Crispyforms](https://res.cloudinary.com/dzesjeplp/image/upload/v1733534294/htmlineditproduct_vt2zay.png).
+* I started off my project with Bootstrap 5 and due to the above problems with the stock and the fact that I had to revert a lot of my code, the crispy forms from the Boutique Ado project are designed to work with Bootstrap4. Due to this the labels of my forms were not being shown on the templates. The checkout template had placeholders based which I could not replicate for the other forms. Even on the my profile template where a user could edit thier name and addressI figured a walkaround for the add_post form by having a placeholder for the title and image and summernote for the textfield section. With more time I could have found a fix for this problem. 
+* In the backend I had changed the description textinput section of the products to also have summornote like the content section of the blog app. This causes another problem on the frontend when the admin tries to edit a product cause the text is than rendered with HMTL tags. Due to how the template was written for the add and edit a post with a loop rendering the fields, I could not explicitly say crispy| safe for the description. 
 
 <a href="#top">Back to the top.</a>
