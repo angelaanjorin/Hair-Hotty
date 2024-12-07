@@ -13,7 +13,13 @@ class CommentForm(forms.ModelForm):
 
 class PostForm(forms.ModelForm):
     """ Form to create a Post"""
-    title = forms.CharField(max_length=200)
+    title = forms.CharField(
+        max_length=200,
+        widget=forms.TextInput(attrs={
+            'class': 'form-control',
+            'placeholder': 'Enter the title of your post'
+        })
+    )
 
     def save(self, commit=True):
         instance = super().save(commit=False)
@@ -28,7 +34,6 @@ class PostForm(forms.ModelForm):
         fields = ['title', 'featured_image', 'content']
 
         widgets = {
-            'title': forms.TextInput(attrs={'class': 'form-control'}),
             'featured_image': forms.ClearableFileInput(
                 attrs={'class': 'form-control'}),
             'content': SummernoteWidget(attrs={'class': 'form-control'}),
