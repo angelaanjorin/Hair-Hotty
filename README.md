@@ -181,6 +181,8 @@ The project aims to develop an e-commerce website offering different hair produc
  - As a registered User you can write a post and send it to the admin for review.
  - As a registered user you can view, edit and delete your posts from your profile links.
 
+<a href="#top">Back to the top.</a>
+
 Key Features:
 
 1. Initial Project Setup:
@@ -300,6 +302,7 @@ In addition to Bootstrap 5 built-in font family the below two fonts were used th
 
 ![Libre Baskerville](https://res.cloudinary.com/dzesjeplp/image/upload/v1733263002/READMEPP5/readme/Libre-Baskerville-Google-Fonts-12-03-2024_01_38_PM_zataal.png)
 
+<a href="#top">Back to the top.</a>
 
 ## Agile Methodologies
 
@@ -439,6 +442,7 @@ As an admin I can edit the categories of the products.|**SHOULD HAVE**|
 | As a developer, I want to identify and fix all critical and non-critical bugs so that users have a smooth experience. |**MUST HAVE**|
 | As a developer, I want to finalize all features, optimizations, and tasks so that the project is ready for launch. |**SHOULD HAVE**|
 
+<a href="#top">Back to the top.</a>
 
 ### Epic 9: Code Validation, Documentation, and Refinement
 
@@ -519,7 +523,7 @@ The all products page renders all products to the user. They have the option to 
 
 ![pagination](https://res.cloudinary.com/dzesjeplp/image/upload/v1733264668/READMEPP5/paginationallproducts_welpwd.png)
 
-
+<a href="#top">Back to the top.</a>
 
 ### Products Card
 The product card consist of an image of the product, title, price, number of reviews, category links, discount percentage and an add to Bag button. A flipping heart draws the user´s iattention to click it and not registered user´s get the promnt to register so that they can add the product to thier wishlist. Registered users can add the product to thie wishlist by clicking the heart. If the product is on sale, then the old price will be displayed with a line through, followed by the new price and a little label at the top of the image showing the percentage of the discount.
@@ -578,6 +582,7 @@ The Contact page consists of all the contact methods with links where appicable,
 
 ![contact-us-page](https://res.cloudinary.com/dzesjeplp/image/upload/v1733266188/contactus_ke9qgv.png)
 
+<a href="#top">Back to the top.</a>
 
 ### FAQ Page
 The FAQ page consists of the most frequently asked questions.If the user clicks a question, a dropdown appears with the answer. 
@@ -747,12 +752,12 @@ A [Hair Hotty Facebook Page](https://www.facebook.com/people/Hairhotty/100064214
 
 
 ## Testing
-Testing documentation can be found here: [](TESTING.md)
+Testing documentation can be found here: [TESTING.md](TESTING.md)
 
 ## Bugs
-Detail Bugs and thier fixes can be found here: [](TESTING.md)
+Detail Bugs and thier fixes can be found here: [TESTING.md](TESTING.md)
  
-
+<a href="#top">Back to the top.</a>
 
 ## Technologies And Languages
 
@@ -803,6 +808,7 @@ Detail Bugs and thier fixes can be found here: [](TESTING.md)
 - [Coolors.co](https://coolors.co/) was used to display the colour scheme.
 - [Box Shadow Generator](https://cssgenerator.org/box-shadow-css-generator.html) was used to generate the shadows
 
+<a href="#top">Back to the top.</a>
 
 ## Deployment
 ### Before Deployment
@@ -924,6 +930,7 @@ To ensure the application is deployed correctly on Heroku it is mandatory to upd
     - Take note of the Access key ID and Secret access key as these will be needed to connect to the S3 bucket.
     - To save a copy of the credentials click Download .csv
 
+<a href="#top">Back to the top.</a>
 
 ### Deployment on Heroku
 - To deploy the project on Heroku, first create an account.
@@ -987,3 +994,4 @@ To ensure the application is deployed correctly on Heroku it is mandatory to upd
 ### Comments
 I wouldn´t have started without the urging and help of my partner Eric Jones with this training for full-stack developers from Code Institute. And it was a very rewarding journey, and I thank him wholeheartedly. I want to thank my children Lucas and Gabriel for thier patience and understanding throughout my training. Thank you to my parents and siblings for thier support.
 
+<a href="#top">Back to the top.</a>

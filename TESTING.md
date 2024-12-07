@@ -42,8 +42,8 @@ All HTML pages were validated and received a 'No errors or warning to show' resu
 [JSHint](https://jshint.com/) was used to validate the JavaScript code added to the project. External JS, for Bootstrap, jQuery and Fontawesome purposes were not validated through JSHint.
 
 | Page | Screenshot | Errors |
-| ---- | ---------- | ------ | -------- |
-| bag | ![js from Bag page](https://res.cloudinary.com/dzesjeplp/image/upload/v1733500628/JSHint-bag_u7ggll.png) | none |
+| ---- | ---------- | ------ |
+| bag  | ![js from Bag page](https://res.cloudinary.com/dzesjeplp/image/upload/v1733500628/JSHint-bag_u7ggll.png) | none |
 | blog - Comment js | ![js from post section](https://res.cloudinary.com/dzesjeplp/image/upload/v1733500628/JSHint-comments-blog_blri1k.pngg) | none |
 | Stripe JS | ![js from Stripe elements](https://res.cloudinary.com/dzesjeplp/image/upload/v1733500628/JSHint-a-JavaScript-stripe_oyrfik.png) | none |
 | Products Product quantitiyinput Script | ![js from product quantityinput script](https://res.cloudinary.com/dzesjeplp/image/upload/v1733500626/JSHint-a-JavaScript-quantityinput_haelbp.png) | none (code has been highlighted red at the top of the code block but no errors returned from JSHint and code functions as intended. I could not get a definitive answer on why JSHint colours these lines red.) |
@@ -51,11 +51,11 @@ All HTML pages were validated and received a 'No errors or warning to show' resu
 | Products Add and Edit Product Script | ![js from add and edit product page](https://res.cloudinary.com/dzesjeplp/image/upload/v1733500625/JSHint-a-JavaScript-add-products_vqifrh.png) | none |
 | Products Productdetail Script | ![js from productdetail page](https://res.cloudinary.com/dzesjeplp/image/upload/v1733500626/JSHint-a-JavaScript-productdetail_exlvow.png) | none |
 | Profile| ![js myposts script](https://res.cloudinary.com/dzesjeplp/image/upload/v1733500625/JSHint-a-JavaScript-mypostsprofile_vkg0d9.png) | none |
-| Review - Ratings Selector Script | ![js from ratings selector script](docs/testing_images/base_script_valid.png) | none |
+| Review - Ratings Selector Script | ![js from ratings selector script](https://res.cloudinary.com/dzesjeplp/image/upload/v1733545899/JSHint-a-JavaScript-ratinsselectreviews_wbu0jd.png) | none |
 | Base Script | ![js Sort Selector Script script](https://res.cloudinary.com/dzesjeplp/image/upload/v1733500626/JSHint-a-JavaScript-sortselectorproduct_mmq6xz.png) | none |
 | Base Script | ![js mailchimp script](https://res.cloudinary.com/dzesjeplp/image/upload/v1733500625/JSHint-a-JavaScript-mailchimp_ddtl2s.png) | none |
 | Base Script | ![js toast script](https://res.cloudinary.com/dzesjeplp/image/upload/v1733500628/JSHint-a-JavaScript-toast_bsjawq.png) | none |
-| Base Script | ![js quantityinput script](https://res.cloudinary.com/dzesjeplp/image/upload/v1733500626/JSHint-a-JavaScript-quantityinputforstockcontrol_c4zd0z.png) | none |
+
 
 <a href="#top">Back to the top.</a>
 
