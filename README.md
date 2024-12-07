@@ -151,7 +151,7 @@ Product images are kept clean with no backgrounds so that focus is on the produc
 # Project Planning
 ## Strategy Plane
 
-The primary objective was to create an e-commerce store that satisfied the assessment criteria of the Code Institute's Project 5: E-Commerce Module. The store must provide the expected functions of a responsive e-commerce store using Stripe as a payment system, user/guest views for authentication and store features, some extra features of my choosing, wishlist and Ratings/Reviews, and demonstration of some marketing/SEO skills. The User, whether paying customer or just browsing, must receive the best in UX and feel that Hair Hotty is relatable and trust-worthy. 
+The primary objective was to create an e-commerce store that satisfied the assessment criteria of the Code Institute's Project 5: E-Commerce Module. The store must provide the expected functions of a responsive e-commerce store using Stripe as a payment system, user/guest views for authentication and store features, some extra features of my choosing, wishlist and Ratings/Reviews, and demonstration of some marketing/SEO skills. The User, whether paying customer or just browsing, must receive the best in UX and feel that Hair Hotty is relatable and trust-worthy. A blog with CRUD functionality for registered users was added. Some marketing techniques with links to relevant sites were addes as well as links to the Hair Hotty store.
 
 The site's design and graphic assets were collected through various copyright-free image websites. The products images were gotten from a another hair website [Her Given Hair](https://www.hergivenhair.com/). The hero-images on the home page was created by AI on [Leonardo AI](https://leonardo.ai/). Bootstrap and Crispy Forms were used for the project's frontend to speed up the process and to keep the templates consistent. Further customisation to the buttons, forms, modals, toasts and user feedback processes were added to the project's CSS files. 
 
@@ -161,6 +161,7 @@ The site's design and graphic assets were collected through various copyright-fr
 3. To provide the users with the ability to save products to their wishlist
 4. To provide the users with the ability to check their order history.
 5. To provide the users with the ability to leave a feedback for products.
+6. To provide the users with the ability to read through a blog and comment, like and write posts with full CRUD functionality.
 
 ### Scope
 The project aims to develop an e-commerce website offering different hair products to customers. The website will be responsive and user-friendly, providing the user with the ability to:
@@ -178,6 +179,7 @@ The project aims to develop an e-commerce website offering different hair produc
  - View past orders
  - View blog with CRUD functionality for comments and liking the posts. 
  - As a registered User you can write a post and send it to the admin for review.
+ - As a registered user you can view, edit and delete your posts from your profile links.
 
 Key Features:
 
@@ -186,27 +188,27 @@ Key Features:
 - Database and media storage will be connected to ensure data storage and retrieval.
 - An early deployment of the application will be carried out to confirm the initial setup's functionality.
 2. Products:
-- Users can view products for sale and refine them by category
+- Users can view products for sale and refine them by category.
 - Users can sort products by price and rating.
-- Users can view details about each product including image, description, stock level and reviews and review count
-- Search products by title or description
+- Users can view details about each product including image, description, price and reviews and review count.
+- Search products by title or description.
 - Registered users can leave reviews and ratings.
 3. User Authentication:
 - Users can register an account, allowing them access to all of the website's functionality.
-- Registered users can login and access wishlist, reviews, past orders and saving personal details.
-- Users can reset their password
-- Users can add or remove items from their wishlist
-- Registered users have CRUD functionality for thier reviews and ratings
+- Registered users can login and access wishlist, reviews, past orders, thier written blog posts and saving personal details.
+- Users can reset their password.
+- Users can add or remove items from their wishlist.
+- Registered users have CRUD functionality for thier reviews and ratings.
 4. Orders and checkout:
-- Users can add items to their shopping bag
-- Users can update the quantity of the items in their shopping cbag
-- Users can remove products from their shopping bag
-- Users can use secure checkout functionality to pay for their items
+- Users can add items to their shopping bag.
+- Users can update the quantity of the items in their shopping bag.
+- Users can remove products from their shopping bag.
+- Users can use secure checkout functionality to pay for their items.
 5. Admin functionality:
 The functionality in this section is limited to superusers or admins.
 - Admins can add products for sale.
 - Admins can delete products from the system.
-- Admins can edit products and stock levels.
+- Admins can edit products.
 - Admins can access orders section in the backend.
 6. Notification Messages:
 Users will receive notification messages when performing CRUD operations, login/logout, and signup actions.
@@ -257,7 +259,6 @@ The below colours were used to compliment the main colours. Due to the fact that
 
 
 ### Database Schema
-![database schema]()
 
 1. User:
 The User model is part of Django Allauth. The model comes with predefined fields as standard. Some of them are username, email, name, password, and more. This model is used for user authentication, hence why changes directly to this model are not advisory. The User model is connected to the UserProfile model with one to one relationship.
@@ -272,7 +273,7 @@ This model was created for the purpose of defining a primary category for the pr
 This model was created so that products can have one or many special categories or none (manytomany relationship).
 
 5. Product
-This is a custom product model. It is connected to athe PrimaryCategory as a foreign key and SpecialCategory (manytomany relationship). In addition to that it has fields for handling stock. Stock_amount holds the integer value of the stock levels. In_stock is a Boolean field which sets the product to being in stock or not. A method called product_in_stock determines if a product is in stock based on the stock_amount value. The result of this method updates the in_stock boolean field. 
+This is a custom product model. It is connected to the PrimaryCategory as a foreign key and SpecialCategory (manytomany relationship). 
 
 6. Wishlist
 This model stores products to a wishlist for authenticated users. It is connected to UserProfile and Product models as a ForeignKey
@@ -347,13 +348,8 @@ User stories and features were recorded and managed on [GitHub Projects](https:/
 | As a user, I want to be able to register for an account so that I can access the application's features.|**MUST HAVE**|
 | As a user, I want to be able to log in so that I can access my account and use the application.|**MUST HAVE**|
 | As a user, I want to verify my email address so that my account is more secure.|**MUST HAVE**|
-| |**MUST HAVE**|
-||**MUST HAVE**|
-||**MUST HAVE**|
-||**MUST HAVE**|
-||**MUST HAVE**|
 
-||**MUST HAVE**|
+
 ### Epic 2: Implementing Product Management and User Cart Functionality
 
 | User Story | Priority |
@@ -374,7 +370,6 @@ User stories and features were recorded and managed on [GitHub Projects](https:/
 | with confidence.| **MUST HAVE** |
 | As a developer, I want to thoroughly test the Stripe payment process to ensure it's secure and reliable. | **MUST HAVE** |
 | As a developer, I want to set up and handle Stripe webhooks so that the backend can receive real-time notifications about payment events and update the application state accordingly. | **MUST HAVE** |
-
 
   
 ### Epic 4: Implementing Admin Dashboard & User Profile Functionality
@@ -495,7 +490,7 @@ The footer was built as an example model featured on the bootstrap webseite cons
 ![footer](https://res.cloudinary.com/dzesjeplp/image/upload/v1733264656/READMEPP5/footer_n9kv4t.png)
 
 #### Newsletter
-Part of the footer is a newsletter, which asks users to subscribe to by applying thier emails addresses to recieve the most recent offers and discount codes. The form was integrated using MailChimp.
+Part of the footer is a newsletter, which asks users to subscribe by applying thier emails addresses to receive the most recent offers and discount codes. The form was integrated using MailChimp.
 
 ![newsletter](https://res.cloudinary.com/dzesjeplp/image/upload/v1733264666/READMEPP5/newsletter_scietk.png)
 
@@ -507,7 +502,7 @@ Mailchimp was implemented as a marketing tool to gather email addresses of users
 ### Home Page
 #### Hero Section
 The hero section is the beginning of the whole customer's journey. That is why I made it a priority to create an appealing hero section with a carousel, featuring the highlights of certain seasons, like halloween. Other seasons like black friday or christmas sales can be easily implemented. 
-All three hero section images were designed using an AI photo creation site (). Using Canva the first image was eidted with text. 
+All three hero section images were designed using an AI photo creation site ![Leonardo.ai](https://app.leonardo.ai/). Using Canva the first image was eidted with text. 
 All three images have a call-to-action button Shop Now which invites the user to browse through the available products.
 
 ![hero section](https://res.cloudinary.com/dzesjeplp/image/upload/v1733264660/READMEPP5/herosection_nui3mx.png)
@@ -535,7 +530,6 @@ The product card consist of an image of the product, title, price, number of rev
 
 ### Products-Detail Page
 On the page's left side, a product image is displayed. On the right side, the most important information about the product is displayed. This includes the title, number of reviews, price, stock levels, add to wishlist icon, sizes with dropdown list of sizes if the product has sizes, a quantitiy choice form, an add to bag button and return to shop button, returning the user to the all products page. 
-Implementing stock levels in the product model, allowed for adding custom logic when it comes to adding items to the bag. The user should not be able to add to their bag a higher quantity than the stock levels and this logic also needs to account for items already in the bag. If the user tries to add more than what is in stock an error message appears to notify them that there is not enough stock to fulfill the order.
 Below the top section, there is a section with tabs allowing the user to switch between description and reviews. 
 The reviews section allows an authenticated user to submit a review for a product. The overall rating is calculated and the number of stars are displayed in the top section of the page. Authenticated users can edit and delete their reviews from the same tab. 
 The description tab includes a short description of the product which helps the users in making informed decision if they wish to purchase the product.
@@ -547,9 +541,7 @@ The reviews section allows the user to rate the product choosing from 5 stars an
 
 ![reviews](https://res.cloudinary.com/dzesjeplp/image/upload/v1733264676/READMEPP5/reviewssection_kz3fit.png)
 
-![not enough stock]()
-
-This is a flipping heart to catch the attention of the user so that they can click on the heart and add it to thier wishlist, after which the heart displays as a solid crimson heart.
+This is a flipping heart to catch the attention of the user so that they can click on the heart and add the product to thier wishlist, after which the heart displays as a solid crimson heart.
 ![add to wishlist](https://res.cloudinary.com/dzesjeplp/image/upload/v1733264651/READMEPP5/addingtowishlist_mrypjp.png)
 
 ### Edit review page
@@ -564,13 +556,15 @@ This page asks the user for confirmation if they wish to delete their review
 
 ### Blog
 
-The Blog page consists of 6 blogs per page when clicked. Each Blog card has a link via the title to the detail blog post. The name of the author, the number of likes and comments are on the index page of the blog. 
+The Blog page consists of 6 blogs per page when the link is clicked from the navbar. Each Blog card has a link via the title to the detail blog post. The name of the author, the number of likes and comments are on the index page of the blog. 
 
 ![blog all posts](https://res.cloudinary.com/dzesjeplp/image/upload/v1733401931/postindexwithlikedandunlikedheart_dnvnb0.png)
 
 On the detail page of each blog post, the user is invited to leave a comment, but can only do that if they are registered. Registered users can write, edit and delete thier comments. They can also like and unlike the post. 
 
 ![detail blog post](https://res.cloudinary.com/dzesjeplp/image/upload/v1733401930/postdetailview_sergjr.png)
+
+Registered users can write a post for the blog. When they click the account icon on the navbar, a dropdown menu appears with thier profile and an Add a post link. Once clicked a form appears where they can write thier text using summernote for a good UX experience, add images and submit the post. In thier profile section under the tab my-posts they can view all thier posts irrespective of publish status and edit and delete thier posts.
 
 ![Add a post](https://res.cloudinary.com/dzesjeplp/image/upload/v1733401928/addpost_pym7jv.png)
 
@@ -586,7 +580,7 @@ The Contact page consists of all the contact methods with links where appicable,
 
 
 ### FAQ Page
-The FAQ page consists of the most frequently asked questions.
+The FAQ page consists of the most frequently asked questions.If the user clicks a question, a dropdown appears with the answer. 
 
 ![faq-page](https://res.cloudinary.com/dzesjeplp/image/upload/v1733266189/FAQ_yuv25z.png)
 
@@ -658,7 +652,7 @@ This page renders the product form prefilled with the existing data in the datab
 
 The admin receives an update success message after succesfully updating the product.
 
-![eidt product success message](https://res.cloudinary.com/dzesjeplp/image/upload/v1733346711/editedimagewithtoastsuccessmessage_hiapba.png)
+![edit product success message](https://res.cloudinary.com/dzesjeplp/image/upload/v1733346711/editedimagewithtoastsuccessmessage_hiapba.png)
 
 #### Delete Product
 This delete process does not come with a modal asking if the admin is sure they want to delete the product. The admin receives a success message after the deletion is complete. In the future a delete modal will be implemented to ask the admin if they really want to delete the product, as the delete button is very small and it could be clicked by accident and then a product will be deleted that the admin doesn´t want to delete.
@@ -666,12 +660,12 @@ This delete process does not come with a modal asking if the admin is sure they 
 ![delete product](https://res.cloudinary.com/dzesjeplp/image/upload/v1733346711/deletedproductsuccess_y91igc.png)
 
 ### Shopping bag
-The shopping bag can be accessed from the main nav menu. The shopping bag table section provides a clear and organized representation of the items added to the shopping bag. Each item has a small image, product name, remaining stockamount, price, quantity, and subtotal. The users can upgrade the quantity or delete items from the bag with the help of the buttons provided.
+The shopping bag can be accessed from the main nav menu. The shopping bag table section provides a clear and organized representation of the items added to the shopping bag. Each item has a small image, product name, price, quantity, and subtotal. The users can upgrade the quantity or delete items from the bag with the help of the buttons provided.
 On the right side bottom side of the page the users can view their subtotal, delivery charges, and total on medium screens and above. 
 
 ![shopping bag](https://res.cloudinary.com/dzesjeplp/image/upload/v1733353289/shoppingbag_tbfquk.png)
 
-On mobile screen the informatio of the Grandtotal and checkout buttons appear on the top of the screen with the rest of the details for the shopping bag appearing below.
+On mobile screen the information of the Grandtotal and checkout buttons appear on the top of the screen with the rest of the details for the shopping bag appearing below.
 
 ![shopping bag o nmobile](https://res.cloudinary.com/dzesjeplp/image/upload/v1733353375/shoppingbagonmobile_dmdhhf.png)
 
@@ -681,9 +675,9 @@ If there are no products in the shopping bag there is a view for that with a lin
 
 
 ### Checkout
-This page contains a form for the user's delivery and payment information and a summary of the user's order. If the user has an account, they can save their delivery information on their profile to automatically be filled in the checkout.
+This page contains a form for the user's delivery and payment information and a summary of the user's order. If the user has an account, they can save their delivery information on their profile to automatically be filled in the checkout process.
 - The checkout Form
-In the checkout the user can add their details and if they're logged in, can check the box to save their details for future transactions. Users must enter their payment information before completing the checkout and all payments are handled via Stripe. If there is an error with the creditcard details, stripe will handle the process and the user gets an error message and the checkout is stalled. 
+In the checkout form the user can add their details and if they're logged in, can check the box to save their details for future transactions. Users must enter their payment information before completing the checkout and all payments are handled via Stripe. If there is an error with the creditcard details, stripe will handle the process and the user gets an error message and the checkout is stalled. 
 
 ![checkouterror](https://res.cloudinary.com/dzesjeplp/image/upload/v1733348064/ccdateexpired_dgk9og.png)
 
@@ -697,6 +691,9 @@ A final summary of the user's order is shown containing all the user's bag items
 
 ![checkout](https://res.cloudinary.com/dzesjeplp/image/upload/v1733347563/checkout_dbhwn8.png)
 
+ A vibrant pink spinner engages the user while stripe processes thier payment intent.
+
+![spinner](https://res.cloudinary.com/dzesjeplp/image/upload/v1733347563/spinner_ncjp8t.png)
 
 ### Order confirmation page
 After the order has been completed, the user is redirected to a confirmation page containing a final rundown of the order and what the user purchased. This page can be accessed again from the user's profile if they have an account on the site by clicking the order number from the list of past orders.
@@ -985,7 +982,8 @@ To ensure the application is deployed correctly on Heroku it is mandatory to upd
 
 ### Acknowledgements
 - Huge thank you to my mentor Gareth McGirr for all the help and resources.
-- The Slack community and especially Indrek who listened to my struggles during development once again.
+- The Slack community and tutor support were very helpful.
 
 ### Comments
-I wouldn´t have started without the urging and help of my partner Eric Jones with this training for full stack developer from Code Institute. And it was a very rearding journey and I thank him whole heardetly.
+I wouldn´t have started without the urging and help of my partner Eric Jones with this training for full-stack developers from Code Institute. And it was a very rewarding journey, and I thank him wholeheartedly. I want to thank my children Lucas and Gabriel for thier patience and understanding throughout my training. Thank you to my parents and siblings for thier support.
+
